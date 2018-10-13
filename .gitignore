@@ -10,8 +10,8 @@
 ## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
 **/node_modules
 
-# Book build output
-**/_book/
+# Book build output (only use HTML, not MD)
+**/_book/*.md
 
 # eBook build output
 *.epub
