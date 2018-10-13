@@ -15,6 +15,4 @@
 列表：
 - Math  https://wklchris.github.io/Visual-Projects/MovieDB/MovieDB.html
 - CS
-  - Gitbook：
-    - HTML: [《Gitbook 学习笔记》](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/)
-    - Readme: [Readme Test])(https://wklchris.github.io/Gitbooks/CS/Gitbook/)
+  - Gitbook：[《Gitbook 学习笔记》](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/)
