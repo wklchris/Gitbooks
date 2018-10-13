@@ -17,7 +17,7 @@
 - CS
   - Gitbook：
     - HTML: Ori [《Gitbook 学习笔记》](https://wklchris.github.io/Gitbooks/CS/Gitbook/_book/index.html)
-    - Second: [Here](https://wklchris.github.io/Gitbooks/CS/Gitbook/book/index.html)
-    - Without tail: [Here](https://wklchris.github.io/Gitbooks/CS/Gitbook/book/)
-    - Another file: [Here](https://wklchris.github.io/Gitbooks/CS/Gitbook/book/Ch-01.html)
+    - Second: [Here](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/index.html)
+    - Without tail: [Here](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/)
+    - Another file: [Here](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/Ch-01.html)
     - Readme: [Readme Test])(https://wklchris.github.io/Gitbooks/CS/Gitbook/)
