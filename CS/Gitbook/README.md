@@ -1,5 +1,9 @@
 # 《Gitbook 学习笔记》前言
 
+**在线阅读地址：[前往 Github.io](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/)**
+
+---
+
 本书是我使用 [Gitbook](https://www.gitbook.com/) 撰写的第一份书稿，希望对想学习 Gitbook 使用的人有所帮助．本手册针对 Windows 用户．
 
 在阅读该手册之前，读者需要掌握的知识：

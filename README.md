@@ -1,4 +1,4 @@
-# Learning-Note
+# Gitbooks
 
 *此仓库乃我入研究生以来，所学所读之录之思．*
 
@@ -12,7 +12,8 @@
 
 -----
 
-列表：
-- Math  https://wklchris.github.io/Visual-Projects/MovieDB/MovieDB.html
-- CS
-  - Gitbook：[《Gitbook 学习笔记》](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/)
+## 笔记列表
+
+### CS
+
+- Gitbook：《Gitbook 学习笔记》Oct 2018．前往项目页面[在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/)，或查看 Github [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook)．
