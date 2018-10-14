@@ -16,6 +16,12 @@
 
 ### CS
 
-| 名称 | 更新日期 | 状况 | 阅读页面 | 仓库文件夹 |
+| 名称 | 更新日期 | 状况 | 阅读页面 | 仓库 |
 | --- | --- | --- | --- | --- |
-| Gitbook 学习笔记 | Oct 2018 | 完成 | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook)．
+| Gitbook 学习笔记 | Oct 2018 | 完成 | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook) |
+
+### Math
+
+| 名称 | 更新日期 | 状况 | 阅读页面 | 仓库 |
+| --- | --- | --- | --- | --- |
+| 常微分方程笔记 | Oct 2018 | 施工中 | [在线阅读](https://wklchris.github.io/Gitbooks/Math/ODE/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/Math/ODE) |
