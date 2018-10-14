@@ -11,3 +11,7 @@
 * [其他使用](Ch-03.md)
     * [数学公式](Ch-03.md#数学公式)
     * [术语](Ch-03.md#术语)
+* [发布到网站](Ch-04.md)
+    * [在 Gitbook 官网发布](Ch-04.md在-gitbook-官网发布)
+    * [利用 Github Pages 项目网页](Ch-04.md#利用-github-pages-项目网页)
+* [后记](Afterword.md)
