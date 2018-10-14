@@ -16,4 +16,6 @@
 
 ### CS
 
-- Gitbook：《Gitbook 学习笔记》Oct 2018．前往项目页面[在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/)，或查看 Github [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook)．
+| 名称 | 更新日期 | 状况 | 阅读页面 | 仓库文件夹 |
+| --- | --- | --- | --- | --- |
+| Gitbook 学习笔记 | Oct 2018 | 完成 | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook)．
