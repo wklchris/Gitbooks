@@ -13,6 +13,9 @@
 # Book build output
 **/_book
 
+# HTML assets
+*/*/src
+
 # eBook build output
 *.epub
 *.mobi
