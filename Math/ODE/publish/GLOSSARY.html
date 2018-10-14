@@ -1,0 +1,347 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title> · Gitbook-Learning</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="wklchris">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"wklchris","repo":"Gitbooks","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    《常微分方程笔记》前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Ch-01.html">
+            
+                <a href="Ch-01.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Ch-01.html">
+            
+                <a href="Ch-01.html#微分方程的定义">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    微分方程的定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Ch-01.html">
+            
+                <a href="Ch-01.html#微分方程的解">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    微分方程的解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="Ch-01.html">
+            
+                <a href="Ch-01.html#初值问题：简例">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    初值问题：简例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="Ch-01.html">
+            
+                <a href="Ch-01.html#解的几何意义">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    解的几何意义
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." ></a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="ode">ODE</h2>
+<p>&#x5E38;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#xFF08;Ordinary differential equations&#xFF09;&#xFF0E;&#x4ECE;&#x5B9A;&#x4E49;&#x4E0A;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;&#x81EA;&#x53D8;&#x91CF;<script type="math/tex; ">x</script>&#x3001;&#x672A;&#x77E5;&#x4E00;&#x5143;&#x51FD;&#x6570;<script type="math/tex; ">y=y(x)</script>&#x3001;&#x8BE5;&#x672A;&#x77E5;&#x51FD;&#x6570;&#x7684;&#x4E00;&#x9636;&#x5230;<script type="math/tex; ">n</script>&#x9636;&#x5BFC;&#x6570;&#x53CA;&#x4E00;&#x4E2A;&#x5DF2;&#x77E5;&#x51FD;&#x6570;<script type="math/tex; ">F</script>&#x7684;&#x65B9;&#x7A0B;&#xFF1A;</p>
+<p><div align="center">
+<script type="math/tex; "> F(x,y,y',\ldots,y^{(n)}) = 0 </script></div></p>
+<div>
+
+<p>&#x5C31;&#x53EB;&#x505A;&#x5E38;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#xFF0E;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x672A;&#x77E5;&#x51FD;&#x6570;<script type="math/tex; ">y</script>&#x662F;&#x591A;&#x5143;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x62E5;&#x6709;&#x7C7B;&#x4F3C;&#x5F62;&#x5F0F;&#x7684;&#x542B;&#x504F;&#x5BFC;&#x6570;&#x7684;&#x65B9;&#x7A0B;&#x53EB;&#x504F;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#xFF08;&#x53C2;&#x8003; <a href="#pde">PDE</a> &#x8BCD;&#x6761;&#xFF09;&#xFF0E;</p>
+<h2 id="order">Order</h2>
+<p>&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x6700;&#x9AD8;&#x7684;&#x672A;&#x77E5;&#x51FD;&#x6570; <script type="math/tex; ">y</script> &#x5BFC;&#x6570;&#x7684;&#x9636;&#xFF0C;&#x79F0;&#x4E3A;&#x8BE5;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x7684;&#x9636;&#xFF08;<a href="GLOSSARY.html#order" class="glossary-term" title="&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x6700;&#x9AD8;&#x7684;&#x672A;&#x77E5;&#x51FD;&#x6570; $$y$$ &#x5BFC;&#x6570;&#x7684;&#x9636;&#xFF0C;&#x79F0;&#x4E3A;&#x8BE5;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x7684;&#x9636;&#xFF08;Order&#xFF09;&#xFF0E;">Order</a>&#xFF09;&#xFF0E;</p>
+<h2 id="linearode">LinearODE</h2>
+<p>&#x7EBF;&#x6027;&#x5E38;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#xFF08;Linear ordinary differential equations&#xFF09;&#x6307;&#x51FD;&#x6570; <script type="math/tex; ">F</script> &#x5BF9; <script type="math/tex; ">y</script> &#x4E0E;&#x5176;&#x5404;&#x9636;&#x5BFC;&#x6570;&#x662F;&#x4E00;&#x6B21;&#x7684;&#x5E38;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#xFF08;&#x53C2;&#x8003; <a href="#ode">ODE</a> &#x8BCD;&#x6761;&#xFF09;&#xFF0E;</p>
+<h2 id="nonlinearode">NonlinearODE</h2>
+<p>&#x975E;&#x7EBF;&#x6027;&#x5E38;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#xFF08;Nonlinear ordinary differential equations&#xFF09;&#x662F;&#x76F8;&#x5BF9;&#x7EBF;&#x6027;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x800C;&#x8A00;&#x7684;&#xFF08;&#x53C2;&#x8003; <a href="#linearode">LinearODE</a> &#x8BCD;&#x6761;&#xFF09;&#xFF0E;</p>
+<h2 id="pde">PDE</h2>
+<p>&#x504F;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#xFF08;Partial differential equations&#xFF09;&#xFF0C;&#x53C2;&#x8003; <a href="#ode">ODE</a> &#x8BCD;&#x6761;&#xFF0E;</p>
+<h2 id="solution">Solution</h2>
+<p>&#x89E3;&#xFF08;Solutions&#xFF09;&#x662F;&#x6307;&#x5982;&#x679C;&#x5728;&#x533A;&#x95F4; <script type="math/tex; ">J</script> &#x4E0A;&#x8FDE;&#x7EED;&#x4E14;&#x5B58;&#x5728; <script type="math/tex; ">n</script> &#x9636;&#x5BFC;&#x6570;&#x7684;&#x51FD;&#x6570; <script type="math/tex; ">y=\varphi(x)</script> &#x80FD;&#x4F7F;&#x76F8;&#x5E94;&#x7684; <script type="math/tex; ">n</script> &#x9636;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x5BF9; <script type="math/tex; ">x\in J</script> &#x6052;&#x6210;&#x7ACB;&#xFF0C;&#x90A3;&#x4E48; <script type="math/tex; ">y=\varphi(x)</script> &#x5C31;&#x79F0;&#x4E3A;&#x8BE5;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x7684;&#x4E00;&#x4E2A;&#x89E3;&#xFF0E;</p>
+<h2 id="generalsolution">GeneralSolution</h2>
+<p>&#x901A;&#x89E3;&#xFF08;General solitions&#xFF09;&#x662F;&#x6307;&#x542B;&#x6709; <script type="math/tex; ">n</script> &#x4E2A;<em>&#x72EC;&#x7ACB;&#x7684;</em>&#x4EFB;&#x610F;&#x5E38;&#x6570;&#x7684; <script type="math/tex; ">n</script> &#x9636;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x7684;&#x89E3;&#xFF0E;&#x53C2;&#x8003; <a href="#particularsolution">ParticularSolution</a> &#x8BCD;&#x6761;&#xFF0E;</p>
+<h2 id="particularsolution">ParticularSolution</h2>
+<p>&#x7279;&#x89E3;&#xFF08;Particular <a href="GLOSSARY.html#solution" class="glossary-term" title="&#x89E3;&#xFF08;Solutions&#xFF09;&#x662F;&#x6307;&#x5982;&#x679C;&#x5728;&#x533A;&#x95F4; $$J$$ &#x4E0A;&#x8FDE;&#x7EED;&#x4E14;&#x5B58;&#x5728; $$n$$ &#x9636;&#x5BFC;&#x6570;&#x7684;&#x51FD;&#x6570; $$y=\varphi(x)$$ &#x80FD;&#x4F7F;&#x76F8;&#x5E94;&#x7684; $$n$$ &#x9636;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x5BF9; $$x\in J$$ &#x6052;&#x6210;&#x7ACB;&#xFF0C;&#x90A3;&#x4E48; $$y=\varphi(x)$$ &#x5C31;&#x79F0;&#x4E3A;&#x8BE5;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x7684;&#x4E00;&#x4E2A;&#x89E3;&#xFF0E;">Solution</a>&#xFF09;&#x662F;&#x6307;&#x4E0D;&#x542B;&#x4EFB;&#x610F;&#x5E38;&#x6570;&#x7684;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x7684;&#x89E3;&#xFF0E;&#x53C2;&#x8003; <a href="#generalsolution">GeneralSolution</a> &#x8BCD;&#x6761;&#xFF0E;</p>
+<h2 id="ivp">IVP</h2>
+<p>&#x521D;&#x503C;&#x95EE;&#x9898;&#xFF08;Initial Value Problem&#xFF09;&#x662F;&#x6307;&#x5DF2;&#x77E5;&#x521D;&#x503C;&#x6761;&#x4EF6;&#x65F6;&#x7684;&#x5FAE;&#x5206;&#x65B9;&#x7A0B;&#x6C42;&#x89E3;&#x95EE;&#x9898;&#xFF0E; </p>
+<footer class="page-footer"><span class="copyright">&#xA9; wklchris all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x6539;&#x4E8E;&#xFF1A;
+2018-10-14
+</span></footer></div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","prism","-lunr","-search","search-pro","splitter","collapsible-menu","mathjax","github","github-buttons","tbfed-pagefooter"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy wklchris","modify_label":"最后修改于：","modify_format":"YYYY-MM-DD"},"prism":{},"collapsible-menu":{},"github":{"url":"https://github.com/wklchris"},"splitter":{},"search-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"github-buttons":{"buttons":[{"user":"wklchris","repo":"Gitbooks","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"wklchris","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitbook-Learning","language":"zh-hans","gitbook":"3.2.3","description":"介绍如何使用 Gitbook。"},"file":{"path":"GLOSSARY.md","mtime":"2018-10-14T10:27:49.925Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-14T10:40:31.631Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
