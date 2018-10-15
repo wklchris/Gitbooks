@@ -1,7 +1,7 @@
 {
-    "title": "Gitbook-Learning",
+    "title": "ODE",
     "author": "wklchris",
-    "description": "介绍如何使用 Gitbook。",
+    "description": "常微分方程笔记。",
     "language": "zh-hans",
     "gitbook": "3.2.3",
     "styles": {
