@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>安装和配置 Sphinx &mdash; Sphinx 学习笔记 0.1 alpha 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/rtd-revised.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="前言" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sphinx 学习笔记
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">安装和配置 Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Sphinx 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">其他准备工作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">路径的修改</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">主题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#github-pages">写给 Github Pages 用户</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sphinx 学习笔记</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>安装和配置 Sphinx</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Startup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="前言" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sphinx">
+<h1>安装和配置 Sphinx<a class="headerlink" href="#sphinx" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>Sphinx 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://www.sphinx-doc.org">Sphinx</a> 是一个文档生成工具，致力于构建美观的文档．起初该项目是为了更好地撰写 <a class="reference external" href="https://www.python.org/">Python</a> 官方文档，但现在该项目的成就与名气已经不仅仅限于此了．</p>
+</div>
+<div class="section" id="id2">
+<h2>安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>要安装 Sphinx，建议首先前往 <a class="reference external" href="https://www.python.org/">Python</a> 安装 Python．对于已经安装 Python 的用户，可以使用：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>pip install -U Sphinx
+</pre></div>
+</div>
+<p>来完成安装．</p>
+</div>
+<div class="section" id="id3">
+<h2>初始化<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>前往你的文档文件夹，Shift + 鼠标右键呼出命令行，然后执行：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</pre></div>
+</div>
+<p>然后按提示顺序进行设置即可．附上我的设置：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="p">&gt;</span> Separate source and build directories (y/n) [n]: y
+</span><span class="p">&gt;</span> Name prefix for templates and static dir [_]:
+<span class="p">&gt;</span> Project language [en]: zh_CN
+<span class="p">&gt;</span> Source file suffix [.rst]:
+<span class="p">&gt;</span> Name of your master document (without suffix) [index]:
+<span class="p">&gt;</span> autodoc: automatically insert docstrings from modules (y/n) [n]:
+<span class="p">&gt;</span> doctest: automatically test code snippets in doctest blocks (y/n) [n]:
+<span class="p">&gt;</span> intersphinx: link between Sphinx documentation of different projects (y/n) [n]:
+<span class="p">&gt;</span> todo: write <span class="s2">&quot;todo&quot;</span> entries that can be shown or hidden on build (y/n) [n]:
+<span class="p">&gt;</span> coverage: checks for documentation coverage (y/n) [n]:
+<span class="hll"><span class="p">&gt;</span> imgmath: include math, rendered as PNG or SVG images (y/n) [n]: y
+</span><span class="hll"><span class="p">&gt;</span> mathjax: include math, rendered in the browser by MathJax (y/n) [n]:
+</span><span class="p">&gt;</span> ifconfig: conditional inclusion of content based on config values (y/n) [n]:
+<span class="p">&gt;</span> viewcode: include links to the source code of documented Python objects (y/n) [n]:
+<span class="hll"><span class="p">&gt;</span> githubpages: create .nojekyll file to publish the document on GitHub pages (y/n) [n]: y
+</span></pre></div>
+</div>
+<p>需要注意的问题我在上面已高亮，分别是：</p>
+<ul class="simple">
+<li><strong>是否将源与输出文件夹分开：</strong> 选择“是”会将你的 rst 文件放置于 <cite>source/</cite> 目录下，而文档生成的结果放在 <cite>build/</cite> 目录下．</li>
+<li><strong>数学公式的生成：</strong> imgmath 与 Mathjax 只需开启一个．用法可以参考 <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/extensions/math.html">Sphinx Math Support</a> 页面，也可以参考本手册仓库中的设置．</li>
+<li><strong>Github Pages 的支持：</strong> 这一项的原因是 Github Pages 对于带下划线的路径访问不亲和，这时常造成页面不能正常显示．如果这一项勾选，那么 Sphinx 会自动为你添加一个插件，便于自动生成一个空的 <cite>.nojekyll</cite> 文件来避免这一问题 <a class="footnote-reference" href="#f1" id="id4">[1]</a> ．</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>其他准备工作<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在上述步骤之后，你会在你的文档目录（假设名为 <cite>bookfolder</cite>）中，得到下述的一个目录结构:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bookfolder</span>
+<span class="o">|--</span> <span class="n">source</span>
+    <span class="o">|--</span> <span class="n">_static</span>
+    <span class="o">|--</span> <span class="n">_templates</span>
+    <span class="o">|--</span> <span class="n">conf</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">|--</span> <span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+<span class="o">|--</span> <span class="n">make</span><span class="o">.</span><span class="n">bat</span>
+<span class="o">|--</span> <span class="n">Makefile</span>
+</pre></div>
+</div>
+<p>其中，<cite>conf.py</cite> 就是该文档的配置文件，记录了刚才 <cite>sphinx-quickstart</cite> 运行结果的大部分信息．</p>
+<p>要生成 HTML 文件，在根目录下运行命令行：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
+<p>即可将 HTML 文件输出到 <cite>build/html/</cite> 目录．</p>
+<div class="section" id="id6">
+<h3>路径的修改<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>如果对输入/输出路径不满意，可以用文本编辑器打开 Matkefile 文件，将其中的 <cite>BUILDDIR</cite> 项的值 build 改为其他．同理，<cite>SOURCEDIR</cite> 也可以进行修改．</p>
+<p>如果要修改 <cite>source</cite> 目录下的 <cite>_static</cite> 或者 <cite>_template</cite> 路径名，请打开 <cite>conf.py</cite> 找到相应项进行修改．</p>
+</div>
+<div class="section" id="id7">
+<h3>主题<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>如果对默认的主题不满意，可以使用更改 <cite>html_theme</cite> 项来使用别的主题．本文档使用的是 Read the Docs 的主题：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+</pre></div>
+</div>
+<p>需要指出的是，该主题拥有一些细微的 bug <a class="footnote-reference" href="#f2" id="id8">[2]</a> ；使用前请三思．</p>
+</div>
+<div class="section" id="github-pages">
+<h3>写给 Github Pages 用户<a class="headerlink" href="#github-pages" title="永久链接至标题">¶</a></h3>
+<p><em>非 Github Pages 用户可以略过此节</em> ．</p>
+<p>除了上文中提到的 <cite>.nojekyll</cite> 文件的问题，Github Pages 用户还面临另一个问题：仓库根目录与文档根目录的不匹配．这个问题体现在如果输入开启了 Github Pages 服务的项目页面：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>https://username.github.io/reponame
+</pre></div>
+</div>
+<p>往往会出现 404（因为你的根目录下并没有 <cite>index.html</cite>）．解决方法是手动创建一个 html 文件，写入：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=./html/index.html&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;&lt;/body&gt;
+
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>该文件的作用是完成了到 <cite>build/html/index.html</cite> 的跳转．</p>
+<p class="rubric">注释</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td>即使加载了这一插件，如何设置 Github 仓库也会影响到网页在 Github Pages 服务上的结果．例如，如果读者在仓库设置中将 master 分支开启 Github Pages 服务，而将 rst 文档放于仓库的子文件夹中（笔者就是这样做的），那么仍需要在 <strong>仓库根目录</strong> 中创建一个空的 <cite>.nojekyll</cite> 文件来避免此问题．</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[2]</a></td><td><p class="first">读者如果想要使用 sphinx-rtd-theme 主题，可以在 <cite>conf.py</cite> 中追加一条配置：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_style</span> <span class="o">=</span> <span class="s1">&#39;css/rtd-revised.css&#39;</span>
+</pre></div>
+</div>
+<p>并在 <cite>source_staticcss</cite> 目录中创建一个 <cite>rtd-revised.css</cite> 文件．该文件的内容可以参考下述：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@import</span> <span class="n">url</span><span class="p">(</span><span class="s2">&quot;theme.css&quot;</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">Full</span> <span class="n">width</span> <span class="o">*/</span>
+<span class="o">.</span><span class="n">wy</span><span class="o">-</span><span class="n">nav</span><span class="o">-</span><span class="n">content</span> <span class="p">{</span>
+    <span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Equation</span> <span class="n">numbers</span> <span class="n">on</span> <span class="n">the</span> <span class="n">right</span><span class="o">*/</span>
+<span class="n">div</span><span class="o">.</span><span class="n">math</span> <span class="p">{</span>
+    <span class="n">position</span><span class="p">:</span> <span class="n">relative</span><span class="p">;</span>
+    <span class="n">padding</span><span class="o">-</span><span class="n">right</span><span class="p">:</span> <span class="mf">2.5</span><span class="n">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">eqno</span> <span class="p">{</span>
+    <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+    <span class="n">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">padding</span><span class="o">-</span><span class="n">left</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">padding</span><span class="o">-</span><span class="n">bottom</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+    <span class="o">/*</span> <span class="n">Fix</span> <span class="k">for</span> <span class="n">mouse</span> <span class="n">over</span> <span class="ow">in</span> <span class="n">Firefox</span> <span class="o">*/</span>
+    <span class="n">padding</span><span class="o">-</span><span class="n">right</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">eqno</span><span class="p">:</span><span class="n">before</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">Force</span> <span class="n">vertical</span> <span class="n">alignment</span> <span class="n">of</span> <span class="n">number</span> <span class="o">*/</span>
+    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+    <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="n">vertical</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">middle</span><span class="p">;</span>
+    <span class="n">content</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">eqno</span> <span class="o">.</span><span class="n">headerlink</span> <span class="p">{</span>
+    <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+    <span class="n">visibility</span><span class="p">:</span> <span class="n">hidden</span><span class="p">;</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">14</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">padding</span><span class="o">-</span><span class="n">left</span><span class="p">:</span> <span class="o">.</span><span class="mi">3</span><span class="n">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">eqno</span><span class="p">:</span><span class="n">hover</span> <span class="o">.</span><span class="n">headerlink</span> <span class="p">{</span>
+    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+    <span class="n">visibility</span><span class="p">:</span> <span class="n">hidden</span><span class="p">;</span>
+    <span class="n">margin</span><span class="o">-</span><span class="n">right</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.05</span><span class="n">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">eqno</span> <span class="o">.</span><span class="n">headerlink</span><span class="p">:</span><span class="n">after</span> <span class="p">{</span>
+    <span class="n">visibility</span><span class="p">:</span> <span class="n">visible</span><span class="p">;</span>
+    <span class="n">content</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\f</span><span class="s2">0c1&quot;</span><span class="p">;</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
+    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+    <span class="n">margin</span><span class="o">-</span><span class="n">left</span><span class="p">:</span> <span class="o">-.</span><span class="mi">9</span><span class="n">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">/*</span> <span class="n">For</span> <span class="n">MathJax</span> <span class="n">Users</span> <span class="o">*/</span>
+<span class="o">.</span><span class="n">MathJax_Display</span> <span class="p">{</span>
+    <span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="n">overflow</span><span class="o">-</span><span class="n">x</span><span class="p">:</span> <span class="n">auto</span><span class="p">;</span>
+    <span class="n">overflow</span><span class="o">-</span><span class="n">y</span><span class="p">:</span> <span class="n">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>该 CSS 文件实现了两个功能：</p>
+<ol class="last arabic simple">
+<li>使 RTD 主题的页面扩展到全屏宽度；</li>
+<li>修正了 RTD 主题在行间公式中编号（即使用 <cite>:label:</cite>）时，编号数字不居右的问题．</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="前言" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, wklchris
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
