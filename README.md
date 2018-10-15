@@ -19,6 +19,7 @@
 | 名称 | 更新日期 | 状况 | 阅读页面 | 仓库 |
 | --- | --- | --- | --- | --- |
 | Gitbook 学习笔记 | Oct 2018 | 完成 | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook) |
+| reStructuredText 学习笔记 | Oct 2018 | 完成 | [在线阅读](https://wklchris.github.io/Gitbooks/CS/reStructuredText/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/reStructuredText) |
 
 ### Math
 
