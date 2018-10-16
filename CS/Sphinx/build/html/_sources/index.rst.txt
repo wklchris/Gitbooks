@@ -20,6 +20,7 @@
 reST 格式不如 Markdown 易读（更不用提易写），但是允许用户自行定制风格；这点提供的便利在使用一段时间后就能有所体会．总之，各有所长吧．
 
 在阅读本手册之前，建议：
+
 * 已学习 reStructuredText 基本语法．前往：`reST 笔记`_．
 
 Indices and tables

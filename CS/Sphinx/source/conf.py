@@ -86,7 +86,7 @@ html_theme_options = {
     'prev_next_buttons_location': 'both',
     'navigation_depth': 3
 }
-html_style = 'css/rtd_revised.css' 
+html_style = 'css/rtd-revised.css' 
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

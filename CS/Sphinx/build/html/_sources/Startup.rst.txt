@@ -126,16 +126,16 @@ Sphinx_ 是一个文档生成工具，致力于构建美观的文档．起初该
 
 .. rubric:: 注释
 
-.. [#f1] 即使加载了这一插件，并不一定就保证 Github Pages 服务上的结果；该插件带来的效果可能是脆弱的．例如，笔者在测试时曾使用 `rtd-revised.css` 作为某样式文件名，推送后发现可以访问与其同目录的所有文件、但却不能访问它（导致页面样式异常）．将文件名中的横线改为下划线后，不能访问的问题却就解决了．如果担心 Github Pages 的配置问题，可以尝试 Read the Docs 网站的在线文档服务．
+.. [#f1] 即使加载了这一插件，并不一定就保证 Github Pages 服务上的结果；该插件带来的效果可能是脆弱的．例如，笔者在测试时曾使用 `rtd_revised.css` 作为某样式文件名，推送后发现可以访问与其同目录的所有文件、但却不能访问它（导致页面样式异常）．将文件名中的下划线改为横线后，不能访问的问题却就解决了．如果担心 Github Pages 的配置问题，可以尝试 Read the Docs 网站的在线文档服务．
 .. [#f2] 读者如果想要使用 sphinx-rtd-theme 主题，可以在 `conf.py` 中追加一条配置：
 
    .. code-block:: python
 
-      html_style = 'css/rtd_revised.css' 
+      html_style = 'css/rtd-revised.css' 
    
    并在 `source\_static\css` 目录中创建一个 `rtd_revised.css` 文件．该文件的内容可以参考下述：
 
-   .. literalinclude:: /_static/css/rtd_revised.css
+   .. literalinclude:: /_static/css/rtd-revised.css
    
    该 CSS 文件实现了两个功能：
 
