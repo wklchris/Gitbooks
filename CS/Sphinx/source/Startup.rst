@@ -126,7 +126,7 @@ Sphinx_ 是一个文档生成工具，致力于构建美观的文档．起初该
 
 .. rubric:: 注释
 
-.. [#f1] 即使加载了这一插件，并不一定就保证 Github Pages 服务上的结果；该插件带来的效果可能是脆弱的．如果仍然异常，可以尝试在文档根目录到 `build/html` 这三处都放置 `.nojekyll` 文件．如果担心 Github Pages 的配置问题，可以尝试 Read the Docs 网站的在线文档服务．
+.. [#f1] 即使加载了这一插件，并不一定就保证 Github Pages 服务上的结果；该插件带来的效果可能是脆弱的．如果仍然异常，可以尝试在 Github 仓库的根目录放置 `.nojekyll` 文件．如果担心 Github Pages 的配置问题，可以尝试 Read the Docs 网站的在线文档服务．
 .. [#f2] 读者如果想要使用 sphinx-rtd-theme 主题，可以在 `conf.py` 中追加一条配置：
 
    .. code-block:: python
