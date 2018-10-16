@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>前言 &mdash; Sphinx 学习笔记 0.1 alpha 文档</title>
+  <title>示例 &mdash; Sphinx 学习笔记 0.1 alpha 文档</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="安装和配置 Sphinx" href="Startup.html" /> 
+    <link rel="prev" title="安装和配置 Sphinx" href="Startup.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +47,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> Sphinx 学习笔记
+            <a href="index.html" class="icon icon-home"> Sphinx 学习笔记
           
 
           
@@ -82,9 +82,12 @@
             
             
               <p class="caption"><span class="caption-text">目录</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Startup.html">安装和配置 Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Examples.html">示例</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">示例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">数学公式</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -99,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Sphinx 学习笔记</a>
+          <a href="index.html">Sphinx 学习笔记</a>
         
       </nav>
 
@@ -128,15 +131,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>前言</li>
+      <li>示例</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Examples.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -146,8 +149,8 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="Startup.html" class="btn btn-neutral float-right" title="安装和配置 Sphinx" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="Startup.html" class="btn btn-neutral" title="安装和配置 Sphinx" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -157,36 +160,49 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>前言<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">目录</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Startup.html">安装和配置 Sphinx</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Startup.html#id1">Sphinx 简介</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Startup.html#id2">安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Startup.html#id3">初始化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Startup.html#id5">其他准备工作</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Examples.html">示例</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Examples.html#id2">数学公式</a></li>
-</ul>
-</li>
-</ul>
+<h1>示例<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>本章用于测试 Sphinx 对 reST 各语法功能的显示效果，主要测试内容是数学公式．</p>
+<div class="section" id="id2">
+<h2>数学公式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>常规数学符号：</p>
+<div class="math">
+<p><img src="_images/math/94085de5ff00668ade6a1e0b97d0f8ef841d5471.svg" alt="\left(\frac{x}{y}\in\mathbb{R} \quad \sqrt[3]{x} \quad \int_0^1 x^2_0\ud{} x_0\right)
+
+\sin x \quad \cos x \quad \tan x \quad \cot x \quad \log x \quad \lg x
+
+\ln x \quad \lim_{i\to\infty} \quad \max_{x^2+y^2=1}\{x,y\} \quad \binom{n}{k}
+
+\sum_{i=1}^n a_i \neq \prod_{\substack{0&lt;j&lt;n&lt;m \\ j\in\mathbb{N}}}^m b_j"/></p>
+</div><p>字体：</p>
+<div class="math">
+<p><img src="_images/math/df2fc73173de47ceb2b4021ec80f799b5b72c96f.svg" alt="\boldsymbol{A} \textrm{ is a matrix}"/></p>
+</div><p>多行对齐：</p>
+<div class="math" id="equation-eq1">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-eq1" title="公式的永久链接">¶</a></span><img src="_images/math/a9f4592497395cc26c850b46ac54f7da8487b2b3.svg" alt="y &amp;= (a+b)^2 = (a+b)\times (a+b) \\
+  &amp;= a^2 + 2ab + b^2"/></p>
+</div><p>微积分：</p>
+<div class="math">
+<p><img src="_images/math/d436c52c7a7e1f7ec2f780fe76706027b3cf9490.svg" alt="\dot{x}(t) = x'(t) \quad \iint_D f(x) \quad \frac{\partial F}{\partial x} \quad
+\left.\frac{\sin x}{|x|}\right|_{x\in\mathring{U}}"/></p>
+</div><p>堆叠：</p>
+<div class="math">
+<p><img src="_images/math/388ffd747b7d729ca5020f03702d3982897ec228.svg" alt="\underbrace{a_1 + a_2 + \cdots + a_n}_{n} \quad \overbrace{x\cdot y\cdot z}^{3}
+
+\vec{a} \quad \overrightarrow{PQ} \quad a\xleftarrow[high]{low} b"/></p>
+</div><p>矩阵</p>
+<div class="math">
+<p><img src="_images/math/44b7f2cbe3e522ed279b87319a5aaf99e5897317.svg" alt="\boldsymbol{A} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \quad
+\det(\boldsymbol{B}) = \begin{vmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{vmatrix}"/></p>
+</div><p>在此引用公式1：<a class="reference internal" href="#equation-eq1">(1)</a> 是一个多行对齐公式．</p>
+<p>推断：（加载了 <cite>extarrows</cite> 包）</p>
+<div class="math">
+<p><img src="_images/math/ac862177b4d60e6323a134c00a57852b3ee561e5.svg" alt="\alpha \implies \beta
+
+\gamma \iff \delta
+
+y\xLongrightarrow{\triangle} x + \varphi"/></p>
+</div><p>测试结束．</p>
 </div>
-<p>本手册针对 Windows 用户．</p>
-<p>就我的体验而言，<a class="reference external" href="http://www.sphinx-doc.org">Sphinx</a> 在构建文档的使用中，体现了极高的严谨水准（以及极客风格）；这一点是颇为难得的．相比于另一个文档构建软件 <a class="reference external" href="https://www.gitbook.com/">Gitbook</a>，Sphinx 基于 reStructureText 文件（可参考我的 <a class="reference external" href="https://wklchris.github.io/Gitbooks/CS/reStructuredText/publish/">reST 笔记</a>）而不是 Markdown．这固然使得学习成本上升，毕竟 Markdown 是更广为人知和使用的；但同时也消除了 Markdown 各家风格不同的弊病．</p>
-<p>reST 格式不如 Markdown 易读（更不用提易写），但是允许用户自行定制风格；这点提供的便利在使用一段时间后就能有所体会．总之，各有所长吧．</p>
-<p>在阅读本手册之前，建议：
-* 已学习 reStructuredText 基本语法．前往：<a class="reference external" href="https://wklchris.github.io/Gitbooks/CS/reStructuredText/publish/">reST 笔记</a>．</p>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="永久链接至标题">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">模块索引</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">搜索页面</span></a></li>
-</ul>
 </div>
 
 
@@ -197,8 +213,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Startup.html" class="btn btn-neutral float-right" title="安装和配置 Sphinx" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="Startup.html" class="btn btn-neutral" title="安装和配置 Sphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

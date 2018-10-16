@@ -40,8 +40,13 @@ release = '0.1 alpha'
 # ones.
 extensions = [
     'sphinx.ext.imgmath',
-    'sphinx.ext.githubpages',
+    'sphinx.ext.githubpages'
 ]
+
+imgmath_image_format = 'svg'
+imgmath_font_size = 16
+
+imgmath_latex_preamble = r"\usepackage{extarrows}\newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

@@ -20,3 +20,7 @@
 *.epub
 *.mobi
 *.pdf
+
+
+# Sphinx Ignore
+**/doctrees
