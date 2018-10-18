@@ -26,4 +26,4 @@
 
 | 名称 | 更新日期 | 状况 | 文档工具 | 阅读页面 | 仓库 |
 | --- | --- | --- | --- | --- | --- |
-| 常微分方程笔记 | Oct 2018 | 施工中 | Gitbook | [在线阅读](https://wklchris.github.io/Gitbooks/Math/ODE/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/Math/ODE) |
+| 常微分方程笔记 | Oct 2018 | 施工中 | Sphinx | [在线阅读](https://wklchris.github.io/Gitbooks/Math/ODE/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/Math/ODE) |

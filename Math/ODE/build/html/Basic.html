@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>基本概念 &mdash; 常微分方程笔记 0.1 alpha 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/rtd-revised.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="《常微分方程笔记》前言" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 常微分方程笔记
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">基本概念</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">微分方程及其解的基本定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">阶与线性的概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">微分方程的解</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">常微分方程笔记</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>基本概念</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Basic.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="《常微分方程笔记》前言" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>基本概念<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>本章介绍微分方程的基础内容．</p>
+<div class="section" id="id2">
+<h2>微分方程及其解的基本定义<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p class="rubric">定义：常微分方程</p>
+<p>对于自变量 <img class="math" src="_images/math/2337377602ed0d87756ac547e12e1328091bbb84.svg" alt="x"/>、未知一元函数 <img class="math" src="_images/math/9b1099347d50bca4c8b288e34b8374b2f7da534f.svg" alt="y=y(x)"/>、该未知函数的一阶到 <img class="math" src="_images/math/9424fc6afc439a4713ace70f14fc8a609b59b28d.svg" alt="n"/> 阶导数与一个已知函数 <img class="math" src="_images/math/8d87ab1818d3257c5b5f244785dd54f0d0b3865d.svg" alt="F"/> 的方程：</p>
+<blockquote>
+<div><div class="math" id="equation-ode">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-ode" title="公式的永久链接">¶</a></span><img src="_images/math/7f26f67521331e757ce3b27c9174663dc915b23b.svg" alt="F(x,y,y',\ldots,y^{(n)}) = 0"/></p>
+</div><p>就叫做 <strong>常微分方程</strong> <a class="footnote-reference" href="#ode" id="id3">[1]</a> （ordinary differential equations, ODE）．</p>
+</div></blockquote>
+<p>如果未知函数 <img class="math" src="_images/math/2d294a0dcbeecc421c303bb5976591a0915cc15e.svg" alt="y"/> 是多元函数，那么拥有类似形式的含偏导数的方程叫 <strong>偏微分方程</strong> （partial differential equations, PDE）；偏微分方程的内容不在本手册的讨论范畴．</p>
+<div class="section" id="id4">
+<h3>阶与线性的概念<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>常微分方程式 <a class="reference internal" href="#equation-ode">(1)</a> 中出现的最高阶的 <img class="math" src="_images/math/2d294a0dcbeecc421c303bb5976591a0915cc15e.svg" alt="y"/> 的导数的阶数，称为该微分方程的 <strong>阶</strong> （order）．</p>
+<p class="rubric">例子</p>
+<p>以下均为常微分方程：</p>
+<div class="math">
+<p><img src="_images/math/cdafe096aeafef80462cee501e4f8d40227c258c.svg" alt="(1) \; \frac{\ud y}{\ud x} + xy = 0; \quad
+(2) \; x_t = \sin x + t; \quad
+(3) \; y''' + yy' = x."/></p>
+</div><p>其中， <img class="math" src="_images/math/2d294a0dcbeecc421c303bb5976591a0915cc15e.svg" alt="y"/> 对 <img class="math" src="_images/math/2337377602ed0d87756ac547e12e1328091bbb84.svg" alt="x"/> 的一阶导数，我们通常记成 <img class="math" src="_images/math/a4e20ea2c554255230707fafa4bde3617976aaf6.svg" alt="\frac{\ud y}{\ud x}"/> 或 <img class="math" src="_images/math/efa7f824e0905796d1bce1cf5e8978a9f81c6261.svg" alt="y_x"/>；如果自变量没有歧义，也可以记成上例中 (3) 的形式，即 <img class="math" src="_images/math/0a122e58fbca7ab0a67161a8d9f22394524b2eb7.svg" alt="y'"/>．对于 <img class="math" src="_images/math/2d294a0dcbeecc421c303bb5976591a0915cc15e.svg" alt="y"/> 的 <img class="math" src="_images/math/9424fc6afc439a4713ace70f14fc8a609b59b28d.svg" alt="n"/> 阶导数，我们通常记为 <img class="math" src="_images/math/f1068ba22139e8862cf2781e53039bfb8cbbfeef.svg" alt="\frac{\ud^{n} y}{\ud x^n}"/> 或者 <img class="math" src="_images/math/250870f703dffad177e6f83e43220f6bec191f3e.svg" alt="y^{(n)}"/>；如果 <img class="math" src="_images/math/9424fc6afc439a4713ace70f14fc8a609b59b28d.svg" alt="n"/> 较小，也可以参照上例 (3) 中三阶导数的记法．</p>
+<p>式 <a class="reference internal" href="#equation-ode">(1)</a> 中，如果右侧的函数 <img class="math" src="_images/math/8d87ab1818d3257c5b5f244785dd54f0d0b3865d.svg" alt="F"/> 对未知函数 <img class="math" src="_images/math/2d294a0dcbeecc421c303bb5976591a0915cc15e.svg" alt="y"/> 与其各阶导数而言是一次的，则称式 <a class="reference internal" href="#equation-ode">(1)</a> 为 <strong>线性常微分方程</strong> （linear ODE）；否则，称其为 <strong>非线性常微分方程</strong> (nonlinear ODE)．</p>
+<p>通过阶给方程分类，上例中的 (1) 与 (2) 是一阶微分方程，而 (3) 是三阶微分方程．通过线性与否分类，上例中的 (1) 是线性微分方程，而 (2) 与 (3) 是非线性微分方程．更详细的叙述是将两者结合，例如：例中 (1) 是一阶线性常微分方程．</p>
+</div>
+<div class="section" id="id5">
+<h3>微分方程的解<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>下面定义</p>
+<p class="rubric">注释</p>
+<table class="docutils footnote" frame="void" id="ode" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>方便起见，本手册下文中将常微分方程称微分方程或方程．</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="《常微分方程笔记》前言" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, wklchris
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
