@@ -5,6 +5,11 @@
     max-width: none;
 }
 
+/* */
+p.rubric {
+    background-color: rgb(226, 226, 226);
+}
+
 /* Equation numbers on the right*/
 div.math {
     position: relative;
