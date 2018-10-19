@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -146,7 +146,9 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/Basic.rst.txt" rel="nofollow"> View page source</a>
+            
+              <a href="https://github.com/wklchris/Gitbooks/blob/master/Math/ODE/source/Basic.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -215,7 +217,7 @@
 <p><img src="_images/math/2ac8e403b778eeeff98d05d6cbc0d308b4a00fce.svg" alt="y = \varphi(x,C_1,C_2,\ldots,C_n)"/></p>
 </div><p>包含 <img class="math" src="_images/math/9424fc6afc439a4713ace70f14fc8a609b59b28d.svg" alt="n"/> 个独立 <a class="footnote-reference" href="#indep" id="id7">[2]</a> 的任意常数 <img class="math" src="_images/math/5cd31c8bbf5e78ec1b660c69b5083bbd92b4cceb.svg" alt="C_1, C_2, \ldots, C_n"/>，则称该解为方程的 <strong>通解</strong> (general solution)；如果方程的解 <img class="math" src="_images/math/37adf28e8e6b1ffc3cd1b02ed66c9b103ed3f5bb.svg" alt="y=\varphi(x)"/> 不含任意常数，则称该解为方程的 <strong>特解</strong> (particular solution)．</p>
 </div></blockquote>
-<p>显然，如果得到了通解，又能将其所有的任意常数确定下来，通解就会变成特解．一个典型的例子是初值问题：</p>
+<p>显然，如果得到了通解，又能将其所有的任意常数确定下来，通解就会变成特解．在上例的微分方程中 <img class="math" src="_images/math/0f4ea1420fb2faa9c0ed4a9215400e2f31579ad6.svg" alt="y=\ue^x"/>，<img class="math" src="_images/math/321b9418b85ea5fe0f189848b5e7884c456b28ff.svg" alt="y=C\ue^x"/> 就是它的通解．至于特解，一个典型的例子是初值问题：</p>
 <p class="rubric">定义：初值问题</p>
 <p>对 <img class="math" src="_images/math/9424fc6afc439a4713ace70f14fc8a609b59b28d.svg" alt="n"/> 阶微分方程 <a class="reference internal" href="#equation-ode">(1)</a>，其对应的 <strong>初值问题</strong> (initial value problem, IVP) 是指：</p>
 <blockquote>
@@ -226,7 +228,7 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 \end{cases}"/></p>
 </div><p>其中 <img class="math" src="_images/math/2c3bfccd744c1209aecf938b4d46e12d8866f9d4.svg" alt="x_0"/> 是自变量所确定的初值，而 <img class="math" src="_images/math/33a0cba300b19961485bdf8842e8832e09590e4d.svg" alt="y_0,y'_0,\ldots,y^{(n-1)}_0"/> 是未知函数 <img class="math" src="_images/math/2d294a0dcbeecc421c303bb5976591a0915cc15e.svg" alt="y"/> 及其相应导数所确定的初值．相应地，这些初值组成的上述条件称为 <strong>初值条件</strong> (initial value condition)．</p>
 </div></blockquote>
-<p>例如，微分方程 <img class="math" src="_images/math/a3d41da1b0d2566889f6a9fe9fdb1c28488eab52.svg" alt="y_x = y"/> 及其在 <img class="math" src="_images/math/932fcd8e73c013becc8ea1b41de6ff45db6994f7.svg" alt="x=0"/> 处的初值条件 <img class="math" src="_images/math/a273c30f05d47fe6d837a2d93aa1205dce287ad2.svg" alt="y(0)=1"/> 就组成了一个初值问题，其解为 <img class="math" src="_images/math/6295b4c9f730577155e414cd7af9224f7f29e831.svg" alt="y=\ue^t"/>．</p>
+<p>例如，如果已知微分方程 <img class="math" src="_images/math/a3d41da1b0d2566889f6a9fe9fdb1c28488eab52.svg" alt="y_x = y"/> 及其在 <img class="math" src="_images/math/932fcd8e73c013becc8ea1b41de6ff45db6994f7.svg" alt="x=0"/> 处的初值条件 <img class="math" src="_images/math/a273c30f05d47fe6d837a2d93aa1205dce287ad2.svg" alt="y(0)=1"/> ，那么它们就组成了一个初值问题，其解为 <img class="math" src="_images/math/6295b4c9f730577155e414cd7af9224f7f29e831.svg" alt="y=\ue^t"/>．该解是该方程的特解．至于求解微分方程的方法与解的唯一性讨论，我们在下文讨论．</p>
 </div>
 </div>
 <div class="section" id="id8">
@@ -241,7 +243,7 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 <table class="docutils footnote" frame="void" id="indep" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[2]</a></td><td><p class="first">此处的“独立”是指它们的 Jacobi 行列式z非零：</p>
+<tr><td class="label"><a class="fn-backref" href="#id7">[2]</a></td><td><p class="first">此处的“独立”是指它们的 Jacobi 行列式非零：</p>
 <div class="last math">
 <p><img src="_images/math/80d9616e0127dbe91a0e4f63cb64017a630045b0.svg" alt="\frac{D[\varphi, \varphi', \ldots, \varphi^{(n)}]}{D[C_1,C_2,\ldots,C_n]} =
 \begin{vmatrix}
@@ -299,7 +301,6 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 

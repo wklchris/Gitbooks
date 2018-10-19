@@ -51,6 +51,17 @@ imgmath_latex_preamble = r'''
 \newcommand{\ue}{\mathop{}\negthinspace\mathrm{e}}
 '''
 
+# Read the Docs Support
+# See: https://docs.readthedocs.io/en/latest/vcs.html?highlight=github
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "wklchris", # Username
+    "github_repo": "Gitbooks", # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": "/Math/ODE/source/", # Path in the checkout to the docs root
+}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -68,7 +79,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'zh_CN'
+language = 'zh'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
