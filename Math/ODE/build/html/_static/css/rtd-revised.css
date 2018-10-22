@@ -5,9 +5,15 @@
     max-width: none;
 }
 
-/* */
-p.rubric {
-    background-color: rgb(226, 226, 226);
+/* Admonition Style
+   - def: same with "important"
+*/
+.rst-content .def {
+    background: #dbfaf4;
+}
+
+.rst-content .def .admonition-title {
+    background: #1abc9c;  /* default: #6ab0de; */
 }
 
 /* Equation numbers on the right*/

@@ -9,9 +9,10 @@
 
 .. _def-ode:
 
-.. rubric:: 定义：常微分方程
+.. admonition:: 定义：常微分方程
+   :class: def
 
-对于自变量 :math:`x`、未知一元函数 :math:`y=y(x)`、该未知函数的一阶到 :math:`n` 阶导数与一个已知函数 :math:`F` 的方程：
+    对于自变量 :math:`x`、未知一元函数 :math:`y=y(x)`、该未知函数的一阶到 :math:`n` 阶导数与一个已知函数 :math:`F` 的方程：
 
     .. math::
        :label: ode
@@ -31,15 +32,16 @@
 常微分方程式 :eq:`ode` 中出现的最高阶的 :math:`y` 的导数的阶数，称为该微分方程的 **阶** (order)．
 
 
-.. rubric:: 例子
+.. admonition:: 例子
+   :class: eg
 
-以下均为常微分方程：
+    以下均为常微分方程：
 
-   .. math::
+    .. math::
 
-      (1) \; \frac{\ud y}{\ud x} + xy = 0; \quad 
-      (2) \; x_t = \sin x + t; \quad
-      (3) \; y''' + yy' = x.
+       (1) \; \frac{\ud y}{\ud x} + xy = 0; \quad 
+       (2) \; x_t = \sin x + t; \quad
+       (3) \; y''' + yy' = x.
 
 其中， :math:`y` 对 :math:`x` 的一阶导数，我们通常记成 :math:`\frac{\ud y}{\ud x}` 或 :math:`y_x`；如果自变量没有歧义，也可以记成上例中 (3) 的形式，即 :math:`y'`．对于 :math:`y` 的 :math:`n` 阶导数，我们通常记为 :math:`\frac{\ud^{n} y}{\ud x^n}` 或者 :math:`y^{(n)}`；如果 :math:`n` 较小，也可以参照上例 (3) 中三阶导数的记法．
 
@@ -55,9 +57,10 @@
 
 .. _def-solution:
 
-.. rubric:: 定义：微分方程的解
+.. admonition:: 定义：微分方程的解
+   :class: def
 
-设函数 :math:`y=\varphi(x)` 在区间 :math:`J` 上连续且有 :math:`n` 阶的导数．如果该函数 :math:`y=\varphi(x)` 及其各阶导数代入方程 :eq:`ode` 后，得到一个关于 :math:`x` 的恒等式，即
+    设函数 :math:`y=\varphi(x)` 在区间 :math:`J` 上连续且有 :math:`n` 阶的导数．如果该函数 :math:`y=\varphi(x)` 及其各阶导数代入方程 :eq:`ode` 后，得到一个关于 :math:`x` 的恒等式，即
 
     .. math::
        
@@ -74,9 +77,10 @@
 
 .. _def-general-solution:
 
-.. rubric:: 定义：通解、特解
+.. admonition:: 定义：通解、特解
+   :class: def
 
-若 :math:`n` 阶微分方程 :eq:`ode` 的解
+    若 :math:`n` 阶微分方程 :eq:`ode` 的解
 
     .. math::
 
@@ -86,9 +90,10 @@
 
 显然，如果得到了通解，又能将其所有的任意常数确定下来，通解就会变成特解．在上例的微分方程中 :math:`y=\ue^x`，:math:`y=C\ue^x` 就是它的通解．至于特解，一个典型的例子是初值问题：
 
-.. rubric:: 定义：初值问题
+.. admonition:: 定义：初值问题
+   :class: def
 
-对 :math:`n` 阶微分方程 :eq:`ode`，其对应的 **初值问题** (initial value problem, IVP) 是指：
+    对 :math:`n` 阶微分方程 :eq:`ode`，其对应的 **初值问题** (initial value problem, IVP) 是指：
 
     .. math::
 
@@ -99,7 +104,7 @@
 
     其中 :math:`x_0` 是自变量所确定的初值，而 :math:`y_0,y'_0,\ldots,y^{(n-1)}_0` 是未知函数 :math:`y` 及其相应导数所确定的初值．相应地，这些初值组成的上述条件称为 **初值条件** (initial value condition)．
 
-例如，如果已知微分方程 :math:`y_x = y` 及其在 :math:`x=0` 处的初值条件 :math:`y(0)=1` ，那么它们就组成了一个初值问题，其解为 :math:`y=\ue^t`．该解是该方程的特解．至于求解微分方程的方法与解的唯一性讨论，我们在下文讨论．
+例如，如果已知微分方程 :math:`y_x = y` 及其在 :math:`x=0` 处的初值条件 :math:`y(0)=1` ，那么它们就组成了一个初值问题，其解为 :math:`y=\ue^t`．该解是该方程的特解．至于求解微分方程的方法与解的唯一性，我们在下文讨论．
 
 
 微分方程及其解的几何意义
