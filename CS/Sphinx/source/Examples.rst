@@ -72,4 +72,46 @@
    y\xLongrightarrow{\triangle} x + \varphi
 
 
+警告
+--------
+
+Admonition 指令测试：
+
+.. attention::
+   
+   Attention.
+
+.. caution::
+   
+   Caution.
+   
+.. danger::
+   
+   Danger.
+   
+.. error::
+   
+   Error.
+   
+.. hint::
+   
+   Hint.
+
+.. important::
+   
+   Important.
+   
+.. note::
+
+   note
+   
+.. tip::
+   
+   Tip.
+   
+.. warning::
+   
+   Warning. 
+
+
 测试结束．
