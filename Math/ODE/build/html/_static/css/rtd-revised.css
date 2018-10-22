@@ -16,10 +16,13 @@
     background: #1abc9c;  /* default: #6ab0de; */
 }
 
+
 /* Equation numbers on the right*/
+/* Math div margins */
 div.math {
     position: relative;
     padding-right: 2.5em;
+    margin: 1.5em auto 1.5em auto;  /* Math div margins */
 }
 .eqno {
     height: 100%;
@@ -55,9 +58,10 @@ div.math {
     display: inline-block;
     margin-left: -.9em;
 }
+
 /* For MathJax Users */
-.MathJax_Display {
+/* .MathJax_Display {
     max-width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-}
+} */
