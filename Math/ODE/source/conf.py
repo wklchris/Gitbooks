@@ -46,7 +46,7 @@ extensions = [
 ]
 
 imgmath_image_format = 'svg'
-imgmath_font_size = 18
+imgmath_font_size = 16
 
 imgmath_latex_preamble = r'''
 \newcommand{\uR}{\mathbb{R}}
