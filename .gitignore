@@ -24,3 +24,7 @@
 
 # Sphinx Ignore
 **/doctrees
+
+# Sphinx: matplotlib auto-generated png
+**/plot_directive
+**/*.hires.png
