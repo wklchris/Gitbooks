@@ -157,7 +157,7 @@
 
 1. 如果 :math:`Q(x_0,y_0)\neq 0`，那么可以利用 :math:`\ud y/\ud x = -P(x_0,y_0)/Q(x_0,y_0)` 来绘制；
 #. 如果 :math:`P(x_0,y_0)\neq 0`，那么可以利用 :math:`\ud x/\ud y = -Q(x_0,y_0)/P(x_0,y_0)` 来绘制；
-#. 如果 :math:`P(x_0,y_0)=Q(x_0,y_0)`，那么 :math:`\ud y/\ud x` 与 :math:`\ud x/\ud y` 在点 :math:`(x_0,y_0)` 处均是未定式，该点的线素没有意义．这时，我们把 :math:`(x_0,y_0)` 称为 **奇异点** (singularity, or singular point)．
+#. 如果 :math:`P(x_0,y_0)=Q(x_0,y_0)=0`，那么 :math:`\ud y/\ud x` 与 :math:`\ud x/\ud y` 在点 :math:`(x_0,y_0)` 处均是未定式，该点的线素没有意义．这时，我们把 :math:`(x_0,y_0)` 称为 **奇异点** (singularity, or singular point)．
 
 .. admonition:: 例子：方向场的绘制
    :class: eg

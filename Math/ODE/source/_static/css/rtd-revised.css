@@ -16,6 +16,13 @@
     background: #1abc9c;  /* default: #6ab0de; */
 }
 
+.rst-content .theorm {
+    background: #ffedcc;
+}
+
+.rst-content .theorm .admonition-title {
+    background: #f0b37e;
+}
 
 /* Equation numbers on the right*/
 /* Math div margins */
