@@ -94,6 +94,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#github-pages">写给 Github Pages 用户</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">其他插件及疑难问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matplotlib">Matplotlib 绘图插件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">搜索功能</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">示例</a></li>
@@ -266,6 +271,41 @@
 </pre></div>
 </div>
 <p>该文件的作用是完成了到 <cite>build/html/index.html</cite> 的跳转．</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>其他插件及疑难问题<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>其他的美观性问题大多可以用 CSS 的撰写来解决；读者可以参考本文文末的注释中提及的内容．</p>
+<div class="section" id="matplotlib">
+<h3>Matplotlib 绘图插件<a class="headerlink" href="#matplotlib" title="永久链接至标题">¶</a></h3>
+<p>值得一提的还有 Matplotlib 提供的插件，定义了 <cite>plot</cite> 指令，可以直接从外部导入 .py 文件绘图，或者在 reST 文档中输入 Python 代码进行绘图（均需要在 <cite>conf.py</cite> 的插件中添加 <cite>matplotlib.sphinxext.only_directives</cite> 项）．下面是一个例子，具体请参考：<a class="reference external" href="https://matplotlib.org/sampledoc/extensions.html">Matplotlib Extensions</a> 页面．</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">plot</span><span class="p">::</span> /draw/py-draw-circle.py
+   <span class="nc">:include-source:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>搜索功能<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>至于搜索功能，在不同设备上的测试结果不尽相同．例如，在 <cite>conf.py</cite> 文件中将 <cite>language</cite> 项设为 <cite>zh_CN</cite> 一般可以正确地建立索引项．如果仍然不行，可以尝试安装 jieba 分词库：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>pip install jieba
+</pre></div>
+</div>
+<p>如果你使用的是 Python 3，也可以尝试：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>pip3 install jieba3k
+</pre></div>
+</div>
+<p>之后在构建 HTML 时，就能看到类似的命令行输出：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>Building prefix dict from e:\intelpython3.6\lib\site-packages\jieba\dict.txt ...
+Loading model from cache C:\Users\wklchris\AppData\Local\Temp\jieba.cache
+Loading model cost 0.9786026477813721 seconds.
+Prefix dict has been built succesfully.
+</pre></div>
+</div>
+<p>最后说明一句：</p>
+<ol class="arabic simple">
+<li>本地测试可以搜索功能，但只能显示搜索结果所在的章节或文件，词条结果的详细文本不会展开；因此，只要本地搜索能够正常搜到词汇，那么具体的显示效果还需要推送到服务器端才能查看．</li>
+<li>搜索功能并非完美，部分词汇可能不被识别．在测试搜索是否可用时，请尽量使用文中确定出现的、非生僻或术语的词汇进行测试．</li>
+</ol>
 <p class="rubric">注释</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

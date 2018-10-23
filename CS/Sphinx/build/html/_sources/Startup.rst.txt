@@ -118,6 +118,51 @@ Sphinx_ 是一个文档生成工具，致力于构建美观的文档．起初该
 
 该文件的作用是完成了到 `build/html/index.html` 的跳转．
 
+
+其他插件及疑难问题
+-----------------------
+
+其他的美观性问题大多可以用 CSS 的撰写来解决；读者可以参考本文文末的注释中提及的内容．
+
+Matplotlib 绘图插件
+^^^^^^^^^^^^^^^^^^^^^^
+
+值得一提的还有 Matplotlib 提供的插件，定义了 `plot` 指令，可以直接从外部导入 .py 文件绘图，或者在 reST 文档中输入 Python 代码进行绘图（均需要在 `conf.py` 的插件中添加 `matplotlib.sphinxext.only_directives` 项）．下面是一个例子，具体请参考：`Matplotlib Extensions <https://matplotlib.org/sampledoc/extensions.html>`_ 页面．
+
+.. code-block:: rest
+   
+   .. plot:: /draw/py-draw-circle.py
+      :include-source: 
+
+搜索功能
+^^^^^^^^^^^^^^
+
+至于搜索功能，在不同设备上的测试结果不尽相同．例如，在 `conf.py` 文件中将 `language` 项设为 `zh_CN` 一般可以正确地建立索引项．如果仍然不行，可以尝试安装 jieba 分词库：
+
+.. code-block:: bat
+   
+   pip install jieba
+
+如果你使用的是 Python 3，也可以尝试：
+
+.. code-block:: bat
+
+   pip3 install jieba3k
+
+之后在构建 HTML 时，就能看到类似的命令行输出：
+
+.. code-block:: bat
+
+   Building prefix dict from e:\intelpython3.6\lib\site-packages\jieba\dict.txt ...
+   Loading model from cache C:\Users\wklchris\AppData\Local\Temp\jieba.cache
+   Loading model cost 0.9786026477813721 seconds.
+   Prefix dict has been built succesfully.
+
+最后说明一句：
+
+1. 本地测试可以搜索功能，但只能显示搜索结果所在的章节或文件，词条结果的详细文本不会展开；因此，只要本地搜索能够正常搜到词汇，那么具体的显示效果还需要推送到服务器端才能查看．
+#. 搜索功能并非完美，部分词汇可能不被识别．在测试搜索是否可用时，请尽量使用文中确定出现的、非生僻或术语的词汇进行测试．
+
 .. 自定义链接
 
 .. _Python: https://www.python.org/
