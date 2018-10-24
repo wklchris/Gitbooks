@@ -18,12 +18,13 @@
 
 | 名称 | 更新日期 | 状况 | 文档工具 | 阅读页面 | 仓库 |
 | --- | --- | --- | --- | --- | --- |
-| Gitbook 学习笔记 | Oct 2018 | 完成 | Gitbook | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook) |
-| reStructuredText 学习笔记 | Oct 2018 | 完成 | Gitbook | [在线阅读](https://wklchris.github.io/Gitbooks/CS/reStructuredText/publish/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/reStructuredText) |
-| Sphinx 学习笔记 | Oct 2018 | 完成 | Sphinx | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Sphinx/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/CS/Sphinx) |
+| Gitbook 学习笔记 | Oct 2018 | 完成 | Gitbook | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/) | [CS/Gitbook](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook) |
+| reStructuredText 学习笔记 | Oct 2018 | 完成 | Gitbook | [在线阅读](https://wklchris.github.io/Gitbooks/CS/reStructuredText/publish/) | [CS/reStructuredText](https://github.com/wklchris/Gitbooks/tree/master/CS/reStructuredText) |
+| Sphinx 学习笔记 | Oct 2018 | 完成 | Sphinx | [在线阅读](https://wklchris.github.io/Gitbooks/CS/Sphinx/) | [CS/Sphinx](https://github.com/wklchris/Gitbooks/tree/master/CS/Sphinx) |
 
 ### Math
 
 | 名称 | 更新日期 | 状况 | 文档工具 | 阅读页面 | 仓库 |
 | --- | --- | --- | --- | --- | --- |
-| 常微分方程笔记 | Oct 2018 | 施工中 | Sphinx | [在线阅读](https://wklchris.github.io/Gitbooks/Math/ODE/) | [仓库](https://github.com/wklchris/Gitbooks/tree/master/Math/ODE) |
+| 常微分方程笔记 | Oct 2018 | 施工中 | Sphinx | [在线阅读](https://wklchris.github.io/Gitbooks/Math/ODE/) | [Math/ODE](https://github.com/wklchris/Gitbooks/tree/master/Math/ODE) |
+| 线性代数笔记 | Oct 2018 | 施工中 | Sphinx | [在线阅读](https://wklchris.github.io/Gitbooks/Math/LinearAlgebra/) | [Math/LinearAlgebra](https://github.com/wklchris/Gitbooks/tree/master/Math/LinearAlgebra) |
