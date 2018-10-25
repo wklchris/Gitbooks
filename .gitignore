@@ -22,8 +22,11 @@
 *.pdf
 
 
-# Sphinx Ignore
+# -- Sphinx Ignore --
 **/doctrees
+
+# Sphinx 'master' branch ignore
+**/build
 
 # Sphinx: matplotlib auto-generated png
 **/plot_directive
