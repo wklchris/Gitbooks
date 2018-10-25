@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>基本概念 &mdash; 常微分方程笔记 0.1 alpha 文档</title>
+  <title>1. 基本概念 &mdash; 常微分方程笔记 0.2 文档</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="初等积分法" href="MethodForSolving.html" />
-    <link rel="prev" title="《常微分方程笔记》前言" href="index.html" /> 
+    <link rel="next" title="2. 初等积分法" href="MethodForSolving.html" />
+    <link rel="prev" title="第一部分 常微分方程" href="index-ODE.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.1
+                0.2
               </div>
             
           
@@ -84,24 +84,23 @@
             
               <p class="caption"><span class="caption-text">目录</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">基本概念</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">微分方程的基本定义</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">阶与线性的概念</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index-ODE.html">第一部分：常微分方程</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 基本概念</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.1. 微分方程的基本定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.2. 微分方程的解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.3. 微分方程及其解的几何意义</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">微分方程的解</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">通解、特解与初值问题</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">微分方程及其解的几何意义</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">积分曲线与方向场</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#subsec-direction-field">方向场的绘制</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">方向场对求解微分方程的意义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MethodForSolving.html">2. 初等积分法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MethodForSolving.html#id2">2.1. 全微分方程（恰当方程）</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="MethodForSolving.html">初等积分法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-DS.html">第二部分：动力系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html">1. 动力系统基础</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -147,15 +146,15 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>基本概念</li>
+          <li><a href="index-ODE.html">第一部分 常微分方程</a> &raquo;</li>
+        
+      <li>1. 基本概念</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            
-              <a href="https://github.com/wklchris/Gitbooks/blob/master/Math/ODE/source/Basic.rst" class="fa fa-github"> Edit on GitHub</a>
-            
+            <a href="_sources/Basic.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -165,10 +164,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="MethodForSolving.html" class="btn btn-neutral float-right" title="初等积分法" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="MethodForSolving.html" class="btn btn-neutral float-right" title="2. 初等积分法" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="《常微分方程笔记》前言" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index-ODE.html" class="btn btn-neutral" title="第一部分 常微分方程" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -178,10 +177,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>基本概念<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>1. 基本概念<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>本章介绍微分方程的基础内容．</p>
 <div class="section" id="id2">
-<h2>微分方程的基本定义<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>1.1. 微分方程的基本定义<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="def admonition">
 <p class="first admonition-title">定义：常微分方程</p>
 <blockquote class="last">
@@ -193,7 +192,7 @@
 </div>
 <p>如果未知函数 <img class="math" src="_images/math/d36ba7df04eeced009dfb2d0b730f6203b101b95.svg" alt="y"/> 是多元函数，那么拥有类似形式的含偏导数的方程叫 <strong>偏微分方程</strong> (partial differential equation, PDE)；偏微分方程的内容不在本手册的讨论范畴．</p>
 <div class="section" id="id4">
-<h3>阶与线性的概念<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h3>1.1.1. 阶与线性的概念<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>常微分方程式 <a class="reference internal" href="#equation-ode">(1)</a> 中出现的最高阶的 <img class="math" src="_images/math/d36ba7df04eeced009dfb2d0b730f6203b101b95.svg" alt="y"/> 的导数的阶数，称为该微分方程的 <strong>阶</strong> (order)．</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：常微分方程</p>
@@ -211,7 +210,7 @@
 </div>
 </div>
 <div class="section" id="id5">
-<h2>微分方程的解<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>1.2. 微分方程的解<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>下面定义微分方程的解：</p>
 <div class="def admonition" id="def-solution">
 <p class="first admonition-title">定义：微分方程的解</p>
@@ -224,7 +223,7 @@
 </div>
 <p>例如，我们容易验证，<img class="math" src="_images/math/83049283af59246112624a40a73353cfd3460bcc.svg" alt="y=\ue^x"/> 是微分方程 <img class="math" src="_images/math/64e944b81a4c7450fdba6df4e9b30764a391b9ae.svg" alt="y_x = y"/> 的一个解．我们还发现，对于任意常数 <img class="math" src="_images/math/b5fdd0befe9b59db1732c060ab8a2fa03ab6ad97.svg" alt="C"/>，函数 <img class="math" src="_images/math/f0846aab95a025c383cc4d47f4316416dae5596c.svg" alt="y=C\ue^x"/> 都是该方程的解．</p>
 <div class="section" id="id6">
-<h3>通解、特解与初值问题<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3>1.2.1. 通解、特解与初值问题<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <div class="def admonition" id="def-general-solution">
 <p class="first admonition-title">定义：通解、特解</p>
 <blockquote class="last">
@@ -251,7 +250,7 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 </div>
 </div>
 <div class="section" id="id8">
-<h2>微分方程及其解的几何意义<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2>1.3. 微分方程及其解的几何意义<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>从最简单的一阶微分方程开始，我们来简要阐述微分方程及其解的几何意义．</p>
 <div class="def admonition">
 <p class="first admonition-title">定义：积分曲线</p>
@@ -263,7 +262,7 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 </div></blockquote>
 </div>
 <div class="section" id="id9">
-<h3>积分曲线与方向场<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h3>1.3.1. 积分曲线与方向场<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>结合导数的定义，我们知道对于积分曲线 <img class="math" src="_images/math/e9ecd3aecea61a95b037677d4364d8c8740be8cb.svg" alt="\Gamma"/> 上任意一点 <img class="math" src="_images/math/f79eb90a73368b18d9874ddd20ce669a327555b4.svg" alt="(x_0,y_0)"/> 处的切线斜率即为 <img class="math" src="_images/math/e2c1a04ab268b7d706c65293ef40a9b0bf6e85c1.svg" alt="\varphi'(x_0)=f(x_),\varphi(x_0))"/>．由此可知：即使我们不能直接求得曲线 <img class="math" src="_images/math/e9ecd3aecea61a95b037677d4364d8c8740be8cb.svg" alt="\Gamma"/>，我们也可以写出该曲线在其上任意一点处的切线方程．</p>
 <p>在区域 <img class="math" src="_images/math/2ca51654330b098e6f0a6b0a784caed54b01afa1.svg" alt="G"/> 内的每个点 <img class="math" src="_images/math/d664c0e90b3a453b14119f52ef3a9ae60309c5da.svg" alt="P(x,y)"/>，我们均可用上述方法确定积分曲线（若存在）在该点的切线方向．在点 <img class="math" src="_images/math/5dcd176d37f3cc02a5d666df62bf033086c72b32.svg" alt="P"/> 处画出一个极短的线段，用以标明曲线 <img class="math" src="_images/math/e9ecd3aecea61a95b037677d4364d8c8740be8cb.svg" alt="\Gamma"/> 在该点处的切线斜率方向，这样的线段称为微分方程在点 <img class="math" src="_images/math/5dcd176d37f3cc02a5d666df62bf033086c72b32.svg" alt="P"/> 处的 <strong>线素</strong>；区域 <img class="math" src="_images/math/2ca51654330b098e6f0a6b0a784caed54b01afa1.svg" alt="G"/> 与其上全体线素，称为微分方程的 <strong>方向场</strong> (direction field)，也称 <strong>线素场</strong> (slope field)．在绘制方向场时，通常用等式 <img class="math" src="_images/math/a4da48f97e8e14183f3efc950028712ccb8b1c7d.svg" alt="f(x,y)=k"/> 来绘制由常数 <img class="math" src="_images/math/90a70e0bf92184ed758a239870aa310b14482438.svg" alt="k"/> 确定的曲线 <img class="math" src="_images/math/0f48ffe0dc56e272646e5dd12dd710c87b87d36f.svg" alt="L_k"/>，称为方向场的 <strong>等倾线</strong> (isocline)．绘制的例子见 <a class="reference internal" href="#subsec-direction-field"><span class="std std-ref">方向场的绘制</span></a> 一节．</p>
 <p>显然，方程的任何积分曲线 <img class="math" src="_images/math/e9ecd3aecea61a95b037677d4364d8c8740be8cb.svg" alt="\Gamma"/> 与它的线素场吻合；反之，如果区域 <img class="math" src="_images/math/2ca51654330b098e6f0a6b0a784caed54b01afa1.svg" alt="G"/> 上存在一条光滑的曲线</p>
@@ -272,7 +271,7 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 </div><p>与方向场吻合，那么 <img class="math" src="_images/math/fc4f06b9462a8929e9cbf71119d298922f6b13c9.svg" alt="\Delta"/> 是方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 的一条积分曲线．</p>
 </div>
 <div class="section" id="subsec-direction-field">
-<span id="id10"></span><h3>方向场的绘制<a class="headerlink" href="#subsec-direction-field" title="永久链接至标题">¶</a></h3>
+<span id="id10"></span><h3>1.3.2. 方向场的绘制<a class="headerlink" href="#subsec-direction-field" title="永久链接至标题">¶</a></h3>
 <p>上文叙述了如何使用线素和等倾线来绘制方向场．但有一点尚需说明：微分方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 右侧的函数 <img class="math" src="_images/math/f9ab76cfa6043e247f85b269e2c8dc272f6b6bc2.svg" alt="f(x,y)"/> 有时或许是未定式，这是绘制时可能遇到的特殊情况．例如，微分方程通常的对称形式：</p>
 <div class="math">
 <p><img src="_images/math/2887c944c773bf7a68758244c3438c6a050baaff.svg" alt="P(x,y)\ud x + Q(x,y)\ud y = 0"/></p>
@@ -299,7 +298,7 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 </div>
 </div>
 <div class="section" id="id11">
-<h3>方向场对求解微分方程的意义<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<h3>1.3.3. 方向场对求解微分方程的意义<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
 <p>通过方向场的绘制，我们可以大致把握积分曲线的形状．如果取点足够密，那么方向场就能较清楚地展示积分曲线的近似图．这在无法或不必求精确解时，给出了一种近似解的求得方式．</p>
 <p>即使我们求得了微分方程的精确解，有时我们仍需借助方向场（或某些特定点附近的线素）来解决问题．</p>
 <p class="rubric">注释</p>
@@ -336,10 +335,10 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="MethodForSolving.html" class="btn btn-neutral float-right" title="初等积分法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="MethodForSolving.html" class="btn btn-neutral float-right" title="2. 初等积分法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="《常微分方程笔记》前言" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index-ODE.html" class="btn btn-neutral" title="第一部分 常微分方程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

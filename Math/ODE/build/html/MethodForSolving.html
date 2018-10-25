@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>初等积分法 &mdash; 常微分方程笔记 0.1 alpha 文档</title>
+  <title>2. 初等积分法 &mdash; 常微分方程笔记 0.2 文档</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="基本概念" href="Basic.html" /> 
+    <link rel="next" title="第二部分 动力系统" href="index-DS.html" />
+    <link rel="prev" title="1. 基本概念" href="Basic.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -57,7 +58,7 @@
             
             
               <div class="version">
-                0.1
+                0.2
               </div>
             
           
@@ -83,9 +84,21 @@
             
               <p class="caption"><span class="caption-text">目录</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Basic.html">基本概念</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">初等积分法</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">全微分方程（恰当方程）</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index-ODE.html">第一部分：常微分方程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic.html">1. 基本概念</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id2">1.1. 微分方程的基本定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id5">1.2. 微分方程的解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.3. 微分方程及其解的几何意义</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. 初等积分法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1. 全微分方程（恰当方程）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index-DS.html">第二部分：动力系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html">1. 动力系统基础</a></li>
 </ul>
 </li>
 </ul>
@@ -133,15 +146,15 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>初等积分法</li>
+          <li><a href="index-ODE.html">第一部分 常微分方程</a> &raquo;</li>
+        
+      <li>2. 初等积分法</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            
-              <a href="https://github.com/wklchris/Gitbooks/blob/master/Math/ODE/source/MethodForSolving.rst" class="fa fa-github"> Edit on GitHub</a>
-            
+            <a href="_sources/MethodForSolving.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -151,8 +164,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
+        <a href="index-DS.html" class="btn btn-neutral float-right" title="第二部分 动力系统" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="Basic.html" class="btn btn-neutral" title="基本概念" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="Basic.html" class="btn btn-neutral" title="1. 基本概念" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -162,10 +177,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>初等积分法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>2. 初等积分法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>本章介绍基础微分方程的解法．通过初等函数的有限次积分的表达式来求解微分方程的方法，统称为初等积分法．虽然刘维尔 (Liouville) 已在 1841 年证明了绝大多数的微分方程不能用初等积分法求解，但这类求解法仍然是学习微分方程基础与解决实际微分问题中要求的知识．</p>
 <div class="section" id="id2">
-<h2>全微分方程（恰当方程）<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>2.1. 全微分方程（恰当方程）<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>首先，我们介绍最易于求解的一类微分方程：</p>
 <div class="def admonition">
 <p class="first admonition-title">定义：全微分方程</p>
@@ -199,7 +214,7 @@
 <blockquote class="last">
 <div><p>设函数 <img class="math" src="_images/math/bbcc20242429e38b2dcf594e7e3083073888970d.svg" alt="P(x, y)"/> 与 <img class="math" src="_images/math/deff53b73f54e0a33a22dbac612f71fca2e01d77.svg" alt="Q(x,y)"/> 在区域 <img class="math" src="_images/math/01915edc99ebbc209eb4f087fa7e85ca5e8f587e.svg" alt="G: [\alpha, \beta]\times [\gamma, \delta] \subseteq \uR^2"/> 上连续，且有连续的偏导数 <img class="math" src="_images/math/23a7039ea332e4501a63249eec1a62a6df358acc.svg" alt="\frac{\partial P}{\partial y}"/> 与 <img class="math" src="_images/math/a7a64aefea1f34bbc9cf347abd83aa0f205211c2.svg" alt="\frac{\partial Q}{\partial x}"/>，那么微分方程 <a class="reference internal" href="#equation-symmetric-ode">(1)</a> 是全微分方程的充要条件是</p>
 <div class="math">
-<p><img src="_images/math/f24f8b0a2c7d42a7c398f228043e8edbea2da675.svg" alt="\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial X}"/></p>
+<p><img src="_images/math/67bec8f0e0460f9447bb27cef1edd9655d883dae.svg" alt="\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}"/></p>
 </div><p>在区域 G 上恒成立．</p>
 <p>【证】必要性可由偏导连续性和混合偏导数的连续性可直接证得．下证充分性．为满足 <img class="math" src="_images/math/81e8edd43248be7047ab65195d265adfcd7f3950.svg" alt="\frac{\partial \Phi}{\partial x} = P"/>，我们构造一个下述的函数 <img class="math" src="_images/math/f95a618565ce5a9184aac1a194168d8df7f464f1.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \psi(y)"/>，其中函数 <img class="math" src="_images/math/883fe7e41640269b21185dba2fdc3e5ec6d6f5ba.svg" alt="\psi(y)"/> 是待由 <img class="math" src="_images/math/56945ec5022892cfb5b3ca65586b1e12f7a6adce.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/> 确定的一个函数．代入此式中，得：</p>
 <div class="math">
@@ -212,7 +227,7 @@
 <p><img src="_images/math/0a4e0dadb5df55c971edfbf7fcc3c5ff761fa8a5.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \int_{y_0}^y Q(x_0, y)\ud y."/></p>
 </div><p>如果在构造 <img class="math" src="_images/math/50f75cc23eb876915dd5d58c7374b27e25a0f994.svg" alt="\Phi(x,y)"/> 时先满足 <img class="math" src="_images/math/56945ec5022892cfb5b3ca65586b1e12f7a6adce.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/>，那么将得到：</p>
 <div class="math">
-<p><img src="_images/math/adaba0d9a0c5410d86aaa7b676463e11d9fdbf98.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \qedsymbol"/></p>
+<p><img src="_images/math/8f0928a5e255f013ffebac993f235214f62fbe94.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \quad\qedsymbol"/></p>
 </div></div></blockquote>
 </div>
 <p class="rubric">注释</p>
@@ -236,8 +251,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="index-DS.html" class="btn btn-neutral float-right" title="第二部分 动力系统" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="Basic.html" class="btn btn-neutral" title="基本概念" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="Basic.html" class="btn btn-neutral" title="1. 基本概念" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -24,9 +24,9 @@ copyright = '2018, wklchris'
 author = 'wklchris'
 
 # The short X.Y version
-version = '0.1'
+version = '0.2'
 # The full version, including alpha/beta/rc tags
-release = '0.1 alpha'
+release = '0.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -53,17 +53,6 @@ imgmath_latex_preamble = r'''
 \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}
 \newcommand{\ue}{\mathop{}\negthinspace\mathrm{e}}
 '''
-
-# Read the Docs Support
-# See: https://docs.readthedocs.io/en/latest/vcs.html?highlight=github
-
-html_context = {
-    "display_github": True, # Integrate GitHub
-    "github_user": "wklchris", # Username
-    "github_repo": "Gitbooks", # Repo name
-    "github_version": "master", # Version
-    "conf_py_path": "/Math/ODE/source/", # Path in the checkout to the docs root
-}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -102,7 +91,9 @@ pygments_style = None
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'prev_next_buttons_location': 'both',
-    'navigation_depth': 3
+    'navigation_depth': 3,
+    # TOC
+    'collapse_navigation': False
 }
 html_style = 'css/rtd-revised.css' 
 

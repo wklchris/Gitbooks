@@ -59,7 +59,7 @@
 
     .. math::
 
-        \frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial X}
+        \frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}
 
     在区域 G 上恒成立．
 
@@ -85,7 +85,7 @@
 
     .. math::
 
-        \Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \qedsymbol
+        \Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \quad\qedsymbol
 
 
 .. rubric:: 注释
