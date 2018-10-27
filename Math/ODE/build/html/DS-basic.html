@@ -85,9 +85,20 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index-ODE.html">第一部分：常微分方程</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Basic.html">1. 基本概念</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id2">1.1. 微分方程的基本定义</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id5">1.2. 微分方程的解</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.3. 微分方程及其解的几何意义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id2">1.1. 微分方程的基本定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id4">1.1.1. 阶与线性的概念</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id5">1.2. 微分方程的解</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id6">1.2.1. 通解、特解与初值问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.3. 微分方程及其解的几何意义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id9">1.3.1. 积分曲线与方向场</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#subsec-direction-field">1.3.2. 方向场的绘制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id11">1.3.3. 方向场对求解微分方程的意义</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="MethodForSolving.html">2. 初等积分法</a><ul>
@@ -97,7 +108,17 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index-DS.html">第二部分：动力系统</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 动力系统基础</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 动力系统基础</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.1. 动力系统引言</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.1.1. 连续动力系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">1.1.2. 离散动力系统*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#toc-ds-properties">1.1.3. 动力系统的基本性质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">1.1.4. 动力系统的几何概念</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#toc-manifold">1.1.5. 流形*</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -176,6 +197,116 @@
   <div class="section" id="id1">
 <h1>1. 动力系统基础<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>从此处，开始本笔记的第二部分，主要讲述动力系统的内容．</p>
+<div class="section" id="id2">
+<h2>1.1. 动力系统引言<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在此不讨论动力系统是否有严格数学意义上的定义．用描述性定义叙述，<strong>动力系统</strong> (dynamic system) 就是点 <img class="math" src="_images/math/666e4617442df49a5a357848220d1df319b7856e.svg" alt="\bx"/> 与其允许运动的空间 <img class="math" src="_images/math/c5c9c6821760a0d87da048112b8a0c9083ba6e13.svg" alt="X"/> 组成的随时间 <img class="math" src="_images/math/7429ec0836b2b68ef76219b9a123add36c1ec34e.svg" alt="t"/> 变化的系统．结合本笔记第一部分微分方程的概念，任何 <strong>自治</strong> 微分方程</p>
+<div class="math" id="equation-ds-def">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-ds-def" title="公式的永久链接">¶</a></span><img src="_images/math/28ac0530418b336f0a3d7ef71f2a3b43569fd669.svg" alt="\frac{\ud \bx}{\ud t} = \boldsymbol{v}(\bx)"/></p>
+</div><p>都可以视作一个动力系统．值得注意的是，此处用数学黑体 <img class="math" src="_images/math/666e4617442df49a5a357848220d1df319b7856e.svg" alt="\bx"/> 表示质点的位置是一个 <img class="math" src="_images/math/48c390a5d923e86e2fc31b8245a9aaec07bb86d1.svg" alt="n"/> 维向量，且上式右侧的速度函数 <img class="math" src="_images/math/6adf32ca597c12a059faf2a12f4405edd7a26605.svg" alt="\boldsymbol{v}"/> 是一个向量值函数．</p>
+<p>在现实世界的例子中，质点位置用三维向量标定，即 <img class="math" src="_images/math/0cb06feff3c4fcf2e1085bc468552a2af805aa6d.svg" alt="n=3"/>；质点运动的空间通常可以定义为整个三维空间，即 <img class="math" src="_images/math/221f666a59e42c50c7bc6c534484bde7c21fb48e.svg" alt="X=\uR^3"/>．那么，微分方程 <a class="reference internal" href="#equation-ds-def">(1)</a> 可以写作：</p>
+<div class="math">
+<p><img src="_images/math/34bbdf201ac0a0c91bf9c44dbac5dfe7946c007c.svg" alt="\frac{\ud }{\ud t}\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} v_1(x) \\ v_2(y) \\ v_3(z) \end{pmatrix}"/></p>
+</div><p>质点运动空间可以是任何合理的流形；关于流形的概念，请参考选读的 <a class="reference internal" href="#toc-manifold"><span class="std std-ref">流形*</span></a> 一节．</p>
+<div class="section" id="id3">
+<h3>1.1.1. 连续动力系统<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>本笔记中主要讨论的动力系统都是连续的情形．更通常地，考虑 <img class="math" src="_images/math/48c390a5d923e86e2fc31b8245a9aaec07bb86d1.svg" alt="n"/> 维的一阶自治系统：</p>
+<div class="math">
+<p><img src="_images/math/a63d345af43f8164c2e6060e7f6befc26a8474fd.svg" alt="\frac{\ud \bx}{\ud t} = \boldsymbol{f}(\bx), \quad \bx(t): I\subseteq\uR \to \uR^n"/></p>
+</div><p>若无特殊说明，其具有 <img class="math" src="_images/math/151b99ca396dd3e3ec28417b0feb464e6a31c4cc.svg" alt="t=t_0"/> 时刻的初值条件：</p>
+<div class="math">
+<p><img src="_images/math/7a0a0f84c999ae805b6010fc031205e104a01eff.svg" alt="\bx(t_0) = \bx_0"/></p>
+</div><p>该微分方程与初值条件构成的初值问题的解：<img class="math" src="_images/math/1b4f751650e6a10df01274dc52e0ff914b58cf93.svg" alt="\bx(t) = \varphi(t, t_0, x_0)"/> （有时也简记为 <img class="math" src="_images/math/ce79d3ada5c32bd581545cab38b288524be5060e.svg" alt="\varphi_t(x_0)"/>，原因见 <a class="reference internal" href="#toc-ds-properties"><span class="std std-ref">动力系统的基本性质</span></a> 一节的性质 1） 称为 <strong>流</strong> (flow)，或称流图 (flow map)．该初值问题的流描述了质点在 <img class="math" src="_images/math/8b946fec4ac18ab351a7a3098f9d2ff7c7f3ba1a.svg" alt="t_0"/> 时刻经过坐标 <img class="math" src="_images/math/bc33812e278f7741f71bcb2df1494d337124e90e.svg" alt="\bx_0"/> 的运动．</p>
+</div>
+<div class="section" id="id4">
+<h3>1.1.2. 离散动力系统*<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>离散动力系统不是本笔记的重点，在此只做简要介绍．</p>
+<p>为与连续动力系统区分，我们用大写 <img class="math" src="_images/math/ec33d09193cd315c1d0b39589cb777d19e905609.svg" alt="\boldsymbol{F}"/> 来表示动力系统右侧的函数：</p>
+<div class="math">
+<p><img src="_images/math/2a9409c58063ab64d0efe2b00854ce5047a487ea.svg" alt="\bx_{n+1} = \boldsymbol{F}(\bx_n), \quad \boldsymbol{F}: X\to X"/></p>
+</div><p>此时，动力系统的质点轨迹是一系列离散的点．如果 <img class="math" src="_images/math/ec33d09193cd315c1d0b39589cb777d19e905609.svg" alt="\boldsymbol{F}"/> 可逆，我们可以由后续的点倒推之前的点位置．</p>
+</div>
+<div class="section" id="toc-ds-properties">
+<span id="id5"></span><h3>1.1.3. 动力系统的基本性质<a class="headerlink" href="#toc-ds-properties" title="永久链接至标题">¶</a></h3>
+<p>下面给出动力系统 <a class="reference internal" href="#equation-ds-def">(1)</a> 的几个基本性质：</p>
+<ol class="arabic">
+<li><p class="first"><strong>积分曲线平移不变性</strong> ：系统的积分曲线在增广相空间中沿 <img class="math" src="_images/math/7429ec0836b2b68ef76219b9a123add36c1ec34e.svg" alt="t"/> 轴平移后，仍然是该系统的积分曲线．这一点由自治系统的平移性可以获知：若 <img class="math" src="_images/math/aa672a60bccb35b783b60b13f0394bd9596fea1a.svg" alt="\bx=\varphi(t)"/> 是自治系统的一个解，那么对任意常数 <img class="math" src="_images/math/592b886447c806876a22f7bd18c4d6216e4bcc33.svg" alt="C"/> 都有 <img class="math" src="_images/math/29e1a883fa7b6c051e43b0c77f259ca871a2119f.svg" alt="\bx=\varphi(t+C)"/> 也是该自治系统的解．</p>
+<blockquote>
+<div><p>由此性质可知，自治微分方程的解 <img class="math" src="_images/math/4174d7fcc0338d9f5268c029cce51d051d3a3283.svg" alt="\varphi(t,t_0,x_0)"/> 的一个平移 <img class="math" src="_images/math/dfed562e069d6cf555bda74fc5968354c9187cf3.svg" alt="\varphi(t-t_0,0,x_0)"/> 也是原方程的解；又知它们满足同样的初值条件，因此它们恒等．因此在解族中只需考虑初始时刻 <img class="math" src="_images/math/33c01c07e1608909923d6af68a90b9f26a9d1bff.svg" alt="t_0=0"/> 的解，通常可简记为 <img class="math" src="_images/math/2eb14c8f495a079fc7b314faa05d246ec0060327.svg" alt="\varphi_t(\bx_0)"/> <a class="footnote-reference" href="#f1" id="id6">[1]</a> 或者 <img class="math" src="_images/math/2991b865cf9ff87cccc53ef6bb9a992b264d9872.svg" alt="\varphi(t, \bx_0)"/>：</p>
+<div class="math">
+<p><img src="_images/math/2fcda5bc02be5331d0e7efdc3bb57444bc84f1c4.svg" alt="\varphi_t(\bx_0) = \varphi(t, \bx_0) \overset{\textrm{def}}{=} \varphi(t, 0, \bx_0)"/></p>
+</div></div></blockquote>
+</li>
+<li><p class="first"><strong>过相空间每一点轨线的唯一性</strong> ：轨线的存在性显然．唯一性证明如下：</p>
+<blockquote>
+<div><p>假设相空间的点 <img class="math" src="_images/math/666e4617442df49a5a357848220d1df319b7856e.svg" alt="\bx"/> 附近有两条轨线段 <img class="math" src="_images/math/fcaa0023a171e0d8315afa8f4fe087ee9aef2239.svg" alt="\ell_1,\ell_2"/> 均通过该点，那么必有两条不同的积分曲线段 <img class="math" src="_images/math/58e9180faa5ead0bcccc8a074911f7abe1f9bcc5.svg" alt="\Gamma_1,\Gamma_2"/> (它们可以属于同一条积分曲线)在相空间中的投影分别是 <img class="math" src="_images/math/fcaa0023a171e0d8315afa8f4fe087ee9aef2239.svg" alt="\ell_1,\ell_2"/>．设这两条积分曲线段上分别在时刻 <img class="math" src="_images/math/e7680567a7f3c59e149f8a490081a9598e4aabde.svg" alt="t_1,t_2"/> 的位置投影到相空间为 <img class="math" src="_images/math/666e4617442df49a5a357848220d1df319b7856e.svg" alt="\bx"/>，将 <img class="math" src="_images/math/3a96e7b3a59f2de8f4b5d225f17a5c74c6964c19.svg" alt="\Gamma_1"/> 平移 <img class="math" src="_images/math/b9f3222666e22200a3aeccbd54399c93c51ec8eb.svg" alt="t_2-t_1"/> 后得到新的积分曲线 <img class="math" src="_images/math/b9adcd772dbec8329bdf9070ca61daafeef38a94.svg" alt="\Gamma_3"/>，它与 <img class="math" src="_images/math/65c3daf5f520538e4c6c528f2eacd968f029f743.svg" alt="\Gamma_2"/> 相交．由解的唯一性，<img class="math" src="_images/math/b9adcd772dbec8329bdf9070ca61daafeef38a94.svg" alt="\Gamma_3"/> 与 <img class="math" src="_images/math/65c3daf5f520538e4c6c528f2eacd968f029f743.svg" alt="\Gamma_2"/> 重合．因此，它们在相空间点 <img class="math" src="_images/math/666e4617442df49a5a357848220d1df319b7856e.svg" alt="\bx"/> 附近有相同的投影，这进一步推出 <img class="math" src="_images/math/3a96e7b3a59f2de8f4b5d225f17a5c74c6964c19.svg" alt="\Gamma_1"/> 与 <img class="math" src="_images/math/65c3daf5f520538e4c6c528f2eacd968f029f743.svg" alt="\Gamma_2"/> 在相空间此点附近有相同的投影，这与假设相悖．唯一性证毕．</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>加法群的性质</strong> ：动力系统的解 <img class="math" src="_images/math/2991b865cf9ff87cccc53ef6bb9a992b264d9872.svg" alt="\varphi(t, \bx_0)"/> 满足</p>
+<blockquote>
+<div><div class="math">
+<p><img src="_images/math/7697eed8a1681b3e65a3d48a65e375b97326d7a1.svg" alt="\varphi(t_2, \varphi(t_1, \bx_0)) = \varphi(t_1+t_2, \bx_0)"/></p>
+</div><p>或用集合的语言描述，单参数变换集合 <img class="math" src="_images/math/613913875cb609a21439c292c318ad007662f6ec.svg" alt="S = \{ \varphi_t \,|\, t\in\uR \}"/> 是一个复合运算下的加法群，即：</p>
+<div class="math">
+<p><img src="_images/math/8f07c86b71d97deb008ded5899c2eb9c501e8e2a.svg" alt="\varphi_s\circ \varphi_t = \varphi_{s+t}"/></p>
+</div><p>其中 <img class="math" src="_images/math/783130b7aee8172922ff8f4104191df8b8f7b3fa.svg" alt="\circ"/> 是复合运算符，上式亦即： <img class="math" src="_images/math/9bf3d402a934bbdfdfd9df8a1aa473b5c0fceacb.svg" alt="\varphi_s(\varphi_t(\bx)) = \varphi_{s+t}(\bx),\ \bx\in\uR^n"/>．</p>
+<p>该性质的等价的几何意义描述是：在相空间中，如果从 <img class="math" src="_images/math/bc33812e278f7741f71bcb2df1494d337124e90e.svg" alt="\bx_0"/> 出发的运动经过 <img class="math" src="_images/math/1cf907a953b5bbeffbaeb5531a14ff2ce4603a80.svg" alt="t_1"/> 时间到达 <img class="math" src="_images/math/494bf791c496bb466bbab1fb5e1d075370070376.svg" alt="\bx_1=\varphi(t_1, \bx_0)"/>，此后再经过 <img class="math" src="_images/math/f1b888c7035334ef35eb420c55e1b7d83d0fbc44.svg" alt="t_2"/> 时间又到达 <img class="math" src="_images/math/f81ee888082726bba17fb14f43a60cb503937335.svg" alt="\bx_2=\varphi(t_2, \bx_1)"/>．那么，从 <img class="math" src="_images/math/bc33812e278f7741f71bcb2df1494d337124e90e.svg" alt="\bx_0"/> 出发的运动经过 <img class="math" src="_images/math/9c64c478596810f7c5f15c1b2f8f744a22ff3f15.svg" alt="t_1+t_2"/> 时间也到达 <img class="math" src="_images/math/0f5dc6f74563db365e0ce1e331617c6bb425e94d.svg" alt="\bx_2"/>．</p>
+<p>该性质由性质 1 容易证得：<img class="math" src="_images/math/7c7638b8b9bc33810a44d7afe1d0bc7329b6a099.svg" alt="\varphi(t+t_1,\bx_0)"/> 是系统的解，它与另一个解 <img class="math" src="_images/math/69bef871132b04551f1739ea5eb79d9c761e65ad.svg" alt="\varphi(t,\varphi(t_1,\bx_0))"/> 在 <img class="math" src="_images/math/052684252d92c700a06733a89d1b237639bf01bf.svg" alt="t=0"/> 处的初值均为 <img class="math" src="_images/math/0465e120cf689783736afee3530391ae2b91ea80.svg" alt="\varphi(t_1,\bx_0)"/>，因此它们恒等．将恒等式两侧的 <img class="math" src="_images/math/7429ec0836b2b68ef76219b9a123add36c1ec34e.svg" alt="t"/> 取特殊值 <img class="math" src="_images/math/f1b888c7035334ef35eb420c55e1b7d83d0fbc44.svg" alt="t_2"/>，即可证得性质 3.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3>1.1.4. 动力系统的几何概念<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>通常，我们将系统中质点 <img class="math" src="_images/math/666e4617442df49a5a357848220d1df319b7856e.svg" alt="\bx"/> 取值的空间 <img class="math" src="_images/math/e062d30aa70296a8a24c299f05b9a875abc2467d.svg" alt="I\subseteq \uR^n"/> 称为 <strong>相空间</strong> (phase space)，而将 <img class="math" src="_images/math/76e77246cfdaba6d04cee528388c052cfe99c5b3.svg" alt="(t,\bx)"/> 取值的空间称为 <strong>增广相空间</strong> (extended phase space)．特别地，将一维运动背景的相空间称为相线 (phase line)，将二维运动背景的相空间称为相平面 (phase plane)．</p>
+<p>在相空间中，动力系统方程 <a class="reference internal" href="#equation-ds-def">(1)</a> 右侧的函数 <img class="math" src="_images/math/0fb8ff054279ee386beede3cd31427be208d3687.svg" alt="\boldsymbol{v}(\bx)"/> 定义了一个向量场．微分方程的解 <em>在相空间中</em> 对应的、与向量场吻合的光滑曲线，被称为 <strong>轨线</strong> (orbit)．需要指明， <strong>积分曲线是位于增广相空间的，而轨线实质是其沿</strong>  <img class="math" src="_images/math/7429ec0836b2b68ef76219b9a123add36c1ec34e.svg" alt="t"/> <strong>轴向相空间的投影</strong> ．</p>
+<p>作图时，我们通常用箭头标出轨线随时间 <img class="math" src="_images/math/7429ec0836b2b68ef76219b9a123add36c1ec34e.svg" alt="t"/> 增大时质点的运动方向．</p>
+<p>动力系统有两个重要的情形：</p>
+<ol class="arabic">
+<li><p class="first"><strong>平衡点</strong> (equilibrium)：也称微分方程的奇点 (singular point)．指动力系统的流 <img class="math" src="_images/math/7e81956d6c6ba70ba0cb0f7eb4a4766a3aa983df.svg" alt="\varphi_t(\bar{\bx})"/> 的不动点 (fixed point)：</p>
+<blockquote>
+<div><div class="math">
+<p><img src="_images/math/386f66fd09edb8fcbd7e30169cb751efafd14fe1.svg" alt="\varphi_t(\bar{\bx}) = \bar{\bx}"/></p>
+</div><p>将上式代入方程 <a class="reference internal" href="#equation-ds-def">(1)</a> 中，可以发现它是方程右侧函数的零点： <img class="math" src="_images/math/eb6ac77cca565716d860f1acce881bd144194122.svg" alt="f(\bar{\bx})=\boldsymbol{0}"/>．平衡点的几何性质会在下文讨论．</p>
+</div></blockquote>
+</li>
+<li><p class="first">周期解 (periodic solution)：即存在 <img class="math" src="_images/math/7b5bdd839fcc11db211e3d162be965955f8efc5b.svg" alt="T&gt;0"/> 使得 <img class="math" src="_images/math/64b61c0a7af0e7d04f827bbc98e859b471335577.svg" alt="\bx(t+T) = \bx(t)"/>．那么随着 <img class="math" src="_images/math/9e0cc939e5d973028b3036d22d61ef9ececcfd23.svg" alt="t\to \infty"/>，质点在轨线上作周而复始的运动．此时相空间中的轨线是闭合的曲线，称为闭轨 (closed orbit)．</p>
+</li>
+</ol>
+<p>最后，我们指出，动力系统的研究主要侧重于流与质点轨迹的全局特性，例如稳定性 (stability)、周期性 (periodicity)、混沌 (chaos) 理论，以及分支 (bifurcation) 理论．其中，上述奇点与闭轨的分析是基础的定性分析问题．</p>
+</div>
+<div class="section" id="toc-manifold">
+<span id="id8"></span><h3>1.1.5. 流形*<a class="headerlink" href="#toc-manifold" title="永久链接至标题">¶</a></h3>
+<p>实际上，除了常规的 <img class="math" src="_images/math/48c390a5d923e86e2fc31b8245a9aaec07bb86d1.svg" alt="n"/> 维空间，质点运动空间 <img class="math" src="_images/math/c5c9c6821760a0d87da048112b8a0c9083ba6e13.svg" alt="X"/> 也可以是其他 <strong>流形</strong> (manifold)．因此，有必要对流形这一概念做扼要的介绍．</p>
+<p>简而言之，流形是指每点局部均近似于欧几里得空间的拓扑空间．这样说可能仍显抽象，但可以考虑地球表面作为例子：在近地点，局部的地球表面可以近似视为一个二维平面（尽管在实际上它是三维曲面），并且用二维坐标系就能标定该局面表面每个点的位置．因此，实际在三维曲面上运动的地球表面的质点，在此背景下却可以（局部地）视为二维流形，并用二维的动力系统进行描述．</p>
+<p>虽然在此不深入探讨流形的严格定义，但为了更好地理解流形这一概念，在此介绍一个简单的流形作为例子：</p>
+<div class="def admonition">
+<p class="first admonition-title">例子：作为流形的圆</p>
+<blockquote class="last">
+<div><p>圆是一个简单的流形例子 <a class="reference external" href="https://en.wikipedia.org/wiki/Manifold#Circle"><sup>[source]</sup></a> ．考虑一个二维空间的单位圆 <img class="math" src="_images/math/9cc20ce993333afd545900e1e3e10ad1458bd19e.svg" alt="\mathbb{T}: x^2+y^2=1"/>．从局部观察，圆近似一条（曲）线段；而线段是一维对象．因此，我们可以用一维坐标来（局部地）描述圆．比如，在该圆位于 <img class="math" src="_images/math/64aa18a7cb8e8e52934702b08d5b9d012dd228fe.svg" alt="x"/> 轴上方的这一局部（即上半圆弧 <img class="math" src="_images/math/9a5caa9e121f8f2c858cf7e77630804fbfc56201.svg" alt="\mathbb{T}_+"/>），我们可以该圆弧上的任意一点均可用其横坐标来唯一确定．即存在映射：</p>
+<div class="math">
+<p><img src="_images/math/0f3a60a9937bb3e1e228cc305b557b044d51d488.svg" alt="f: (x, y) \to x, \quad (x,y)\in\mathbb{T}_+"/></p>
+</div><p>相应地，也存在逆映射：</p>
+<div class="math">
+<p><img src="_images/math/6d722b80b749bf803c69694636fec33640817d78.svg" alt="f^{-1}: x \to (x,\sqrt{1-x^2}), \quad x\in [-1,1]"/></p>
+</div><p>这样的映射 <img class="math" src="_images/math/cf3e25e8642802c5d9da346d581b01912352c93d.svg" alt="f"/> 称为流形 <img class="math" src="_images/math/5c0b816ccd3803ed562d9b75d6edf391deff6c4f.svg" alt="\mathbb{T}"/> 的一个 <strong>坐标图</strong> (coordinate chart)．将多个坐标图联合起来，可以确定流形上每个点，称这些坐标图为一个 <strong>图册</strong> (atlas)．显然，一个流形可以有多个图册．</p>
+<p>一个有趣的信息：该例的圆 <img class="math" src="_images/math/5c0b816ccd3803ed562d9b75d6edf391deff6c4f.svg" alt="\mathbb{T}"/> 的任何图册都包含不止一个坐标图（即不存在覆盖全圆的单一坐标图）．</p>
+</div></blockquote>
+</div>
+<p>流形的其他性质：</p>
+<ul class="simple">
+<li>流形不必连通 (connected)，比如两个无交点的圆．</li>
+<li>流形不必闭合 (closed)，比如一条两侧端点被挖去的线段．</li>
+<li>流形不必有限 (finite)，比如一组双曲线．</li>
+</ul>
+<p class="rubric">注释</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[1]</a></td><td>这里 <img class="math" src="_images/math/7449c035ca993160f214d582cd5cd3fd155d2a83.svg" alt="\varphi_t(\bx)"/> 的下标 <img class="math" src="_images/math/7429ec0836b2b68ef76219b9a123add36c1ec34e.svg" alt="t"/> 表示含参，而非对 <img class="math" src="_images/math/7429ec0836b2b68ef76219b9a123add36c1ec34e.svg" alt="t"/> 求导．</td></tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 

@@ -1,6 +1,8 @@
 # This Gitbook ignore file is modified based on:
 # https://github.com/github/gitignore/blob/master/GitBook.gitignore
 
+# gitignore file in gh-pages branch
+
 # Node rules:
 ## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 **/.grunt

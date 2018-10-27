@@ -52,6 +52,7 @@ imgmath_latex_preamble = r'''
 \newcommand{\uR}{\mathbb{R}}
 \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}
 \newcommand{\ue}{\mathop{}\negthinspace\mathrm{e}}
+\newcommand{\bx}{\boldsymbol{x}}
 '''
 
 # Add any paths that contain templates here, relative to this directory.
@@ -91,7 +92,7 @@ pygments_style = None
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'prev_next_buttons_location': 'both',
-    'navigation_depth': 3,
+    'navigation_depth': 4,
     # TOC
     'collapse_navigation': False
 }

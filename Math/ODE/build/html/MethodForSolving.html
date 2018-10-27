@@ -86,9 +86,20 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index-ODE.html">第一部分：常微分方程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic.html">1. 基本概念</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id2">1.1. 微分方程的基本定义</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id5">1.2. 微分方程的解</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.3. 微分方程及其解的几何意义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id2">1.1. 微分方程的基本定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id4">1.1.1. 阶与线性的概念</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id5">1.2. 微分方程的解</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id6">1.2.1. 通解、特解与初值问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.3. 微分方程及其解的几何意义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id9">1.3.1. 积分曲线与方向场</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#subsec-direction-field">1.3.2. 方向场的绘制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Basic.html#id11">1.3.3. 方向场对求解微分方程的意义</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2. 初等积分法</a><ul>
@@ -98,7 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index-DS.html">第二部分：动力系统</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html">1. 动力系统基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html">1. 动力系统基础</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id2">1.1. 动力系统导论</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DS-basic.html#id3">1.1.1. 连续动力系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DS-basic.html#id4">1.1.2. 离散动力系统*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DS-basic.html#id5">1.1.3. 流形*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id6">1.2. 动力系统的几何概念</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -187,47 +207,47 @@
 <blockquote class="last">
 <div><p>对一阶微分方程</p>
 <div class="math" id="equation-symmetric-ode">
-<p><span class="eqno">(1)<a class="headerlink" href="#equation-symmetric-ode" title="公式的永久链接">¶</a></span><img src="_images/math/df7d537dd95b0161466dcda1ad1192fff03144a5.svg" alt="P(x, y)\ud x + Q(x, y)\ud y = 0,"/></p>
-</div><p>如果存在一个可微函数 <img class="math" src="_images/math/50f75cc23eb876915dd5d58c7374b27e25a0f994.svg" alt="\Phi(x,y)"/>，使得其全微分满足下式 <a class="footnote-reference" href="#f3" id="id3">[1]</a></p>
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-symmetric-ode" title="公式的永久链接">¶</a></span><img src="_images/math/7915ab54cc11e1ccdf940fa182d2f8ef8caf5b36.svg" alt="P(x, y)\ud x + Q(x, y)\ud y = 0,"/></p>
+</div><p>如果存在一个可微函数 <img class="math" src="_images/math/62356bd51b50816c8409890fd13301f0f7fcfa84.svg" alt="\Phi(x,y)"/>，使得其全微分满足下式 <a class="footnote-reference" href="#f3" id="id3">[1]</a></p>
 <div class="math">
-<p><img src="_images/math/23e100738556871cd22fb91ed3973635db2664d5.svg" alt="\ud \Phi(x, y) = P(x, y)\ud x + Q(x, y)\ud y"/></p>
+<p><img src="_images/math/76f59dd5c28a3c4c6664aec91a06415eaec30b69.svg" alt="\ud \Phi(x, y) = P(x, y)\ud x + Q(x, y)\ud y"/></p>
 </div><p>则称式 <a class="reference internal" href="#equation-symmetric-ode">(1)</a> 为 <strong>全微分方程</strong> (total differential equation)，也称恰当方程 (exact equation)．</p>
 </div></blockquote>
 </div>
-<p>由定义中的函数 <img class="math" src="_images/math/476fe1339129919508e828bd5b100949bb5d85e1.svg" alt="\Phi(x, y)"/> 所确定的式 <img class="math" src="_images/math/dc6b2ba8c0c7d74fcea7c059d969a01daad72b0f.svg" alt="\Phi(x,y)=C"/>）显然就是微分方程的通解；这点由对等式两侧积分就可简单得到．</p>
+<p>由定义中的函数 <img class="math" src="_images/math/1196e28756547aaa192c6916ce6eea8402774341.svg" alt="\Phi(x, y)"/> 所确定的式 <img class="math" src="_images/math/388adbd473b913c8300c98215514be4f90a842c6.svg" alt="\Phi(x,y)=C"/>）显然就是微分方程的通解；这点由对等式两侧积分就可简单得到．</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：全微分方程</p>
 <blockquote class="last">
-<div><p>求解微分方程： <img class="math" src="_images/math/ac6f21f547166ef7d9accba14f6daf1dac16e159.svg" alt="xy^2\ud x + x^2y\ud y = 0"/>．</p>
-<p>观察左侧的式的形式，我们可以令 <img class="math" src="_images/math/6fef5847cdc46e2ffbb78a4a978b45179def8146.svg" alt="\Phi(x,y) = \frac{1}{2}x^2y^2"/>，那么：</p>
+<div><p>求解微分方程： <img class="math" src="_images/math/b15f8337fe6dc8d8580632fb57c48c8d9f2498fb.svg" alt="xy^2\ud x + x^2y\ud y = 0"/>．</p>
+<p>观察左侧的式的形式，我们可以令 <img class="math" src="_images/math/302ec8a7ad01cae82978874e23ddc3d86ef9ea6d.svg" alt="\Phi(x,y) = \frac{1}{2}x^2y^2"/>，那么：</p>
 <div class="math">
-<p><img src="_images/math/1994502180726176d003598a68e63c7eb6237dc7.svg" alt="\frac{\partial \Phi}{\partial x} = xy^2, \quad \frac{\partial \Phi}{\partial y} = x^2y."/></p>
+<p><img src="_images/math/9704d39b71ad4543e1daaf20f968568dd79d85a2.svg" alt="\frac{\partial \Phi}{\partial x} = xy^2, \quad \frac{\partial \Phi}{\partial y} = x^2y."/></p>
 </div><p>因此，原方程的左侧可以写作全微分的形式，再对等号两端积分：</p>
 <div class="math">
-<p><img src="_images/math/91da8014a3a19bd2478f6d728d9d1df9d9ebf94d.svg" alt="LHS = \ud \Phi(x,y) = RHS = 0 \implies x^2y^2 = C"/></p>
-</div><p>其中 <img class="math" src="_images/math/b5fdd0befe9b59db1732c060ab8a2fa03ab6ad97.svg" alt="C"/> 是任意常数．此即该微分方程的通解．</p>
+<p><img src="_images/math/ddbf9bcdfe2c05724c0a48a9e3afe1d5705e7747.svg" alt="LHS = \ud \Phi(x,y) = RHS = 0 \implies x^2y^2 = C"/></p>
+</div><p>其中 <img class="math" src="_images/math/592b886447c806876a22f7bd18c4d6216e4bcc33.svg" alt="C"/> 是任意常数．此即该微分方程的通解．</p>
 </div></blockquote>
 </div>
 <p>通过观察形式的方式判断一个微分方程是否是全微分方程，显然不是可靠的方式．这里我们介绍一个定理来判定全微分方程：</p>
 <div class="theorm admonition">
 <p class="first admonition-title">定理：全微分方程的判定充要条件</p>
 <blockquote class="last">
-<div><p>设函数 <img class="math" src="_images/math/bbcc20242429e38b2dcf594e7e3083073888970d.svg" alt="P(x, y)"/> 与 <img class="math" src="_images/math/deff53b73f54e0a33a22dbac612f71fca2e01d77.svg" alt="Q(x,y)"/> 在区域 <img class="math" src="_images/math/01915edc99ebbc209eb4f087fa7e85ca5e8f587e.svg" alt="G: [\alpha, \beta]\times [\gamma, \delta] \subseteq \uR^2"/> 上连续，且有连续的偏导数 <img class="math" src="_images/math/23a7039ea332e4501a63249eec1a62a6df358acc.svg" alt="\frac{\partial P}{\partial y}"/> 与 <img class="math" src="_images/math/a7a64aefea1f34bbc9cf347abd83aa0f205211c2.svg" alt="\frac{\partial Q}{\partial x}"/>，那么微分方程 <a class="reference internal" href="#equation-symmetric-ode">(1)</a> 是全微分方程的充要条件是</p>
+<div><p>设函数 <img class="math" src="_images/math/e8e8ecc2c47459207c8a62af967fda13f88da626.svg" alt="P(x, y)"/> 与 <img class="math" src="_images/math/56e0741b0b295b282eef96d182d3a33144681fe0.svg" alt="Q(x,y)"/> 在区域 <img class="math" src="_images/math/a1eee2ff77b0a56b3397fbf7530730d5b644f646.svg" alt="G: [\alpha, \beta]\times [\gamma, \delta] \subseteq \uR^2"/> 上连续，且有连续的偏导数 <img class="math" src="_images/math/1d16de3d71ffce1b47c70936bdaa5f33019b8677.svg" alt="\frac{\partial P}{\partial y}"/> 与 <img class="math" src="_images/math/6ffbbd3b3ab21d6e7608f2a0e19cdafe14973b8f.svg" alt="\frac{\partial Q}{\partial x}"/>，那么微分方程 <a class="reference internal" href="#equation-symmetric-ode">(1)</a> 是全微分方程的充要条件是</p>
 <div class="math">
-<p><img src="_images/math/67bec8f0e0460f9447bb27cef1edd9655d883dae.svg" alt="\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}"/></p>
+<p><img src="_images/math/e8bc7a22bc278f94a7dd8a8944036ab6b6f8e2fb.svg" alt="\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}"/></p>
 </div><p>在区域 G 上恒成立．</p>
-<p>【证】必要性可由偏导连续性和混合偏导数的连续性可直接证得．下证充分性．为满足 <img class="math" src="_images/math/81e8edd43248be7047ab65195d265adfcd7f3950.svg" alt="\frac{\partial \Phi}{\partial x} = P"/>，我们构造一个下述的函数 <img class="math" src="_images/math/f95a618565ce5a9184aac1a194168d8df7f464f1.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \psi(y)"/>，其中函数 <img class="math" src="_images/math/883fe7e41640269b21185dba2fdc3e5ec6d6f5ba.svg" alt="\psi(y)"/> 是待由 <img class="math" src="_images/math/56945ec5022892cfb5b3ca65586b1e12f7a6adce.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/> 确定的一个函数．代入此式中，得：</p>
+<p>【证】必要性可由偏导连续性和混合偏导数的连续性可直接证得．下证充分性．为满足 <img class="math" src="_images/math/7032bffea9969b478867dd55efdc76b8a4c5dfa5.svg" alt="\frac{\partial \Phi}{\partial x} = P"/>，我们构造一个下述的函数 <img class="math" src="_images/math/b3b7d37bbb95177f87cf208fb9bde8eaf831ecd7.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \psi(y)"/>，其中函数 <img class="math" src="_images/math/a0f02a2a64420ad0ea4484c9c295d9b23d16814b.svg" alt="\psi(y)"/> 是待由 <img class="math" src="_images/math/16b709fe6b5141fb0ab4c03caf4baac4506664c7.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/> 确定的一个函数．代入此式中，得：</p>
 <div class="math">
-<p><img src="_images/math/fce97c80a4df1e5318c2dd21dd5f6236cb7b6d33.svg" alt="\frac{\partial \Phi}{\partial y} = \frac{\partial}{\partial y} \int_{x_0}^x P(x,y)\ud x + \psi(y) = \int_{x_0}^x \frac{\partial}{\partial y}P(x, y)\ud y + \psi'(y)"/></p>
+<p><img src="_images/math/94478430d0ca722d5189aa676e8f5b99d857dd23.svg" alt="\frac{\partial \Phi}{\partial y} = \frac{\partial}{\partial y} \int_{x_0}^x P(x,y)\ud x + \psi(y) = \int_{x_0}^x \frac{\partial}{\partial y}P(x, y)\ud y + \psi'(y)"/></p>
 </div><p>由给定恒等式得：</p>
 <div class="math">
-<p><img src="_images/math/01c772a9fc61ce1105542e8f18accde8342d7bff.svg" alt="\frac{\partial \Phi}{\partial y} = \int_{x_0}^x \frac{\partial}{\partial x}Q(x, y)\ud x + \psi'(y) = Q(x,y) - Q(x_0, y) + \psi'(y)"/></p>
-</div><p>因此，只需取 <img class="math" src="_images/math/c098c6e9cc41638b743447a0a94cee65e6c449d0.svg" alt="\psi'(y) = Q(x_0,y)"/> 即可．将其积分，然后代入到之前的表达式中：</p>
+<p><img src="_images/math/a631fa4f66bcb55fe94f6023ee7d8ffaa232b65e.svg" alt="\frac{\partial \Phi}{\partial y} = \int_{x_0}^x \frac{\partial}{\partial x}Q(x, y)\ud x + \psi'(y) = Q(x,y) - Q(x_0, y) + \psi'(y)"/></p>
+</div><p>因此，只需取 <img class="math" src="_images/math/d18be82f64ce40cfa96a8a697b06ef6fd5c3d4a4.svg" alt="\psi'(y) = Q(x_0,y)"/> 即可．将其积分，然后代入到之前的表达式中：</p>
 <div class="math">
-<p><img src="_images/math/0a4e0dadb5df55c971edfbf7fcc3c5ff761fa8a5.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \int_{y_0}^y Q(x_0, y)\ud y."/></p>
-</div><p>如果在构造 <img class="math" src="_images/math/50f75cc23eb876915dd5d58c7374b27e25a0f994.svg" alt="\Phi(x,y)"/> 时先满足 <img class="math" src="_images/math/56945ec5022892cfb5b3ca65586b1e12f7a6adce.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/>，那么将得到：</p>
+<p><img src="_images/math/c72b466cefa416421974bd96851356f0533eb224.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \int_{y_0}^y Q(x_0, y)\ud y."/></p>
+</div><p>如果在构造 <img class="math" src="_images/math/62356bd51b50816c8409890fd13301f0f7fcfa84.svg" alt="\Phi(x,y)"/> 时先满足 <img class="math" src="_images/math/16b709fe6b5141fb0ab4c03caf4baac4506664c7.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/>，那么将得到：</p>
 <div class="math">
-<p><img src="_images/math/8f0928a5e255f013ffebac993f235214f62fbe94.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \quad\qedsymbol"/></p>
+<p><img src="_images/math/5def5ccc4552105d7f689c249b55712137b7b209.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \quad\qedsymbol"/></p>
 </div></div></blockquote>
 </div>
 <p class="rubric">注释</p>
@@ -236,7 +256,7 @@
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td><p class="first">全微分满足该式，等价于其偏微分满足：</p>
 <div class="last math">
-<p><img src="_images/math/2a64ce95858f5dd3abae85ad8e11a958b0c23d33.svg" alt="\frac{\partial \Phi}{\partial x} = P(x, y),\quad  \frac{\partial \Phi}{\partial y} = Q(x, y)"/></p>
+<p><img src="_images/math/3324458c96fd93b18ffa54d8a100f1c4ec8f4259.svg" alt="\frac{\partial \Phi}{\partial x} = P(x, y),\quad  \frac{\partial \Phi}{\partial y} = Q(x, y)"/></p>
 </div></td></tr>
 </tbody>
 </table>
