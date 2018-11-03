@@ -25,7 +25,7 @@
 
         \ud \Phi(x, y) = P(x, y)\ud x + Q(x, y)\ud y
     
-    则称式 :eq:`symmetric-ode` 为 **全微分方程** (total differential equation)，也称恰当方程 (exact equation)．
+    则称式 :eq:`symmetric-ode` 为 **全微分方程** (total differential equation)，也称恰当方程 (exact differential equation, or perfect differential equation)．
 
 由定义中的函数 :math:`\Phi(x, y)` 所确定的式 :math:`\Phi(x,y)=C`（或其对应的隐函数 :math:`y=u(x)`）显然就是微分方程的通解；这点由对等式两侧积分就可简单得到．
 

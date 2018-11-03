@@ -7,7 +7,7 @@
 动力系统引言
 -----------------
 
-在此不讨论动力系统是否有严格数学意义上的定义．用描述性定义叙述，**动力系统** (dynamic system) 就是点 :math:`\bx` 与其允许运动的空间 :math:`X` 组成的随时间 :math:`t` 变化的系统．结合本笔记第一部分微分方程的概念，任何 **自治** 微分方程
+在此不讨论动力系统是否有严格数学意义上的定义．用描述性定义叙述，**动力系统** (dynamic system) 就是点 :math:`\bx` 与其允许运动的空间 :math:`X` 组成的随时间 :math:`t` 变化的系统．结合本笔记第一部分微分方程的概念，任何 **自治** (autonomous) 微分方程
 
 .. math::
    :label: ds-def
@@ -95,6 +95,26 @@
     该性质由性质 1 容易证得：:math:`\varphi(t+t_1,\bx_0)` 是系统的解，它与另一个解 :math:`\varphi(t,\varphi(t_1,\bx_0))` 在 :math:`t=0` 处的初值均为 :math:`\varphi(t_1,\bx_0)`，因此它们恒等．将恒等式两侧的 :math:`t` 取特殊值 :math:`t_2`，即可证得性质 3.
 
 
+动力系统的简化手段
+^^^^^^^^^^^^^^^^^^^^^
+
+动力系统通常的简化目的有以下两个，一般都通过引入新的变量来实现．
+
+1. **将高阶微分方程变换为一阶微分方程**
+#. **将非自治方程变换为自治方程**
+
+.. admonition:: 例子：动力系统的简化
+   :class: eg
+
+    (1) 将非自治系统 :math:`x_t=f(x,t)` 变换为自治系统．
+
+    引入变量 :math:`s=t`，那么：:math:`\begin{cases} x_t &= f(x,s) \\ s_t &= 1 \end{cases}`．
+
+    (2) 将二阶、非自治方程 :math:`x_{tt} + (1+\epsilon\cos t)x = 0` 变换为一阶自治的（:math:`\epsilon` 为常数）．
+
+    引入变量 :math:`y=x_t, z=t`，那么：:math:`\begin{cases}x_t &= y \\ y_t &= -(1+\epsilon\cos z)x \\ z_t &= 1\end{cases}`．
+
+
 动力系统的几何概念
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -130,7 +150,7 @@
 虽然在此不深入探讨流形的严格定义，但为了更好地理解流形这一概念，在此介绍一个简单的流形作为例子：
 
 .. admonition:: 例子：作为流形的圆
-   :class: def
+   :class: eg
    
     圆是一个简单的流形例子 |wiki-circle|_ ．考虑一个二维空间的单位圆 :math:`\mathbb{T}: x^2+y^2=1`．从局部观察，圆近似一条（曲）线段；而线段是一维对象．因此，我们可以用一维坐标来（局部地）描述圆．比如，在该圆位于 :math:`x` 轴上方的这一局部（即上半圆弧 :math:`\mathbb{T}_+`），我们可以该圆弧上的任意一点均可用其横坐标来唯一确定．即存在映射：
 
@@ -155,9 +175,115 @@
 * 流形不必有限 (finite)，比如一组双曲线．
 
 
+动力系统的经典范例
+-----------------------
+
+上文已经提到，从几何意义上说，动力系统描述了质点的运动．现在给出一些典型的物理学的例子，帮助读者更好地理解动力系统．虽然本章只有几个例子，但例中也给出了一些概念并温习了某些变换方程的基本手段，请读者耐心阅读．
+
+.. _toc-newton-ds:
+
+牛顿力学系统与守恒
+^^^^^^^^^^^^^^^^^^^^^
+
+牛顿力学系统的通常微分描述是利用牛顿第二定律．下面是一个例子：
+
+.. admonition:: 例子：宏观质点的运动
+   :class: eg
+
+    假设质量为 :math:`m` 的质点 :math:`\boldsymbol{q}=(q_1,q_2,\ldots,q_n)` 在 :math:`\uR^n` 空间运动，且在空间上任一点 :math:`\boldsymbol{x}` 处该质点的受力为 :math:`\boldsymbol{F}(\boldsymbol{q})`．
+
+    那么，由牛顿第二定律，我们得到自治微分方程：:math:`m\ddot{\boldsymbol{q}} = \boldsymbol{F}(\boldsymbol{q})`，其中点号表示对时间 :math:`t` 的微分．
+
+    为了将上式化为一阶，引入新的变量 :math:`\boldsymbol{p}=m\dot{\boldsymbol{q}}` ，得到：
+
+    .. math::
+
+        \frac{\ud }{\ud t}\begin{pmatrix} \boldsymbol{q} \\ \boldsymbol{p} \end{pmatrix} = \begin{pmatrix} \dot{\boldsymbol{p}}/m \\ \boldsymbol{F}(\boldsymbol{q}) \end{pmatrix}
+    
+    注意到在以上换元中，变量 :math:`\boldsymbol{p}` 也具有实际的物理意义，即 **动量** (momentum)．
+
+
+如果该力是保守力 [#f2]_ (conservative force)，即该系统是一个 **守恒系统** (conservative system)，或称保守系统．那么，由能量守恒定律，该力所做的功即为终点 **势能** (potential energy) 减去起点势能．将 :math:`\boldsymbol{q}` 处的势能记为 :math:`V(\boldsymbol{q})`，并将势能之差微分，那么有：
+
+.. math::
+
+    F = -\frac{\partial V}{\partial \boldsymbol{q}}
+
+其中 :math:`\frac{\partial }{\partial \boldsymbol{q}}` 即为梯度算子 :math:`\nabla_{\boldsymbol{q}} = \left(\frac{\partial}{\partial q_1}, \frac{\partial}{\partial q_2}, \dots, \frac{\partial}{\partial q_n}\right)`．
+
+关于守恒系统，我们会在后文详细讨论．
+
+
+哈密尔顿系统
+^^^^^^^^^^^^^^^^^^
+
+**哈密尔顿系统** (Hamiltonian system)，或译为哈密顿系统，其严格定义十分繁琐．简言之，哈密尔顿系统是一个由常量函数 :math:`H(\boldsymbol{q}, \boldsymbol{p}, t)` （称为哈密顿量）完整描述的动力系统．为了方便理解，此处给出一个简化定义：
+
+.. admonition:: 简化定义：哈密尔顿系统
+   :class: def
+
+    假设粒子在 :math:`\uR^n` 中运动．哈密尔顿系统的状态用 :math:`\boldsymbol{r} = (\boldsymbol{q}, \boldsymbol{p})` 来表示，其中 :math:`\boldsymbol{p}\in\uR^n` 表示粒子的动量，而 :math:`\boldsymbol{q}\in\uR^n` 表示例子的位置．那么，哈密尔顿系统可以用以下状态演变方程描述：
+
+    .. math::
+
+        \frac{\ud \boldsymbol{p}}{\ud t} &= -\frac{\partial H}{\partial \boldsymbol{q}}
+
+        \frac{\ud \boldsymbol{q}}{\ud t} &= \frac{\partial H}{\partial \boldsymbol{p}}
+
+    而状态 :math:`\boldsymbol{r}(t)=(\boldsymbol{q}(t), \boldsymbol{p}(t))` 就是以上微分方程对应的初值问题的解．
+
+哈密尔顿系统具有的性质是哈密尔顿量守恒，即对任意状态解 :math:`(\boldsymbol{q}(t), \boldsymbol{p}(t))`，哈密尔顿量在粒子的运动过程中始终是常量．这点容易验证：
+
+.. math::
+
+    \frac{\ud H(\boldsymbol{q}(t), \boldsymbol{p}(t))}{\ud t} = \frac{\partial H}{\partial \boldsymbol{q}}\frac{\partial \boldsymbol{q}}{\partial t} + \frac{\partial H}{\partial \boldsymbol{p}}\frac{\partial \boldsymbol{p}}{\partial t} = \frac{\partial H}{\partial \boldsymbol{q}}\frac{\partial H}{\partial \boldsymbol{p}} - \frac{\partial H}{\partial \boldsymbol{p}}\frac{\partial H}{\partial \boldsymbol{q}} = 0.
+
+
+重力系统*
+^^^^^^^^^^^^^
+
+在 :ref:`toc-newton-ds` 一节中，我们介绍了势能的概念．针对物理学中的重力势能，我们可以用微分方程从数学上描绘重力系统．
+
+特别指明，重力系统也是一种守恒系统．
+
+.. admonition:: 简化定义：重力系统
+   :class: def
+
+    如果描述一个在重力场中的自由落体运动，记在 :math:`\boldsymbol{x}` 处质点的重力势能为标量 :math:`V(\boldsymbol{x})`，那么 **重力系统** (gradient system) 可以由下式描述：
+
+    .. math::
+
+        \frac{\ud \boldsymbol{x}}{\ud t} = - \frac{\partial V}{\partial \boldsymbol{x}}
+
+重力系统的性质是势能 :math:`V` 随着时间 :math:`t` 而不增，即
+
+.. math::
+
+    \frac{\ud}{\ud t}V(\boldsymbol{x}(t)) = \frac{\partial V}{\partial \boldsymbol{x}}\frac{\ud \boldsymbol{x}}{\ud t} = -\frac{\partial V}{\partial \boldsymbol{x}}\frac{\partial V}{\partial \boldsymbol{x}} = -\left\|\frac{\partial V}{\partial \boldsymbol{x}}\right\|^2 \leq 0.
+
+注意到 :math:`\frac{\partial V}{\partial \boldsymbol{x}}` 实质上是 :math:`V` 的梯度，指向 :math:`V` 增长最快的方向．因此，重力系统中的轨线与势能 :math:`V` 的水平面 (level surface) :math:`V(\boldsymbol{x}) = C` （其中 :math:`C` 为常数）垂直，并指向 :math:`V` 减少的方向．
+
+洛伦兹系统*
+^^^^^^^^^^^^^^^^
+
+**洛伦兹系统** (Lorenz system) 是指具有以下形式的动力系统：
+
+.. math::
+
+    \begin{cases}
+    x_t &= \sigma (y-x) \\
+    y_t &= rx - y - xz \\
+    z_t &= xy - bz 
+    \end{cases}
+
+其中，参数 :math:`\sigma, r, b` 均为常量．
+
+
+
 .. rubric:: 注释
 
 .. [#f1] 这里 :math:`\varphi_t(\bx)` 的下标 :math:`t` 表示含参，而非对 :math:`t` 求导．
+.. [#f2] 保守力 (conservative force)，又称守恒力．在物理学上，如果作用于质点的力，在质点从起点运动到终点的过程中做的功与质点运动路径无关，则称该力为保守力．例如，重力是保守力，而摩擦力却不是．
 
 .. 链接
 
