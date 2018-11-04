@@ -34,6 +34,9 @@
    :numbered:
 
    DS-basic
+   DS-solution
+   DS-stability
+   DS-plane
 
 
 鸣谢

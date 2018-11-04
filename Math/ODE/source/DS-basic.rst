@@ -176,14 +176,14 @@
 
 
 动力系统的经典范例
------------------------
+======================
 
 上文已经提到，从几何意义上说，动力系统描述了质点的运动．现在给出一些典型的物理学的例子，帮助读者更好地理解动力系统．虽然本章只有几个例子，但例中也给出了一些概念并温习了某些变换方程的基本手段，请读者耐心阅读．
 
 .. _toc-newton-ds:
 
 牛顿力学系统与守恒
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 牛顿力学系统的通常微分描述是利用牛顿第二定律．下面是一个例子：
 
@@ -215,7 +215,7 @@
 
 
 哈密尔顿系统
-^^^^^^^^^^^^^^^^^^
+-----------------
 
 **哈密尔顿系统** (Hamiltonian system)，或译为哈密顿系统，其严格定义十分繁琐．简言之，哈密尔顿系统是一个由常量函数 :math:`H(\boldsymbol{q}, \boldsymbol{p}, t)` （称为哈密顿量）完整描述的动力系统．为了方便理解，此处给出一个简化定义：
 
@@ -239,8 +239,8 @@
     \frac{\ud H(\boldsymbol{q}(t), \boldsymbol{p}(t))}{\ud t} = \frac{\partial H}{\partial \boldsymbol{q}}\frac{\partial \boldsymbol{q}}{\partial t} + \frac{\partial H}{\partial \boldsymbol{p}}\frac{\partial \boldsymbol{p}}{\partial t} = \frac{\partial H}{\partial \boldsymbol{q}}\frac{\partial H}{\partial \boldsymbol{p}} - \frac{\partial H}{\partial \boldsymbol{p}}\frac{\partial H}{\partial \boldsymbol{q}} = 0.
 
 
-重力系统*
-^^^^^^^^^^^^^
+重力系统
+---------------
 
 在 :ref:`toc-newton-ds` 一节中，我们介绍了势能的概念．针对物理学中的重力势能，我们可以用微分方程从数学上描绘重力系统．
 
@@ -255,18 +255,95 @@
 
         \frac{\ud \boldsymbol{x}}{\ud t} = - \frac{\partial V}{\partial \boldsymbol{x}}
 
-重力系统的性质是势能 :math:`V` 随着时间 :math:`t` 而不增，即
+
+重力系统的性质
+^^^^^^^^^^^^^^^^^^^^
+
+1. **势能** :math:`V` **随着时间** :math:`t` **而不增**，即
+
+    .. math::
+
+        \frac{\ud}{\ud t}V(\boldsymbol{x}(t)) = \frac{\partial V}{\partial \boldsymbol{x}}\frac{\ud \boldsymbol{x}}{\ud t} = -\frac{\partial V}{\partial \boldsymbol{x}}\frac{\partial V}{\partial \boldsymbol{x}} = -\left\|\frac{\partial V}{\partial \boldsymbol{x}}\right\|^2 \leq 0.
+
+2. **重力系统中（除平衡点处的）轨线总是与势能** :math:`V` **的水平面 (level surface)** :math:`V(\boldsymbol{x}) = C` **（其中** :math:`C` **为常数）垂直，并指向** :math:`V` **减少的方向**．
+
+    注意到 :math:`\frac{\partial V}{\partial \boldsymbol{x}}` 实质上是 :math:`V` 的梯度，指向 :math:`V` 增长最快的质点运动方向．回到原微分方程，可知重力系统的轨线 :math:`\boldsymbol{x}(t)` 随时间变化总是指向 :math:`V` 下降最快的方向，即相图中轨线总是垂直于曲线簇 :math:`V(\boldsymbol{x})=C`．
+
+
+重力系统的判定
+^^^^^^^^^^^^^^^^^^^^
+
+.. admonition:: 重力系统的判定方法
+   :class: def
+
+    动力系统 :math:`\boldsymbol{x}_t = \boldsymbol{F}(\boldsymbol{x}) = (F_1(\boldsymbol{x}), F_2(\boldsymbol{x}), \ldots, F_n(\boldsymbol{x}))` 当且仅当存在一个势能函数 :math:`V: \uR^n\to\uR` 使得下式成立：
+
+    .. math::
+
+        \boldsymbol{F}(\boldsymbol{x}) = -\left(\frac{\partial }{\partial x_1}, \frac{\partial }{\partial x_2}, \ldots, \frac{\partial }{\partial x_n}\right)V
+
+    或写为： :math:`F_i(x_1,x_2,\ldots,x_n) = -\frac{\partial V}{\partial x_i},\quad \forall i=1,2,\ldots,n` ．
+   
+特别地，以上判定条件在 :math:`n=1` 时，即： :math:`F(x) = -V'(x)`；在 :math:`n=2` 时，即： 
 
 .. math::
 
-    \frac{\ud}{\ud t}V(\boldsymbol{x}(t)) = \frac{\partial V}{\partial \boldsymbol{x}}\frac{\ud \boldsymbol{x}}{\ud t} = -\frac{\partial V}{\partial \boldsymbol{x}}\frac{\partial V}{\partial \boldsymbol{x}} = -\left\|\frac{\partial V}{\partial \boldsymbol{x}}\right\|^2 \leq 0.
+    F_1(x, y) = -\frac{\partial V(x, y)}{\partial x}
 
-注意到 :math:`\frac{\partial V}{\partial \boldsymbol{x}}` 实质上是 :math:`V` 的梯度，指向 :math:`V` 增长最快的方向．因此，重力系统中的轨线与势能 :math:`V` 的水平面 (level surface) :math:`V(\boldsymbol{x}) = C` （其中 :math:`C` 为常数）垂直，并指向 :math:`V` 减少的方向．
+    F_2(x, y) = -\frac{\partial V(x, y)}{\partial y}
 
-洛伦兹系统*
-^^^^^^^^^^^^^^^^
+或者在二阶偏导数连续的条件下写成下式，这点由克莱罗 (Clairaut) 定理易知 :math:`\partial^2 V / (\partial x \partial y) = \partial^2 V / (\partial y \partial x)`：
 
-**洛伦兹系统** (Lorenz system) 是指具有以下形式的动力系统：
+.. math::
+
+    \frac{\partial F_1}{\partial y} = \frac{\partial F_2}{\partial x}
+
+
+下面是几个重力系统判定的例子：
+
+.. admonition:: 例子：重力系统的判定
+   :class: eg
+
+    判断以下动力系统是否是重力系统；若是，求出它们的势能函数形式．
+
+    .. math::
+
+        (1) \begin{cases} x_t = xy \\ y_t = x^2+y^2 \end{cases}; \quad
+        (2) \begin{cases} x_t = 2xy \\ y_t = x^2 + y^2 \end{cases}.
+
+    **解：** 方程 (1) 有：:math:`\frac{\partial}{\partial y}(xy) = x, \frac{\partial}{\partial x}(x^2+y^2) = 2x`，二者不恒等，因此不是重力系统．
+
+    方程 (2) 可由类似的方法判定出是重力系统．那么有：
+
+    .. math::
+
+        \frac{\partial V}{\partial x} = - 2xy, \quad \frac{\partial V}{\partial y} = -(x^2 + y^2)
+    
+    对左右两式求原函数，得：
+
+    .. math::
+
+        V(x, y) = -x^2 y + F(y) = -x^2 y - \frac{1}{3}y^3 + G(x)
+
+    由此解出势能函数： :math:`V(x,y) = -x^2 y - \frac{1}{3} y^3 + C` ，其中 :math:`C` 是任意常数．
+
+
+重力系统的相图绘制*
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+通用的相图绘制技巧，可以参考后文的内容．这里举一个重力系统相图绘制的例子：
+
+.. admonition:: 例子：重力系统的相图绘制
+   :class: eg
+
+    …… 施工中 ……
+
+
+
+洛伦茨系统*
+----------------
+
+**洛伦茨系统** (Lorenz system) 由数学与气象学家 Edward Lorenz [#f3]_ 提出，是指具有以下形式的动力系统：
 
 .. math::
 
@@ -276,14 +353,18 @@
     z_t &= xy - bz 
     \end{cases}
 
-其中，参数 :math:`\sigma, r, b` 均为常量．
+其中，参数 :math:`\sigma, r, b` 均为常量．其相图是混沌理论中著名的洛伦茨蝴蝶 (Lorenz butterfly)，在此引用 `Matplotlib 绘图示例 <https://matplotlib.org/gallery/mplot3d/lorenz_attractor.html>`_：
 
+.. plot:: _static/img/Lorenz-butterfly.py
+    :align: center
 
+它一个更正式的名称是洛伦茨吸引子 (Lorenz attractor)．
 
 .. rubric:: 注释
 
 .. [#f1] 这里 :math:`\varphi_t(\bx)` 的下标 :math:`t` 表示含参，而非对 :math:`t` 求导．
 .. [#f2] 保守力 (conservative force)，又称守恒力．在物理学上，如果作用于质点的力，在质点从起点运动到终点的过程中做的功与质点运动路径无关，则称该力为保守力．例如，重力是保守力，而摩擦力却不是．
+.. [#f3] 爱德华·洛伦茨 Edward Norton Lorenz (1917-2008)，美国数学与气象学家，混沌理论的奠基人．注意，他与荷兰物理学家、电磁学上洛伦兹力的提出者亨德里克·洛伦兹 Hendrik Antoon Lorentz (1853-1928) 并非同一个人；两人的姓氏拼写也并不相同．
 
 .. 链接
 

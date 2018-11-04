@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>《常微分方程笔记》前言 &mdash; 常微分方程笔记 0.2 文档</title>
+  <title>4. 平衡点的稳定性 &mdash; 常微分方程笔记 0.2 文档</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="1. 基本概念" href="Basic.html" /> 
+    <link rel="next" title="5. 平面上的动力系统" href="DS-plane.html" />
+    <link rel="prev" title="3. 动力系统解的存在与唯一性" href="DS-solution.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +48,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> 常微分方程笔记
+            <a href="index.html" class="icon icon-home"> 常微分方程笔记
           
 
           
@@ -106,7 +107,7 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">第二部分：动力系统</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DS-basic.html">1. 动力系统基础</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id2">1.1. 动力系统引言</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id3">1.1.1. 连续动力系统</a></li>
@@ -132,7 +133,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DS-stability.html">4. 平衡点的稳定性</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 平衡点的稳定性</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
 </ul>
 
@@ -148,7 +149,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">常微分方程笔记</a>
+          <a href="index.html">常微分方程笔记</a>
         
       </nav>
 
@@ -177,15 +178,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>《常微分方程笔记》前言</li>
+      <li>4. 平衡点的稳定性</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/DS-stability.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -195,8 +196,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="Basic.html" class="btn btn-neutral float-right" title="1. 基本概念" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="DS-plane.html" class="btn btn-neutral float-right" title="5. 平面上的动力系统" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="DS-solution.html" class="btn btn-neutral" title="3. 动力系统解的存在与唯一性" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -206,81 +209,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>《常微分方程笔记》前言<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>本书是我学习常微分方程（ODE）的笔记，主要阅读的书籍列出如下（以第一本为主）：</p>
-<ul class="simple">
-<li><em>丁同仁，李承治．《常微分方程教程》第二版．高等教育出版社．</em>这本书主讲常微分方程，附带一部分动力系统的内容．本书语言精炼而不失清晰，例子尚算精心，建议初学者阅读．</li>
-<li><em>Gerald Teschl．Ordinary Differential Equations and Dynamical Systems．American Mathematical Society．</em>这本书侧重于动力系统和混沌研究，建议有基础的读者阅读．此书的<a class="reference external" href="https://www.mat.univie.ac.at/~gerald/ftp/book-ode/">作者主页</a>提供了本书的免费的英文版、中文版（《常微分方程与动力系统》机械工业出版社）两版pdf（内部稿）供下载．</li>
-</ul>
-<p>阅读本书需要的知识：</p>
-<ul class="simple">
-<li>基础数学知识</li>
-<li>高等数学内容：极限、函数的导数和连续、基础微积分（阅读常微分部分需要）；多元函数微分，基础牛顿物理学（阅读动力系统部分需要）．</li>
-<li>线性代数内容：行列式、特征值（阅读常微分部分需要）；子空间（阅读动力系统部分需要）．</li>
-</ul>
-<p>以下是全文目录：</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">第一部分：常微分方程</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Basic.html">1. 基本概念</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Basic.html#id2">1.1. 微分方程的基本定义</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id4">1.1.1. 阶与线性的概念</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Basic.html#id5">1.2. 微分方程的解</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id6">1.2.1. 通解、特解与初值问题</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Basic.html#id8">1.3. 微分方程及其解的几何意义</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id9">1.3.1. 积分曲线与方向场</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#subsec-direction-field">1.3.2. 方向场的绘制</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Basic.html#id11">1.3.3. 方向场对求解微分方程的意义</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="MethodForSolving.html">2. 初等积分法</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MethodForSolving.html#id2">2.1. 全微分方程（恰当方程）</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">第二部分：动力系统</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="DS-basic.html">1. 动力系统基础</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id2">1.1. 动力系统引言</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id3">1.1.1. 连续动力系统</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id4">1.1.2. 离散动力系统*</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-ds-properties">1.1.3. 动力系统的基本性质</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id7">1.1.4. 动力系统的简化手段</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id8">1.1.5. 动力系统的几何概念</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-manifold">1.1.6. 流形*</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="DS-basic.html#id10">2. 动力系统的经典范例</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-newton-ds">2.1. 牛顿力学系统与守恒</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id13">2.2. 哈密尔顿系统</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id14">2.3. 重力系统</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id15">2.3.1. 重力系统的性质</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id16">2.3.2. 重力系统的判定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id17">2.3.3. 重力系统的相图绘制*</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id18">2.4. 洛伦茨系统*</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DS-stability.html">4. 平衡点的稳定性</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2>鸣谢<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>感谢我本科时的常微分方程授课教授永利，及研究生时的动力系统授课教授 Hunter．微分方程的世界由他们带领我进入．</p>
-</div>
+<h1>4. 平衡点的稳定性<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 </div>
 
 
@@ -291,8 +220,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Basic.html" class="btn btn-neutral float-right" title="1. 基本概念" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="DS-plane.html" class="btn btn-neutral float-right" title="5. 平面上的动力系统" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="DS-solution.html" class="btn btn-neutral" title="3. 动力系统解的存在与唯一性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
