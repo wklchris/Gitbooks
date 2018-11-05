@@ -51,7 +51,7 @@ imgmath_font_size = 16
 imgmath_latex_preamble = r'''
 \newcommand{\uR}{\mathbb{R}}
 \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}
-\newcommand{\ue}{\mathop{}\negthinspace\mathrm{e}}
+\newcommand{\ue}{\mathrm{e}}
 \newcommand{\bx}{\boldsymbol{x}}
 '''
 

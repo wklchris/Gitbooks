@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="1. 动力系统基础" href="DS-basic.html" />
+    <link rel="next" title="3. 解的存在与唯一性" href="UniqueAndExist.html" />
     <link rel="prev" title="1. 基本概念" href="Basic.html" /> 
 
   
@@ -105,6 +105,16 @@
 <li class="toctree-l2"><a class="reference internal" href="#id2">2.1. 全微分方程（恰当方程）</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="UniqueAndExist.html">3. 解的存在与唯一性</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#lipschitz">3.1. Lipschitz 条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#picard">3.2. Picard 定理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UniqueAndExist.html#id2">3.2.1. Picard 迭代</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#peano">3.3. Peano 定理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#id3">3.4. 解的延伸</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">第二部分：动力系统</span></p>
 <ul>
@@ -118,15 +128,27 @@
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-manifold">1.1.6. 流形*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id10">1.2. 动力系统的经典范例</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-newton-ds">1.2.1. 牛顿力学系统与守恒</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id13">1.2.2. 哈密尔顿系统</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id14">1.2.3. 重力系统*</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id15">1.2.4. 洛伦兹系统*</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="DS-basic.html#id10">2. 动力系统的经典范例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-newton-ds">2.1. 牛顿力学系统与守恒</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id13">2.2. 哈密尔顿系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id14">2.3. 重力系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id15">2.3.1. 重力系统的性质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id16">2.3.2. 重力系统的判定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id17">2.3.3. 重力系统的相图绘制*</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id18">2.4. 洛伦茨系统*</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-solution.html#id2">3.1. 本章引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-solution.html#id3">3.2. 初值问题解的存在性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DS-stability.html">4. 平衡点的稳定性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
 </ul>
 
             
@@ -188,7 +210,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="DS-basic.html" class="btn btn-neutral float-right" title="1. 动力系统基础" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="UniqueAndExist.html" class="btn btn-neutral float-right" title="3. 解的存在与唯一性" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Basic.html" class="btn btn-neutral" title="1. 基本概念" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -211,47 +233,47 @@
 <blockquote class="last">
 <div><p>对一阶微分方程</p>
 <div class="math" id="equation-symmetric-ode">
-<p><span class="eqno">(1)<a class="headerlink" href="#equation-symmetric-ode" title="公式的永久链接">¶</a></span><img src="_images/math/7915ab54cc11e1ccdf940fa182d2f8ef8caf5b36.svg" alt="P(x, y)\ud x + Q(x, y)\ud y = 0,"/></p>
-</div><p>如果存在一个可微函数 <img class="math" src="_images/math/62356bd51b50816c8409890fd13301f0f7fcfa84.svg" alt="\Phi(x,y)"/>，使得其全微分满足下式 <a class="footnote-reference" href="#f3" id="id3">[1]</a></p>
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-symmetric-ode" title="公式的永久链接">¶</a></span><img src="_images/math/6fe4b9df7205256c55a7ada85af3bcebdb050839.svg" alt="P(x, y)\ud x + Q(x, y)\ud y = 0,"/></p>
+</div><p>如果存在一个可微函数 <img class="math" src="_images/math/0a784c16aca23ed7d739ddf67128522c35262b64.svg" alt="\Phi(x,y)"/>，使得其全微分满足下式 <a class="footnote-reference" href="#f3" id="id3">[1]</a></p>
 <div class="math">
-<p><img src="_images/math/76f59dd5c28a3c4c6664aec91a06415eaec30b69.svg" alt="\ud \Phi(x, y) = P(x, y)\ud x + Q(x, y)\ud y"/></p>
+<p><img src="_images/math/a45c34e8746f4d86929a4f7177a99d4e7511de31.svg" alt="\ud \Phi(x, y) = P(x, y)\ud x + Q(x, y)\ud y"/></p>
 </div><p>则称式 <a class="reference internal" href="#equation-symmetric-ode">(1)</a> 为 <strong>全微分方程</strong> (total differential equation)，也称恰当方程 (exact differential equation, or perfect differential equation)．</p>
 </div></blockquote>
 </div>
-<p>由定义中的函数 <img class="math" src="_images/math/1196e28756547aaa192c6916ce6eea8402774341.svg" alt="\Phi(x, y)"/> 所确定的式 <img class="math" src="_images/math/388adbd473b913c8300c98215514be4f90a842c6.svg" alt="\Phi(x,y)=C"/>）显然就是微分方程的通解；这点由对等式两侧积分就可简单得到．</p>
+<p>由定义中的函数 <img class="math" src="_images/math/023281fe8fb25154baf81f47ed7ea516863847d1.svg" alt="\Phi(x, y)"/> 所确定的式 <img class="math" src="_images/math/354fe68962deb9d6a93ffff7f28174712b22c752.svg" alt="\Phi(x,y)=C"/>）显然就是微分方程的通解；这点由对等式两侧积分就可简单得到．</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：全微分方程</p>
 <blockquote class="last">
-<div><p>求解微分方程： <img class="math" src="_images/math/b15f8337fe6dc8d8580632fb57c48c8d9f2498fb.svg" alt="xy^2\ud x + x^2y\ud y = 0"/>．</p>
-<p>观察左侧的式的形式，我们可以令 <img class="math" src="_images/math/302ec8a7ad01cae82978874e23ddc3d86ef9ea6d.svg" alt="\Phi(x,y) = \frac{1}{2}x^2y^2"/>，那么：</p>
+<div><p>求解微分方程： <img class="math" src="_images/math/200c678c30f17929450c92ccbee87e470bee2bf8.svg" alt="xy^2\ud x + x^2y\ud y = 0"/>．</p>
+<p>观察左侧的式的形式，我们可以令 <img class="math" src="_images/math/2d06e9ffaef27cb05ca75218fc5b98adfe4bfb3c.svg" alt="\Phi(x,y) = \frac{1}{2}x^2y^2"/>，那么：</p>
 <div class="math">
-<p><img src="_images/math/9704d39b71ad4543e1daaf20f968568dd79d85a2.svg" alt="\frac{\partial \Phi}{\partial x} = xy^2, \quad \frac{\partial \Phi}{\partial y} = x^2y."/></p>
+<p><img src="_images/math/93670769e4079c9185d45bdf6428f54ca1365d59.svg" alt="\frac{\partial \Phi}{\partial x} = xy^2, \quad \frac{\partial \Phi}{\partial y} = x^2y."/></p>
 </div><p>因此，原方程的左侧可以写作全微分的形式，再对等号两端积分：</p>
 <div class="math">
-<p><img src="_images/math/ddbf9bcdfe2c05724c0a48a9e3afe1d5705e7747.svg" alt="LHS = \ud \Phi(x,y) = RHS = 0 \implies x^2y^2 = C"/></p>
-</div><p>其中 <img class="math" src="_images/math/592b886447c806876a22f7bd18c4d6216e4bcc33.svg" alt="C"/> 是任意常数．此即该微分方程的通解．</p>
+<p><img src="_images/math/b052504b2d5857858afce4b477b0f4d6bae29968.svg" alt="LHS = \ud \Phi(x,y) = RHS = 0 \implies x^2y^2 = C"/></p>
+</div><p>其中 <img class="math" src="_images/math/fa7aca72a704ef5f49f9b989f35c78a27ec42e20.svg" alt="C"/> 是任意常数．此即该微分方程的通解．</p>
 </div></blockquote>
 </div>
 <p>通过观察形式的方式判断一个微分方程是否是全微分方程，显然不是可靠的方式．这里我们介绍一个定理来判定全微分方程：</p>
 <div class="theorm admonition">
 <p class="first admonition-title">定理：全微分方程的判定充要条件</p>
 <blockquote class="last">
-<div><p>设函数 <img class="math" src="_images/math/e8e8ecc2c47459207c8a62af967fda13f88da626.svg" alt="P(x, y)"/> 与 <img class="math" src="_images/math/56e0741b0b295b282eef96d182d3a33144681fe0.svg" alt="Q(x,y)"/> 在区域 <img class="math" src="_images/math/a1eee2ff77b0a56b3397fbf7530730d5b644f646.svg" alt="G: [\alpha, \beta]\times [\gamma, \delta] \subseteq \uR^2"/> 上连续，且有连续的偏导数 <img class="math" src="_images/math/1d16de3d71ffce1b47c70936bdaa5f33019b8677.svg" alt="\frac{\partial P}{\partial y}"/> 与 <img class="math" src="_images/math/6ffbbd3b3ab21d6e7608f2a0e19cdafe14973b8f.svg" alt="\frac{\partial Q}{\partial x}"/>，那么微分方程 <a class="reference internal" href="#equation-symmetric-ode">(1)</a> 是全微分方程的充要条件是</p>
+<div><p>设函数 <img class="math" src="_images/math/3b23e4c6ccf4f6b473d5a9ea16c94a13d2169c2f.svg" alt="P(x, y)"/> 与 <img class="math" src="_images/math/711a56b0110937ca81b624dfe3883735711976cb.svg" alt="Q(x,y)"/> 在区域 <img class="math" src="_images/math/0540ca53790ca47d8e405bd75b734fcc6dd12c93.svg" alt="G: [\alpha, \beta]\times [\gamma, \delta] \subseteq \uR^2"/> 上连续，且有连续的偏导数 <img class="math" src="_images/math/016cf28ea025c1ec9c8408d6ea1d5fc88ecc8b05.svg" alt="\frac{\partial P}{\partial y}"/> 与 <img class="math" src="_images/math/ba7c9af4d779d0f89be331fe76a0e0b5f6b78330.svg" alt="\frac{\partial Q}{\partial x}"/>，那么微分方程 <a class="reference internal" href="#equation-symmetric-ode">(1)</a> 是全微分方程的充要条件是</p>
 <div class="math">
-<p><img src="_images/math/e8bc7a22bc278f94a7dd8a8944036ab6b6f8e2fb.svg" alt="\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}"/></p>
+<p><img src="_images/math/ce802a5a71877c1a0809c987b04ea6b27207b4f3.svg" alt="\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}"/></p>
 </div><p>在区域 G 上恒成立．</p>
-<p>【证】必要性可由偏导连续性和混合偏导数的连续性可直接证得．下证充分性．为满足 <img class="math" src="_images/math/7032bffea9969b478867dd55efdc76b8a4c5dfa5.svg" alt="\frac{\partial \Phi}{\partial x} = P"/>，我们构造一个下述的函数 <img class="math" src="_images/math/b3b7d37bbb95177f87cf208fb9bde8eaf831ecd7.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \psi(y)"/>，其中函数 <img class="math" src="_images/math/a0f02a2a64420ad0ea4484c9c295d9b23d16814b.svg" alt="\psi(y)"/> 是待由 <img class="math" src="_images/math/16b709fe6b5141fb0ab4c03caf4baac4506664c7.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/> 确定的一个函数．代入此式中，得：</p>
+<p>【证】必要性可由偏导连续性和混合偏导数的连续性可直接证得．下证充分性．为满足 <img class="math" src="_images/math/a19473aa8a574f639597c4bac713ecf78fd2a202.svg" alt="\frac{\partial \Phi}{\partial x} = P"/>，我们构造一个下述的函数 <img class="math" src="_images/math/1147e5dedd6d8e7bb0171fce2e8a9f7eaa300f0d.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \psi(y)"/>，其中函数 <img class="math" src="_images/math/942263c6eb7a69a9baaceffe3d139ca89659c1ee.svg" alt="\psi(y)"/> 是待由 <img class="math" src="_images/math/67f0edadd002531a3b9942f45bbc489e67016685.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/> 确定的一个函数．代入此式中，得：</p>
 <div class="math">
-<p><img src="_images/math/94478430d0ca722d5189aa676e8f5b99d857dd23.svg" alt="\frac{\partial \Phi}{\partial y} = \frac{\partial}{\partial y} \int_{x_0}^x P(x,y)\ud x + \psi(y) = \int_{x_0}^x \frac{\partial}{\partial y}P(x, y)\ud y + \psi'(y)"/></p>
+<p><img src="_images/math/1597f17c57a4a47ed96f8f3cab335c130a50fa3d.svg" alt="\frac{\partial \Phi}{\partial y} = \frac{\partial}{\partial y} \int_{x_0}^x P(x,y)\ud x + \psi(y) = \int_{x_0}^x \frac{\partial}{\partial y}P(x, y)\ud y + \psi'(y)"/></p>
 </div><p>由给定恒等式得：</p>
 <div class="math">
-<p><img src="_images/math/a631fa4f66bcb55fe94f6023ee7d8ffaa232b65e.svg" alt="\frac{\partial \Phi}{\partial y} = \int_{x_0}^x \frac{\partial}{\partial x}Q(x, y)\ud x + \psi'(y) = Q(x,y) - Q(x_0, y) + \psi'(y)"/></p>
-</div><p>因此，只需取 <img class="math" src="_images/math/d18be82f64ce40cfa96a8a697b06ef6fd5c3d4a4.svg" alt="\psi'(y) = Q(x_0,y)"/> 即可．将其积分，然后代入到之前的表达式中：</p>
+<p><img src="_images/math/163c07c04ae3bbc4e01610e8be5bb464245f4054.svg" alt="\frac{\partial \Phi}{\partial y} = \int_{x_0}^x \frac{\partial}{\partial x}Q(x, y)\ud x + \psi'(y) = Q(x,y) - Q(x_0, y) + \psi'(y)"/></p>
+</div><p>因此，只需取 <img class="math" src="_images/math/535ae3c0b9a1183f13f3e83cd7eddc2b19274504.svg" alt="\psi'(y) = Q(x_0,y)"/> 即可．将其积分，然后代入到之前的表达式中：</p>
 <div class="math">
-<p><img src="_images/math/c72b466cefa416421974bd96851356f0533eb224.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \int_{y_0}^y Q(x_0, y)\ud y."/></p>
-</div><p>如果在构造 <img class="math" src="_images/math/62356bd51b50816c8409890fd13301f0f7fcfa84.svg" alt="\Phi(x,y)"/> 时先满足 <img class="math" src="_images/math/16b709fe6b5141fb0ab4c03caf4baac4506664c7.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/>，那么将得到：</p>
+<p><img src="_images/math/51663790496c7c6657ef3e06ecde6b9509f641c8.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y)\ud x + \int_{y_0}^y Q(x_0, y)\ud y."/></p>
+</div><p>如果在构造 <img class="math" src="_images/math/0a784c16aca23ed7d739ddf67128522c35262b64.svg" alt="\Phi(x,y)"/> 时先满足 <img class="math" src="_images/math/67f0edadd002531a3b9942f45bbc489e67016685.svg" alt="\frac{\partial \Phi}{\partial y} = Q"/>，那么将得到：</p>
 <div class="math">
-<p><img src="_images/math/5def5ccc4552105d7f689c249b55712137b7b209.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \quad\qedsymbol"/></p>
+<p><img src="_images/math/014be6bd452b2f7da0bc5a5ccec466b6860908ca.svg" alt="\Phi(x, y) = \int_{x_0}^x P(x,y_0)\ud x + \int_{y_0}^y Q(x, y)\ud y. \quad\qedsymbol"/></p>
 </div></div></blockquote>
 </div>
 <p class="rubric">注释</p>
@@ -260,7 +282,7 @@
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td><p class="first">全微分满足该式，等价于其偏微分满足：</p>
 <div class="last math">
-<p><img src="_images/math/3324458c96fd93b18ffa54d8a100f1c4ec8f4259.svg" alt="\frac{\partial \Phi}{\partial x} = P(x, y),\quad  \frac{\partial \Phi}{\partial y} = Q(x, y)"/></p>
+<p><img src="_images/math/d42224d037f7bffe1ff059c28585acd5684a5959.svg" alt="\frac{\partial \Phi}{\partial x} = P(x, y),\quad  \frac{\partial \Phi}{\partial y} = Q(x, y)"/></p>
 </div></td></tr>
 </tbody>
 </table>
@@ -275,7 +297,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="DS-basic.html" class="btn btn-neutral float-right" title="1. 动力系统基础" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="UniqueAndExist.html" class="btn btn-neutral float-right" title="3. 解的存在与唯一性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Basic.html" class="btn btn-neutral" title="1. 基本概念" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

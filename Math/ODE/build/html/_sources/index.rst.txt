@@ -26,6 +26,7 @@
 
    Basic
    MethodForSolving
+   UniqueAndExist
 
 
 .. toctree::

@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. 解的存在与唯一性 &mdash; 常微分方程笔记 0.2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/rtd-revised.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 动力系统基础" href="DS-basic.html" />
+    <link rel="prev" title="2. 初等积分法" href="MethodForSolving.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 常微分方程笔记
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">第一部分：常微分方程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">1. 基本概念</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id2">1.1. 微分方程的基本定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id4">1.1.1. 阶与线性的概念</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id5">1.2. 微分方程的解</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id6">1.2.1. 通解、特解与初值问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id8">1.3. 微分方程及其解的几何意义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id9">1.3.1. 积分曲线与方向场</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#subsec-direction-field">1.3.2. 方向场的绘制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id11">1.3.3. 方向场对求解微分方程的意义</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MethodForSolving.html">2. 初等积分法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MethodForSolving.html#id2">2.1. 全微分方程（恰当方程）</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 解的存在与唯一性</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lipschitz">3.1. Lipschitz 条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#picard">3.2. Picard 定理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.2.1. Picard 迭代</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#peano">3.3. Peano 定理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3.4. 解的延伸</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">第二部分：动力系统</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DS-basic.html">1. 动力系统基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id2">1.1. 动力系统引言</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id3">1.1.1. 连续动力系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id4">1.1.2. 离散动力系统*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-ds-properties">1.1.3. 动力系统的基本性质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id7">1.1.4. 动力系统的简化手段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id8">1.1.5. 动力系统的几何概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-manifold">1.1.6. 流形*</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DS-basic.html#id10">2. 动力系统的经典范例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-newton-ds">2.1. 牛顿力学系统与守恒</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id13">2.2. 哈密尔顿系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id14">2.3. 重力系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id15">2.3.1. 重力系统的性质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id16">2.3.2. 重力系统的判定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id17">2.3.3. 重力系统的相图绘制*</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id18">2.4. 洛伦茨系统*</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-solution.html#id2">3.1. 本章引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-solution.html#id3">3.2. 初值问题解的存在性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DS-stability.html">4. 平衡点的稳定性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">常微分方程笔记</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>3. 解的存在与唯一性</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/UniqueAndExist.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="DS-basic.html" class="btn btn-neutral float-right" title="1. 动力系统基础" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MethodForSolving.html" class="btn btn-neutral" title="2. 初等积分法" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="toc-unique-and-exist">
+<span id="id1"></span><h1>3. 解的存在与唯一性<a class="headerlink" href="#toc-unique-and-exist" title="永久链接至标题">¶</a></h1>
+<p>柯西 (Cauchy, 1789-1857) 在 19 世纪初提出了初值问题解的存在与唯一性定理（因此初值问题也成为柯西问题），而此后 1876 年李普希兹 (Lipschitz, 1832-1903) 减弱了该条件．在 1893 年，皮卡 (Picard, 1856-1941) 对李普希兹条件下的定理给出了新证明，也使 Picard 定理成为解的存在性判定的一般方法．而解的存在性定理由佩阿诺 (Peano, 1858-1932) 给出，他指明了一个在更一般条件下判定初值问题的解的存在性（不顾及唯一性）的条件．</p>
+<p>除了解的存在与唯一性，本章还将对解的延伸进行探讨．</p>
+<div class="section" id="lipschitz">
+<h2>3.1. Lipschitz 条件<a class="headerlink" href="#lipschitz" title="永久链接至标题">¶</a></h2>
+<p>为了介绍 Picard 定理，我们需要先理解 Lipschitz 条件的概念．</p>
+<div class="def admonition">
+<p class="first admonition-title">定义：Lipschitz 连续</p>
+<blockquote class="last">
+<div><p>对于函数 <img class="math" src="_images/math/66040ebaf012dfb9331a29d4f5d23bcca88e5a44.svg" alt="f: \uR^n \to \uR^n"/> ，如果存在常数 <img class="math" src="_images/math/b35c9940b349e014809c241c3f71a70863da5df9.svg" alt="L&gt;0"/> 使得</p>
+<div class="math">
+<p><img src="_images/math/ea0c7246f871b582ea771358960a2be77956ae90.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall \bx_1, \bx_2\in D\subseteq \uR^n"/></p>
+</div><p>那么我们称函数 <img class="math" src="_images/math/c912ac87813368daf6b9b74a8487b33fdbfea0e7.svg" alt="f(\bx)"/> 在该区域上是 <strong>Lipschitz 连续</strong> (Lipschitz continuous) 的，或简称为在区域 <img class="math" src="_images/math/4c358cce7eb9a23c69616c98411a22df9565107f.svg" alt="D"/> 上是 Lipschitz 的．也可以称 <img class="math" src="_images/math/c912ac87813368daf6b9b74a8487b33fdbfea0e7.svg" alt="f(\bx)"/> 是区域 <img class="math" src="_images/math/4c358cce7eb9a23c69616c98411a22df9565107f.svg" alt="D"/> 上的一个 Lipschitz 函数．</p>
+<p>特别地，如果区域 <img class="math" src="_images/math/8829e38ad835bbfb37e21a200376451ebdc8d342.svg" alt="D=\uR^n"/>，那么我们称函数 <img class="math" src="_images/math/c912ac87813368daf6b9b74a8487b33fdbfea0e7.svg" alt="f(\bx)"/> 是 <strong>全局 Lipschitz</strong> (globally Lipschitz) 的；如果区域 <img class="math" src="_images/math/4c358cce7eb9a23c69616c98411a22df9565107f.svg" alt="D"/> 是某点 <img class="math" src="_images/math/be73a8e1e0cfed73d6cac3bba573398568c960e4.svg" alt="\bx_0\in\uR^n"/> 附近一个半径为 <img class="math" src="_images/math/d555d71f36fa3672398c912152e95cee4b229d6d.svg" alt="r&gt;0"/> 的球，即：</p>
+<div class="math">
+<p><img src="_images/math/ed5ab2a88b538adcc374f98d1afdca557d8aa9aa.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall |\bx_1-\bx_0|, |\bx_2-\bx_0|\leq r"/></p>
+</div><p>那么我们称函数 <img class="math" src="_images/math/c912ac87813368daf6b9b74a8487b33fdbfea0e7.svg" alt="f(\bx)"/> 是在 <img class="math" src="_images/math/84e87af5bd9e010fdd0d279156feadeaba490a21.svg" alt="\bx_0"/> 处 <strong>局部 Lipschitz</strong> (locally Lipschitz) 的．特别地，在微分方程的研究中，如果不特别指明 <img class="math" src="_images/math/84e87af5bd9e010fdd0d279156feadeaba490a21.svg" alt="\bx_0"/> 的值，那么 <img class="math" src="_images/math/84e87af5bd9e010fdd0d279156feadeaba490a21.svg" alt="\bx_0"/> 均指原点．</p>
+<p>以上定义中，满足不等式的能够取到的最小常数 <img class="math" src="_images/math/5260cbe0160c0a9edb7ee1401585b88d00e30de7.svg" alt="L"/>，称为 <strong>Lipschitz 常数</strong> (Lipschitz constant)．</p>
+</div></blockquote>
+</div>
+<p>此外，我们指出无须使用上述定义的、常用的判断方法：</p>
+<ol class="arabic simple">
+<li>如果函数 <img class="math" src="_images/math/ffc6ef409651f638bcc3d42057fd96778d425494.svg" alt="f: \uR^n\to\uR^n"/> 连续可微，那么它是局部 Lipschitz 的．</li>
+<li>如果函数满足上一条，且存在 <img class="math" src="_images/math/83188ab386cbae9b6ad1175800c7d42a8ab056bd.svg" alt="L\geq 0"/> 使得 <img class="math" src="_images/math/b217337de1f57e5c80188edfad671df4e7514364.svg" alt="|\partial f_i/\partial x_j|"/> 对所有 <img class="math" src="_images/math/2767b6f86202c53d4d74c253ef97e4823b7a3052.svg" alt="\bx\in\uR^n"/> 与 <img class="math" src="_images/math/a05303b171218a1201a78e648cacc2263470234e.svg" alt="1\leq i, j\leq n"/> 均成立，那么函数 <img class="math" src="_images/math/b6d0db4de2274fc97ddec1897e8dd8a7032e9e93.svg" alt="f"/> 是全局 Lipschitz 的．</li>
+</ol>
+<p>下面举三个定义在 <img class="math" src="_images/math/65c152af82d7184a84ec3a9ee0cacc0d1d3f903b.svg" alt="\uR"/> 上的例子，学习如何用以上定义判断函数是否是 Lipschitz 的：</p>
+<div class="eg admonition">
+<p class="first admonition-title">例子：Lipschitz 判定</p>
+<blockquote class="last">
+<div><p>判断以下函数是否是（原点附近的） Lipschitz 函数．</p>
+<div class="math">
+<p><img src="_images/math/5a0af8c81a193087ec54431bb16f969afb089d60.svg" alt="(1) f(x) = \sqrt{1+x^2}; \quad
+(2) g(x) = x^2; \quad
+(3) h(x) = \sqrt{|x|}."/></p>
+</div><p><strong>解：</strong> 对于函数 (1)，我们有：</p>
+<div class="math">
+<p><img src="_images/math/c011146724168d8e672e440d4cb5595589e55594.svg" alt="|f(x)-f(y)| = |\sqrt{1+x^2} - \sqrt{1+y^2}|
+= \left| \frac{x+y}{\sqrt{1+x^2} + \sqrt{1+y^2}} \right|\cdot |x-y|
+\leq |x-y|"/></p>
+</div><p>因此函数 <img class="math" src="_images/math/e8542a103939e850145835fc598356066a22d0c9.svg" alt="f(x)"/> 是 Lipschitz 的．</p>
+<p>对于函数 (2)，在原点附近的半径 <img class="math" src="_images/math/e9164469f322d0c4d381015f49cb2e2153abf7ba.svg" alt="r"/> 内，有：</p>
+<div class="math">
+<p><img src="_images/math/fec98139b6111883adbb407e5d32639579fb6f6f.svg" alt="|g(x) - g(y)| = |x+y||x-y| \leq 2r|x-y|"/></p>
+</div><p>上式对 <img class="math" src="_images/math/8c158a37c1cf56a846852cbc4b2acdc7483ad5ea.svg" alt="|x|, |y|\leq r"/> 成立，因此 <img class="math" src="_images/math/4a2e293a0fb29379444756fe303b89cdd0051754.svg" alt="g(x)"/> 在 <img class="math" src="_images/math/9f3fc2e120081d60c418b40ddd0ceb88b66a0dba.svg" alt="(0,0)"/> 处是局部 Lipschitz 的．</p>
+<p>对于函数 (3)，我们有：</p>
+<div class="math">
+<p><img src="_images/math/e0153d027bea94571fd6c33f912768a76147f91f.svg" alt="\frac{|h(x) - h(0)|}{|x - 0|} = \frac{1}{\sqrt{|x|}} \to\infty \textrm{ as } x\to\infty"/></p>
+</div><p>因此， <img class="math" src="_images/math/de480d06f6a3c01e9a92046639af046ffd12acc7.svg" alt="h(x)"/> 在 <img class="math" src="_images/math/9f3fc2e120081d60c418b40ddd0ceb88b66a0dba.svg" alt="(0,0)"/> 附近不是局部 Lipschitz 的；它自然也不是全局 Lipschitz 的．</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="picard">
+<h2>3.2. Picard 定理<a class="headerlink" href="#picard" title="永久链接至标题">¶</a></h2>
+<div class="def admonition">
+<p class="first admonition-title">Picard-Lindeloff 定理</p>
+<blockquote class="last">
+<div><p>对于初值问题：</p>
+<div class="math">
+<p><img src="_images/math/b3cbdf4f1be574f502377ccb08c0e9f58b9638b0.svg" alt="\begin{cases}
+\frac{\ud \bx}{\ud t} = f(t, \bx) \\
+\bx(0) = \bx_0
+\end{cases}"/></p>
+</div><p>Picard 定理有如下内容：</p>
+<ol class="arabic simple">
+<li>如果 <img class="math" src="_images/math/d71929ecdc090674a4838cee89490ae73e56c614.svg" alt="f(t, \bx)"/> 对 <img class="math" src="_images/math/907b5776db55bfb7dd5d20be94eb53adf63218f5.svg" alt="\bx"/> 是全局 Lipschitz 的，那么初值问题的解 <img class="math" src="_images/math/efdc2c5c2475d7bb05fc377969be97705c2d43e1.svg" alt="\bx(t)"/> 在 <img class="math" src="_images/math/8e79269b93f2322d2b4fbb6194982d05fe0eba5a.svg" alt="t\in\uR"/> 上是唯一的．</li>
+<li>如果 <img class="math" src="_images/math/c912ac87813368daf6b9b74a8487b33fdbfea0e7.svg" alt="f(\bx)"/> 对 <img class="math" src="_images/math/907b5776db55bfb7dd5d20be94eb53adf63218f5.svg" alt="\bx"/> 是（原点处）局部 Lipschitz 的，那么存在 <img class="math" src="_images/math/2c8fa18157822dbc6273597dba47cbf788810aab.svg" alt="T&gt;0"/> 与一个在 <img class="math" src="_images/math/054e4654f367d368bb7f9ac6dc866c68836266a5.svg" alt="[-T, T]"/> 上的唯一解 <img class="math" src="_images/math/8870b991589eba24f406cbccf051536a45b4d8e8.svg" alt="\bx: [-T,T]\to \uR^n"/> ．其中，<img class="math" src="_images/math/1f60c6a7901e55056b8b22ed93a707e6925eba80.svg" alt="T"/> 的值通常取决于 <img class="math" src="_images/math/84e87af5bd9e010fdd0d279156feadeaba490a21.svg" alt="\bx_0"/>．</li>
+</ol>
+</div></blockquote>
+</div>
+<p>在增广空间，解如果唯一，即表示过区域内每一点有且仅有一条积分曲线．</p>
+<div class="section" id="id2">
+<h3>3.2.1. Picard 迭代<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p><strong>Picard 迭代</strong> (Picard iteration) 是证明 Picard 定理中使用的方法．</p>
+<p>对于初值问题 <img class="math" src="_images/math/bfe11403e6813be65221f16a0f6283d98a138c98.svg" alt="y_x = f(x,y),\, y(0)=y_0"/>，这等价于求解 <img class="math" src="_images/math/a5bf41dd81b7b4817f26e12b7e3b33bdb51e4460.svg" alt="y(x) = y_0 + \int_{x_0}^x f(s,y(x))\ud s"/>． 因此，我们可以用迭代法：</p>
+<div class="math">
+<p><img src="_images/math/5474e065f020b6cad508f8619d3db22a6613c191.svg" alt="y_{n+1}(x) = y_0 + \int_{x_0}^x f(s, y_n(x))\ud s"/></p>
+</div><p>后续定理的证明利用 Lipschitz 条件与数列的一致收敛可证．如果函数是局部 Lipschitz 的，那么 <img class="math" src="_images/math/f8436e426ebc12fde83d5891ec9a1a126e8e1f7a.svg" alt="y_n(x)"/> 会在一个充分小的区间内 <img class="math" src="_images/math/f5cb527dc614e5a69f100fb89ba1a44f65e99254.svg" alt="[-X, X]"/> 一致收敛到初值问题的解 <img class="math" src="_images/math/b7ac17bf839ee32dffa1bca6d2449908d83d1d8c.svg" alt="y(x)"/> ．</p>
+<div class="eg admonition">
+<p class="first admonition-title">例子：Picard 迭代</p>
+<blockquote class="last">
+<div><p>求初值问题 <img class="math" src="_images/math/cc4e756cd9f2f9d9dc8d2a00ba6c1c8c93463045.svg" alt="x_t = x,\quad x(0)=1"/> 的 Picard 迭代，并判断它是否收敛．</p>
+<p><strong>解：</strong> 该初值问题的积分形式：</p>
+<div class="math">
+<p><img src="_images/math/82249cadd34fda8e3a3b87ad1164683642b76825.svg" alt="x(t) = 1 + \int_0^t x(s) \ud s"/></p>
+</div><p>迭代：</p>
+<div class="math">
+<p><img src="_images/math/a304a9d5aff82034577d3dba2f6090105e14f9ff.svg" alt="x_0 &amp;= 1,
+
+x_1 &amp;= 1 + \int_0^t x_0(s) \ud s = 1 + t,
+
+x_2 &amp;= 1 + \int_0^t x_1(s) \ud s = 1 + \int_0^t (1+s) \ud s = 1 + t + \frac{t^2}{2}"/></p>
+</div><p>以下由归纳法得 <img class="math" src="_images/math/dab77ef65a3da4959ecbfcab183587fe5b0f201c.svg" alt="x_n = \sum_{k=0}^n \frac{t^k}{k!}"/> 对任意 <img class="math" src="_images/math/ed146a69915f9dd90a15137804717df91aa40df0.svg" alt="n\in \mathbb{N}"/> 成立；而上式显然是指数函数 <img class="math" src="_images/math/81bc826640b90540c42a12593686a9270c84facc.svg" alt="\ue^t"/> 的 Taylor 展开．这个数列向 <img class="math" src="_images/math/81bc826640b90540c42a12593686a9270c84facc.svg" alt="\ue^t"/> 逐点（并在紧集上一致地）收敛．</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="peano">
+<h2>3.3. Peano 定理<a class="headerlink" href="#peano" title="永久链接至标题">¶</a></h2>
+<p>Peano 定理如下，其证明不在此叙述．</p>
+<div class="def admonition">
+<p class="first admonition-title">Peano 定理</p>
+<p class="last">如果初值问题 <img class="math" src="_images/math/ac2733842fba8a0bf16c44c0bc667b9c747af9e7.svg" alt="\bx_t = f(t, \bx), \bx(0) = \bx_0"/> 中的函数 <img class="math" src="_images/math/b6d0db4de2274fc97ddec1897e8dd8a7032e9e93.svg" alt="f"/> 在区域 <img class="math" src="_images/math/4c358cce7eb9a23c69616c98411a22df9565107f.svg" alt="D"/> 上是连续的，那么初值问题在区域 <img class="math" src="_images/math/4c358cce7eb9a23c69616c98411a22df9565107f.svg" alt="D"/> 对应的 <img class="math" src="_images/math/205daf613eb72bce10794e1c1e1f59120e47a470.svg" alt="t"/> 所在闭区间上至少存在一个解．</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>3.4. 解的延伸<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>解的延伸 (extension of solutions) 也是重要的内容．</p>
+<div class="def admonition">
+<p class="first admonition-title">解的延伸定理</p>
+<blockquote class="last">
+<div><p>设 <img class="math" src="_images/math/795664c138952ea059fae10af0a364cc98b62c9e.svg" alt="P"/> 为区域 <img class="math" src="_images/math/57536308ed9f4bbc2eaac07b9e1a770af3ed6fc9.svg" alt="G"/> 内任意一点，并设 <img class="math" src="_images/math/bab2856b3d6a2828a4c7349a6c372fb75baae642.svg" alt="\Gamma"/> 为一条标量微分方程 <img class="math" src="_images/math/245c54df915e93503b3cf330cac5a27c6a934d2d.svg" alt="y_x = f(x,y)"/> 的积分曲线，则 <img class="math" src="_images/math/bab2856b3d6a2828a4c7349a6c372fb75baae642.svg" alt="\Gamma"/> 将在区域 <img class="math" src="_images/math/57536308ed9f4bbc2eaac07b9e1a770af3ed6fc9.svg" alt="G"/> 内延伸到边界．解 <img class="math" src="_images/math/b7ac17bf839ee32dffa1bca6d2449908d83d1d8c.svg" alt="y(x)"/> 存在的区间 <img class="math" src="_images/math/bca56e612004a14d1d700b7d83818cbd7ed35bca.svg" alt="x\in J"/> 称为 <strong>最大存在区间</strong> ．</p>
+<p>换言之，对任何有界闭区域 <img class="math" src="_images/math/bd2b56aec649db69651894043a0037ba3249eee1.svg" alt="G_1"/> （<img class="math" src="_images/math/f6b3b25c4a88dcd796b64f53cdb20e9be37cc945.svg" alt="P\in G_1\subset G"/>），积分曲线都将延伸到 <img class="math" src="_images/math/bd2b56aec649db69651894043a0037ba3249eee1.svg" alt="G_1"/> 之外．</p>
+</div></blockquote>
+</div>
+<p>上述定理并不是常用的形式，我们更常使用的是它的一个推论：</p>
+<div class="def admonition">
+<p class="first admonition-title">推论：解的延伸定理</p>
+<blockquote class="last">
+<div>设函数 <img class="math" src="_images/math/450a1d82e8ba6c936075abe5c5a263880561c86a.svg" alt="f(x,y)"/> 在区域 <img class="math" src="_images/math/57536308ed9f4bbc2eaac07b9e1a770af3ed6fc9.svg" alt="G"/> 连续且对 <img class="math" src="_images/math/90fbf5e23deba721677e2a5cacc12abe13583480.svg" alt="y"/> 局部 Lipschitz，那么微分方程经过 <img class="math" src="_images/math/57536308ed9f4bbc2eaac07b9e1a770af3ed6fc9.svg" alt="G"/> 内任一点 <img class="math" src="_images/math/795664c138952ea059fae10af0a364cc98b62c9e.svg" alt="P"/> 存在唯一的积分曲线 <img class="math" src="_images/math/bab2856b3d6a2828a4c7349a6c372fb75baae642.svg" alt="\Gamma"/> ，且 <img class="math" src="_images/math/bab2856b3d6a2828a4c7349a6c372fb75baae642.svg" alt="\Gamma"/> 在 <img class="math" src="_images/math/57536308ed9f4bbc2eaac07b9e1a770af3ed6fc9.svg" alt="G"/> 延伸到边界．</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DS-basic.html" class="btn btn-neutral float-right" title="1. 动力系统基础" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MethodForSolving.html" class="btn btn-neutral" title="2. 初等积分法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, wklchris
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

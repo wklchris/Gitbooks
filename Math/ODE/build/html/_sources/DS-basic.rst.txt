@@ -190,7 +190,7 @@
 .. admonition:: 例子：宏观质点的运动
    :class: eg
 
-    假设质量为 :math:`m` 的质点 :math:`\boldsymbol{q}=(q_1,q_2,\ldots,q_n)` 在 :math:`\uR^n` 空间运动，且在空间上任一点 :math:`\boldsymbol{x}` 处该质点的受力为 :math:`\boldsymbol{F}(\boldsymbol{q})`．
+    假设质量为 :math:`m` 的质点 :math:`\boldsymbol{q}=(q_1,q_2,\ldots,q_n)` 在 :math:`\uR^n` 空间运动，且在空间上任一点 :math:`\bx` 处该质点的受力为 :math:`\boldsymbol{F}(\boldsymbol{q})`．
 
     那么，由牛顿第二定律，我们得到自治微分方程：:math:`m\ddot{\boldsymbol{q}} = \boldsymbol{F}(\boldsymbol{q})`，其中点号表示对时间 :math:`t` 的微分．
 
@@ -249,11 +249,11 @@
 .. admonition:: 简化定义：重力系统
    :class: def
 
-    如果描述一个在重力场中的自由落体运动，记在 :math:`\boldsymbol{x}` 处质点的重力势能为标量 :math:`V(\boldsymbol{x})`，那么 **重力系统** (gradient system) 可以由下式描述：
+    如果描述一个在重力场中的自由落体运动，记在 :math:`\bx` 处质点的重力势能为标量 :math:`V(\bx)`，那么 **重力系统** (gradient system) 可以由下式描述：
 
     .. math::
 
-        \frac{\ud \boldsymbol{x}}{\ud t} = - \frac{\partial V}{\partial \boldsymbol{x}}
+        \frac{\ud \bx}{\ud t} = - \frac{\partial V}{\partial \bx}
 
 
 重力系统的性质
@@ -263,11 +263,11 @@
 
     .. math::
 
-        \frac{\ud}{\ud t}V(\boldsymbol{x}(t)) = \frac{\partial V}{\partial \boldsymbol{x}}\frac{\ud \boldsymbol{x}}{\ud t} = -\frac{\partial V}{\partial \boldsymbol{x}}\frac{\partial V}{\partial \boldsymbol{x}} = -\left\|\frac{\partial V}{\partial \boldsymbol{x}}\right\|^2 \leq 0.
+        \frac{\ud}{\ud t}V(\bx(t)) = \frac{\partial V}{\partial \bx}\frac{\ud \bx}{\ud t} = -\frac{\partial V}{\partial \bx}\frac{\partial V}{\partial \bx} = -\left\|\frac{\partial V}{\partial \bx}\right\|^2 \leq 0.
 
-2. **重力系统中（除平衡点处的）轨线总是与势能** :math:`V` **的水平面 (level surface)** :math:`V(\boldsymbol{x}) = C` **（其中** :math:`C` **为常数）垂直，并指向** :math:`V` **减少的方向**．
+2. **重力系统中（除平衡点处的）轨线总是与势能** :math:`V` **的水平面 (level surface)** :math:`V(\bx) = C` **（其中** :math:`C` **为常数）垂直，并指向** :math:`V` **减少的方向**．
 
-    注意到 :math:`\frac{\partial V}{\partial \boldsymbol{x}}` 实质上是 :math:`V` 的梯度，指向 :math:`V` 增长最快的质点运动方向．回到原微分方程，可知重力系统的轨线 :math:`\boldsymbol{x}(t)` 随时间变化总是指向 :math:`V` 下降最快的方向，即相图中轨线总是垂直于曲线簇 :math:`V(\boldsymbol{x})=C`．
+    注意到 :math:`\frac{\partial V}{\partial \bx}` 实质上是 :math:`V` 的梯度，指向 :math:`V` 增长最快的质点运动方向．回到原微分方程，可知重力系统的轨线 :math:`\bx(t)` 随时间变化总是指向 :math:`V` 下降最快的方向，即相图中轨线总是垂直于曲线簇 :math:`V(\bx)=C`．
 
 
 重力系统的判定
@@ -276,11 +276,11 @@
 .. admonition:: 重力系统的判定方法
    :class: def
 
-    动力系统 :math:`\boldsymbol{x}_t = \boldsymbol{F}(\boldsymbol{x}) = (F_1(\boldsymbol{x}), F_2(\boldsymbol{x}), \ldots, F_n(\boldsymbol{x}))` 当且仅当存在一个势能函数 :math:`V: \uR^n\to\uR` 使得下式成立：
+    动力系统 :math:`\bx_t = \boldsymbol{F}(\bx) = (F_1(\bx), F_2(\bx), \ldots, F_n(\bx))` 当且仅当存在一个势能函数 :math:`V: \uR^n\to\uR` 使得下式成立：
 
     .. math::
 
-        \boldsymbol{F}(\boldsymbol{x}) = -\left(\frac{\partial }{\partial x_1}, \frac{\partial }{\partial x_2}, \ldots, \frac{\partial }{\partial x_n}\right)V
+        \boldsymbol{F}(\bx) = -\left(\frac{\partial }{\partial x_1}, \frac{\partial }{\partial x_2}, \ldots, \frac{\partial }{\partial x_n}\right)V
 
     或写为： :math:`F_i(x_1,x_2,\ldots,x_n) = -\frac{\partial V}{\partial x_i},\quad \forall i=1,2,\ldots,n` ．
    
@@ -353,7 +353,7 @@
     z_t &= xy - bz 
     \end{cases}
 
-其中，参数 :math:`\sigma, r, b` 均为常量．其图像是混沌理论中著名的洛伦茨蝴蝶 (Lorenz butterfly)，在此引用 `Matplotlib 绘图示例 <https://matplotlib.org/gallery/mplot3d/lorenz_attractor.html>`_：
+其中，参数 :math:`\sigma, r, b` 均为常量．其相图是混沌理论中著名的洛伦茨蝴蝶 (Lorenz butterfly)，在此引用 `Matplotlib 绘图示例 <https://matplotlib.org/gallery/mplot3d/lorenz_attractor.html>`_：
 
 .. plot:: _static/img/Lorenz-butterfly.py
     :align: center

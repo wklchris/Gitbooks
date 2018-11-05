@@ -105,6 +105,16 @@
 <li class="toctree-l2"><a class="reference internal" href="MethodForSolving.html#id2">2.1. 全微分方程（恰当方程）</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="UniqueAndExist.html">3. 解的存在与唯一性</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#lipschitz">3.1. Lipschitz 条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#picard">3.2. Picard 定理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UniqueAndExist.html#id2">3.2.1. Picard 迭代</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#peano">3.3. Peano 定理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#id3">3.4. 解的延伸</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">第二部分：动力系统</span></p>
 <ul class="current">
@@ -132,7 +142,11 @@
 <li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id18">2.4. 洛伦茨系统*</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 动力系统解的存在与唯一性</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 动力系统解的存在与唯一性</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.1. 本章引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3.2. 初值问题解的存在性</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="DS-stability.html">4. 平衡点的稳定性</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
 </ul>
@@ -210,6 +224,59 @@
             
   <div class="section" id="id1">
 <h1>3. 动力系统解的存在与唯一性<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>3.1. 本章引言<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>回忆之前的内容，我们介绍过皮卡定理 (Picard theorem) 与皮阿诺定理 (Peano theorem) 在标量微分方程上的应用：前者对应解的唯一性，后者对应解的存在性．</p>
+<p>通过几个例子来说明这一点：</p>
+<div class="eg admonition">
+<p class="first admonition-title">例子：标量常系数线性系统</p>
+<blockquote class="last">
+<div><p>考虑标量的常系数线性自治系统的初值问题：</p>
+<div class="math">
+<p><img src="_images/math/4fa6eb5f2fa4698891d3c198cf77a9f003c7b4f9.svg" alt="\begin{cases}
+x_t = ax \\
+x(0) = x_0
+\end{cases}"/></p>
+</div><p><strong>解：</strong> 容易解出：<img class="math" src="_images/math/73d3ef080842ad2b3fdcad6fd566fbf352f37486.svg" alt="x(t) = x_0\ue^{at}"/> ，并得到流： <img class="math" src="_images/math/d45097c2e22dbe8111bdcee83b258c31c8d10356.svg" alt="\varphi_t(x) = x\ue^{at}"/>．此时解在 <img class="math" src="_images/math/8e79269b93f2322d2b4fbb6194982d05fe0eba5a.svg" alt="t\in\uR"/> 上是存在且唯一的．</p>
+</div></blockquote>
+</div>
+<div class="eg admonition">
+<p class="first admonition-title">例子：标量常系数非线性系统</p>
+<blockquote class="last">
+<div><p>考虑标量的常系数非线性自治系统的初值问题．特别地，此例中的函数 <img class="math" src="_images/math/e8542a103939e850145835fc598356066a22d0c9.svg" alt="f(x)"/> 连续但并非处处可微．</p>
+<div class="math">
+<p><img src="_images/math/083a932e843ed7dcadeca68ef26c1d58ce97de40.svg" alt="\begin{cases}
+x_t = |x|^{\frac{1}{2}} \\
+x(0) = x_0
+\end{cases}"/></p>
+</div><p><strong>解：</strong> 考虑 <img class="math" src="_images/math/dbc03a6a06fcc4e188d49d589026f28da5bfbb6a.svg" alt="x(t) &gt; 0"/> 时的解，有：</p>
+<div class="math">
+<p><img src="_images/math/8d093b8cb3ee73b7fb42193ca53a195009660ada.svg" alt="\int \frac{\ud x}{\sqrt{x}} = \int \ud t \implies x(t) = \frac{1}{4}(t+C)^2"/></p>
+</div><p>代入 <img class="math" src="_images/math/d5ca0cbedf38f47f980d99df836efa876ab59ab3.svg" alt="t=0"/> 时的初值条件，得到： <img class="math" src="_images/math/e05978af8ad184e49a15b2921a9c47a44407edd6.svg" alt="C=2\sqrt{x_0}"/> ．于是得到初值为正时的解：</p>
+<div class="math">
+<p><img src="_images/math/b64a1dcc7fd06e129a634ce626250f8bae0c01e8.svg" alt="x(t) = \frac{1}{4}(t+2\sqrt{x_0})^2, \quad (x_0 &gt; 0)"/></p>
+</div><p>类似我们可以考虑 <img class="math" src="_images/math/dc4c44653d9b195106cba91f8178a960d3849caf.svg" alt="x(t) &lt; 0"/> 的情况．</p>
+<p>特别地，我们考虑 <img class="math" src="_images/math/634852b83f16b2029de8707c8d3e1ed9306ca80b.svg" alt="x_0 = 0"/> 的情况，上式即： <img class="math" src="_images/math/f65b6e7db06b7d41829cda945fc50a5cd7841e96.svg" alt="x(t) = \frac{1}{4}t^2 \, (t&gt;0)"/> ，容易验证这是方程的解．但注意到，<img class="math" src="_images/math/3c0ff2029a2a65cee783526d6af5c6fed2c7710c.svg" alt="x(t) = 0"/> 也是方程的解，因此方程的解不是唯一的．</p>
+<p>在 <img class="math" src="_images/math/a0ae6aeb698f417262048d0db6d62dac02fdba49.svg" alt="t&lt;0"/> 时，以上解可以向负向延伸为 <img class="math" src="_images/math/3c0ff2029a2a65cee783526d6af5c6fed2c7710c.svg" alt="x(t) = 0"/> 或者 <img class="math" src="_images/math/e8e77ec88d5ff937485cbaf471ffb1f4182afa29.svg" alt="-\frac{1}{4}t^2"/> ．因此，该方程在 <img class="math" src="_images/math/fd56221b9fd6ba31519f50bba393932f4a311120.svg" alt="x_0=0"/> 时的一个解可以写作：</p>
+<div class="math">
+<p><img src="_images/math/94d06278374fa431fab85430ef7bae0b02fb70c5.svg" alt="x(t) = \begin{cases}
+\frac{1}{4}t^2, &amp; t\geq 0 \\
+0, &amp; t &lt; 0.
+\end{cases}"/></p>
+</div><p>由自治系统的沿 <img class="math" src="_images/math/205daf613eb72bce10794e1c1e1f59120e47a470.svg" alt="t"/> 轴平移性，我们知道以下形式的任意 <img class="math" src="_images/math/1154ae039b4c149a276c540977200b36231c5377.svg" alt="t_0\geq 0"/> 均为原方程在 <img class="math" src="_images/math/634852b83f16b2029de8707c8d3e1ed9306ca80b.svg" alt="x_0 = 0"/> 时的解：</p>
+<div class="math">
+<p><img src="_images/math/5cb3f4612ed9eb9e388c1c47508b901f434b0cb5.svg" alt="x(t) = \begin{cases}
+\frac{1}{4}(t - t_0)^2, &amp; t\geq t_0 \\
+0, &amp; t &lt; t_0.
+\end{cases}"/></p>
+</div><p>该动力系统解的不唯一是因为方向场函数 <img class="math" src="_images/math/37f65b305fff0e87c13a2c0b35e5a45d303f541f.svg" alt="|x|^{\frac{1}{2}}"/> 虽然连续但在 <img class="math" src="_images/math/74d454f6bbe40b2543705fcaeac352eb775b7dde.svg" alt="x=0"/> 处并不可导（或者从 Picard 定理的角度阐述，它在此处不是 Lipschitz 的）．如果方向场是光滑的，则无此问题．</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>3.2. 初值问题解的存在性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>解的存在性利用 Picard 定理进行判断，这点与我们在 <a class="reference internal" href="UniqueAndExist.html#toc-unique-and-exist"><span class="std std-ref">解的存在与唯一性</span></a> 一章讨论的内容相似．</p>
+</div>
 </div>
 
 
