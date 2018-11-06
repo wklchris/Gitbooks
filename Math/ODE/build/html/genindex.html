@@ -106,12 +106,16 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="UniqueAndExist.html">3. 解的存在与唯一性</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#lipschitz">3.1. Lipschitz 条件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#picard">3.2. Picard 定理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="UniqueAndExist.html#id2">3.2.1. Picard 迭代</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#picard-lindeloff">3.2. Picard-Lindelöff 定理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UniqueAndExist.html#picard">3.2.1. Picard 迭代</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#peano">3.3. Peano 定理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#id3">3.4. 解的延伸</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#id3">3.4. 解的延伸与最大存在区间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UniqueAndExist.html#id4">3.4.1. 解的延伸判断</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="UniqueAndExist.html#id5">3.5. 初值扰动对解的影响*</a></li>
 </ul>
 </li>
 </ul>
@@ -124,29 +128,47 @@
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-ds-properties">1.1.3. 动力系统的基本性质</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id7">1.1.4. 动力系统的简化手段</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id8">1.1.5. 动力系统的几何概念</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-manifold">1.1.6. 流形*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id9">1.1.6. 量纲分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#toc-manifold">1.1.7. 流形*</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DS-basic.html#id10">2. 动力系统的经典范例</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="DS-basic.html#id11">2. 动力系统的经典范例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-newton-ds">2.1. 牛顿力学系统与守恒</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id13">2.2. 哈密尔顿系统</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id14">2.3. 重力系统</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id15">2.3.1. 重力系统的性质</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id16">2.3.2. 重力系统的判定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id17">2.3.3. 重力系统的相图绘制*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-hamiltonian">2.2. 哈密尔顿系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id15">2.3. 梯度系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id16">2.3.1. 梯度系统的性质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id17">2.3.2. 梯度系统的判定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id18">2.3.3. 梯度系统的相图绘制*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id18">2.4. 洛伦茨系统*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id19">2.4. 洛伦茨系统*</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="DS-solution.html#id2">3.1. 本章引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DS-solution.html#id3">3.2. 初值问题解的存在性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-solution.html#id3">3.2. 解的存在性与唯一性</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DS-stability.html">4. 平衡点的稳定性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DS-stability.html">4. 平衡点的稳定性</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id2">4.1. 稳定性引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#lyapunov">4.2. Lyapunov 稳定性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id3">4.3. 线性化系统与双曲平衡点</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id4">4.3.1. 线性稳定性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id5">4.3.2. 平衡点的双曲性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id6">4.3.3. 拓扑共轭与稳定流形*</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id7">4.4. 高维动力系统的稳定性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.1. 动力系统的不变集*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id9">4.4.2. 自治线性系统与稳定性子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id11">4.4.3. 非自治线性系统与基解矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#duhamel-s">4.4.4. 非齐次线性系统与 Duhamel’s 原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
 </ul>
 

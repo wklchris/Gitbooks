@@ -53,6 +53,11 @@ imgmath_latex_preamble = r'''
 \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}
 \newcommand{\ue}{\mathrm{e}}
 \newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\br}{\boldsymbol{r}}
+\newcommand{\bA}{\boldsymbol{A}}
+\newcommand{\bPhi}{\boldsymbol{Phi}}
+\newcommand{\bI}{\boldsymbol{I}}
+\newcommand{\eqbx}{\boldsymbol{\bar{x}}}
 '''
 
 # Add any paths that contain templates here, relative to this directory.

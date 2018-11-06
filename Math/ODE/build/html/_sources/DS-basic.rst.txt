@@ -138,6 +138,30 @@
 
 最后，我们指出，动力系统的研究主要侧重于流与质点轨迹的全局特性，例如稳定性 (stability)、周期性 (periodicity)、混沌 (chaos) 理论，以及分支 (bifurcation) 理论．其中，上述奇点与闭轨的分析是基础的定性分析问题．
 
+
+量纲分析
+^^^^^^^^^^^^^
+
+量纲分析 (dimensional analysis) 是在实际建立动力系统模型时常用的手段．通过对参数与变量的量纲的分析，将变量乘上某些参数的组合，使其变为一个无量纲的（即量纲为 1）的新的变量，由此列出新的微分方程，这一过程就称为 **无量纲化** (non-/de- dimensionalizition)．我们用一个例子来说明这一点：
+
+.. admonition:: 例子：无量纲化
+
+    假设某种群数量 :math:`x \geq 0` 随时间 :math:`t` 变化的 Logistic 模型：
+
+    .. math::
+
+        x_t = \mu\left( 1 - \frac{x}{k} \right)x, \quad x(0) = x_0
+
+    其中参数 :math:`\mu, k > 0` 均为常数．请列出无量纲化后的初值问题．
+
+    **解：** 设种群数量的单位为 :math:`P` ，时间的单位为 :math:`T` ，那么微分方程中的两个变量 :math:`x, t` 分别具有单位 :math:`[x] = P, [t] = T` ．参数 :math:`k` 与变量 :math:`x` 相除后可与常数 1 作减法，因此其单位是 :math:`[k] = P` ；微分方程左侧的单位是随时间种群变化，即 :math:`P/T` ，由此可以推知 :math:`[\mu]=1/T` ．
+
+    那么，无量纲化后的新变量可以取：:math:`\tilde{x}=x/k, \, \tilde{t}=\mu t` ，得到变换后的初值问题：
+
+    .. math::
+
+        x_t = x(1-x), \quad x(0) = \frac{x_0}{k}.
+
 .. _toc-manifold:
 
 流形*
@@ -213,6 +237,7 @@
 
 关于守恒系统，我们会在后文详细讨论．
 
+.. _toc-hamiltonian:
 
 哈密尔顿系统
 -----------------
@@ -239,24 +264,24 @@
     \frac{\ud H(\boldsymbol{q}(t), \boldsymbol{p}(t))}{\ud t} = \frac{\partial H}{\partial \boldsymbol{q}}\frac{\partial \boldsymbol{q}}{\partial t} + \frac{\partial H}{\partial \boldsymbol{p}}\frac{\partial \boldsymbol{p}}{\partial t} = \frac{\partial H}{\partial \boldsymbol{q}}\frac{\partial H}{\partial \boldsymbol{p}} - \frac{\partial H}{\partial \boldsymbol{p}}\frac{\partial H}{\partial \boldsymbol{q}} = 0.
 
 
-重力系统
+梯度系统
 ---------------
 
-在 :ref:`toc-newton-ds` 一节中，我们介绍了势能的概念．针对物理学中的重力势能，我们可以用微分方程从数学上描绘重力系统．
+在 :ref:`toc-newton-ds` 一节中，我们介绍了势能的概念．针对物理学中的重力势能，我们可以用微分方程从数学上类似地描绘梯度系统．
 
-特别指明，重力系统也是一种守恒系统．
+特别指明，梯度系统也是一种守恒系统．
 
-.. admonition:: 简化定义：重力系统
+.. admonition:: 简化定义：梯度系统
    :class: def
 
-    如果描述一个在重力场中的自由落体运动，记在 :math:`\bx` 处质点的重力势能为标量 :math:`V(\bx)`，那么 **重力系统** (gradient system) 可以由下式描述：
+    记在 :math:`\bx` 处质点的势能为标量 :math:`V(\bx)`，那么 **梯度系统** (gradient system) 可以由下式描述：
 
     .. math::
 
         \frac{\ud \bx}{\ud t} = - \frac{\partial V}{\partial \bx}
 
 
-重力系统的性质
+梯度系统的性质
 ^^^^^^^^^^^^^^^^^^^^
 
 1. **势能** :math:`V` **随着时间** :math:`t` **而不增**，即
@@ -265,15 +290,15 @@
 
         \frac{\ud}{\ud t}V(\bx(t)) = \frac{\partial V}{\partial \bx}\frac{\ud \bx}{\ud t} = -\frac{\partial V}{\partial \bx}\frac{\partial V}{\partial \bx} = -\left\|\frac{\partial V}{\partial \bx}\right\|^2 \leq 0.
 
-2. **重力系统中（除平衡点处的）轨线总是与势能** :math:`V` **的水平面 (level surface)** :math:`V(\bx) = C` **（其中** :math:`C` **为常数）垂直，并指向** :math:`V` **减少的方向**．
+2. **梯度系统中（除平衡点处的）轨线总是与势能** :math:`V` **的水平面 (level surface)** :math:`V(\bx) = C` **（其中** :math:`C` **为常数）垂直，并指向** :math:`V` **减少的方向**．
 
     注意到 :math:`\frac{\partial V}{\partial \bx}` 实质上是 :math:`V` 的梯度，指向 :math:`V` 增长最快的质点运动方向．回到原微分方程，可知重力系统的轨线 :math:`\bx(t)` 随时间变化总是指向 :math:`V` 下降最快的方向，即相图中轨线总是垂直于曲线簇 :math:`V(\bx)=C`．
 
 
-重力系统的判定
+梯度系统的判定
 ^^^^^^^^^^^^^^^^^^^^
 
-.. admonition:: 重力系统的判定方法
+.. admonition:: 梯度系统的判定方法
    :class: def
 
     动力系统 :math:`\bx_t = \boldsymbol{F}(\bx) = (F_1(\bx), F_2(\bx), \ldots, F_n(\bx))` 当且仅当存在一个势能函数 :math:`V: \uR^n\to\uR` 使得下式成立：
@@ -299,21 +324,21 @@
     \frac{\partial F_1}{\partial y} = \frac{\partial F_2}{\partial x}
 
 
-下面是几个重力系统判定的例子：
+下面是几个梯度系统判定的例子：
 
-.. admonition:: 例子：重力系统的判定
+.. admonition:: 例子：梯度系统的判定
    :class: eg
 
-    判断以下动力系统是否是重力系统；若是，求出它们的势能函数形式．
+    判断以下动力系统是否是梯度系统；若是，求出它们的势能函数形式．
 
     .. math::
 
         (1) \begin{cases} x_t = xy \\ y_t = x^2+y^2 \end{cases}; \quad
         (2) \begin{cases} x_t = 2xy \\ y_t = x^2 + y^2 \end{cases}.
 
-    **解：** 方程 (1) 有：:math:`\frac{\partial}{\partial y}(xy) = x, \frac{\partial}{\partial x}(x^2+y^2) = 2x`，二者不恒等，因此不是重力系统．
+    **解：** 方程 (1) 有：:math:`\frac{\partial}{\partial y}(xy) = x, \frac{\partial}{\partial x}(x^2+y^2) = 2x`，二者不恒等，因此不是梯度系统．
 
-    方程 (2) 可由类似的方法判定出是重力系统．那么有：
+    方程 (2) 可由类似的方法判定出是梯度系统．那么有：
 
     .. math::
 
@@ -328,12 +353,12 @@
     由此解出势能函数： :math:`V(x,y) = -x^2 y - \frac{1}{3} y^3 + C` ，其中 :math:`C` 是任意常数．
 
 
-重力系统的相图绘制*
+梯度系统的相图绘制*
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-通用的相图绘制技巧，可以参考后文的内容．这里举一个重力系统相图绘制的例子：
+通用的相图绘制技巧，可以参考后文的内容．这里举一个梯度系统相图绘制的例子：
 
-.. admonition:: 例子：重力系统的相图绘制
+.. admonition:: 例子：梯度系统的相图绘制
    :class: eg
 
     …… 施工中 ……
