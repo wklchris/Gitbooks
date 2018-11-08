@@ -39,6 +39,12 @@
    DS-stability
    DS-plane
 
+.. toctree::
+    :caption: 附录
+
+    appendix-matrix-exp
+    appendix-odetoolkit
+
 
 鸣谢
 -------

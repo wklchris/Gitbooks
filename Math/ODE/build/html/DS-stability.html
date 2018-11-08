@@ -144,7 +144,11 @@
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id18">2.3.3. 梯度系统的相图绘制*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id19">2.4. 洛伦茨系统*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-conservative">2.4. 守恒系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id20">2.4.1. 守恒系统的相图</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id22">2.5. 洛伦茨系统*</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a><ul>
@@ -170,7 +174,19 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#id2">5.1. 平面动力系统的相图</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-plane.html#id3">5.1.1. 平面相图的一般绘制方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-plane.html#toc-conservative-phase">5.1.2. 守恒系统的相图绘制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix-matrix-exp.html">矩阵的指数运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix-odetoolkit.html">如何使用 ode_toolkit 包绘制相图*</a></li>
 </ul>
 
             
@@ -249,9 +265,9 @@
 <p>虽然前文已介绍过，但此处仍简单叙述平衡点的定义：</p>
 <div class="admonition- admonition">
 <p class="first admonition-title">定义：动力系统的平衡点</p>
-<p class="last">对动力系统 <img class="math" src="_images/math/26c2ed69fe2ab0b7f61c56478dc00d66c288fbf0.svg" alt="\bx(t) = f(\bx)"/>，我们称其流 <img class="math" src="_images/math/40e82e37f8483204f1130415172361827d4d4038.svg" alt="\varphi_t(\bx)"/> 的不动点 <img class="math" src="_images/math/a54ead1b1348ceaa9affbf4cd12b5d1dca59ac3f.svg" alt="\varphi_t(\eqbx) = \eqbx"/> 为动力系统的 <strong>平衡点</strong> (equilibrium)，并一般记作 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> ．</p>
+<p class="last">对动力系统 <img class="math" src="_images/math/78720341f5397894d4cfbbbadd0d660a5a91ce4a.svg" alt="\bx(t) = f(\bx)"/>，我们称其流 <img class="math" src="_images/math/9636de8e0b0846afcc361ddad68d9132dd16e219.svg" alt="\varphi_t(\bx)"/> 的不动点 <img class="math" src="_images/math/10b5366cb9ea94d11c40dee70522676f03a751a5.svg" alt="\varphi_t(\eqbx) = \eqbx"/> 为动力系统的 <strong>平衡点</strong> (equilibrium)，并一般记作 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> ．</p>
 </div>
-<p>流如果满足上式，那么如果初值设为流的不动点 <img class="math" src="_images/math/f11aed7f0884bf70f103e98902f028f9dd70ae02.svg" alt="\bx_0 = \eqbx"/>，我们总有 <img class="math" src="_images/math/1260f4c6e79ed663a5802b6cee17bd4898f809f8.svg" alt="\bx(t) = \eqbx"/> 成立．从几何上解释，在平衡点处粒子运动的速度为 <img class="math" src="_images/math/b8e9707a53094e55aaa80b79e508733349483981.svg" alt="f(\eqbx) = 0"/>，因此粒子如果到达该点就不会离开，即平衡．</p>
+<p>流如果满足上式，那么如果初值设为流的不动点 <img class="math" src="_images/math/c25b81aaf1722dee112fcb7166ab3ed089bfc0a8.svg" alt="\bx_0 = \eqbx"/>，我们总有 <img class="math" src="_images/math/de6a6638b85aa2e59ffa21c982ecb793facdf883.svg" alt="\bx(t) = \eqbx"/> 成立．从几何上解释，在平衡点处粒子运动的速度为 <img class="math" src="_images/math/fdaa95d69daee8f6fe6e0a19ad94e18e7e96cbf7.svg" alt="f(\eqbx) = 0"/>，因此粒子如果到达该点就不会离开，即平衡．</p>
 <div class="section" id="id2">
 <h2>4.1. 稳定性引言<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>平衡点的稳定性是一个很自然的描述；例如，把小球放置在弧顶与弧底都是平衡的，但前者只要放置时稍稍偏离正顶点，小球就会移动．这是一种“不稳定”的平衡．</p>
@@ -263,40 +279,40 @@
 <p>如无特殊说明，本笔记中提到的稳定均指李雅普诺夫 (Lyapunov) 稳定．</p>
 <div class="admonition-lyapunov admonition">
 <p class="first admonition-title">定义：Lyapunov 稳定</p>
-<p>动力系统 <img class="math" src="_images/math/26c2ed69fe2ab0b7f61c56478dc00d66c288fbf0.svg" alt="\bx(t) = f(\bx)"/> 及其平衡点 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 如果满足对 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 附近的任意邻域 <img class="math" src="_images/math/c38107b889d0aad9d8066ca2c82ec77a93be165d.svg" alt="U"/>，均存在一个 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 附近的邻域 <img class="math" src="_images/math/7679c3388368cc890cf0c577fa332a8e93ae4815.svg" alt="V"/> ，使得只要 <img class="math" src="_images/math/5699e33fa4abefb23e3044dd924b002cd10c1815.svg" alt="\bx\in V"/> 均有 <img class="math" src="_images/math/8b4bcb4ef50ede64c4ffbc2d61bc2b5df97cbe26.svg" alt="\varphi_t(\bx)\in U"/> 对 <img class="math" src="_images/math/b52ace4283233b4fb662671dca952b5e9491a56a.svg" alt="t\neq 0"/> 成立，那么称该平衡点是 <strong>Lyapunov 稳定</strong> (Lyapunov stable) 的，或 Lyapunov 意义下稳定，也简称为稳定．</p>
-<p class="last">如果平衡点 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 不是 Lyapunov 稳定的，则称它是 <strong>Lyapunov 不稳定</strong> (Lyapunov unstable) 的．</p>
+<p>动力系统 <img class="math" src="_images/math/78720341f5397894d4cfbbbadd0d660a5a91ce4a.svg" alt="\bx(t) = f(\bx)"/> 及其平衡点 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 如果满足对 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 附近的任意邻域 <img class="math" src="_images/math/76b134a0273ba815ed0e0d77776fb5c54186008d.svg" alt="U"/>，均存在一个 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 附近的邻域 <img class="math" src="_images/math/1d69f1ba7abceba8ede5d51871010901f01b7a5c.svg" alt="V"/> ，使得只要 <img class="math" src="_images/math/c8ee88403234d558abce126ccd603a7277c1e48c.svg" alt="\bx\in V"/> 均有 <img class="math" src="_images/math/00693f9394f854cd3aecb3bdd9aa336d674cabc7.svg" alt="\varphi_t(\bx)\in U"/> 对 <img class="math" src="_images/math/53eac4e52f37b9d8a26b62f0f63de0560c5e9731.svg" alt="t\neq 0"/> 成立，那么称该平衡点是 <strong>Lyapunov 稳定</strong> (Lyapunov stable) 的，或 Lyapunov 意义下稳定，也简称为稳定．</p>
+<p class="last">如果平衡点 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 不是 Lyapunov 稳定的，则称它是 <strong>Lyapunov 不稳定</strong> (Lyapunov unstable) 的．</p>
 </div>
-<p>上述定义有如下等价的 <img class="math" src="_images/math/0e85827188c6a6036ba5141a5b9026dd02a76850.svg" alt="\varepsilon-\delta"/> 表述：</p>
+<p>上述定义有如下等价的 <img class="math" src="_images/math/a32ba7e8b7acbbfc2593f3d3f5eb6c799404c708.svg" alt="\varepsilon-\delta"/> 表述：</p>
 <div class="admonition-lyapunov admonition">
 <p class="first admonition-title">定义：Lyapunov 稳定的 ε-𝛿 表述</p>
-<p>对任意 <img class="math" src="_images/math/6660fadc114cef0f32f0a7bb8c1cf3f7b6b3aee7.svg" alt="\varepsilon&gt;0"/> ，存在 <img class="math" src="_images/math/484a72b1547efd3c7a300cf856b3057bc137e0f6.svg" alt="\delta&gt;0"/> 使得</p>
+<p>对任意 <img class="math" src="_images/math/4b1c38211f90c177121b541f36ff869aeacd77a1.svg" alt="\varepsilon&gt;0"/> ，存在 <img class="math" src="_images/math/b5968f38bceaf0b64c7b731be61002e9b58d9855.svg" alt="\delta&gt;0"/> 使得</p>
 <div class="math">
-<p><img src="_images/math/f05ee8c5a565fe00a77df0920240545397ca0687.svg" alt="|\eqbx_0 - \eqbx| &lt; \delta \implies | \varphi_t(\eqbx_0) - \eqbx |"/></p>
-</div><p class="last">对任意 <img class="math" src="_images/math/deb6c29dbf260b922a87694c9f4b344724d860b2.svg" alt="t\geq 0"/> 恒成立，那么称平衡点 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 是 Lyapunov 稳定的．</p>
+<p><img src="_images/math/fbc7b8544d6a022a4e2105642fe8fd74b02e8e64.svg" alt="|\eqbx_0 - \eqbx| &lt; \delta \implies | \varphi_t(\eqbx_0) - \eqbx |"/></p>
+</div><p class="last">对任意 <img class="math" src="_images/math/c9d24cf3f75eed2aa67233e76ec617045bc699c2.svg" alt="t\geq 0"/> 恒成立，那么称平衡点 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 是 Lyapunov 稳定的．</p>
 </div>
-<p>从几何意义上说，平衡点的稳定是指如果粒子的初始位置距离平衡点 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 足够近，此后它的运动轨迹也会一直保持与平衡点较近的一个距离．</p>
+<p>从几何意义上说，平衡点的稳定是指如果粒子的初始位置距离平衡点 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 足够近，此后它的运动轨迹也会一直保持与平衡点较近的一个距离．</p>
 <p>下面给出渐进稳定的定义：</p>
 <div class="def admonition">
 <p class="first admonition-title">定义： Lyapunov 渐进稳定</p>
 <blockquote class="last">
-<div><p>动力系统的平衡点 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 如果满足以下：</p>
+<div><p>动力系统的平衡点 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 如果满足以下：</p>
 <ol class="arabic simple">
 <li>它是 Lyapunov 稳定的；</li>
-<li>存在  <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 的邻域 <img class="math" src="_images/math/c38107b889d0aad9d8066ca2c82ec77a93be165d.svg" alt="U"/>，使得对任意 <img class="math" src="_images/math/38420e7fc6d3c324298d663acab351fd8f288e9a.svg" alt="\bx\in U"/> ，均有 <img class="math" src="_images/math/0153f7976126ef04fe44c514ed7a53955d9dab59.svg" alt="\lim_{t\to\infty}\varphi_t(x) \to \eqbx"/> 成立．</li>
+<li>存在  <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 的邻域 <img class="math" src="_images/math/76b134a0273ba815ed0e0d77776fb5c54186008d.svg" alt="U"/>，使得对任意 <img class="math" src="_images/math/d2c22c5c7edda864d2d205450ff3f084d8d5fc01.svg" alt="\bx\in U"/> ，均有 <img class="math" src="_images/math/f76d13343ee7fbc452c9bcb10d2ddc6a8be2fb60.svg" alt="\lim_{t\to\infty}\varphi_t(x) \to \eqbx"/> 成立．</li>
 </ol>
-<p>那么称平衡点 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 是 <strong>Lyapunov 渐进稳定</strong> (Lyapunov asymptotically stable) 的，简称渐进稳定的．</p>
+<p>那么称平衡点 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 是 <strong>Lyapunov 渐进稳定</strong> (Lyapunov asymptotically stable) 的，简称渐进稳定的．</p>
 </div></blockquote>
 </div>
 </div>
 <div class="section" id="id3">
 <h2>4.3. 线性化系统与双曲平衡点<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>考虑标量动力系统，我们将动力系统右侧的函数 <img class="math" src="_images/math/8aff597654f38498c2684473522ab680aa93e99c.svg" alt="f(x)"/> 在平衡点附近作 Talyor 展开，得到：</p>
+<p>考虑标量动力系统，我们将动力系统右侧的函数 <img class="math" src="_images/math/eb0b17c49ea5646eed9533ecc9dffdc98b941be0.svg" alt="f(x)"/> 在平衡点附近作 Talyor 展开，得到：</p>
 <div class="math">
-<p><img src="_images/math/eac10fb294bf11dc34adb764aa48901944628b90.svg" alt="f(x) = f(\bar{x} + y) = f(\bar{x}) + f'(\bar{x})y + r(y)"/></p>
-</div><p>其中高阶微分项省略．注意到 <img class="math" src="_images/math/b8e9707a53094e55aaa80b79e508733349483981.svg" alt="f(\eqbx) = 0"/> ，在代入 <img class="math" src="_images/math/3a3a3cbdfb472736117b59785187d0aed2c93a9a.svg" alt="y=x - \bar{x}"/> 后只剩下动力系统的线性形式： <img class="math" src="_images/math/9207caf739471593c8a3e67c95df19cf65c44b90.svg" alt="y_t = f'(\eqbx)y"/>．这个过程称为在 <img class="math" src="_images/math/b29f19e9a5e0d8e9fd58f57c7d1db820394a2233.svg" alt="\bar{x}"/> 处的 <strong>线性化</strong> (linearization)．</p>
-<p>高维系统 <img class="math" src="_images/math/c4179e38a0e735d0e2e7b065c23211a5d1469347.svg" alt="\bx_t = f(\bx)"/> 的线性化需要计算 Jacobi 矩阵，即线性化为：</p>
+<p><img src="_images/math/13ad0bdddf5cca25369ff4c50cdcf5ede33febd7.svg" alt="f(x) = f(\bar{x} + y) = f(\bar{x}) + f'(\bar{x})y + r(y)"/></p>
+</div><p>其中高阶微分项省略．注意到 <img class="math" src="_images/math/fdaa95d69daee8f6fe6e0a19ad94e18e7e96cbf7.svg" alt="f(\eqbx) = 0"/> ，在代入 <img class="math" src="_images/math/8eb54eca68ac9dfd66909f5e8bb0b4da2f414914.svg" alt="y=x - \bar{x}"/> 后只剩下动力系统的线性形式： <img class="math" src="_images/math/d7c81df83ac627f3d42e3a18268396abca66b94a.svg" alt="y_t = f'(\eqbx)y"/>．这个过程称为在 <img class="math" src="_images/math/9b49f6debbd07b5abc0fcf251b62744feb958b1f.svg" alt="\bar{x}"/> 处的 <strong>线性化</strong> (linearization)．</p>
+<p>高维系统 <img class="math" src="_images/math/2df64cc904dc884739a7dcb6fe3b91f9647f65e1.svg" alt="\bx_t = f(\bx)"/> 的线性化需要计算 Jacobi 矩阵，即线性化为：</p>
 <div class="math">
-<p><img src="_images/math/84937e3c2b73921240b37b42b29bc5ab9d9520bd.svg" alt="\frac{\ud }{\ud t} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}
+<p><img src="_images/math/0fb1d08ad6fd0ea1c2b7089522578889b8e7611f.svg" alt="\frac{\ud }{\ud t} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}
 = A(x_1,x_,2\ldots,x_n) \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}
 = \begin{pmatrix}
 \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} &amp; \cdots &amp; \frac{\partial f_1}{\partial x_n} \\
@@ -308,36 +324,36 @@
 <h3>4.3.1. 线性稳定性<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>标量系统的 <strong>线性稳定性</strong> (linearly stability) 判断：</p>
 <ol class="arabic simple">
-<li>如果 <img class="math" src="_images/math/865c3cc977e207cd39aa1109f90c518b482c545a.svg" alt="f'(\bar{x}) &lt; 0"/> ，那么线性渐进稳定；</li>
-<li>如果 <img class="math" src="_images/math/97f41653fe73b88eda0b0ea2e7ca25afa60c35c2.svg" alt="f'(\bar{x}) = 0"/> ，那么线性稳定；</li>
-<li>如果 <img class="math" src="_images/math/5145bd9eee7d1568a82baaace51ecb00b3ee73b1.svg" alt="f'(\bar{x}) &gt; 0"/> ，那么线性不稳定．</li>
+<li>如果 <img class="math" src="_images/math/1dc8605aa201d378200b36dd6de674144f40c388.svg" alt="f'(\bar{x}) &lt; 0"/> ，那么线性渐进稳定；</li>
+<li>如果 <img class="math" src="_images/math/46781d9f770201d646e80bb6eca1043e5a2a24ff.svg" alt="f'(\bar{x}) = 0"/> ，那么线性稳定；</li>
+<li>如果 <img class="math" src="_images/math/78661ff063f60ed2f43d1be9c7a49d707de21043.svg" alt="f'(\bar{x}) &gt; 0"/> ，那么线性不稳定．</li>
 </ol>
-<p>对于高维系统的线性稳定性，若其线性化后在平衡点处得到常矩阵 <img class="math" src="_images/math/3a4c297b653790dcd14ce4d4aa7afc508e3d329c.svg" alt="x_t = \bA x"/> ，那么：</p>
+<p>对于高维系统的线性稳定性，若其线性化后在平衡点处得到常矩阵 <img class="math" src="_images/math/ee3a00ec7514fae7666195b254970532c4d10962.svg" alt="x_t = \bA x"/> ，那么：</p>
 <ol class="arabic simple">
-<li>如果 <img class="math" src="_images/math/2bcfc8a7072ba21c3a9fa35b626612fddb85e0b8.svg" alt="\bA"/> 的所有特征根的实部都为负，那么线性渐进稳定；</li>
-<li>如果 <img class="math" src="_images/math/2bcfc8a7072ba21c3a9fa35b626612fddb85e0b8.svg" alt="\bA"/> 的所有特征根的实部都非正，且实部为零的特征根对应的 Jordan 块是一阶的，那么线性稳定；</li>
-<li>如果 <img class="math" src="_images/math/2bcfc8a7072ba21c3a9fa35b626612fddb85e0b8.svg" alt="\bA"/> 的存在实部为正的特征根，或存在实部为零但其 Jordan 块高于一阶，那么线性不稳定．</li>
+<li>如果 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 的所有特征根的实部都为负，那么线性渐进稳定；</li>
+<li>如果 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 的所有特征根的实部都非正，且实部为零的特征根对应的 Jordan 块是一阶的，那么线性稳定；</li>
+<li>如果 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 的存在实部为正的特征根，或存在实部为零但其 Jordan 块高于一阶，那么线性不稳定．</li>
 </ol>
 </div>
 <div class="section" id="id5">
 <h3>4.3.2. 平衡点的双曲性<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<p>对于标量动力系统 <img class="math" src="_images/math/9e24772f238f879f9433cdd93dd2509bb3668390.svg" alt="x_t = f(x)"/> ，如果 <img class="math" src="_images/math/e2fce2ae1ded76fe87981076b4c21c97bdb3e088.svg" alt="f'(\bar{x})\neq 0"/> ，那么称平衡点是 <strong>双曲</strong> (hyperbolic) 的，或称为双曲型平衡点．</p>
-<p>扩展到高维的情况，对于向量值动力系统的线性化形式 <img class="math" src="_images/math/3a4c297b653790dcd14ce4d4aa7afc508e3d329c.svg" alt="x_t = \bA x"/> ，即要求矩阵 <img class="math" src="_images/math/2bcfc8a7072ba21c3a9fa35b626612fddb85e0b8.svg" alt="\bA"/> 的所有特征根的实部均非零．</p>
+<p>对于标量动力系统 <img class="math" src="_images/math/1f4a58928575f8978c0fd635d40f0dd09caa074b.svg" alt="x_t = f(x)"/> ，如果 <img class="math" src="_images/math/0cea58c1f2c3bf0d61690bf64dc260963f2751f6.svg" alt="f'(\bar{x})\neq 0"/> ，那么称平衡点是 <strong>双曲</strong> (hyperbolic) 的，或称为双曲型平衡点．</p>
+<p>扩展到高维的情况，对于向量值动力系统的线性化形式 <img class="math" src="_images/math/ee3a00ec7514fae7666195b254970532c4d10962.svg" alt="x_t = \bA x"/> ，即要求矩阵 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 的所有特征根的实部均非零．</p>
 <p>下面介绍一个由线性化系统反推原系统平衡点稳定性的结论：</p>
 <div class="def admonition">
 <p class="first admonition-title">线性稳定性与原稳定性的联系</p>
 <blockquote class="last">
-<div><p>对于标量动力系统，如果平衡点 <img class="math" src="_images/math/b29f19e9a5e0d8e9fd58f57c7d1db820394a2233.svg" alt="\bar{x}"/> 是双曲的，那么线性系统在  <img class="math" src="_images/math/b29f19e9a5e0d8e9fd58f57c7d1db820394a2233.svg" alt="\bar{x}"/> 处稳定就等价于原系统渐进稳定．</p>
-<p>对于高维动力系统及其线性化后的 <img class="math" src="_images/math/3a4c297b653790dcd14ce4d4aa7afc508e3d329c.svg" alt="x_t = \bA x"/> ，如果平衡点 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 是双曲的，那么线性系统渐进稳定等价于原系统渐进稳定、线性系统不稳定等价于原系统不稳定．</p>
+<div><p>对于标量动力系统，如果平衡点 <img class="math" src="_images/math/9b49f6debbd07b5abc0fcf251b62744feb958b1f.svg" alt="\bar{x}"/> 是双曲的，那么线性系统在  <img class="math" src="_images/math/9b49f6debbd07b5abc0fcf251b62744feb958b1f.svg" alt="\bar{x}"/> 处稳定就等价于原系统渐进稳定．</p>
+<p>对于高维动力系统及其线性化后的 <img class="math" src="_images/math/ee3a00ec7514fae7666195b254970532c4d10962.svg" alt="x_t = \bA x"/> ，如果平衡点 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 是双曲的，那么线性系统渐进稳定等价于原系统渐进稳定、线性系统不稳定等价于原系统不稳定．</p>
 </div></blockquote>
 </div>
 <p>如果平衡点不是双曲的，那么不能由线性系统的稳定性推断原系统的稳定性．例如：</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：非双曲型的平衡点</p>
 <blockquote class="last">
-<div><p>以下标量动力系统均满足 <img class="math" src="_images/math/97f41653fe73b88eda0b0ea2e7ca25afa60c35c2.svg" alt="f'(\bar{x}) = 0"/> ，即非双曲型平衡点．</p>
+<div><p>以下标量动力系统均满足 <img class="math" src="_images/math/46781d9f770201d646e80bb6eca1043e5a2a24ff.svg" alt="f'(\bar{x}) = 0"/> ，即非双曲型平衡点．</p>
 <div class="math">
-<p><img src="_images/math/e6fd57fac746af5c08c89c99526596b0786cf429.svg" alt="(1)\quad x_t = x^3;
+<p><img src="_images/math/0624669fe7dfdb45bff059f0f7394681f93fc681.svg" alt="(1)\quad x_t = x^3;
 (2)\quad x_t = -x^3;
 (3)\quad x_t = x^2;
 (4)\quad x_t = x^4\sin \frac{1}{x}."/></p>
@@ -350,19 +366,19 @@
 <div class="def admonition">
 <p class="first admonition-title">定义：拓扑共轭</p>
 <blockquote class="last">
-<div>动力系统如果存在同胚 (homeomorphism, 本身与逆均是连续映射的映射) <img class="math" src="_images/math/f50d642185e45025e6017a49b36448e6b30fa003.svg" alt="h: U\to V"/> 使得 <img class="math" src="_images/math/8628eef7e305d178b5081ecd25064471be451a0d.svg" alt="\varphi_t(\bx)\in U \iff \psi_t(h(\bx))\in V"/> 与 <img class="math" src="_images/math/fb66fd42bab8980b6ab9b030909057f9920a73fa.svg" alt="h\circ \varphi_t = \psi_t \circ h"/> ，那么称系统是 <strong>拓扑共轭</strong> (topological conjugate) 的．</div></blockquote>
+<div>动力系统如果存在同胚 (homeomorphism, 本身与逆均是连续映射的映射) <img class="math" src="_images/math/767f96e524ff02d966d7cd7aa6bef838e6203c57.svg" alt="h: U\to V"/> 使得 <img class="math" src="_images/math/1f24e534ce8f37ff5a4c38e600d8541d039e0f4a.svg" alt="\varphi_t(\bx)\in U \iff \psi_t(h(\bx))\in V"/> 与 <img class="math" src="_images/math/8dbc82057644c709df79f4ae6419d855bfa0dffd.svg" alt="h\circ \varphi_t = \psi_t \circ h"/> ，那么称系统是 <strong>拓扑共轭</strong> (topological conjugate) 的．</div></blockquote>
 </div>
 <p>拓扑共轭指出了在某些条件下，线性化后的系统与原系统在平衡点处的相似性，即以下定理：</p>
 <div class="def admonition">
 <p class="first admonition-title">Hartman-Grobman 定理</p>
 <blockquote class="last">
-<div>如果 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 是自治系统 <img class="math" src="_images/math/c4179e38a0e735d0e2e7b065c23211a5d1469347.svg" alt="\bx_t = f(\bx)"/> 的双曲平衡点，那么在 <img class="math" src="_images/math/1b9306cc5c5c31562cbfb614d6aee403e583f265.svg" alt="\eqbx"/> 附近存在一个邻域，使得 <img class="math" src="_images/math/c4179e38a0e735d0e2e7b065c23211a5d1469347.svg" alt="\bx_t = f(\bx)"/> 与 <img class="math" src="_images/math/a28d69a118be2c3e817ab14c3d61698dbcc49ec8.svg" alt="\boldsymbol{y}_t = \mathrm{D}f(\xi)\boldsymbol{y}"/> 拓扑共轭．</div></blockquote>
+<div>如果 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 是自治系统 <img class="math" src="_images/math/2df64cc904dc884739a7dcb6fe3b91f9647f65e1.svg" alt="\bx_t = f(\bx)"/> 的双曲平衡点，那么在 <img class="math" src="_images/math/ac6af44afb166e67a0cd5ad8020f58dce51418f1.svg" alt="\eqbx"/> 附近存在一个邻域，使得 <img class="math" src="_images/math/2df64cc904dc884739a7dcb6fe3b91f9647f65e1.svg" alt="\bx_t = f(\bx)"/> 与 <img class="math" src="_images/math/af1a4620df7a8a5ea1baa2989adb3efc5fad8710.svg" alt="\boldsymbol{y}_t = \mathrm{D}f(\xi)\boldsymbol{y}"/> 拓扑共轭．</div></blockquote>
 </div>
-<p>为了指明两种系统在平衡点处稳定性的联系，我们介绍稳定流形与不稳定流形．<strong>稳定流形</strong> (stable manifold) <img class="math" src="_images/math/004517bbfcdb0005fb3b06689820664654a1d980.svg" alt="\mathrm{W}^\mathrm{s}"/> 是指所有正向趋向平衡点的流组成的集合，而 <strong>不稳定流形</strong> (unstable manifold) <img class="math" src="_images/math/14fbe59fe44247cc658acb8fc8e0bdc390c6468e.svg" alt="\mathrm{W}^\mathrm{u}"/> 是指所有负向趋向平衡点的流组成的集合，即：</p>
+<p>为了指明两种系统在平衡点处稳定性的联系，我们介绍稳定流形与不稳定流形．<strong>稳定流形</strong> (stable manifold) <img class="math" src="_images/math/ec4979466569d2bd124161a2f4333c33696db737.svg" alt="W^\mathrm{s}"/> 是指所有正向趋向平衡点的流组成的集合，而 <strong>不稳定流形</strong> (unstable manifold) <img class="math" src="_images/math/cf23283c654093c9f3fbd426ed32f7a0ab3bab18.svg" alt="W^\mathrm{u}"/> 是指所有负向趋向平衡点的流组成的集合，即：</p>
 <div class="math">
-<p><img src="_images/math/d6a43124827ee480fbcf073789b6ca435912b4b3.svg" alt="\mathrm{W}^\mathrm{s} &amp;= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to \infty \},
+<p><img src="_images/math/ca84a4298a50808afb6e305b93098f9a814b2967.svg" alt="W^\mathrm{s} &amp;= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to \infty \},
 
-\mathrm{W}^\mathrm{u} &amp;= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to -\infty \}"/></p>
+W^\mathrm{u} &amp;= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to -\infty \}"/></p>
 </div></div>
 </div>
 <div class="section" id="id7">
@@ -374,74 +390,78 @@
 <div class="def admonition">
 <p class="first admonition-title">定义：动力系统的不变集</p>
 <blockquote class="last">
-<div>在动力系统 <img class="math" src="_images/math/26c2ed69fe2ab0b7f61c56478dc00d66c288fbf0.svg" alt="\bx(t) = f(\bx)"/> 中，如果集合 <img class="math" src="_images/math/a77916c2dcb9a6378d2176c2f3005452dee9f05f.svg" alt="\Lambda\subset\uR^n"/> 满足任意 <img class="math" src="_images/math/726918ca19e0913454a93a4b38544fdd74e1646b.svg" alt="x_0\in \Lambda"/> 均使得过此点的流 <img class="math" src="_images/math/79b9d7370f36c3a9b4bd8bb083b0d382fff149e0.svg" alt="\varphi_t(\bx_0)"/> 在任意 <img class="math" src="_images/math/cad0ddb933ab96ae05d4bc0813af4d7a57b6fd9d.svg" alt="t\in\uR"/> 时也都位于集合中 <img class="math" src="_images/math/79b9d7370f36c3a9b4bd8bb083b0d382fff149e0.svg" alt="\varphi_t(\bx_0)"/> ，那么称集合 <img class="math" src="_images/math/277e3f29c50673cebbb8259f6b96c7dc25e5463e.svg" alt="\Lambda"/> 为动力系统的一个不变集．</div></blockquote>
+<div>在动力系统 <img class="math" src="_images/math/78720341f5397894d4cfbbbadd0d660a5a91ce4a.svg" alt="\bx(t) = f(\bx)"/> 中，如果集合 <img class="math" src="_images/math/74d013036c8f4404b33591f98784f44ca089e81e.svg" alt="\Lambda\subset\uR^n"/> 满足任意 <img class="math" src="_images/math/c1ca0d2126e878ecfeb79d097c3bee4cdaa373fb.svg" alt="x_0\in \Lambda"/> 均使得过此点的流 <img class="math" src="_images/math/785d36a6491381539638c7b7394437c20c3185e1.svg" alt="\varphi_t(\bx_0)"/> 在任意 <img class="math" src="_images/math/5197f90d757a4b9c0f9cc9bfac80b77a19bbf5a3.svg" alt="t\in\uR"/> 时也都位于集合中 <img class="math" src="_images/math/785d36a6491381539638c7b7394437c20c3185e1.svg" alt="\varphi_t(\bx_0)"/> ，那么称集合 <img class="math" src="_images/math/e44f4599e02123ddc6a38ba32e4e42da092d8488.svg" alt="\Lambda"/> 为动力系统的一个不变集．</div></blockquote>
 </div>
-<p>一个最简单的不变集是动力系统中一个平衡点：<img class="math" src="_images/math/0864e6208518d094bb28286b31470533af28f2d4.svg" alt="\Lambda = \{\eqbx\}"/>．此外的例子还包括周期轨线对应的流、Lorenz 吸引子．无需强调，<img class="math" src="_images/math/1e99f1dbe1964ccc46b0718d37d279f45c12a34d.svg" alt="\uR^n"/> 是动力系统的一个平凡的不变集．</p>
+<p>一个最简单的不变集是动力系统中一个平衡点：<img class="math" src="_images/math/9446ce17218b31e8ade2de70157a82dc2c3f5d85.svg" alt="\Lambda = \{\eqbx\}"/>．此外的例子还包括周期轨线对应的流、Lorenz 吸引子．无需强调，<img class="math" src="_images/math/542f610c8f28ad388b9879b68efb59fc6580a241.svg" alt="\uR^n"/> 是动力系统的一个平凡的不变集．</p>
 </div>
 <div class="section" id="id9">
 <h3>4.4.2. 自治线性系统与稳定性子空间<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<p>对于定常自治系统 <img class="math" src="_images/math/37bf8e8d0ccb6a797ce5c35debd9b682a66c981c.svg" alt="\bx_t = \bA t, \quad \bx(0)=\bx_0"/> ，我们解出 <img class="math" src="_images/math/7eebf209eb94712268dfc2dedfbab7667a493a45.svg" alt="x(t) = \ue^{t\bA} \bx_0"/> <a class="footnote-reference" href="#s1" id="id10">[1]</a> ．如果 <img class="math" src="_images/math/9924b5b9b832938615a1278d709e107fa0376950.svg" alt="\bx_0  = \sum_{j=1}^n c_j \br_j"/> （其中 <img class="math" src="_images/math/019c02951330aa34780747c51629f05f3b016902.svg" alt="\br_j"/> 是 <img class="math" src="_images/math/2bcfc8a7072ba21c3a9fa35b626612fddb85e0b8.svg" alt="\bA"/> 的特征值 <img class="math" src="_images/math/4293b8c7a8750af466bdedc543a38b756f434302.svg" alt="\lambda_j"/> 对应的特征向量），那么：</p>
+<p>对于定常自治系统 <img class="math" src="_images/math/0f1f0309babfdbebe6c448125c945ad284a53586.svg" alt="\bx_t = \bA t, \quad \bx(0)=\bx_0"/> ，我们解出 <img class="math" src="_images/math/aa223a071102bb1363f8aae3450972c6c68b8950.svg" alt="x(t) = \ue^{t\bA} \bx_0"/> <a class="footnote-reference" href="#s1" id="id10">[1]</a> ．如果 <img class="math" src="_images/math/7e8d23c596dd9225f228963ce11a4bd7fb68c79a.svg" alt="\bx_0  = \sum_{j=1}^n c_j \br_j"/> （其中 <img class="math" src="_images/math/dbe755ef73566599111f74ef59bc7410f6edb9ef.svg" alt="\br_j"/> 是 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 的特征值 <img class="math" src="_images/math/b8d5ee719cbd75956622355cb1ee93dc0fdc79a4.svg" alt="\lambda_j"/> 对应的特征向量），那么：</p>
 <div class="math">
-<p><img src="_images/math/94b758503815ffb03ab50d3a74de16806868bcc6.svg" alt="x(t) = \ue^{t\bA} = \sum_{j=1}^n c_j\ue^{t\bA}\br_j = \sum_{j=1}^n \ue^{t\lambda_j}c_j\br_j"/></p>
-</div><p>我们定义特征向量可以写成复数形式 <img class="math" src="_images/math/a879226c01dd6ac5d868c9052cdeca43154030c3.svg" alt="\br_j = \boldsymbol{u}_j \pm i \boldsymbol{v}_j"/> ，那么，我们在此给出子三个稳定线性子空间 (subspace) 的定义：</p>
+<p><img src="_images/math/9e379665ff02180540f87ffc09fbd247c1e8f2e2.svg" alt="x(t) = \ue^{t\bA} = \sum_{j=1}^n c_j\ue^{t\bA}\br_j = \sum_{j=1}^n \ue^{t\lambda_j}c_j\br_j"/></p>
+</div><p>我们定义特征向量可以写成复数形式 <img class="math" src="_images/math/b84df843d2f26531c53e9b4db811ec1933e6a93d.svg" alt="\br_j = \boldsymbol{u}_j \pm i \boldsymbol{v}_j"/> ，那么，我们在此给出子三个稳定线性子空间 (subspace) 的定义：</p>
 <div class="def admonition">
 <p class="first admonition-title">定义：稳定性子空间</p>
 <blockquote class="last">
-<div><p>对于自治系统 <img class="math" src="_images/math/37bf8e8d0ccb6a797ce5c35debd9b682a66c981c.svg" alt="\bx_t = \bA t, \quad \bx(0)=\bx_0"/> 及其平衡点原点，以下定义了三个稳定性子空间： 稳定子空间 <img class="math" src="_images/math/8c9c9684431ef5243fcfe6a638fe5d9eda54d9b8.svg" alt="\mathrm{E}^\mathrm{s}"/> 、中心子空间 <img class="math" src="_images/math/40ca54214587e50c4964cd978d6c20418a8393aa.svg" alt="\mathrm{E}^\mathrm{sc}"/> 与不稳定子空间 <img class="math" src="_images/math/ea3b97fcfd2c1a2061f02c6a1594d240312ad265.svg" alt="\mathrm{E}^\mathrm{u}"/> ：</p>
-<p>mathrm{E}^mathrm{s} = span { boldsymbol{u}_j, boldsymbol{v_j} ,:, Re(lambda_j) &lt; 0 }</p>
-<p>mathrm{E}^mathrm{c} = span { boldsymbol{u}_j, boldsymbol{v_j} ,:, Re(lambda_j) = 0 }</p>
-<p>mathrm{E}^mathrm{u} = span { boldsymbol{u}_j, boldsymbol{v_j} ,:, Re(lambda_j) &gt; 0 }</p>
-</div></blockquote>
+<div><p>对于自治系统 <img class="math" src="_images/math/0f1f0309babfdbebe6c448125c945ad284a53586.svg" alt="\bx_t = \bA t, \quad \bx(0)=\bx_0"/> 及其平衡点原点，以下定义了三个稳定性子空间： 稳定子空间 <img class="math" src="_images/math/75f2314007336034bea12fd0f6aa2a9f58ba9a37.svg" alt="\mathrm{E}^\mathrm{s}"/> 、中心子空间 <img class="math" src="_images/math/fff3f2e3fbf0dff4e7bab46b0bdbbff88d80d947.svg" alt="E^\mathrm{sc}"/> 与不稳定子空间 <img class="math" src="_images/math/d2b8dc143aff9d7e0e94ce012d1059c494f0bb17.svg" alt="E^\mathrm{u}"/> ：</p>
+<div class="math">
+<p><img src="_images/math/588e593c88e8adece2b280b17c8058e1be6b7786.svg" alt="E^\mathrm{s} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \mathrm{Re}(\lambda_j) &lt; 0 \}
+
+E^\mathrm{c} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \mathrm{Re}(\lambda_j) = 0 \}
+
+E^\mathrm{u} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \mathrm{Re}(\lambda_j) &gt; 0 \}"/></p>
+</div></div></blockquote>
 </div>
 <p>一些其他的性质：</p>
 <ol class="arabic simple">
-<li>全空间 <img class="math" src="_images/math/1e99f1dbe1964ccc46b0718d37d279f45c12a34d.svg" alt="\uR^n"/> 是以上三个稳定性子空间的一个唯一组合 <img class="math" src="_images/math/c1e6b39237d0d99dee717a7a23327faf52bcb222.svg" alt="\uR^n = \mathrm{E}^\mathrm{s} \oplus \mathrm{E}^\mathrm{c} \oplus \mathrm{E}^\mathrm{u}"/> ．</li>
-<li>如果 <img class="math" src="_images/math/2bcfc8a7072ba21c3a9fa35b626612fddb85e0b8.svg" alt="\bA"/> 非奇异 (nonsingular, 即可逆)，那么 <img class="math" src="_images/math/3e460e8d03aaa8097b916716298f854328322411.svg" alt="x=0"/> 是唯一的平衡点；三个稳定性子空间均是原方程的不变子空间．</li>
+<li>全空间 <img class="math" src="_images/math/542f610c8f28ad388b9879b68efb59fc6580a241.svg" alt="\uR^n"/> 是以上三个稳定性子空间的一个唯一组合 <img class="math" src="_images/math/9321f1196c611563c96216952d569b70326de0c1.svg" alt="\uR^n = E^\mathrm{s} \oplus E^\mathrm{c} \oplus E^\mathrm{u}"/> ．</li>
+<li>如果 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 非奇异 (nonsingular, 即可逆)，那么 <img class="math" src="_images/math/50be0504c414a956d515e1c8fe38be5f54996874.svg" alt="x=0"/> 是唯一的平衡点．</li>
+<li>三个稳定性子空间均是原方程的不变子空间．</li>
 </ol>
 </div>
 <div class="section" id="id11">
 <h3>4.4.3. 非自治线性系统与基解矩阵<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
-<p>本小节考虑非定常齐次系统： <img class="math" src="_images/math/a2b9dd0e8c4e2a24699917c275860aec829a8a54.svg" alt="\bx_t = A(t) \bx, \quad \bx(t) = \bx_0"/> ，其中矩阵值函数 <img class="math" src="_images/math/64193d9215fd7c226b0b1ccb93d79f373fa6c017.svg" alt="A: \uR\to\uR^{n\times n}"/> 是连续的．</p>
-<p>设基 <img class="math" src="_images/math/ba3ceb5943c8b06a5125574199e3057009c61be0.svg" alt="\boldsymbol{e}_j"/> 是除第 <img class="math" src="_images/math/ebbfb6cbb321b42816bc3b5e450aec9a3a08d1a7.svg" alt="j"/> 位为 1 外其余 <img class="math" src="_images/math/64cbbdff14ec4169d88e7575f0f27ae17a35380f.svg" alt="n-1"/> 位均为 0 的向量，而 <img class="math" src="_images/math/345e7560ab3a76f3479f1134f8453482bfdb1567.svg" alt="\bx_j(t)"/> 是初值问题 <img class="math" src="_images/math/77395832bd7482de3a245d1dd87ed8853252bc5e.svg" alt="\ud \bx_j/\ud t = A(t) \bx_j, \quad \bx_j(t_0) = \boldsymbol{e}_j"/> 的解．那么，称它们依次为各列组成的矩阵 <img class="math" src="_images/math/ec163cd3aaa8190d2e23589b4f6f697d9e9def77.svg" alt="\bPhi(t, t_0)=[\bx_1(t), \bx_2(t), \ldots, \bx_n(t)]"/> 为系统的 <strong>基解矩阵</strong> (fundamental matrix) ．</p>
-<p>设初值 <img class="math" src="_images/math/71a21dd8dc39a5dc02f7e66bb066fb6b6a53cf3f.svg" alt="\bx_0"/> 可由基 <img class="math" src="_images/math/ba3ceb5943c8b06a5125574199e3057009c61be0.svg" alt="\boldsymbol{e}_j"/> 表示如下： <img class="math" src="_images/math/5b6b58b02f94d443e31dbd60cba0a799e6286c24.svg" alt="\bx_0 = \sum_{j=1}^n c_j\boldsymbol{e}_j = [c_1, c_2, \ldots, c_n]"/> ，因此，系统的解也可以表示为：</p>
+<p>本小节考虑非定常齐次系统： <img class="math" src="_images/math/12cbe4e14663f87462e18f2e93c7b097e8c05d49.svg" alt="\bx_t = A(t) \bx, \quad \bx(t) = \bx_0"/> ，其中矩阵值函数 <img class="math" src="_images/math/e5f12583adbdc803ccd7bd7f5679796ecaf4bd7f.svg" alt="A: \uR\to\uR^{n\times n}"/> 是连续的．</p>
+<p>设基 <img class="math" src="_images/math/53b94fbe0226c25a6e54ac69532c702f6550955f.svg" alt="\boldsymbol{e}_j"/> 是除第 <img class="math" src="_images/math/69d6d11f5f47b4fe33d7436dee4c35680904226a.svg" alt="j"/> 位为 1 外其余 <img class="math" src="_images/math/3447119a920d9313741332b99e1cd186e83bb5dd.svg" alt="n-1"/> 位均为 0 的向量，而 <img class="math" src="_images/math/6c48e63ea4e14a1dc87ea2f8c9092592d0fe0146.svg" alt="\bx_j(t)"/> 是初值问题 <img class="math" src="_images/math/b8cba10b278a96f0c0f32e285a002f58a0355b47.svg" alt="\ud \bx_j/\ud t = A(t) \bx_j, \quad \bx_j(t_0) = \boldsymbol{e}_j"/> 的解．那么，称它们依次为各列组成的矩阵 <img class="math" src="_images/math/4be96f3850c4601638979c71dca5442c7f19c482.svg" alt="\bPhi(t, t_0)=[\bx_1(t), \bx_2(t), \ldots, \bx_n(t)]"/> 为系统的 <strong>基解矩阵</strong> (fundamental matrix) ．</p>
+<p>设初值 <img class="math" src="_images/math/dcc61d34a68b6f291fa3824377d6f75a91cbdb7f.svg" alt="\bx_0"/> 可由基 <img class="math" src="_images/math/53b94fbe0226c25a6e54ac69532c702f6550955f.svg" alt="\boldsymbol{e}_j"/> 表示如下： <img class="math" src="_images/math/08e413822bebf480b58e520c4f90316b43dcfced.svg" alt="\bx_0 = \sum_{j=1}^n c_j\boldsymbol{e}_j = [c_1, c_2, \ldots, c_n]"/> ，因此，系统的解也可以表示为：</p>
 <div class="math">
-<p><img src="_images/math/40c200a653f0346fb19fa8b5c4d01b079974ea81.svg" alt="\bx(t) = \sum_{j=1}^n c_j\bx_j(t) = [\bx_1(t), \bx_2(t), \ldots, \bx_n(t)]\bx_0"/></p>
+<p><img src="_images/math/353cdcd4c201e42cf1a2b18eece33856b406ee63.svg" alt="\bx(t) = \sum_{j=1}^n c_j\bx_j(t) = [\bx_1(t), \bx_2(t), \ldots, \bx_n(t)]\bx_0"/></p>
 </div><p>基解矩阵的性质：</p>
 <ol class="arabic">
 <li><p class="first">基解矩阵可代入微分方程中，可令等式相等：</p>
 <blockquote>
 <div><div class="math">
-<p><img src="_images/math/b801e5f795a791d0c445d8c7fb22ab1e213aa19d.svg" alt="\frac{\ud}{\ud t}\bPhi(t, t_0) = [(\bx_1)_t, (\bx_2)_t, \ldots, (\bx_n)_t] = A(t)[\bx_1(t), \bx_2(t), \ldots, \bx_n(t)]
+<p><img src="_images/math/d976d772217f6c96b71f180f47797bdc65aeb638.svg" alt="\frac{\ud}{\ud t}\bPhi(t, t_0) = [(\bx_1)_t, (\bx_2)_t, \ldots, (\bx_n)_t] = A(t)[\bx_1(t), \bx_2(t), \ldots, \bx_n(t)]
 = A(t)\bPhi(t, t_0)"/></p>
 </div></div></blockquote>
 </li>
 <li><p class="first">加法群的性质：</p>
 <blockquote>
 <div><div class="math">
-<p><img src="_images/math/e077b259e16c5a97915bdfae24c6eeef456e3c9a.svg" alt="\bPhi(t ,s)\bPhi(s, r) = \bPhi(t, r)"/></p>
-</div><p>特别地，我们有： <img class="math" src="_images/math/c57747df2c01c2d79e55de7e84446415ddf916bb.svg" alt="\bPhi(s, t) = \bPhi(t, s)"/>，以及 <img class="math" src="_images/math/49887174e8024cc3cb3f510593e5c78d160512da.svg" alt="\bPhi(t_0, t_0) = \bI"/> ．</p>
+<p><img src="_images/math/16e7fd8480ce689c063b120748e4e951169c8c41.svg" alt="\bPhi(t ,s)\bPhi(s, r) = \bPhi(t, r)"/></p>
+</div><p>特别地，我们有： <img class="math" src="_images/math/3a23a6e364c9b1a38ac75d34fdadb6255b6c7450.svg" alt="\bPhi(s, t) = \bPhi^{-1}(t, s)"/>，以及 <img class="math" src="_images/math/8b9b33660812a9a6d136b41fc9b48f55fa106abb.svg" alt="\bPhi(t_0, t_0) = \bI"/> ．</p>
 </div></blockquote>
 </li>
 </ol>
 </div>
 <div class="section" id="duhamel-s">
 <h3>4.4.4. 非齐次线性系统与 Duhamel’s 原理<a class="headerlink" href="#duhamel-s" title="永久链接至标题">¶</a></h3>
-<p>考虑非齐次线性系统 <img class="math" src="_images/math/e42610c97046018b02819ed609005030ceff9206.svg" alt="\bx_t = A(t)\bx + \boldsymbol{g}(t), \quad \bx(t_0)=\bx_0"/> ，现在我们讨论它与其次线性系统初值问题（即 <img class="math" src="_images/math/da8911074a481307ba5ba8f1167f919dc2db1cd7.svg" alt="\boldsymbol{g}(t)\equiv 0"/> ）的解的联系．</p>
+<p>考虑非齐次线性系统 <img class="math" src="_images/math/ce16cfd6156116fcdab63de205a05f7ba172946a.svg" alt="\bx_t = A(t)\bx + \boldsymbol{g}(t), \quad \bx(t_0)=\bx_0"/> ，现在我们讨论它与其次线性系统初值问题（即 <img class="math" src="_images/math/9b77ac5b26a900093f6e9172dbecf8171bd4ca93.svg" alt="\boldsymbol{g}(t)\equiv 0"/> ）的解的联系．</p>
 <div class="admonition- admonition">
 <p class="first admonition-title">引理</p>
-<p>如果可微的矩阵值函数 <img class="math" src="_images/math/77024e818b25bdf59007e0fda4497d80c9144770.svg" alt="A(t)"/> 是可逆的，那么 <img class="math" src="_images/math/5bf9151185f255bd77cd064b6c165f31aa56d15e.svg" alt="\frac{\ud}{\ud t}A^{-1}(t) = - A^{-1}\frac{\ud A}{\ud t}A^{-1}"/> ．</p>
-<p><strong>证明：</strong> 由 <img class="math" src="_images/math/60894c9ec53c28599efb52660b40010471e7ad2d.svg" alt="\frac{\ud}{\ud t} \bI = \frac{\ud}{\ud t}\left[ A(t)A^{-1}(t) \right] = 0"/> 得：</p>
+<p>如果可微的矩阵值函数 <img class="math" src="_images/math/d4ebca385ac22582cb53f12327cac96f82330540.svg" alt="A(t)"/> 是可逆的，那么 <img class="math" src="_images/math/a155f0625644b44bc50b36f2244215df42d475fa.svg" alt="\frac{\ud}{\ud t}A^{-1}(t) = - A^{-1}\frac{\ud A}{\ud t}A^{-1}"/> ．</p>
+<p><strong>证明：</strong> 由 <img class="math" src="_images/math/7364df31ffe625da4671fad07a692331216ba303.svg" alt="\frac{\ud}{\ud t} \bI = \frac{\ud}{\ud t}\left[ A(t)A^{-1}(t) \right] = 0"/> 得：</p>
 <div class="math">
-<p><img src="_images/math/cf346384f37ef96b1584f0250384cd65af1aefa4.svg" alt="\frac{\ud}{\ud t}\left[ A(t)A^{-1}(t) \right] = \frac{\ud}{\ud t}A^{-1} + A\frac{\ud A^{-1}}{\ud t},"/></p>
+<p><img src="_images/math/607178314bda5135e0e6dc0211556232532e925c.svg" alt="\frac{\ud}{\ud t}\left[ A(t)A^{-1}(t) \right] = \frac{\ud A}{\ud t}A^{-1} + A\frac{\ud A^{-1}}{\ud t},"/></p>
 </div><p class="last">证毕．</p>
 </div>
 <div class="def admonition">
 <p class="first admonition-title">定理：Duhamel’s Principle</p>
 <blockquote class="last">
 <div><p>若齐次线性系统可解，那么对应的非齐次线性系统也可解．</p>
-<p><strong>证明：</strong> 设 <img class="math" src="_images/math/bcaefe6bc679f33044fa5a837fde250fde0f3884.svg" alt="\bx(t)"/> 是非齐次线性系统的解，并让 <img class="math" src="_images/math/fd8959170a3399fc11ca208bc610160f52a2beda.svg" alt="\boldsymbol{y}(t) = \Phi^{-1}(t,t_0)\bx(t)"/> ，那么：</p>
+<p><strong>证明：</strong> 设 <img class="math" src="_images/math/c6b55672300b96db4f4651bb08fc94b074eed836.svg" alt="\bx(t)"/> 是非齐次线性系统的解，并让 <img class="math" src="_images/math/01621c3579cfdbc489b5933fe3d87bdb812e2e7f.svg" alt="\boldsymbol{y}(t) = \Phi^{-1}(t,t_0)\bx(t)"/> ，那么：</p>
 <div class="math">
-<p><img src="_images/math/be2120a4e18a89079b64e9bbe517ab5d3350f877.svg" alt="\boldsymbol{y}_t &amp;= \frac{\ud}{\ud t} \Phi^{-1}(t,t_0)\bx(t)
+<p><img src="_images/math/67e64a0370b11b41c859e00ac192b7802fe40724.svg" alt="\boldsymbol{y}_t &amp;= \frac{\ud}{\ud t} \Phi^{-1}(t,t_0)\bx(t)
 
 &amp;= -\frac{\ud}{\ud t}(\Phi^{-1}(t, t_0))\bx(t) + \Phi^{-1}(t, t_0)\frac{\ud}{\ud t}\bx(t)
 
@@ -452,9 +472,9 @@
 &amp;= \Phi^{-1}(t, t_0)\boldsymbol{g}(t)
 
 \therefore \boldsymbol{y}(t) &amp;= \boldsymbol{y}_0 + \int_0^t \Phi^{-1}(s, t_0)\boldsymbol{g}(s) \ud s"/></p>
-</div><p>其中 <img class="math" src="_images/math/2477f6e155dd98524c46bb0cc76ae0386789f3c7.svg" alt="\boldsymbol{y}_0 = \boldsymbol{y}(t_0) = \boldsymbol{x}_0"/> ．因而：</p>
+</div><p>其中 <img class="math" src="_images/math/93a16434f8d8774275e685649cba96746576aee9.svg" alt="\boldsymbol{y}_0 = \boldsymbol{y}(t_0) = \boldsymbol{x}_0"/> ．因而：</p>
 <div class="math">
-<p><img src="_images/math/a24ea807b1bbeeed09e3304b2d1c316710325805.svg" alt="\boldsymbol{x}(t) &amp;= \Phi(t, t_0)\boldsymbol{y}(t) = \Phi(t, t_0)\boldsymbol{x}_0 + \Phi(t, t_0)\int_0^t \Phi(t_0, s)\boldsymbol{g}(s) \ud s
+<p><img src="_images/math/ccb3cb29a8d4273cf6a715731d8bbdbc15c33087.svg" alt="\boldsymbol{x}(t) &amp;= \Phi(t, t_0)\boldsymbol{y}(t) = \Phi(t, t_0)\boldsymbol{x}_0 + \Phi(t, t_0)\int_0^t \Phi(t_0, s)\boldsymbol{g}(s) \ud s
 
 &amp;= \Phi(t, t_0)\boldsymbol{x}_0 + \int_0^t \Phi(t, s)\boldsymbol{g}(s) \ud s."/></p>
 </div></div></blockquote>
@@ -463,7 +483,7 @@
 <table class="docutils footnote" frame="void" id="s1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[1]</a></td><td>关于矩阵参与的指数运算 <img class="math" src="_images/math/92fc5133947adc70b47699469251112476897b7d.svg" alt="\ue^{t\bA}"/> ，如有疑问，请参考附录内容．</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id10">[1]</a></td><td>关于矩阵参与的指数运算 <img class="math" src="_images/math/b04d35ea45877924c915d0933dd64d0dc9ac21b5.svg" alt="\ue^{t\bA}"/> ，如有疑问，请参考附录内容．</td></tr>
 </tbody>
 </table>
 </div>

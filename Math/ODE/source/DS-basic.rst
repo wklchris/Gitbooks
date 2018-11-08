@@ -235,7 +235,7 @@
 
 其中 :math:`\frac{\partial }{\partial \boldsymbol{q}}` 即为梯度算子 :math:`\nabla_{\boldsymbol{q}} = \left(\frac{\partial}{\partial q_1}, \frac{\partial}{\partial q_2}, \dots, \frac{\partial}{\partial q_n}\right)`．
 
-关于守恒系统，我们会在后文详细讨论．
+关于守恒系统，我们在 :ref:`toc-conservative` 一节详细讨论．
 
 .. _toc-hamiltonian:
 
@@ -364,6 +364,38 @@
     …… 施工中 ……
 
 
+.. _toc-conservative:
+
+守恒系统
+---------------
+
+**守恒系统** (conservative system) 是重力系统中的重要内容．但由于其形式相比以上系统更复杂（存在二阶微分），因此在介绍上述系统后才于此处介绍守恒系统．上文提到的梯度系统就是一种守恒系统．
+
+
+守恒系统的相图
+^^^^^^^^^^^^^^^^^^^^^^
+
+守恒系统的相图绘制我们在 :ref:`toc-conservative-phase` 一节着重进行讲解，这里给出一个示例，展示其相图的形式：
+
+.. admonition:: 例子：守恒系统的相图
+   :class: eg
+
+    守恒系统 :math:`x_{tt} + x^2 - x = 0` 可以通过换元法 :math:`y=x_t` 降阶：
+
+    .. math::
+
+        \begin{dcases}
+        \frac{\ud x}{\ud t} = y \\
+        \frac{\ud y}{\ud t} = -\frac{1}{2}x^2 + x
+        \end{dcases}
+
+    下图画出了 :math:`(x, y)` （亦即 :math:`(x, x_t)` ）平面上，上述守恒系统的相图 [#f4]_ ．
+
+    .. plot:: _static/img/conservative-system.py
+       :align: center
+
+    该系统有两个平衡点，即 :math:`(0,0), (1,0)` ．前者是鞍点，后者是中心点．
+
 
 洛伦茨系统*
 ----------------
@@ -390,6 +422,7 @@
 .. [#f1] 这里 :math:`\varphi_t(\bx)` 的下标 :math:`t` 表示含参，而非对 :math:`t` 求导．
 .. [#f2] 保守力 (conservative force)，又称守恒力．在物理学上，如果作用于质点的力，在质点从起点运动到终点的过程中做的功与质点运动路径无关，则称该力为保守力．例如，重力是保守力，而摩擦力却不是．
 .. [#f3] 爱德华·洛伦茨 Edward Norton Lorenz (1917-2008)，美国数学与气象学家，混沌理论的奠基人．注意，他与荷兰物理学家、电磁学上洛伦兹力的提出者亨德里克·洛伦兹 Hendrik Antoon Lorentz (1853-1928) 并非同一个人；两人的姓氏拼写也并不相同．
+.. [#f4] 本处绘图的代码使用的包 ode_toolkit 是作者自己编写使用的，因此读者直接复制是无法复现代码的．如有兴趣，可以参考附录以了解如何使用该包．
 
 .. 链接
 

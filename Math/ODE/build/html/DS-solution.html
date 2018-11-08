@@ -144,7 +144,11 @@
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id18">2.3.3. 梯度系统的相图绘制*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id19">2.4. 洛伦茨系统*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-conservative">2.4. 守恒系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id20">2.4.1. 守恒系统的相图</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id22">2.5. 洛伦茨系统*</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. 动力系统解的存在与唯一性</a><ul>
@@ -158,18 +162,28 @@
 <li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id3">4.3. 线性化系统与双曲平衡点</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id4">4.3.1. 线性稳定性</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id5">4.3.2. 平衡点的双曲性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id6">4.3.3. 拓扑共轭与稳定流形*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id6">4.4. 高维动力系统的稳定性</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id7">4.4.1. 动力系统的不变集*</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.2. 自治线性系统与稳定性子空间</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id10">4.4.3. 非自治线性系统与基解矩阵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id7">4.4. 高维动力系统的稳定性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.1. 动力系统的不变集*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id9">4.4.2. 自治线性系统与稳定性子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id11">4.4.3. 非自治线性系统与基解矩阵</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#duhamel-s">4.4.4. 非齐次线性系统与 Duhamel’s 原理</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#id2">5.1. 平面相图的一般绘制方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#toc-conservative-phase">5.2. 守恒系统的相图绘制</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix-matrix-exp.html">矩阵的指数运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix-odetoolkit.html">如何使用 ode_toolkit 包绘制相图*</a></li>
 </ul>
 
             
@@ -254,49 +268,49 @@
 <blockquote class="last">
 <div><p>考虑标量的常系数线性自治系统的初值问题：</p>
 <div class="math">
-<p><img src="_images/math/c6cfaa50b50c52bcd3f618d2357262781379ae09.svg" alt="\begin{cases}
+<p><img src="_images/math/673cc801935d30cd9c23197af2d8d9a87fbb9e42.svg" alt="\begin{cases}
 x_t = ax \\
 x(0) = x_0
 \end{cases}"/></p>
-</div><p><strong>解：</strong> 容易解出：<img class="math" src="_images/math/94ffbd03f42f5f4d80a32b054cae61cfbed0239f.svg" alt="x(t) = x_0\ue^{at}"/> ，并得到流： <img class="math" src="_images/math/f875722815e27945d9d282d8e0a96d72de0fe18f.svg" alt="\varphi_t(x) = x\ue^{at}"/>．此时解在 <img class="math" src="_images/math/cad0ddb933ab96ae05d4bc0813af4d7a57b6fd9d.svg" alt="t\in\uR"/> 上是存在且唯一的．</p>
+</div><p><strong>解：</strong> 容易解出：<img class="math" src="_images/math/33950444dc3551c45427367dec0163e1037492f9.svg" alt="x(t) = x_0\ue^{at}"/> ，并得到流： <img class="math" src="_images/math/e563f8d94bae7f8780d2d2529da7bca8f5be496a.svg" alt="\varphi_t(x) = x\ue^{at}"/>．此时解在 <img class="math" src="_images/math/5197f90d757a4b9c0f9cc9bfac80b77a19bbf5a3.svg" alt="t\in\uR"/> 上是存在且唯一的．</p>
 </div></blockquote>
 </div>
 <div class="eg admonition">
 <p class="first admonition-title">例子：标量常系数非线性系统</p>
 <blockquote class="last">
-<div><p>考虑标量的常系数非线性自治系统的初值问题．特别地，此例中的函数 <img class="math" src="_images/math/8aff597654f38498c2684473522ab680aa93e99c.svg" alt="f(x)"/> 连续但并非处处可微．</p>
+<div><p>考虑标量的常系数非线性自治系统的初值问题．特别地，此例中的函数 <img class="math" src="_images/math/eb0b17c49ea5646eed9533ecc9dffdc98b941be0.svg" alt="f(x)"/> 连续但并非处处可微．</p>
 <div class="math">
-<p><img src="_images/math/ea37cb5f2f05145b0f100494a7df493edea94879.svg" alt="\begin{cases}
+<p><img src="_images/math/634e1b5c10fa6e20cb17748dc72891bfb53c6280.svg" alt="\begin{cases}
 x_t = |x|^{\frac{1}{2}} \\
 x(0) = x_0
 \end{cases}"/></p>
-</div><p><strong>解：</strong> 考虑 <img class="math" src="_images/math/ccb4b569bce57b1167ead571245c67a6e5276f83.svg" alt="x(t) &gt; 0"/> 时的解，有：</p>
+</div><p><strong>解：</strong> 考虑 <img class="math" src="_images/math/bd2f36dcf3ca103a88064de1ac18bf7181602268.svg" alt="x(t) &gt; 0"/> 时的解，有：</p>
 <div class="math">
-<p><img src="_images/math/e0c60722ec89de7837458e8751177dd538f9e699.svg" alt="\int \frac{\ud x}{\sqrt{x}} = \int \ud t \implies x(t) = \frac{1}{4}(t+C)^2"/></p>
-</div><p>代入 <img class="math" src="_images/math/eaf8b0c4edcbb955a555025ee212a7b27e683673.svg" alt="t=0"/> 时的初值条件，得到： <img class="math" src="_images/math/f9816adcdb89bd8bbb107428f12d043598ffad70.svg" alt="C=2\sqrt{x_0}"/> ．于是得到初值为正时的解：</p>
+<p><img src="_images/math/636bc94f6b6eb2446ec7e7cf1177621a77f9b565.svg" alt="\int \frac{\ud x}{\sqrt{x}} = \int \ud t \implies x(t) = \frac{1}{4}(t+C)^2"/></p>
+</div><p>代入 <img class="math" src="_images/math/57755e0a97748eaf0fb7667767185828d8c634b1.svg" alt="t=0"/> 时的初值条件，得到： <img class="math" src="_images/math/d37a9e14ba8ac2c3feb96079f2d52bebc6235223.svg" alt="C=2\sqrt{x_0}"/> ．于是得到初值为正时的解：</p>
 <div class="math">
-<p><img src="_images/math/fb462a28e13bc72cfa857f04c98262da09d1a6c1.svg" alt="x(t) = \frac{1}{4}(t+2\sqrt{x_0})^2, \quad (x_0 &gt; 0)"/></p>
-</div><p>类似我们可以考虑 <img class="math" src="_images/math/2c809a6f2b22fea75190fef59361ecf7b6c0c126.svg" alt="x(t) &lt; 0"/> 的情况．</p>
-<p>特别地，我们考虑 <img class="math" src="_images/math/3d57d28f8171ef9140f9289723e6ee4cecd0f978.svg" alt="x_0 = 0"/> 的情况，上式即： <img class="math" src="_images/math/60e1bc8cb39db583f98026908bc6783405b3faeb.svg" alt="x(t) = \frac{1}{4}t^2 \, (t&gt;0)"/> ，容易验证这是方程的解．但注意到，<img class="math" src="_images/math/e2281efb6db50419e6b7b2d85eb83f5d8cfdb4c8.svg" alt="x(t) = 0"/> 也是方程的解，因此方程的解不是唯一的．</p>
-<p>在 <img class="math" src="_images/math/6b54524faf3044ba1c83976ff362d20d6d560706.svg" alt="t&lt;0"/> 时，以上解可以向负向延伸为 <img class="math" src="_images/math/e2281efb6db50419e6b7b2d85eb83f5d8cfdb4c8.svg" alt="x(t) = 0"/> 或者 <img class="math" src="_images/math/f3b4c11705d4ee811c6853d9997840b2569db8ca.svg" alt="-\frac{1}{4}t^2"/> ．因此，该方程在 <img class="math" src="_images/math/09c9f6ede11fa5f32f59fe807cd003cb0d662f96.svg" alt="x_0=0"/> 时的一个解可以写作：</p>
+<p><img src="_images/math/45e76cd591ec67f5061768c14c154cbcf37792e7.svg" alt="x(t) = \frac{1}{4}(t+2\sqrt{x_0})^2, \quad (x_0 &gt; 0)"/></p>
+</div><p>类似我们可以考虑 <img class="math" src="_images/math/a27d5a53457f06b6013886e2c0d6e1f328d27ed6.svg" alt="x(t) &lt; 0"/> 的情况．</p>
+<p>特别地，我们考虑 <img class="math" src="_images/math/92e507439bc707b51c9f566d1bbf3bc9c0f4c467.svg" alt="x_0 = 0"/> 的情况，上式即： <img class="math" src="_images/math/4df233da434186eb38c7fbc6346504533cd7e859.svg" alt="x(t) = \frac{1}{4}t^2 \, (t&gt;0)"/> ，容易验证这是方程的解．但注意到，<img class="math" src="_images/math/e54d076aedc3fa4bf42955b288efe48f7aafacbc.svg" alt="x(t) = 0"/> 也是方程的解，因此方程的解不是唯一的．</p>
+<p>在 <img class="math" src="_images/math/26713b7bfd4019d59c16f1fb5bf8fbf5decfedf9.svg" alt="t&lt;0"/> 时，以上解可以向负向延伸为 <img class="math" src="_images/math/e54d076aedc3fa4bf42955b288efe48f7aafacbc.svg" alt="x(t) = 0"/> 或者 <img class="math" src="_images/math/879aac8b82271a236eb895aff38cb14d4ae74380.svg" alt="-\frac{1}{4}t^2"/> ．因此，该方程在 <img class="math" src="_images/math/30c2c115dca3a100b585c9a370b0f29f593b70fe.svg" alt="x_0=0"/> 时的一个解可以写作：</p>
 <div class="math">
-<p><img src="_images/math/6935a45bbf3545e8bb87389ab6fab47c86e311fd.svg" alt="x(t) = \begin{cases}
+<p><img src="_images/math/9d5446d7073cd4021a181b48377048719f4f3908.svg" alt="x(t) = \begin{cases}
 \frac{1}{4}t^2, &amp; t\geq 0 \\
 0, &amp; t &lt; 0.
 \end{cases}"/></p>
-</div><p>由自治系统的沿 <img class="math" src="_images/math/4f064f39b5dab87dccb0fb3d831b223b514bedf4.svg" alt="t"/> 轴平移性，我们知道以下形式的任意 <img class="math" src="_images/math/6b620c50e19ee35c2fb215599725fd2e7812e0bf.svg" alt="t_0\geq 0"/> 均为原方程在 <img class="math" src="_images/math/3d57d28f8171ef9140f9289723e6ee4cecd0f978.svg" alt="x_0 = 0"/> 时的解：</p>
+</div><p>由自治系统的沿 <img class="math" src="_images/math/92261245183eb7266b2235949acd1483c057f925.svg" alt="t"/> 轴平移性，我们知道以下形式的任意 <img class="math" src="_images/math/91ac52dda3ca3053ad60d4e4464c9972b108e09b.svg" alt="t_0\geq 0"/> 均为原方程在 <img class="math" src="_images/math/92e507439bc707b51c9f566d1bbf3bc9c0f4c467.svg" alt="x_0 = 0"/> 时的解：</p>
 <div class="math">
-<p><img src="_images/math/f9afdc61343f24c6421c02feb404c07241ad3dd3.svg" alt="x(t) = \begin{cases}
+<p><img src="_images/math/f4527097bbb49d9bb74acb2c8a01c3b69ffea595.svg" alt="x(t) = \begin{cases}
 \frac{1}{4}(t - t_0)^2, &amp; t\geq t_0 \\
 0, &amp; t &lt; t_0.
 \end{cases}"/></p>
-</div><p>该动力系统解的不唯一是因为方向场函数 <img class="math" src="_images/math/905fa5bda1b345f9c233d2e56c902cb7888592c7.svg" alt="|x|^{\frac{1}{2}}"/> 虽然连续但在 <img class="math" src="_images/math/3e460e8d03aaa8097b916716298f854328322411.svg" alt="x=0"/> 处并不可导（或者从 Picard 定理的角度阐述，它在此处不是 Lipschitz 的）．如果方向场是光滑的，则无此问题．</p>
+</div><p>该动力系统解的不唯一是因为方向场函数 <img class="math" src="_images/math/f3ebad6ed24861fe9e6cfc4f373fabd3c8a49544.svg" alt="|x|^{\frac{1}{2}}"/> 虽然连续但在 <img class="math" src="_images/math/50be0504c414a956d515e1c8fe38be5f54996874.svg" alt="x=0"/> 处并不可导（或者从 Picard 定理的角度阐述，它在此处不是 Lipschitz 的）．如果方向场是光滑的，则无此问题．</p>
 </div></blockquote>
 </div>
 </div>
 <div class="section" id="id3">
 <h2>3.2. 解的存在性与唯一性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>解的存在性利用 Picard 定理进行判断、唯一性则利用 Peano 定理进行判断，这些与我们在 <a class="reference internal" href="UniqueAndExist.html#toc-unique-and-exist"><span class="std std-ref">解的存在与唯一性</span></a> 一章讨论的内容相似，不过在自治系统中就省去对 <img class="math" src="_images/math/4f064f39b5dab87dccb0fb3d831b223b514bedf4.svg" alt="t"/> Lipschitz 的讨论．</p>
+<p>解的存在性利用 Picard 定理进行判断、唯一性则利用 Peano 定理进行判断，这些与我们在 <a class="reference internal" href="UniqueAndExist.html#toc-unique-and-exist"><span class="std std-ref">解的存在与唯一性</span></a> 一章讨论的内容相似，不过在自治系统中就省去对 <img class="math" src="_images/math/92261245183eb7266b2235949acd1483c057f925.svg" alt="t"/> Lipschitz 的讨论．</p>
 </div>
 </div>
 

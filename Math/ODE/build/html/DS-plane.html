@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="矩阵的指数运算" href="appendix-matrix-exp.html" />
     <link rel="prev" title="4. 平衡点的稳定性" href="DS-stability.html" /> 
 
   
@@ -143,7 +144,11 @@
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id18">2.3.3. 梯度系统的相图绘制*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id19">2.4. 洛伦茨系统*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-conservative">2.4. 守恒系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id20">2.4.1. 守恒系统的相图</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id22">2.5. 洛伦茨系统*</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a><ul>
@@ -157,18 +162,31 @@
 <li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id3">4.3. 线性化系统与双曲平衡点</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id4">4.3.1. 线性稳定性</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id5">4.3.2. 平衡点的双曲性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id6">4.3.3. 拓扑共轭与稳定流形*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id6">4.4. 高维动力系统的稳定性</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id7">4.4.1. 动力系统的不变集*</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.2. 自治线性系统与稳定性子空间</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id10">4.4.3. 非自治线性系统与基解矩阵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id7">4.4. 高维动力系统的稳定性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.1. 动力系统的不变集*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id9">4.4.2. 自治线性系统与稳定性子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id11">4.4.3. 非自治线性系统与基解矩阵</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#duhamel-s">4.4.4. 非齐次线性系统与 Duhamel’s 原理</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 平面上的动力系统</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 平面上的动力系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.1. 平面动力系统的相图</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.1.1. 平面相图的一般绘制方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toc-conservative-phase">5.1.2. 守恒系统的相图绘制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix-matrix-exp.html">矩阵的指数运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix-odetoolkit.html">如何使用 ode_toolkit 包绘制相图*</a></li>
 </ul>
 
             
@@ -230,6 +248,8 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
+        <a href="appendix-matrix-exp.html" class="btn btn-neutral float-right" title="矩阵的指数运算" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="DS-stability.html" class="btn btn-neutral" title="4. 平衡点的稳定性" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
@@ -242,6 +262,32 @@
             
   <div class="section" id="id1">
 <h1>5. 平面上的动力系统<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>本章介绍平面动力系统（一般讨论二维一阶的动力系统）的相图绘制，以及平面动力系统中包含的极限环等理论．</p>
+<p>如无特殊说明，本章中所说的平面动力系统都具有下述形式：</p>
+<div class="math">
+<p><img src="_images/math/76b1f6d5b178dc093bc9eda1da9ce443264eed5b.svg" alt="\begin{dcases}
+\frac{\ud x}{\ud t} &amp;= f(x, y) \\
+\frac{\ud y}{\ud t} &amp;= g(x, y)
+\end{dcases}"/></p>
+</div><p>与上文一样，我们通常把线性平面动力系统（或非线性平面系统在线性化之后得到的系统）中等式右侧的矩阵记作矩阵 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> ．对于非线性系统，其线性化后的系统 <img class="math" src="_images/math/94ffd2d85b93bc3405202e338c0123722e4e8444.svg" alt="\bx_t = \bA \bx"/> 中的矩阵 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 即为 Jacobi 行列式：</p>
+<div class="math">
+<p><img src="_images/math/3bdb978fec80bb0b683a04d04a496aa962069b2b.svg" alt="\bA = \begin{vmatrix}
+\frac{\partial f}{\partial x} &amp; \frac{\partial f}{\partial y} \\
+\frac{\partial g}{\partial x} &amp; \frac{\partial g}{\partial y}
+\end{vmatrix}"/></p>
+</div><p>以上内容均是沿用了上文的记号，这里只是重述加以强调．</p>
+<div class="section" id="id2">
+<h2>5.1. 平面动力系统的相图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在上一章，我们分析了动力系统的稳定性．对平面动力系统而言，如果是线性的，我们直接绘制相图就能明确其稳定性；如果不是线性的，那么双曲平衡点的稳定性可以通过线性系统在该点的稳定性来推断，而非双曲平衡点的稳定性则可能仍然需要借助相图来分析．总之，相图的绘制是非常重要的内容，而二维平面上动力系统的相图绘制也比较成熟，下面对此内容进行介绍．</p>
+<div class="section" id="id3">
+<h3>5.1.1. 平面相图的一般绘制方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>在软件作图时，通常利用取足够多的点的形式来描绘方向场，并尽可能地把相关的点用光滑曲线连成轨线．但在纸笔绘制时，我们需要更定性、简易的技巧．</p>
+<p>一种常见的绘制方法是先绘制动力系统的 <strong>零增长等值线</strong> (zero-growth isocline)，也称为无倾线 (nullcline)．例如，我们画令 <img class="math" src="_images/math/6574b5777d7f1f955a42e874ea531c7e4c4911dc.svg" alt="x_t=0"/> 的平面曲线，就称为 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 的零增长等值线，或 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 无倾线．</p>
+</div>
+<div class="section" id="toc-conservative-phase">
+<span id="id4"></span><h3>5.1.2. 守恒系统的相图绘制<a class="headerlink" href="#toc-conservative-phase" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
 </div>
 
 
@@ -251,6 +297,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="appendix-matrix-exp.html" class="btn btn-neutral float-right" title="矩阵的指数运算" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="DS-stability.html" class="btn btn-neutral" title="4. 平衡点的稳定性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

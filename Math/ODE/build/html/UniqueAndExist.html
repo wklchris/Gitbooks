@@ -144,7 +144,11 @@
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id18">2.3.3. 梯度系统的相图绘制*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id19">2.4. 洛伦茨系统*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-conservative">2.4. 守恒系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id20">2.4.1. 守恒系统的相图</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id22">2.5. 洛伦茨系统*</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a><ul>
@@ -158,18 +162,28 @@
 <li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id3">4.3. 线性化系统与双曲平衡点</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id4">4.3.1. 线性稳定性</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id5">4.3.2. 平衡点的双曲性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id6">4.3.3. 拓扑共轭与稳定流形*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id6">4.4. 高维动力系统的稳定性</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id7">4.4.1. 动力系统的不变集*</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.2. 自治线性系统与稳定性子空间</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id10">4.4.3. 非自治线性系统与基解矩阵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id7">4.4. 高维动力系统的稳定性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.1. 动力系统的不变集*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id9">4.4.2. 自治线性系统与稳定性子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id11">4.4.3. 非自治线性系统与基解矩阵</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#duhamel-s">4.4.4. 非齐次线性系统与 Duhamel’s 原理</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#id2">5.1. 平面相图的一般绘制方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#toc-conservative-phase">5.2. 守恒系统的相图绘制</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix-matrix-exp.html">矩阵的指数运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix-odetoolkit.html">如何使用 ode_toolkit 包绘制相图*</a></li>
 </ul>
 
             
@@ -253,52 +267,52 @@
 <div class="def admonition">
 <p class="first admonition-title">定义：Lipschitz 连续</p>
 <blockquote class="last">
-<div><p>对于函数 <img class="math" src="_images/math/b2dd92dc6824a220f2ae182ca114b1721a9f42dc.svg" alt="f: \uR^n \to \uR^n"/> ，如果存在常数 <img class="math" src="_images/math/4f21cfcbc678de02c8cadd36465e226e3d2e6bb9.svg" alt="L&gt;0"/> 使得</p>
+<div><p>对于函数 <img class="math" src="_images/math/becec8302cc3ed5a6e47e6b0fdacb959ad5f4c9c.svg" alt="f: \uR^n \to \uR^n"/> ，如果存在常数 <img class="math" src="_images/math/46cbba595ec2d31fff9587cd94daf50e649a6684.svg" alt="L&gt;0"/> 使得</p>
 <div class="math">
-<p><img src="_images/math/a90edcd027f377e7e90a4b66dc970c794ee85e74.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall \bx_1, \bx_2\in D\subseteq \uR^n"/></p>
-</div><p>那么我们称函数 <img class="math" src="_images/math/048f02dc1d9fd42bf00298d1f147a4085c27da57.svg" alt="f(\bx)"/> 在该区域上是 <strong>Lipschitz 连续</strong> (Lipschitz continuous) 的，或简称为在区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 上是 Lipschitz 的．也可以称 <img class="math" src="_images/math/048f02dc1d9fd42bf00298d1f147a4085c27da57.svg" alt="f(\bx)"/> 是区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 上的一个 Lipschitz 函数．</p>
-<p>特别地，如果区域 <img class="math" src="_images/math/4a9deff4aeecf7a6b0e8a5932fb69640b503076c.svg" alt="D=\uR^n"/>，那么我们称函数 <img class="math" src="_images/math/048f02dc1d9fd42bf00298d1f147a4085c27da57.svg" alt="f(\bx)"/> 是 <strong>全局 Lipschitz</strong> (globally Lipschitz) 的；如果区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 是某点 <img class="math" src="_images/math/534215f3ba509280e8fb170b7e126975eaaabcc3.svg" alt="\bx_0\in\uR^n"/> 附近一个半径为 <img class="math" src="_images/math/ac947567b86af54c0b024a95b8ec4064c508311c.svg" alt="r&gt;0"/> 的球，即：</p>
+<p><img src="_images/math/9a4e4a9981b92d7ebf198f380795afc673fa0634.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall \bx_1, \bx_2\in D\subseteq \uR^n"/></p>
+</div><p>那么我们称函数 <img class="math" src="_images/math/ff19eec9a0a8e4639581e5bcb546f7043bef56e8.svg" alt="f(\bx)"/> 在该区域上是 <strong>Lipschitz 连续</strong> (Lipschitz continuous) 的，或简称为在区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 上是 Lipschitz 的．也可以称 <img class="math" src="_images/math/ff19eec9a0a8e4639581e5bcb546f7043bef56e8.svg" alt="f(\bx)"/> 是区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 上的一个 Lipschitz 函数．</p>
+<p>特别地，如果区域 <img class="math" src="_images/math/eb7458fe52c96752d793662d7e7456aef520d378.svg" alt="D=\uR^n"/>，那么我们称函数 <img class="math" src="_images/math/ff19eec9a0a8e4639581e5bcb546f7043bef56e8.svg" alt="f(\bx)"/> 是 <strong>全局 Lipschitz</strong> (globally Lipschitz) 的；如果区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 是某点 <img class="math" src="_images/math/a57fd1ce7adc448d922eab4583026a4bd9aaa69d.svg" alt="\bx_0\in\uR^n"/> 附近一个半径为 <img class="math" src="_images/math/559b177c25d6cd0f37d7900199eef963f7525b87.svg" alt="r&gt;0"/> 的球，即：</p>
 <div class="math">
-<p><img src="_images/math/13e3ad1227163356da2266219154ef82abb2350d.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall |\bx_1-\bx_0|, |\bx_2-\bx_0|\leq r"/></p>
-</div><p>那么我们称函数 <img class="math" src="_images/math/048f02dc1d9fd42bf00298d1f147a4085c27da57.svg" alt="f(\bx)"/> 是在 <img class="math" src="_images/math/71a21dd8dc39a5dc02f7e66bb066fb6b6a53cf3f.svg" alt="\bx_0"/> 处 <strong>局部 Lipschitz</strong> (locally Lipschitz) 的．如果对区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 内任意一点 <img class="math" src="_images/math/71a21dd8dc39a5dc02f7e66bb066fb6b6a53cf3f.svg" alt="\bx_0"/> 都有上式成立，那么我们称函数是在区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 上局部 Lipschitz 的．</p>
-<p>特别地，在微分方程的研究中，如果不特别指明 <img class="math" src="_images/math/71a21dd8dc39a5dc02f7e66bb066fb6b6a53cf3f.svg" alt="\bx_0"/> 的值，那么 <img class="math" src="_images/math/71a21dd8dc39a5dc02f7e66bb066fb6b6a53cf3f.svg" alt="\bx_0"/> 均指原点．</p>
-<p>以上定义中，满足不等式的能够取到的最小常数 <img class="math" src="_images/math/da1e7aa6fdd8180ad82d80be142f682de1c8a535.svg" alt="L"/>，称为 <strong>Lipschitz 常数</strong> (Lipschitz constant)．</p>
+<p><img src="_images/math/2b1e189a9e6cceda8e2c06abe1cd4e8c815816cd.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall |\bx_1-\bx_0|, |\bx_2-\bx_0|\leq r"/></p>
+</div><p>那么我们称函数 <img class="math" src="_images/math/ff19eec9a0a8e4639581e5bcb546f7043bef56e8.svg" alt="f(\bx)"/> 是在 <img class="math" src="_images/math/dcc61d34a68b6f291fa3824377d6f75a91cbdb7f.svg" alt="\bx_0"/> 处 <strong>局部 Lipschitz</strong> (locally Lipschitz) 的．如果对区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 内任意一点 <img class="math" src="_images/math/dcc61d34a68b6f291fa3824377d6f75a91cbdb7f.svg" alt="\bx_0"/> 都有上式成立，那么我们称函数是在区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 上局部 Lipschitz 的．</p>
+<p>特别地，在微分方程的研究中，如果不特别指明 <img class="math" src="_images/math/dcc61d34a68b6f291fa3824377d6f75a91cbdb7f.svg" alt="\bx_0"/> 的值，那么 <img class="math" src="_images/math/dcc61d34a68b6f291fa3824377d6f75a91cbdb7f.svg" alt="\bx_0"/> 均指原点．</p>
+<p>以上定义中，满足不等式的能够取到的最小常数 <img class="math" src="_images/math/e757e2cc5f8ea1538bc6289e628f9027ce27e847.svg" alt="L"/>，称为 <strong>Lipschitz 常数</strong> (Lipschitz constant)．</p>
 </div></blockquote>
 </div>
 <p>此外，我们指出无须使用上述定义的、常用的判断方法：</p>
 <ol class="arabic">
-<li><p class="first">如果函数 <img class="math" src="_images/math/dd09197bbf6968e88c0480dc4b75d51788597f28.svg" alt="f: \uR^n\to\uR^n"/> 在区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 上存在连续的偏导数，那么它是局部 Lipschitz 的．如果区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 还是有界且闭（称为 <strong>紧</strong> <a class="footnote-reference" href="#uae1" id="id2">[1]</a> ）的，那么函数在该紧区域上满足全局 Lipschitz 的条件，即：</p>
+<li><p class="first">如果函数 <img class="math" src="_images/math/b6411f75d53f17ab4724ba2509b4a5cba2e3637e.svg" alt="f: \uR^n\to\uR^n"/> 在区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 上存在连续的偏导数，那么它是局部 Lipschitz 的．如果区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 还是有界且闭（称为 <strong>紧</strong> <a class="footnote-reference" href="#uae1" id="id2">[1]</a> ）的，那么函数在该紧区域上满足全局 Lipschitz 的条件，即：</p>
 <blockquote>
 <div><div class="math">
-<p><img src="_images/math/a90edcd027f377e7e90a4b66dc970c794ee85e74.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall \bx_1, \bx_2\in D\subseteq \uR^n"/></p>
+<p><img src="_images/math/9a4e4a9981b92d7ebf198f380795afc673fa0634.svg" alt="|f(\bx_1) - f(\bx_2)| \leq L |\bx_1 - \bx_2|, \quad \forall \bx_1, \bx_2\in D\subseteq \uR^n"/></p>
 </div></div></blockquote>
 </li>
-<li><p class="first">如果函数存在连续的偏导数，且存在 <img class="math" src="_images/math/69d4db32f956f0de5764599054f7e9f891010624.svg" alt="L\geq 0"/> 使得 <img class="math" src="_images/math/1cb6b021e9997994764219483c0cf14569d8c8e8.svg" alt="|\partial f_i/\partial x_j|"/> 对所有 <img class="math" src="_images/math/efc437ab217ec3e6ba7aa2b49ae8e3ce342ad3fa.svg" alt="\bx\in\uR^n"/> 与 <img class="math" src="_images/math/cbb3abaf7c66eb26eb5d50c667f52579edd2c299.svg" alt="1\leq i, j\leq n"/> 均成立，那么函数 <img class="math" src="_images/math/38d61b0e000c7a245d9307fe763e30656ed5242c.svg" alt="f"/> 是全局 Lipschitz 的．</p>
+<li><p class="first">如果函数存在连续的偏导数，且存在 <img class="math" src="_images/math/7dc1ff188d0e79369cb53e54ba451d466da5056a.svg" alt="L\geq 0"/> 使得 <img class="math" src="_images/math/53455da64bbce9740abd388958a6ebe39e50b7c6.svg" alt="|\partial f_i/\partial x_j|"/> 对所有 <img class="math" src="_images/math/b9fe8fcdff27bcdf0f664add5dbbad12a7279afd.svg" alt="\bx\in\uR^n"/> 与 <img class="math" src="_images/math/8dfd66785d0bc38cd4fc292973f98d29e3cb68eb.svg" alt="1\leq i, j\leq n"/> 均成立，那么函数 <img class="math" src="_images/math/bf440e357b3aa18cdb85d5bf944bc80046aa4239.svg" alt="f"/> 是全局 Lipschitz 的．</p>
 </li>
 </ol>
-<p>下面举三个定义在 <img class="math" src="_images/math/f274a83aa7e19c1aa9d86c8029cc1cfc3d7a29f9.svg" alt="\uR"/> 上的例子，学习如何用以上定义判断函数是否是 Lipschitz 的：</p>
+<p>下面举三个定义在 <img class="math" src="_images/math/84eac922d3c80bd2ac69964721eb2e04ab3f8896.svg" alt="\uR"/> 上的例子，学习如何用以上定义判断函数是否是 Lipschitz 的：</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：Lipschitz 判定</p>
 <blockquote class="last">
 <div><p>判断以下函数是否是（原点附近的） Lipschitz 函数．</p>
 <div class="math">
-<p><img src="_images/math/d020639708d1e13642f8573977e9c7889bcf6db8.svg" alt="(1) f(x) = \sqrt{1+x^2}; \quad
+<p><img src="_images/math/9e32ca1d5daa3f3384d5552663653be772d82fbf.svg" alt="(1) f(x) = \sqrt{1+x^2}; \quad
 (2) g(x) = x^2; \quad
 (3) h(x) = \sqrt{|x|}."/></p>
 </div><p><strong>解：</strong> 对于函数 (1)，我们有：</p>
 <div class="math">
-<p><img src="_images/math/25c1b3c3168f1d93130bff1d1268a0291e04cc34.svg" alt="|f(x)-f(y)| = |\sqrt{1+x^2} - \sqrt{1+y^2}|
+<p><img src="_images/math/4475ef00c121351934fa7ad6f38726a1e4d5f988.svg" alt="|f(x)-f(y)| = |\sqrt{1+x^2} - \sqrt{1+y^2}|
 = \left| \frac{x+y}{\sqrt{1+x^2} + \sqrt{1+y^2}} \right|\cdot |x-y|
 \leq |x-y|"/></p>
-</div><p>因此函数 <img class="math" src="_images/math/8aff597654f38498c2684473522ab680aa93e99c.svg" alt="f(x)"/> 是 Lipschitz 的．</p>
-<p>对于函数 (2)，在原点附近的半径 <img class="math" src="_images/math/5bacc6b7d291685689dbc57585963f9c124acb65.svg" alt="r"/> 内，有：</p>
+</div><p>因此函数 <img class="math" src="_images/math/eb0b17c49ea5646eed9533ecc9dffdc98b941be0.svg" alt="f(x)"/> 是 Lipschitz 的．</p>
+<p>对于函数 (2)，在原点附近的半径 <img class="math" src="_images/math/9a2b3a2064bafb6c835516ab6c40ea5bf1b19248.svg" alt="r"/> 内，有：</p>
 <div class="math">
-<p><img src="_images/math/bcf24ad9def0aeeafa63ab3502400a491ee84b78.svg" alt="|g(x) - g(y)| = |x+y||x-y| \leq 2r|x-y|"/></p>
-</div><p>上式对 <img class="math" src="_images/math/37a4758dfb8e360672c36b932f5ac40657384441.svg" alt="|x|, |y|\leq r"/> 成立，因此 <img class="math" src="_images/math/f29380e77e2dde953975da5ddf8c8e082d9c0118.svg" alt="g(x)"/> 在 <img class="math" src="_images/math/7da7912ed3f55387be505a75bb19d2cabe2d2d75.svg" alt="(0,0)"/> 处是局部 Lipschitz 的．</p>
+<p><img src="_images/math/585c9e7e1a98ae9dc887915cb94fe2d0abc5abe6.svg" alt="|g(x) - g(y)| = |x+y||x-y| \leq 2r|x-y|"/></p>
+</div><p>上式对 <img class="math" src="_images/math/4b0f85aa5c5fd58b0e61a1f3c6adad2f670d3b20.svg" alt="|x|, |y|\leq r"/> 成立，因此 <img class="math" src="_images/math/28ded9e3c30acd366e0bc4e60c51f144ebfac2cc.svg" alt="g(x)"/> 在 <img class="math" src="_images/math/a274c5093192e1ce6bb73f8138c04db3281f27b4.svg" alt="(0,0)"/> 处是局部 Lipschitz 的．</p>
 <p>对于函数 (3)，我们有：</p>
 <div class="math">
-<p><img src="_images/math/3fbea466d33cc93c4dba532b1a6b5f9fac4d4b9e.svg" alt="\frac{|h(x) - h(0)|}{|x - 0|} = \frac{1}{\sqrt{|x|}} \to\infty \textrm{ as } x\to\infty"/></p>
-</div><p>因此， <img class="math" src="_images/math/8a89dedb53a02f258cdc14a50d9bfedc611a08c6.svg" alt="h(x)"/> 在 <img class="math" src="_images/math/7da7912ed3f55387be505a75bb19d2cabe2d2d75.svg" alt="(0,0)"/> 附近不是局部 Lipschitz 的；它自然也不是全局 Lipschitz 的．</p>
+<p><img src="_images/math/254cab294b2cfbdb04ddacf0eb856eee5e9c71f2.svg" alt="\frac{|h(x) - h(0)|}{|x - 0|} = \frac{1}{\sqrt{|x|}} \to\infty \textrm{ as } x\to\infty"/></p>
+</div><p>因此， <img class="math" src="_images/math/d31a1aace656e484047baf45961deaf739a43fc5.svg" alt="h(x)"/> 在 <img class="math" src="_images/math/a274c5093192e1ce6bb73f8138c04db3281f27b4.svg" alt="(0,0)"/> 附近不是局部 Lipschitz 的；它自然也不是全局 Lipschitz 的．</p>
 </div></blockquote>
 </div>
 </div>
@@ -310,14 +324,14 @@
 <blockquote class="last">
 <div><p>对于初值问题：</p>
 <div class="math">
-<p><img src="_images/math/c40c4adbf344fd6d44ba712d3b4f73060ec16b6f.svg" alt="\begin{cases}
+<p><img src="_images/math/3f1f3f2695a60551b7fcc8e5c5296250486d65be.svg" alt="\begin{cases}
 \frac{\ud \bx}{\ud t} = f(t, \bx) \\
 \bx(0) = \bx_0
 \end{cases}"/></p>
 </div><p>Picard 定理有如下内容：</p>
 <ol class="arabic simple">
-<li>如果 <img class="math" src="_images/math/3bf3d1169999cb86655d2091246a021d5561cd45.svg" alt="f(t, \bx)"/> 对 <img class="math" src="_images/math/2bd48df5666290dfd55335758fc1e1a0cc0c4bbd.svg" alt="\bx"/> 是全局 Lipschitz 的，那么初值问题的解 <img class="math" src="_images/math/bcaefe6bc679f33044fa5a837fde250fde0f3884.svg" alt="\bx(t)"/> 在 <img class="math" src="_images/math/cad0ddb933ab96ae05d4bc0813af4d7a57b6fd9d.svg" alt="t\in\uR"/> 上是唯一的．</li>
-<li>如果 <img class="math" src="_images/math/048f02dc1d9fd42bf00298d1f147a4085c27da57.svg" alt="f(\bx)"/> 对 <img class="math" src="_images/math/2bd48df5666290dfd55335758fc1e1a0cc0c4bbd.svg" alt="\bx"/> 是（原点处）局部 Lipschitz 的 （且 Lipschitz 常数与 <img class="math" src="_images/math/4f064f39b5dab87dccb0fb3d831b223b514bedf4.svg" alt="t"/> 无关），那么存在 <img class="math" src="_images/math/42ce80744b398d27e81f708d4ca056fb7c0f30e4.svg" alt="T&gt;0"/> 与一个在 <img class="math" src="_images/math/70d0510d9ccf847a3b74bca4fca04b36e53f0ea7.svg" alt="[-T, T]"/> 上的唯一解 <img class="math" src="_images/math/0926f1f2bb592d27bf797fcd641824edeffe9f48.svg" alt="\bx: [-T,T]\to \uR^n"/> ．其中，<img class="math" src="_images/math/53ad7ab944ac585e9ec54bdde3f0b33fa0298e35.svg" alt="T"/> 的值通常取决于 <img class="math" src="_images/math/71a21dd8dc39a5dc02f7e66bb066fb6b6a53cf3f.svg" alt="\bx_0"/>．</li>
+<li>如果 <img class="math" src="_images/math/49658f994b0e6e7d813f85a3e6c8142abdb09a2d.svg" alt="f(t, \bx)"/> 对 <img class="math" src="_images/math/0fda4914722c11bce1573e1331908a93b95f16ec.svg" alt="\bx"/> 是全局 Lipschitz 的，那么初值问题的解 <img class="math" src="_images/math/c6b55672300b96db4f4651bb08fc94b074eed836.svg" alt="\bx(t)"/> 在 <img class="math" src="_images/math/5197f90d757a4b9c0f9cc9bfac80b77a19bbf5a3.svg" alt="t\in\uR"/> 上是唯一的．</li>
+<li>如果 <img class="math" src="_images/math/ff19eec9a0a8e4639581e5bcb546f7043bef56e8.svg" alt="f(\bx)"/> 对 <img class="math" src="_images/math/0fda4914722c11bce1573e1331908a93b95f16ec.svg" alt="\bx"/> 是（原点处）局部 Lipschitz 的 （且 Lipschitz 常数与 <img class="math" src="_images/math/92261245183eb7266b2235949acd1483c057f925.svg" alt="t"/> 无关），那么存在 <img class="math" src="_images/math/3f2239d6506008a14c5ecc13fb4482912706c3dd.svg" alt="T&gt;0"/> 与一个在 <img class="math" src="_images/math/5fbb16cbc7c4c7e9be4b6e3d6a30e3a11c620f93.svg" alt="[-T, T]"/> 上的唯一解 <img class="math" src="_images/math/46d8e877353554828ac44442ac7b712d99b8a96b.svg" alt="\bx: [-T,T]\to \uR^n"/> ．其中，<img class="math" src="_images/math/00ae8580bae25e6cfdf382b67862f984b978dc7b.svg" alt="T"/> 的值通常取决于 <img class="math" src="_images/math/dcc61d34a68b6f291fa3824377d6f75a91cbdb7f.svg" alt="\bx_0"/>．</li>
 </ol>
 </div></blockquote>
 </div>
@@ -325,25 +339,25 @@
 <div class="section" id="picard">
 <h3>3.2.1. Picard 迭代<a class="headerlink" href="#picard" title="永久链接至标题">¶</a></h3>
 <p><strong>Picard 迭代</strong> (Picard iteration) 是证明 Picard 定理中使用的方法．</p>
-<p>对于初值问题 <img class="math" src="_images/math/aabc2983fad9e8a2d3d264f57e7304409c53ab44.svg" alt="y_x = f(x,y),\, y(0)=y_0"/>，这等价于求解 <img class="math" src="_images/math/0792ddfee761b02c9eaf2e6ce6b0a038d72f6913.svg" alt="y(x) = y_0 + \int_{x_0}^x f(s,y(x))\ud s"/>． 因此，我们可以用迭代法：</p>
+<p>对于初值问题 <img class="math" src="_images/math/2b3eccb4831925c3cc58f4529e726344db2b0315.svg" alt="y_x = f(x,y),\, y(0)=y_0"/>，这等价于求解 <img class="math" src="_images/math/fc47cc9258a6853c583b9d077802cd7a5af8bcf2.svg" alt="y(x) = y_0 + \int_{x_0}^x f(s,y(x))\ud s"/>． 因此，我们可以用迭代法：</p>
 <div class="math">
-<p><img src="_images/math/4bc48165fa34af69b90039802f74b261b1144920.svg" alt="y_{n+1}(x) = y_0 + \int_{x_0}^x f(s, y_n(x))\ud s"/></p>
-</div><p>后续定理的证明利用 Lipschitz 条件与数列的一致收敛可证．如果函数是局部 Lipschitz 的，那么 <img class="math" src="_images/math/fc1a2c765eaf251273c8c3c741409dad66d46e05.svg" alt="y_n(x)"/> 会在一个充分小的区间内 <img class="math" src="_images/math/c2225399a0f179536bd7696bcb55e93fd3675f10.svg" alt="[-X, X]"/> 一致收敛到初值问题的解 <img class="math" src="_images/math/c64b79833e408cefc21b1992aa4a55a42975e3ba.svg" alt="y(x)"/> ．</p>
+<p><img src="_images/math/3acb4fd2f81014dd682d6151e515cec1fb2b4dd2.svg" alt="y_{n+1}(x) = y_0 + \int_{x_0}^x f(s, y_n(x))\ud s"/></p>
+</div><p>后续定理的证明利用 Lipschitz 条件与数列的一致收敛可证．如果函数是局部 Lipschitz 的，那么 <img class="math" src="_images/math/a4520fbb095fbb6edd7529d777ba20876a1c9816.svg" alt="y_n(x)"/> 会在一个充分小的区间内 <img class="math" src="_images/math/c6c5228407434b02c1998f5452172167ddc30dcb.svg" alt="[-X, X]"/> 一致收敛到初值问题的解 <img class="math" src="_images/math/2126437a4f4902fb372e9e2d1a2869d35cc4a401.svg" alt="y(x)"/> ．</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：Picard 迭代</p>
 <blockquote class="last">
-<div><p>求初值问题 <img class="math" src="_images/math/229b9d8213d15bc041ee15875abfcdb0ed9fdc5f.svg" alt="x_t = x,\quad x(0)=1"/> 的 Picard 迭代，并判断它是否收敛．</p>
+<div><p>求初值问题 <img class="math" src="_images/math/52fe8d29e8780578928990686bafe6bccc46980b.svg" alt="x_t = x,\quad x(0)=1"/> 的 Picard 迭代，并判断它是否收敛．</p>
 <p><strong>解：</strong> 该初值问题的积分形式：</p>
 <div class="math">
-<p><img src="_images/math/1cc94f90430db15991dd71390db54e689a32b7a4.svg" alt="x(t) = 1 + \int_0^t x(s) \ud s"/></p>
+<p><img src="_images/math/65c80805ea969b37828ee1d41849c6be5f334d24.svg" alt="x(t) = 1 + \int_0^t x(s) \ud s"/></p>
 </div><p>迭代：</p>
 <div class="math">
-<p><img src="_images/math/d68dd46a9db8627aa0b8444b1f4b2149420fadf9.svg" alt="x_0 &amp;= 1,
+<p><img src="_images/math/27da2c6811f999ae3410ff2fe1a97bae7102f5e8.svg" alt="x_0 &amp;= 1,
 
 x_1 &amp;= 1 + \int_0^t x_0(s) \ud s = 1 + t,
 
 x_2 &amp;= 1 + \int_0^t x_1(s) \ud s = 1 + \int_0^t (1+s) \ud s = 1 + t + \frac{t^2}{2}"/></p>
-</div><p>以下由归纳法得 <img class="math" src="_images/math/46e9ece7d02f1cc48360a97b231c94e73c5fe770.svg" alt="x_n = \sum_{k=0}^n \frac{t^k}{k!}"/> 对任意 <img class="math" src="_images/math/fc744cad3b27270896df6b30996f5633203266fb.svg" alt="n\in \mathbb{N}"/> 成立；而上式显然是指数函数 <img class="math" src="_images/math/f0b1642a4ec4e98a03b91c3dfef39567ca61df8e.svg" alt="\ue^t"/> 的 Taylor 展开．这个数列向 <img class="math" src="_images/math/f0b1642a4ec4e98a03b91c3dfef39567ca61df8e.svg" alt="\ue^t"/> 逐点（并在紧集上一致地）收敛．</p>
+</div><p>以下由归纳法得 <img class="math" src="_images/math/c0517a13bb347c78deae547d0ecef6b96fcb0395.svg" alt="x_n = \sum_{k=0}^n \frac{t^k}{k!}"/> 对任意 <img class="math" src="_images/math/82b6e9fa9888936394735771c96eec7266a20b8b.svg" alt="n\in \mathbb{N}"/> 成立；而上式显然是指数函数 <img class="math" src="_images/math/8658234b7d686e7415bbc73a4be484c2abe1a69b.svg" alt="\ue^t"/> 的 Taylor 展开．这个数列向 <img class="math" src="_images/math/8658234b7d686e7415bbc73a4be484c2abe1a69b.svg" alt="\ue^t"/> 逐点（并在紧集上一致地）收敛．</p>
 </div></blockquote>
 </div>
 </div>
@@ -353,24 +367,24 @@ x_2 &amp;= 1 + \int_0^t x_1(s) \ud s = 1 + \int_0^t (1+s) \ud s = 1 + t + \frac{
 <p>Peano 定理描述了解的存在判定条件，其证明不在此叙述．</p>
 <div class="def admonition">
 <p class="first admonition-title">Peano 定理</p>
-<p class="last">如果初值问题 <img class="math" src="_images/math/d81afe4425bedbb37170166c28803863e365eaec.svg" alt="\bx_t = f(t, \bx), \bx(0) = \bx_0"/> 中的函数 <img class="math" src="_images/math/38d61b0e000c7a245d9307fe763e30656ed5242c.svg" alt="f"/> 在区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 上是连续的，那么初值问题在区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 对应的 <img class="math" src="_images/math/4f064f39b5dab87dccb0fb3d831b223b514bedf4.svg" alt="t"/> 所在闭区间上至少存在一个解．</p>
+<p class="last">如果初值问题 <img class="math" src="_images/math/a69d9b8fc325f376f61b69b3ca95b17e95e24a1d.svg" alt="\bx_t = f(t, \bx), \bx(0) = \bx_0"/> 中的函数 <img class="math" src="_images/math/bf440e357b3aa18cdb85d5bf944bc80046aa4239.svg" alt="f"/> 在区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 上是连续的，那么初值问题在区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 对应的 <img class="math" src="_images/math/92261245183eb7266b2235949acd1483c057f925.svg" alt="t"/> 所在闭区间上至少存在一个解．</p>
 </div>
-<p>如果初值问题对任意 <img class="math" src="_images/math/cad0ddb933ab96ae05d4bc0813af4d7a57b6fd9d.svg" alt="t\in\uR"/> 与初值 <img class="math" src="_images/math/07bb52be7feb213cd808796775833fd6b31e011e.svg" alt="x_0\in\uR^n"/> 均存在解，那么称该微分方程定义了一个全流 (complete flow)；如果只对 <img class="math" src="_images/math/deb6c29dbf260b922a87694c9f4b344724d860b2.svg" alt="t\geq 0"/> 时存在解，那么称其定义了一个半流 (semiflow)．</p>
+<p>如果初值问题对任意 <img class="math" src="_images/math/5197f90d757a4b9c0f9cc9bfac80b77a19bbf5a3.svg" alt="t\in\uR"/> 与初值 <img class="math" src="_images/math/4b8887f0f80a3f5f24911fc08bf255df76a3e98b.svg" alt="x_0\in\uR^n"/> 均存在解，那么称该微分方程定义了一个全流 (complete flow)；如果只对 <img class="math" src="_images/math/c9d24cf3f75eed2aa67233e76ec617045bc699c2.svg" alt="t\geq 0"/> 时存在解，那么称其定义了一个半流 (semiflow)．</p>
 </div>
 <div class="section" id="id3">
 <h2>3.4. 解的延伸与最大存在区间<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>解的延伸 (extension of solutions) 也是重要的内容．对于定义在区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 上的函数 <img class="math" src="_images/math/38d61b0e000c7a245d9307fe763e30656ed5242c.svg" alt="f"/>，初值问题的解在区域 <img class="math" src="_images/math/a9967bcaf08decfda416c45f8d3e156767487b30.svg" alt="D"/> 内是存在的．而该解如何延伸到区域外则需要以下定理：</p>
+<p>解的延伸 (extension of solutions) 也是重要的内容．对于定义在区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 上的函数 <img class="math" src="_images/math/bf440e357b3aa18cdb85d5bf944bc80046aa4239.svg" alt="f"/>，初值问题的解在区域 <img class="math" src="_images/math/99fa8ff73a64fc470cb3970c672b94036e7e3e1c.svg" alt="D"/> 内是存在的．而该解如何延伸到区域外则需要以下定理：</p>
 <div class="def admonition">
 <p class="first admonition-title">解的延伸定理</p>
 <blockquote class="last">
-<div><p>设 <img class="math" src="_images/math/50e063e91b2617f358da0f864485286ba2e767f6.svg" alt="P"/> 为区域 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 内任意一点，并设 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/> 为一条标量微分方程 <img class="math" src="_images/math/589ca00d159b2c73a7749a011ac6772dfae3da7c.svg" alt="x_t = f(t,x)"/> 的积分曲线，则 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/> 将在区域 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 内延伸到边界．</p>
-<p>换言之，对任何 <em>有界闭区域</em> <img class="math" src="_images/math/5bf5a91c3a840f997ddfcf7d5d1fae7d69c56838.svg" alt="G_1"/> （<img class="math" src="_images/math/34909f948bd7ea45b87d452ee313b425a1e04678.svg" alt="P\in G_1\subset G"/>），积分曲线都将延伸到 <img class="math" src="_images/math/5bf5a91c3a840f997ddfcf7d5d1fae7d69c56838.svg" alt="G_1"/> 之外．</p>
+<div><p>设 <img class="math" src="_images/math/c5593ef78e4574f2fe2f3f41b1059ceb8205ce22.svg" alt="P"/> 为区域 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 内任意一点，并设 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/> 为一条标量微分方程 <img class="math" src="_images/math/998c5320d6451212876f92e77d5220b9a3aab6c8.svg" alt="x_t = f(t,x)"/> 的积分曲线，则 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/> 将在区域 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 内延伸到边界．</p>
+<p>换言之，对任何 <em>有界闭区域</em> <img class="math" src="_images/math/9d57206c8c65a4a62bf2083fd7eee11b7f5bdc30.svg" alt="G_1"/> （<img class="math" src="_images/math/3ff7efd9dfa41bb909d14a84e035dedb4b4d1ed6.svg" alt="P\in G_1\subset G"/>），积分曲线都将延伸到 <img class="math" src="_images/math/9d57206c8c65a4a62bf2083fd7eee11b7f5bdc30.svg" alt="G_1"/> 之外．</p>
 </div></blockquote>
 </div>
 <p>下面介绍最大存在区间的概念：</p>
 <div class="admonition- admonition">
 <p class="first admonition-title">简化定义：最大存在区间</p>
-<p class="last">解 <img class="math" src="_images/math/a732419e1e6936c3e09fe39afc5b04b999103c6f.svg" alt="x(t), \, t\in J"/> 中定义的 <img class="math" src="_images/math/2fbabbe7fb211a4c41a585999392616da39e47f0.svg" alt="x"/> 最大能够取到的区间 <img class="math" src="_images/math/562109df05d6c98f092353eee557ba7b69900a8f.svg" alt="J = (T_-, T_+)"/> 称为 <strong>最大存在区间</strong> （maximal interval of existence），其中 <img class="math" src="_images/math/eb601b84d339e81f50358a3fff80bcd1cec9a539.svg" alt="-\infty\leq T_- &lt; 0 &lt; T_+ \leq \infty"/>．</p>
+<p class="last">解 <img class="math" src="_images/math/e73a49b5a598d1e4ec9275e12fe1056cf22b7fb4.svg" alt="x(t), \, t\in J"/> 中定义的 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 最大能够取到的区间 <img class="math" src="_images/math/bba3db5a31a341f8750fc4922be16095eae851f9.svg" alt="J = (T_-, T_+)"/> 称为 <strong>最大存在区间</strong> （maximal interval of existence），其中 <img class="math" src="_images/math/9c0faa731c73c16c95a1995f558c2482590a4173.svg" alt="-\infty\leq T_- &lt; 0 &lt; T_+ \leq \infty"/>．</p>
 </div>
 <div class="section" id="id4">
 <h3>3.4.1. 解的延伸判断<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
@@ -378,19 +392,20 @@ x_2 &amp;= 1 + \int_0^t x_1(s) \ud s = 1 + \int_0^t (1+s) \ud s = 1 + t + \frac{
 <ol class="arabic">
 <li><p class="first">利用局部 Lipschitz 及最大存在区间单侧有限来判断：</p>
 <blockquote>
-<div><p>如果函数 <img class="math" src="_images/math/38d61b0e000c7a245d9307fe763e30656ed5242c.svg" alt="f"/> 是局部 Lipschitz 的，且微分方程的解的最大存在区间 <img class="math" src="_images/math/d500bff1d7e53d522f0b5d2f39b10624f03bbf9b.svg" alt="(T_-, T_+)"/> 至少单侧有限的（即 <img class="math" src="_images/math/a380c50d730870fd137d7aeb7450141af54112f3.svg" alt="-\infty&lt;T_-"/> 或 <img class="math" src="_images/math/23cced583cd216d878244d9f0b625e7d300788d7.svg" alt="T_+&lt;\infty"/>），那么解 <img class="math" src="_images/math/bcaefe6bc679f33044fa5a837fde250fde0f3884.svg" alt="\bx(t)"/> 在最大存在区间上必能趋向无穷，即相应有：</p>
+<div><p>如果函数 <img class="math" src="_images/math/bf440e357b3aa18cdb85d5bf944bc80046aa4239.svg" alt="f"/> 是局部 Lipschitz 的，且微分方程的解的最大存在区间 <img class="math" src="_images/math/b0351d3ed8cc17316425df65388940f390f35bff.svg" alt="(T_-, T_+)"/> 至少单侧有限的（即 <img class="math" src="_images/math/b6e7d1e6b38c7bc9ccafdcfaa2d8db8f61ba03db.svg" alt="-\infty&lt;T_-"/> 或 <img class="math" src="_images/math/b349a06548688e0c53a8b4490e93ca3466f3e746.svg" alt="T_+&lt;\infty"/>），那么解 <img class="math" src="_images/math/c6b55672300b96db4f4651bb08fc94b074eed836.svg" alt="\bx(t)"/> 在最大存在区间上必能趋向无穷，即相应有：</p>
 <div class="math">
-<p><img src="_images/math/3e56edfcf73c9003f8d3a352915af63bf59df821.svg" alt="T_+ &lt; \infty \implies \lim_{t\to\infty} |\bx(t)|\to\infty
+<p><img src="_images/math/0c5b622e6233817111f76f9a29f2cb9fc398d0a5.svg" alt="T_+ &lt; \infty \implies \lim_{t\to\infty} |\bx(t)|\to\infty
 
 T_- &gt; -\infty \implies \lim_{t\to-\infty} |\bx(t)|\to\infty"/></p>
-</div></div></blockquote>
+</div><p>反之，以上的逆否命题也成立：如果 <img class="math" src="_images/math/c6b55672300b96db4f4651bb08fc94b074eed836.svg" alt="\bx(t)"/> 在最大存在区间上不能趋向无穷（即有界），那么最大存在区间是无限区间（即 <img class="math" src="_images/math/54edae9c76fea95508aac1073228efe08c14dee5.svg" alt="T_-=-\infty"/> 或 <img class="math" src="_images/math/89d9631df5192d018fb4be11a1b5d78793172a3f.svg" alt="T_+=\infty"/> 至少其一成立）．</p>
+</div></blockquote>
 </li>
 <li><p class="first">利用解的延伸定理的一个推论来判断：</p>
 <blockquote>
 <div><div class="def admonition">
 <p class="first admonition-title">推论：解的延伸定理</p>
 <blockquote class="last">
-<div><p>设函数 <img class="math" src="_images/math/9a9e06bdafefb36540f533b0a4c6cf4a650c6ad7.svg" alt="f(x,y)"/> 在区域 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 连续且对 <img class="math" src="_images/math/9943c20684b0cc69c11dcb0b39419cf3292c2c3d.svg" alt="y"/> 局部 Lipschitz，那么微分方程经过 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 内任一点 <img class="math" src="_images/math/50e063e91b2617f358da0f864485286ba2e767f6.svg" alt="P"/> 存在唯一的积分曲线 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/> ，且 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/> 在 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 延伸到边界．</p>
+<div><p>设函数 <img class="math" src="_images/math/d873900c726a3604bac3fc12c3a2e7747836eb87.svg" alt="f(x,y)"/> 在区域 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 连续且对 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 局部 Lipschitz，那么微分方程经过 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 内任一点 <img class="math" src="_images/math/c5593ef78e4574f2fe2f3f41b1059ceb8205ce22.svg" alt="P"/> 存在唯一的积分曲线 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/> ，且 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/> 在 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 延伸到边界．</p>
 </div></blockquote>
 </div>
 </div></blockquote>
@@ -400,14 +415,14 @@ T_- &gt; -\infty \implies \lim_{t\to-\infty} |\bx(t)|\to\infty"/></p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：解的延伸判定</p>
 <blockquote class="last">
-<div><p>对于 Hamiltonian 系统（参考 <a class="reference internal" href="DS-basic.html#toc-hamiltonian"><span class="std std-ref">哈密尔顿系统</span></a> 一节）： <img class="math" src="_images/math/a7fe49feee4647fd541a47211300caae8854a93b.svg" alt="H(q_1,q_2,p_1,p_2) = q_1^8 + q_2^{10} + p_1^6 + p_2^{12}"/> ，其微分式：</p>
+<div><p>对于 Hamiltonian 系统（参考 <a class="reference internal" href="DS-basic.html#toc-hamiltonian"><span class="std std-ref">哈密尔顿系统</span></a> 一节）： <img class="math" src="_images/math/898905613ce9af65b8edbe6c8480167a6d2476e3.svg" alt="H(q_1,q_2,p_1,p_2) = q_1^8 + q_2^{10} + p_1^6 + p_2^{12}"/> ，其微分式：</p>
 <div class="math">
-<p><img src="_images/math/23c11509a513e29e64d8c68f64af99559979668f.svg" alt="\begin{cases}
+<p><img src="_images/math/70813d361fe39f550c4324be473573891bf5047e.svg" alt="\begin{cases}
 q_i &amp;= \frac{\partial H}{\partial p_i} \\
 p_i &amp;= -\frac{\partial H}{\partial q_i}
 \end{cases}"/></p>
 </div><p>判断该动力系统的解的延伸性．</p>
-<p><strong>解：</strong> 在此 Hamiltonian 系统中，轨线只能出现在 <img class="math" src="_images/math/b1b1fa324f053fda0c4e4e5c89a3a4ee4715ac76.svg" alt="H=C"/> 这个 <img class="math" src="_images/math/757b6dcbcab44627b506b25e5790392b1facf2eb.svg" alt="\uR^4"/> 上的有界区域内．因此，该方程的解是有界的，并对 <img class="math" src="_images/math/cad0ddb933ab96ae05d4bc0813af4d7a57b6fd9d.svg" alt="t\in\uR"/> 都存在．</p>
+<p><strong>解：</strong> 在此 Hamiltonian 系统中，轨线只能出现在 <img class="math" src="_images/math/3e0653e4b346ced78b2c390e2532da0c48b75a34.svg" alt="H=C"/> 这个 <img class="math" src="_images/math/c259ca3c4605095960d4509fae710fb5885bafef.svg" alt="\uR^4"/> 上的有界区域内．因此，该方程的解是有界的．由局部 Lipschitz 与解的有界性，我们可知解在 <img class="math" src="_images/math/5197f90d757a4b9c0f9cc9bfac80b77a19bbf5a3.svg" alt="t\in\uR"/> 上存在．</p>
 </div></blockquote>
 </div>
 </div>
@@ -418,33 +433,33 @@ p_i &amp;= -\frac{\partial H}{\partial q_i}
 <div class="def admonition">
 <p class="first admonition-title">引理：Grönwall–Bellman 不等式</p>
 <blockquote class="last">
-<div><p>设 <img class="math" src="_images/math/bdd5bfd7406d0bdfc2415298f1c7ee55f7d0d8d4.svg" alt="\psi: [0,\infty) \to \uR"/> 是一个满足下式的连续函数：</p>
+<div><p>设 <img class="math" src="_images/math/a7e7b9be38ec9d57a888b624fd74e0e450610251.svg" alt="\psi: [0,\infty) \to \uR"/> 是一个满足下式的连续函数：</p>
 <div class="math">
-<p><img src="_images/math/66b04459ad657806f89763e4847b82cc9f2c5849.svg" alt="\psi(t) \leq \psi_0 + M\int^t_0 \psi(s)\ud s"/></p>
-</div><p>对 <img class="math" src="_images/math/deb6c29dbf260b922a87694c9f4b344724d860b2.svg" alt="t\geq 0"/> 恒成立，其中 <img class="math" src="_images/math/f932e1d3b1f24f14fdc072b569bb1d2d79dafd7e.svg" alt="\psi_0, M"/> 均为常数．那么，我们有下式对 <img class="math" src="_images/math/deb6c29dbf260b922a87694c9f4b344724d860b2.svg" alt="t\geq 0"/> 恒成立：</p>
+<p><img src="_images/math/2aa8034b6ae0dd68078f2675ebc8f799d162b08f.svg" alt="\psi(t) \leq \psi_0 + M\int^t_0 \psi(s)\ud s"/></p>
+</div><p>对 <img class="math" src="_images/math/c9d24cf3f75eed2aa67233e76ec617045bc699c2.svg" alt="t\geq 0"/> 恒成立，其中 <img class="math" src="_images/math/25bbde27a9b7cc7fd118c72bb5a1550b949eb159.svg" alt="\psi_0, M"/> 均为常数．那么，我们有下式对 <img class="math" src="_images/math/c9d24cf3f75eed2aa67233e76ec617045bc699c2.svg" alt="t\geq 0"/> 恒成立：</p>
 <div class="math">
-<p><img src="_images/math/a56a5e9459c3c7bffbc67a08886d4f95bd3bc104.svg" alt="\psi (t) \leq \psi_0 \ue^{Mt}"/></p>
-</div><p><strong>证明：</strong> 令 <img class="math" src="_images/math/d576718f7935728eddc376893826876c920978aa.svg" alt="g(t) = \psi_0 + M\int^t_0 \psi(s)\ud s"/> ，那么有 <img class="math" src="_images/math/7e29de7298cb7064ad4789d1ebcaca5d166031d2.svg" alt="\psi\leq g"/> ．对 <img class="math" src="_images/math/54762d0231269c7466801dd9a75b23cf62019de7.svg" alt="g"/> 微分，得到： <img class="math" src="_images/math/154f4360901b6a4c3c5ccb2051f7be3835d0499f.svg" alt="g_t = M\psi \leq Mg"/> ，并推知 <img class="math" src="_images/math/4edd10b104d184d27b996f84895b16bce0125b63.svg" alt="\left(\ue^{-Mt}g\right)_t \leq 0"/> ．由此，我们知道 <img class="math" src="_images/math/8e294155809169f750561683ea9e81fa60f06145.svg" alt="\ue^{-Mt}g"/> 随 <img class="math" src="_images/math/4f064f39b5dab87dccb0fb3d831b223b514bedf4.svg" alt="t"/> 是单调不增的，也就有 <img class="math" src="_images/math/ab923bd29199b452417fd99e88b9ec2b3c93a541.svg" alt="\ue^{-Mt}g(t) \leq \ue^{0}g(0) = \psi_0"/> ，因此 <img class="math" src="_images/math/f08a76c4945c0f93335cd872e86919b8aadcae66.svg" alt="g(t)\leq \psi_0 \ue^{Mt}"/> ．又由 <img class="math" src="_images/math/7e29de7298cb7064ad4789d1ebcaca5d166031d2.svg" alt="\psi\leq g"/> ，证毕．</p>
+<p><img src="_images/math/3037a838c545cd6e737d9ccd0f3535e67cc50e53.svg" alt="\psi (t) \leq \psi_0 \ue^{Mt}"/></p>
+</div><p><strong>证明：</strong> 令 <img class="math" src="_images/math/ba6f2d517130f301bb1e0ff33a5b1b267b27911b.svg" alt="g(t) = \psi_0 + M\int^t_0 \psi(s)\ud s"/> ，那么有 <img class="math" src="_images/math/19b93ad6e9e52e6d62c298255b4872adbb6ea232.svg" alt="\psi\leq g"/> ．对 <img class="math" src="_images/math/caac73f7bd9add1ea8b176615b6a267eedb82c4e.svg" alt="g"/> 微分，得到： <img class="math" src="_images/math/ecdfe01910f1ce326f2b6767765e6759ea504784.svg" alt="g_t = M\psi \leq Mg"/> ，并推知 <img class="math" src="_images/math/54fbd36dbe7f79bc217ac392ce94371b13ffd751.svg" alt="\left(\ue^{-Mt}g\right)_t \leq 0"/> ．由此，我们知道 <img class="math" src="_images/math/1972b5c1b1225729482f2c6e88a17f1607433cf5.svg" alt="\ue^{-Mt}g"/> 随 <img class="math" src="_images/math/92261245183eb7266b2235949acd1483c057f925.svg" alt="t"/> 是单调不增的，也就有 <img class="math" src="_images/math/ba1ffd25553be574248aff894bd4cb63281af5c5.svg" alt="\ue^{-Mt}g(t) \leq \ue^{0}g(0) = \psi_0"/> ，因此 <img class="math" src="_images/math/2c3290d1513f79f8328fe54ce36ce4f565a62694.svg" alt="g(t)\leq \psi_0 \ue^{Mt}"/> ．又由 <img class="math" src="_images/math/19b93ad6e9e52e6d62c298255b4872adbb6ea232.svg" alt="\psi\leq g"/> ，证毕．</p>
 </div></blockquote>
 </div>
 <p>再介绍如下定理：</p>
 <div class="admonition- admonition">
 <p class="first admonition-title">定理</p>
-<p>设紧集 <img class="math" src="_images/math/081f3a2b1ddcbd20fa3c4dd5e0cb82c31c7171fb.svg" alt="E\subset \uR^n"/> 上的函数 <img class="math" src="_images/math/d9834543f46f93b4fe9bab78c40b0e8ab7aff633.svg" alt="f: E\to \uR^n"/> 是在 <img class="math" src="_images/math/348d20f37e34064808af550c4898bc2842134781.svg" alt="E"/> 上 Lipschitz 的，且有 Lipschitz 常数 <img class="math" src="_images/math/e485dbd9ce5b8b71447263f6f37d485a3625bd8a.svg" alt="M"/> ．如果 <img class="math" src="_images/math/943e574b0d7c0a8ce66dc8fdc24dca495b15064b.svg" alt="x, y: I\subset \uR \to \uR^n"/> 分别是初值问题 <img class="math" src="_images/math/a0d9928f03d863d812aa0db7755e2f198f69b136.svg" alt="IVP(f, x_0)"/> 与 <img class="math" src="_images/math/ffb168d9f21afa8f84f5b1a35c207cc5ce730cbd.svg" alt="IVP(f, y_0)"/> 在包含 <img class="math" src="_images/math/eaf8b0c4edcbb955a555025ee212a7b27e683673.svg" alt="t=0"/> 的公有域 <img class="math" src="_images/math/c35cdb37d7e477997a541ebbc28c84e7aae9f56e.svg" alt="I"/> 上的解，那么有：</p>
+<p>设紧集 <img class="math" src="_images/math/c25570901552b42b09c15099930f3d43900a41cc.svg" alt="E\subset \uR^n"/> 上的函数 <img class="math" src="_images/math/fa0ee0a64aa00c42b9618d1aaff2d82d2ae6e921.svg" alt="f: E\to \uR^n"/> 是在 <img class="math" src="_images/math/10c5068f5bbee2a7b99a3ab92471c3668e9e82a6.svg" alt="E"/> 上 Lipschitz 的，且有 Lipschitz 常数 <img class="math" src="_images/math/a182c5c863d9e21baf6cec3943e36d5fa123f69c.svg" alt="M"/> ．如果 <img class="math" src="_images/math/8ce3539fe3738774a54da5193dc77feb67c37131.svg" alt="x, y: I\subset \uR \to \uR^n"/> 分别是初值问题 <img class="math" src="_images/math/836c58f3b7e4b9e17bf2d79e89e491b87ee9a1f4.svg" alt="IVP(f, x_0)"/> 与 <img class="math" src="_images/math/bb70a9fd755792ed81d9475a767ac7d968d75375.svg" alt="IVP(f, y_0)"/> 在包含 <img class="math" src="_images/math/57755e0a97748eaf0fb7667767185828d8c634b1.svg" alt="t=0"/> 的公有域 <img class="math" src="_images/math/95f66ff369a4eb13639b5f52ec21d54b64a4fba9.svg" alt="I"/> 上的解，那么有：</p>
 <div class="math">
-<p><img src="_images/math/b22bff8a64002769f016d9f5662e08c33122db2a.svg" alt="|x(t) - y(t)| \leq |x_0 - y_0|\ue^{|M|t}."/></p>
-</div><p>对任意 <img class="math" src="_images/math/0f59513fd9cc2f213b59f427b74844330107a95c.svg" alt="t\in I"/> 均成立．</p>
-<p><strong>证明：</strong> 将微分方程改写为 <img class="math" src="_images/math/ba8e172c18f08d7bb1575c195bef9f974db917e7.svg" alt="x(t) = x_0+\int_0^t f(x(s)) \ud s, y(t) = y_0+\int_0^t f(y(s)) \ud s"/> ，那么相减有：</p>
+<p><img src="_images/math/a047432084fd9f92d676023c02759a459a3d523f.svg" alt="|x(t) - y(t)| \leq |x_0 - y_0|\ue^{|M|t}."/></p>
+</div><p>对任意 <img class="math" src="_images/math/e18804be9f6d03aeaf27c3ca473fdb54cfb97162.svg" alt="t\in I"/> 均成立．</p>
+<p><strong>证明：</strong> 将微分方程改写为 <img class="math" src="_images/math/e93a4fbdf3606a10737cf704bbf8ccd7fb57bc27.svg" alt="x(t) = x_0+\int_0^t f(x(s)) \ud s, y(t) = y_0+\int_0^t f(y(s)) \ud s"/> ，那么相减有：</p>
 <div class="math">
-<p><img src="_images/math/7accbeffc857d804207af1cce66f7b9552db7d11.svg" alt="x(t) - y(t) &amp;= (x_0 - y_0) + \int_0^t [f(x(s)) - f(y(s))]\ud s
+<p><img src="_images/math/434bf8767be449bbd1adfeca4726d10d91541dda.svg" alt="x(t) - y(t) &amp;= (x_0 - y_0) + \int_0^t [f(x(s)) - f(y(s))]\ud s
 
 |x(t) - y(t)| &amp;\leq |x_0 - y_0| + |\int_0^t [f(x(s)) - f(y(s))]\ud s|
 
 &amp;\leq |x_0 - y_0| + M\int_0^t |x(s) - y(s)|\ud s \quad \textrm{(Lipschitz)}"/></p>
-</div><p>根据 Grönwall–Bellman 不等式，令 <img class="math" src="_images/math/f1e52a7a114fa519a49f60bd643c3e50e8aaafb8.svg" alt="\psi(t) = |x(t) - y(t)|"/> ，那么对 <img class="math" src="_images/math/deb6c29dbf260b922a87694c9f4b344724d860b2.svg" alt="t\geq 0"/>：</p>
+</div><p>根据 Grönwall–Bellman 不等式，令 <img class="math" src="_images/math/49a7d493937579975b4536b9af5641c657a72d15.svg" alt="\psi(t) = |x(t) - y(t)|"/> ，那么对 <img class="math" src="_images/math/c9d24cf3f75eed2aa67233e76ec617045bc699c2.svg" alt="t\geq 0"/>：</p>
 <div class="math">
-<p><img src="_images/math/d752443a95d9f7b422a9c9ae80a8fdff065b4165.svg" alt="|x(t) - y(t)| \leq |x_0 - y_0|\ue^{Mt}"/></p>
-</div><p class="last">用 <img class="math" src="_images/math/fc7cbbfab185475b1c23ede55152ca203b9b335e.svg" alt="-t"/> 代替以上证明中的 <img class="math" src="_images/math/4f064f39b5dab87dccb0fb3d831b223b514bedf4.svg" alt="t"/> 即可证明 <img class="math" src="_images/math/0f59513fd9cc2f213b59f427b74844330107a95c.svg" alt="t\in I"/> 的情形．</p>
+<p><img src="_images/math/c290bedeac611ce93bcd97292ae6282a3a425c41.svg" alt="|x(t) - y(t)| \leq |x_0 - y_0|\ue^{Mt}"/></p>
+</div><p class="last">用 <img class="math" src="_images/math/72f245da23554ebb7d36babb8b257b62f600edbd.svg" alt="-t"/> 代替以上证明中的 <img class="math" src="_images/math/92261245183eb7266b2235949acd1483c057f925.svg" alt="t"/> 即可证明 <img class="math" src="_images/math/e18804be9f6d03aeaf27c3ca473fdb54cfb97162.svg" alt="t\in I"/> 的情形．</p>
 </div>
 <p>以上定理说明了，如果微分方程的两个初值有较小的差异，那么它们的解在某个时间尺度内也会相距较近．</p>
 <p class="rubric">注释</p>

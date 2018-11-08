@@ -49,13 +49,14 @@ imgmath_image_format = 'svg'
 imgmath_font_size = 16
 
 imgmath_latex_preamble = r'''
+\usepackage{mathtools}
 \newcommand{\uR}{\mathbb{R}}
 \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}
 \newcommand{\ue}{\mathrm{e}}
 \newcommand{\bx}{\boldsymbol{x}}
 \newcommand{\br}{\boldsymbol{r}}
 \newcommand{\bA}{\boldsymbol{A}}
-\newcommand{\bPhi}{\boldsymbol{Phi}}
+\newcommand{\bPhi}{\boldsymbol{\Phi}}
 \newcommand{\bI}{\boldsymbol{I}}
 \newcommand{\eqbx}{\boldsymbol{\bar{x}}}
 '''

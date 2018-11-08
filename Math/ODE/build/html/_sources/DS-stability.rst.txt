@@ -149,13 +149,13 @@ Lyapunov 稳定性
 
     如果 :math:`\eqbx` 是自治系统 :math:`\bx_t = f(\bx)` 的双曲平衡点，那么在 :math:`\eqbx` 附近存在一个邻域，使得 :math:`\bx_t = f(\bx)` 与 :math:`\boldsymbol{y}_t = \mathrm{D}f(\xi)\boldsymbol{y}` 拓扑共轭．
 
-为了指明两种系统在平衡点处稳定性的联系，我们介绍稳定流形与不稳定流形．**稳定流形** (stable manifold) :math:`\mathrm{W}^\mathrm{s}` 是指所有正向趋向平衡点的流组成的集合，而 **不稳定流形** (unstable manifold) :math:`\mathrm{W}^\mathrm{u}` 是指所有负向趋向平衡点的流组成的集合，即：
+为了指明两种系统在平衡点处稳定性的联系，我们介绍稳定流形与不稳定流形．**稳定流形** (stable manifold) :math:`W^\mathrm{s}` 是指所有正向趋向平衡点的流组成的集合，而 **不稳定流形** (unstable manifold) :math:`W^\mathrm{u}` 是指所有负向趋向平衡点的流组成的集合，即：
 
 .. math::
 
-    \mathrm{W}^\mathrm{s} &= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to \infty \},
+    W^\mathrm{s} &= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to \infty \},
 
-    \mathrm{W}^\mathrm{u} &= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to -\infty \}
+    W^\mathrm{u} &= \{ \bx\in \uR^n \,:\, \varphi_t(\bx) \to \eqbx \textrm{ as } t\to -\infty \}
 
 
 
@@ -192,19 +192,23 @@ Lyapunov 稳定性
 .. admonition:: 定义：稳定性子空间
    :class: def
 
-    对于自治系统 :math:`\bx_t = \bA t, \quad \bx(0)=\bx_0` 及其平衡点原点，以下定义了三个稳定性子空间： 稳定子空间 :math:`\mathrm{E}^\mathrm{s}` 、中心子空间 :math:`\mathrm{E}^\mathrm{sc}` 与不稳定子空间 :math:`\mathrm{E}^\mathrm{u}` ： 
+    对于自治系统 :math:`\bx_t = \bA t, \quad \bx(0)=\bx_0` 及其平衡点原点，以下定义了三个稳定性子空间： 稳定子空间 :math:`\mathrm{E}^\mathrm{s}` 、中心子空间 :math:`E^\mathrm{sc}` 与不稳定子空间 :math:`E^\mathrm{u}` ： 
+    
+    .. math::
 
-    \mathrm{E}^\mathrm{s} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \Re(\lambda_j) < 0 \} 
+        E^\mathrm{s} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \mathrm{Re}(\lambda_j) < 0 \} 
 
-    \mathrm{E}^\mathrm{c} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \Re(\lambda_j) = 0 \} 
+        E^\mathrm{c} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \mathrm{Re}(\lambda_j) = 0 \} 
 
-    \mathrm{E}^\mathrm{u} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \Re(\lambda_j) > 0 \} 
+        E^\mathrm{u} = \span \{ \boldsymbol{u}_j, \boldsymbol{v_j} \,:\, \mathrm{Re}(\lambda_j) > 0 \} 
 
 一些其他的性质：
 
-1. 全空间 :math:`\uR^n` 是以上三个稳定性子空间的一个唯一组合 :math:`\uR^n = \mathrm{E}^\mathrm{s} \oplus \mathrm{E}^\mathrm{c} \oplus \mathrm{E}^\mathrm{u}` ．
+1. 全空间 :math:`\uR^n` 是以上三个稳定性子空间的一个唯一组合 :math:`\uR^n = E^\mathrm{s} \oplus E^\mathrm{c} \oplus E^\mathrm{u}` ．
 
-2. 如果 :math:`\bA` 非奇异 (nonsingular, 即可逆)，那么 :math:`x=0` 是唯一的平衡点；三个稳定性子空间均是原方程的不变子空间． 
+2. 如果 :math:`\bA` 非奇异 (nonsingular, 即可逆)，那么 :math:`x=0` 是唯一的平衡点．
+
+3. 三个稳定性子空间均是原方程的不变子空间． 
 
 
 非自治线性系统与基解矩阵
@@ -236,7 +240,7 @@ Lyapunov 稳定性
 
         \bPhi(t ,s)\bPhi(s, r) = \bPhi(t, r)
     
-    特别地，我们有： :math:`\bPhi(s, t) = \bPhi(t, s)`，以及 :math:`\bPhi(t_0, t_0) = \bI` ．
+    特别地，我们有： :math:`\bPhi(s, t) = \bPhi^{-1}(t, s)`，以及 :math:`\bPhi(t_0, t_0) = \bI` ．
 
 
 非齐次线性系统与 Duhamel's 原理
@@ -252,7 +256,7 @@ Lyapunov 稳定性
 
     .. math::
 
-        \frac{\ud}{\ud t}\left[ A(t)A^{-1}(t) \right] = \frac{\ud}{\ud t}A^{-1} + A\frac{\ud A^{-1}}{\ud t}, 
+        \frac{\ud}{\ud t}\left[ A(t)A^{-1}(t) \right] = \frac{\ud A}{\ud t}A^{-1} + A\frac{\ud A^{-1}}{\ud t}, 
 
     证毕．
 

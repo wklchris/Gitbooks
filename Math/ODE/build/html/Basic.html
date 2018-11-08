@@ -144,7 +144,11 @@
 <li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id18">2.3.3. 梯度系统的相图绘制*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id19">2.4. 洛伦茨系统*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#toc-conservative">2.4. 守恒系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-basic.html#id20">2.4.1. 守恒系统的相图</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-basic.html#id22">2.5. 洛伦茨系统*</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DS-solution.html">3. 动力系统解的存在与唯一性</a><ul>
@@ -158,18 +162,28 @@
 <li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id3">4.3. 线性化系统与双曲平衡点</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id4">4.3.1. 线性稳定性</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id5">4.3.2. 平衡点的双曲性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id6">4.3.3. 拓扑共轭与稳定流形*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id6">4.4. 高维动力系统的稳定性</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id7">4.4.1. 动力系统的不变集*</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.2. 自治线性系统与稳定性子空间</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id10">4.4.3. 非自治线性系统与基解矩阵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-stability.html#id7">4.4. 高维动力系统的稳定性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id8">4.4.1. 动力系统的不变集*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id9">4.4.2. 自治线性系统与稳定性子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-stability.html#id11">4.4.3. 非自治线性系统与基解矩阵</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DS-stability.html#duhamel-s">4.4.4. 非齐次线性系统与 Duhamel’s 原理</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#id2">5.1. 平面相图的一般绘制方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#toc-conservative-phase">5.2. 守恒系统的相图绘制</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix-matrix-exp.html">矩阵的指数运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix-odetoolkit.html">如何使用 ode_toolkit 包绘制相图*</a></li>
 </ul>
 
             
@@ -251,28 +265,28 @@
 <div class="def admonition">
 <p class="first admonition-title">定义：常微分方程</p>
 <blockquote class="last">
-<div><p>对于自变量 <img class="math" src="_images/math/2fbabbe7fb211a4c41a585999392616da39e47f0.svg" alt="x"/>、未知一元函数 <img class="math" src="_images/math/7f807f0235a127a3824fb5b70c0aed85f2f4567e.svg" alt="y=y(x)"/>、该未知函数的一阶到 <img class="math" src="_images/math/d145cc186b9ef3b9ee02ca77b3d58ae177363433.svg" alt="n"/> 阶导数与一个已知函数 <img class="math" src="_images/math/b175ef689462aa0e60b18ae71f8ab1ae0d0dbf5f.svg" alt="F"/> 的方程：</p>
+<div><p>对于自变量 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/>、未知一元函数 <img class="math" src="_images/math/8bad343c9e13e0e66ae73135c69b7e4a1ff73304.svg" alt="y=y(x)"/>、该未知函数的一阶到 <img class="math" src="_images/math/cb870d4e7ce2fb7f20535edeaec22dc7e5a70ce1.svg" alt="n"/> 阶导数与一个已知函数 <img class="math" src="_images/math/ea9e7314a653a52b44871da72b9f861833aaaae0.svg" alt="F"/> 的方程：</p>
 <div class="math" id="equation-ode">
-<p><span class="eqno">(1)<a class="headerlink" href="#equation-ode" title="公式的永久链接">¶</a></span><img src="_images/math/f9352170940631f5650c0c156f31ad87196df9f2.svg" alt="F(x,y,y',\ldots,y^{(n)}) = 0"/></p>
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-ode" title="公式的永久链接">¶</a></span><img src="_images/math/6aca23fea883304729f36131183f09232624330a.svg" alt="F(x,y,y',\ldots,y^{(n)}) = 0"/></p>
 </div><p>就叫做 <strong>常微分方程</strong> <a class="footnote-reference" href="#ode" id="id3">[1]</a> (ordinary differential equation, ODE)．</p>
 </div></blockquote>
 </div>
-<p>如果未知函数 <img class="math" src="_images/math/9943c20684b0cc69c11dcb0b39419cf3292c2c3d.svg" alt="y"/> 是多元函数，那么拥有类似形式的含偏导数的方程叫 <strong>偏微分方程</strong> (partial differential equation, PDE)；偏微分方程的内容不在本手册的讨论范畴．</p>
+<p>如果未知函数 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 是多元函数，那么拥有类似形式的含偏导数的方程叫 <strong>偏微分方程</strong> (partial differential equation, PDE)；偏微分方程的内容不在本手册的讨论范畴．</p>
 <div class="section" id="id4">
 <h3>1.1.1. 阶与线性的概念<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
-<p>常微分方程式 <a class="reference internal" href="#equation-ode">(1)</a> 中出现的最高阶的 <img class="math" src="_images/math/9943c20684b0cc69c11dcb0b39419cf3292c2c3d.svg" alt="y"/> 的导数的阶数，称为该微分方程的 <strong>阶</strong> (order)．</p>
+<p>常微分方程式 <a class="reference internal" href="#equation-ode">(1)</a> 中出现的最高阶的 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 的导数的阶数，称为该微分方程的 <strong>阶</strong> (order)．</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：常微分方程</p>
 <blockquote class="last">
 <div><p>以下均为常微分方程：</p>
 <div class="math">
-<p><img src="_images/math/f849bbaf51d9d25b6877dcab5d2a83bf35c29427.svg" alt="(1) \; \frac{\ud y}{\ud x} + xy = 0; \quad
+<p><img src="_images/math/8764b05ceaf0fe5b20e9fbd9418a30d9ab5f5c2c.svg" alt="(1) \; \frac{\ud y}{\ud x} + xy = 0; \quad
 (2) \; x_t = \sin x + t; \quad
 (3) \; y''' + yy' = x."/></p>
 </div></div></blockquote>
 </div>
-<p>其中， <img class="math" src="_images/math/9943c20684b0cc69c11dcb0b39419cf3292c2c3d.svg" alt="y"/> 对 <img class="math" src="_images/math/2fbabbe7fb211a4c41a585999392616da39e47f0.svg" alt="x"/> 的一阶导数，我们通常记成 <img class="math" src="_images/math/f61ae3fbc41a144673bed070f7d5b69f272dbf82.svg" alt="\frac{\ud y}{\ud x}"/> 或 <img class="math" src="_images/math/ceee795ba79e8e44a8ba2d3fca0700dbd83b6f92.svg" alt="y_x"/>；如果自变量没有歧义，也可以记成上例中 (3) 的形式，即 <img class="math" src="_images/math/d7d1f677d36e96dd0eafeb91bf1ff96dcb427e9f.svg" alt="y'"/>．对于 <img class="math" src="_images/math/9943c20684b0cc69c11dcb0b39419cf3292c2c3d.svg" alt="y"/> 的 <img class="math" src="_images/math/d145cc186b9ef3b9ee02ca77b3d58ae177363433.svg" alt="n"/> 阶导数，我们通常记为 <img class="math" src="_images/math/24afa0cb97cf19fd062111efb3f7206dfb0ab169.svg" alt="\frac{\ud^{n} y}{\ud x^n}"/> 或者 <img class="math" src="_images/math/08ecfc00fe5d34eaf105bf2a9257c1472580395c.svg" alt="y^{(n)}"/>；如果 <img class="math" src="_images/math/d145cc186b9ef3b9ee02ca77b3d58ae177363433.svg" alt="n"/> 较小，也可以参照上例 (3) 中三阶导数的记法．</p>
-<p>式 <a class="reference internal" href="#equation-ode">(1)</a> 中，如果右侧的函数 <img class="math" src="_images/math/b175ef689462aa0e60b18ae71f8ab1ae0d0dbf5f.svg" alt="F"/> 对未知函数 <img class="math" src="_images/math/9943c20684b0cc69c11dcb0b39419cf3292c2c3d.svg" alt="y"/> 与其各阶导数而言是一次的，则称式 <a class="reference internal" href="#equation-ode">(1)</a> 为 <strong>线性常微分方程</strong> (linear ODE)；否则，称其为 <strong>非线性常微分方程</strong> (nonlinear ODE)．</p>
+<p>其中， <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 对 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 的一阶导数，我们通常记成 <img class="math" src="_images/math/8742e9f5ca50f7ce6bd3d838e0659f2a46e4fcf4.svg" alt="\frac{\ud y}{\ud x}"/> 或 <img class="math" src="_images/math/c319b3bc7409e1519456cfe4af4ddda51f87cce5.svg" alt="y_x"/>；如果自变量没有歧义，也可以记成上例中 (3) 的形式，即 <img class="math" src="_images/math/31e2b179ec8f7b4c1917133a7f5d201f49858ea7.svg" alt="y'"/>．对于 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 的 <img class="math" src="_images/math/cb870d4e7ce2fb7f20535edeaec22dc7e5a70ce1.svg" alt="n"/> 阶导数，我们通常记为 <img class="math" src="_images/math/2c33f03b2b56fb8d1917ceb5b0394f08b89d884c.svg" alt="\frac{\ud^{n} y}{\ud x^n}"/> 或者 <img class="math" src="_images/math/7c74df76b1d18dc3b87d147b1a99e15cfca388a8.svg" alt="y^{(n)}"/>；如果 <img class="math" src="_images/math/cb870d4e7ce2fb7f20535edeaec22dc7e5a70ce1.svg" alt="n"/> 较小，也可以参照上例 (3) 中三阶导数的记法．</p>
+<p>式 <a class="reference internal" href="#equation-ode">(1)</a> 中，如果右侧的函数 <img class="math" src="_images/math/ea9e7314a653a52b44871da72b9f861833aaaae0.svg" alt="F"/> 对未知函数 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 与其各阶导数而言是一次的，则称式 <a class="reference internal" href="#equation-ode">(1)</a> 为 <strong>线性常微分方程</strong> (linear ODE)；否则，称其为 <strong>非线性常微分方程</strong> (nonlinear ODE)．</p>
 <p>通过阶给方程分类，上例中的 (1) 与 (2) 是一阶微分方程，而 (3) 是三阶微分方程．通过线性与否分类，上例中的 (1) 是线性微分方程，而 (2) 与 (3) 是非线性微分方程．更详细的叙述是将两者结合，例如：例中 (1) 是一阶线性常微分方程．</p>
 </div>
 </div>
@@ -282,38 +296,38 @@
 <div class="def admonition" id="def-solution">
 <p class="first admonition-title">定义：微分方程的解</p>
 <blockquote class="last">
-<div><p>设函数 <img class="math" src="_images/math/a586e8fa25a6f999b272b47ece491f098c721eeb.svg" alt="y=\varphi(x)"/> 在区间 <img class="math" src="_images/math/c3c9fc19843849f583dda23715c45018e530dfea.svg" alt="J"/> 上连续且有 <img class="math" src="_images/math/d145cc186b9ef3b9ee02ca77b3d58ae177363433.svg" alt="n"/> 阶的导数．如果该函数 <img class="math" src="_images/math/a586e8fa25a6f999b272b47ece491f098c721eeb.svg" alt="y=\varphi(x)"/> 及其各阶导数代入方程 <a class="reference internal" href="#equation-ode">(1)</a> 后，得到一个关于 <img class="math" src="_images/math/2fbabbe7fb211a4c41a585999392616da39e47f0.svg" alt="x"/> 的恒等式，即</p>
+<div><p>设函数 <img class="math" src="_images/math/60cb07c9164eca329c7b6db0be2c45340d912fc4.svg" alt="y=\varphi(x)"/> 在区间 <img class="math" src="_images/math/656873fbea3c2c4bfeb58c5461f3a837f6dff50e.svg" alt="J"/> 上连续且有 <img class="math" src="_images/math/cb870d4e7ce2fb7f20535edeaec22dc7e5a70ce1.svg" alt="n"/> 阶的导数．如果该函数 <img class="math" src="_images/math/60cb07c9164eca329c7b6db0be2c45340d912fc4.svg" alt="y=\varphi(x)"/> 及其各阶导数代入方程 <a class="reference internal" href="#equation-ode">(1)</a> 后，得到一个关于 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 的恒等式，即</p>
 <div class="math">
-<p><img src="_images/math/e25d463b8aa29d340be8a0686357abb1804c5090.svg" alt="F(x,\varphi(x),\varphi'(x),\ldots,\varphi^{(n)}(x)) = 0"/></p>
-</div><p>对一切 <img class="math" src="_images/math/3d02b39f7cec6b6b774be39d5576f39bf7b3660a.svg" alt="x\in J"/> 都成立，则称 <img class="math" src="_images/math/a586e8fa25a6f999b272b47ece491f098c721eeb.svg" alt="y=\varphi(x)"/> 为微分方程 <a class="reference internal" href="#equation-ode">(1)</a> 在区间 <img class="math" src="_images/math/c3c9fc19843849f583dda23715c45018e530dfea.svg" alt="J"/> 上的一个 <strong>解</strong> (solution)．</p>
+<p><img src="_images/math/8cfd8e5a18127b9828a61d777f407ee638d1d970.svg" alt="F(x,\varphi(x),\varphi'(x),\ldots,\varphi^{(n)}(x)) = 0"/></p>
+</div><p>对一切 <img class="math" src="_images/math/83e15eeae91c8fe14943186582949c18f5f2f29d.svg" alt="x\in J"/> 都成立，则称 <img class="math" src="_images/math/60cb07c9164eca329c7b6db0be2c45340d912fc4.svg" alt="y=\varphi(x)"/> 为微分方程 <a class="reference internal" href="#equation-ode">(1)</a> 在区间 <img class="math" src="_images/math/656873fbea3c2c4bfeb58c5461f3a837f6dff50e.svg" alt="J"/> 上的一个 <strong>解</strong> (solution)．</p>
 </div></blockquote>
 </div>
-<p>例如，我们容易验证，<img class="math" src="_images/math/5a76799659b214d24fb926f9a7824efc3cec7c5a.svg" alt="y=\ue^x"/> 是微分方程 <img class="math" src="_images/math/bb386c81f27ae0ed47513082e5ba69f6d854f64e.svg" alt="y_x = y"/> 的一个解．我们还发现，对于任意常数 <img class="math" src="_images/math/b7209d446254efe66e85664a830026aa8457773e.svg" alt="C"/>，函数 <img class="math" src="_images/math/84cfa44e2db66ef805a526a999dce89307bf1008.svg" alt="y=C\ue^x"/> 都是该方程的解．</p>
+<p>例如，我们容易验证，<img class="math" src="_images/math/6164b9765b6d18f8b1fdb4e2e98773d0d8d17c4c.svg" alt="y=\ue^x"/> 是微分方程 <img class="math" src="_images/math/536c657aa597dd97b4cf24e8e73494b5bf5d4e77.svg" alt="y_x = y"/> 的一个解．我们还发现，对于任意常数 <img class="math" src="_images/math/d0fef9d2effbb0f13828695e8063894de73efaef.svg" alt="C"/>，函数 <img class="math" src="_images/math/d252ec20b1413732f2910edf51ad3dcbab48607e.svg" alt="y=C\ue^x"/> 都是该方程的解．</p>
 <div class="section" id="id6">
 <h3>1.2.1. 通解、特解与初值问题<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <div class="def admonition" id="def-general-solution">
 <p class="first admonition-title">定义：通解、特解</p>
 <blockquote class="last">
-<div><p>若 <img class="math" src="_images/math/d145cc186b9ef3b9ee02ca77b3d58ae177363433.svg" alt="n"/> 阶微分方程 <a class="reference internal" href="#equation-ode">(1)</a> 的解</p>
+<div><p>若 <img class="math" src="_images/math/cb870d4e7ce2fb7f20535edeaec22dc7e5a70ce1.svg" alt="n"/> 阶微分方程 <a class="reference internal" href="#equation-ode">(1)</a> 的解</p>
 <div class="math">
-<p><img src="_images/math/2bfd7e030b97fbbd2d564289483d0694c11e9525.svg" alt="y = \varphi(x,C_1,C_2,\ldots,C_n)"/></p>
-</div><p>包含 <img class="math" src="_images/math/d145cc186b9ef3b9ee02ca77b3d58ae177363433.svg" alt="n"/> 个独立 <a class="footnote-reference" href="#indep" id="id7">[2]</a> 的任意常数 <img class="math" src="_images/math/d66d3ed5ea50503d51504faac2c780d83a0bc20b.svg" alt="C_1, C_2, \ldots, C_n"/>，则称该解为方程的 <strong>通解</strong> (general solution)；如果方程的解 <img class="math" src="_images/math/a586e8fa25a6f999b272b47ece491f098c721eeb.svg" alt="y=\varphi(x)"/> 不含任意常数，则称该解为方程的 <strong>特解</strong> (particular solution)．</p>
+<p><img src="_images/math/a1b64547e13749dbfe58fefea547d1e47bba0caf.svg" alt="y = \varphi(x,C_1,C_2,\ldots,C_n)"/></p>
+</div><p>包含 <img class="math" src="_images/math/cb870d4e7ce2fb7f20535edeaec22dc7e5a70ce1.svg" alt="n"/> 个独立 <a class="footnote-reference" href="#indep" id="id7">[2]</a> 的任意常数 <img class="math" src="_images/math/54b2791c7f2ae92a0d2316aea2d3c3e3ecedcab5.svg" alt="C_1, C_2, \ldots, C_n"/>，则称该解为方程的 <strong>通解</strong> (general solution)；如果方程的解 <img class="math" src="_images/math/60cb07c9164eca329c7b6db0be2c45340d912fc4.svg" alt="y=\varphi(x)"/> 不含任意常数，则称该解为方程的 <strong>特解</strong> (particular solution)．</p>
 </div></blockquote>
 </div>
-<p>显然，如果得到了通解，又能将其所有的任意常数确定下来，通解就会变成特解．在上例的微分方程中 <img class="math" src="_images/math/5a76799659b214d24fb926f9a7824efc3cec7c5a.svg" alt="y=\ue^x"/>，<img class="math" src="_images/math/84cfa44e2db66ef805a526a999dce89307bf1008.svg" alt="y=C\ue^x"/> 就是它的通解．至于特解，一个典型的例子是初值问题：</p>
+<p>显然，如果得到了通解，又能将其所有的任意常数确定下来，通解就会变成特解．在上例的微分方程中 <img class="math" src="_images/math/6164b9765b6d18f8b1fdb4e2e98773d0d8d17c4c.svg" alt="y=\ue^x"/>，<img class="math" src="_images/math/d252ec20b1413732f2910edf51ad3dcbab48607e.svg" alt="y=C\ue^x"/> 就是它的通解．至于特解，一个典型的例子是初值问题：</p>
 <div class="def admonition">
 <p class="first admonition-title">定义：初值问题</p>
 <blockquote class="last">
-<div><p>对 <img class="math" src="_images/math/d145cc186b9ef3b9ee02ca77b3d58ae177363433.svg" alt="n"/> 阶微分方程 <a class="reference internal" href="#equation-ode">(1)</a>，其对应的 <strong>初值问题</strong> (initial value problem, IVP) 是指：</p>
+<div><p>对 <img class="math" src="_images/math/cb870d4e7ce2fb7f20535edeaec22dc7e5a70ce1.svg" alt="n"/> 阶微分方程 <a class="reference internal" href="#equation-ode">(1)</a>，其对应的 <strong>初值问题</strong> (initial value problem, IVP) 是指：</p>
 <div class="math">
-<p><img src="_images/math/01a036973813dba17990c74ffe73b2411c8b9eff.svg" alt="\begin{cases}
+<p><img src="_images/math/9d493abe386fff473826f1311dfd0bbabfcc6da6.svg" alt="\begin{cases}
 y^{(n)} &amp;= F(x,\varphi(x),\varphi'(x),\ldots,\varphi^{(n-1)}(x)) \\
 y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 \end{cases}"/></p>
-</div><p>其中 <img class="math" src="_images/math/8c9b7174e987d96dbbddecd30b1291c3ffae50e4.svg" alt="x_0"/> 是自变量所确定的初值，而 <img class="math" src="_images/math/fb52f3bd5ed263ff75de599f8bc05a64c8f725b0.svg" alt="y_0,y'_0,\ldots,y^{(n-1)}_0"/> 是未知函数 <img class="math" src="_images/math/9943c20684b0cc69c11dcb0b39419cf3292c2c3d.svg" alt="y"/> 及其相应导数所确定的初值．相应地，这些初值组成的上述条件称为 <strong>初值条件</strong> (initial value condition)．</p>
+</div><p>其中 <img class="math" src="_images/math/defec9163be0b76c847c2376ab5510b1b5050f11.svg" alt="x_0"/> 是自变量所确定的初值，而 <img class="math" src="_images/math/087db49fd33156b41a30d361328c8a3a9a3c2f9d.svg" alt="y_0,y'_0,\ldots,y^{(n-1)}_0"/> 是未知函数 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 及其相应导数所确定的初值．相应地，这些初值组成的上述条件称为 <strong>初值条件</strong> (initial value condition)．</p>
 </div></blockquote>
 </div>
-<p>例如，如果已知微分方程 <img class="math" src="_images/math/bb386c81f27ae0ed47513082e5ba69f6d854f64e.svg" alt="y_x = y"/> 及其在 <img class="math" src="_images/math/3e460e8d03aaa8097b916716298f854328322411.svg" alt="x=0"/> 处的初值条件 <img class="math" src="_images/math/c0a5b4975d12151b342bfa21a754c67cbc7516e3.svg" alt="y(0)=1"/> ，那么它们就组成了一个初值问题，其解为 <img class="math" src="_images/math/621a6d3a0ab17ebeefa37f73297114165e3a89ad.svg" alt="y=\ue^t"/>．该解是该方程的特解．至于求解微分方程的方法与解的唯一性，我们在下文讨论．</p>
+<p>例如，如果已知微分方程 <img class="math" src="_images/math/536c657aa597dd97b4cf24e8e73494b5bf5d4e77.svg" alt="y_x = y"/> 及其在 <img class="math" src="_images/math/50be0504c414a956d515e1c8fe38be5f54996874.svg" alt="x=0"/> 处的初值条件 <img class="math" src="_images/math/5e6b781243b192e789f99dbe83b7f1d9bb76b4b5.svg" alt="y(0)=1"/> ，那么它们就组成了一个初值问题，其解为 <img class="math" src="_images/math/a01234b900b511edfa790e5e467db9b9fbc59645.svg" alt="y=\ue^t"/>．该解是该方程的特解．至于求解微分方程的方法与解的唯一性，我们在下文讨论．</p>
 </div>
 </div>
 <div class="section" id="id8">
@@ -324,43 +338,43 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 <blockquote class="last">
 <div><p>对于一阶的标量（scalar）微分方程</p>
 <div class="math" id="equation-geometry-ode">
-<p><span class="eqno">(2)<a class="headerlink" href="#equation-geometry-ode" title="公式的永久链接">¶</a></span><img src="_images/math/1d3b7bd6845986e43d1d070d3dd030f4fd4e5361.svg" alt="\frac{\ud y}{\ud x} = f(x,y)"/></p>
-</div><p>其中函数 <img class="math" src="_images/math/f6220f29c387a31cb31b04cafd174ff1eadb81a9.svg" alt="f: \uR^2 \to \uR"/> 是平面区域 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 内的连续函数．如果该方程在区间 <img class="math" src="_images/math/c35cdb37d7e477997a541ebbc28c84e7aae9f56e.svg" alt="I"/> 上存在解 <img class="math" src="_images/math/88f78180b7b49ee48bdff1652589e84550598726.svg" alt="y=\varphi(x), \ x\in I"/>，那么该解 <img class="math" src="_images/math/a586e8fa25a6f999b272b47ece491f098c721eeb.svg" alt="y=\varphi(x)"/> 在 <img class="math" src="_images/math/2f0aa92281890b976f87c0e8491bc9c9edb0fdea.svg" alt="(x,y)"/> 平面上的图形是一条光滑的曲线 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/>．该曲线称为微分方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 的 <strong>积分曲线</strong> (integral curve)．</p>
+<p><span class="eqno">(2)<a class="headerlink" href="#equation-geometry-ode" title="公式的永久链接">¶</a></span><img src="_images/math/384d4dd8af056c1e7ef6bb3840e31ef2a6340c10.svg" alt="\frac{\ud y}{\ud x} = f(x,y)"/></p>
+</div><p>其中函数 <img class="math" src="_images/math/25cd6de15942695265b25b1487bfeaa17f3bcf1f.svg" alt="f: \uR^2 \to \uR"/> 是平面区域 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 内的连续函数．如果该方程在区间 <img class="math" src="_images/math/95f66ff369a4eb13639b5f52ec21d54b64a4fba9.svg" alt="I"/> 上存在解 <img class="math" src="_images/math/4a05097178fd555c6ccf34ca353eb07dd2fc0ede.svg" alt="y=\varphi(x), \ x\in I"/>，那么该解 <img class="math" src="_images/math/60cb07c9164eca329c7b6db0be2c45340d912fc4.svg" alt="y=\varphi(x)"/> 在 <img class="math" src="_images/math/043b61d8b0e2412bd3864f1e5b9a53f27198aebb.svg" alt="(x,y)"/> 平面上的图形是一条光滑的曲线 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/>．该曲线称为微分方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 的 <strong>积分曲线</strong> (integral curve)．</p>
 </div></blockquote>
 </div>
 <div class="section" id="id9">
 <h3>1.3.1. 积分曲线与方向场<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<p>结合导数的定义，我们知道对于积分曲线 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/> 上任意一点 <img class="math" src="_images/math/3d32958bcbc96325bac623a158ac56457c789b43.svg" alt="(x_0,y_0)"/> 处的切线斜率即为 <img class="math" src="_images/math/d093863d08cf9194cd87fbab24d12a2644434989.svg" alt="\varphi'(x_0)=f(x_),\varphi(x_0))"/>．由此可知：即使我们不能直接求得曲线 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/>，我们也可以写出该曲线在其上任意一点处的切线方程．</p>
-<p>在区域 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 内的每个点 <img class="math" src="_images/math/071bbc0f91ab373112e81461d744b76314bb9838.svg" alt="P(x,y)"/>，我们均可用上述方法确定积分曲线（若存在）在该点的切线方向．在点 <img class="math" src="_images/math/50e063e91b2617f358da0f864485286ba2e767f6.svg" alt="P"/> 处画出一个极短的线段，用以标明曲线 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/> 在该点处的切线斜率方向，这样的线段称为微分方程在点 <img class="math" src="_images/math/50e063e91b2617f358da0f864485286ba2e767f6.svg" alt="P"/> 处的 <strong>线素</strong>；区域 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 与其上全体线素，称为微分方程的 <strong>方向场</strong> (direction field)，也称 <strong>线素场</strong> (slope field)．在绘制方向场时，通常用等式 <img class="math" src="_images/math/91d7b92a29ce9daaf180be5e5ef2f0837641f071.svg" alt="f(x,y)=k"/> 来绘制由常数 <img class="math" src="_images/math/4d69432b419a67f1953e0366fbf5c2026a5f19cb.svg" alt="k"/> 确定的曲线 <img class="math" src="_images/math/9d13c5bfd96d9ac9d9e59dad166754f85ea02ed2.svg" alt="L_k"/>，称为方向场的 <strong>等倾线</strong> (isocline)．绘制的例子见 <a class="reference internal" href="#subsec-direction-field"><span class="std std-ref">方向场的绘制</span></a> 一节．</p>
-<p>显然，方程的任何积分曲线 <img class="math" src="_images/math/93ff383fbe350f305f956da711d45cc075b4314a.svg" alt="\Gamma"/> 与它的线素场吻合；反之，如果区域 <img class="math" src="_images/math/bfbfb04edcd765bc949806237c45696fd871b714.svg" alt="G"/> 上存在一条光滑的曲线</p>
+<p>结合导数的定义，我们知道对于积分曲线 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/> 上任意一点 <img class="math" src="_images/math/b6604d5c1faf90687c9e36a86af5008eba4d373b.svg" alt="(x_0,y_0)"/> 处的切线斜率即为 <img class="math" src="_images/math/326a7d158092882902d6c4862463530dbd76954f.svg" alt="\varphi'(x_0)=f(x_),\varphi(x_0))"/>．由此可知：即使我们不能直接求得曲线 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/>，我们也可以写出该曲线在其上任意一点处的切线方程．</p>
+<p>在区域 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 内的每个点 <img class="math" src="_images/math/b79f3d9d7bc7e2297c0baab21a3a4a4619902e22.svg" alt="P(x,y)"/>，我们均可用上述方法确定积分曲线（若存在）在该点的切线方向．在点 <img class="math" src="_images/math/c5593ef78e4574f2fe2f3f41b1059ceb8205ce22.svg" alt="P"/> 处画出一个极短的线段，用以标明曲线 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/> 在该点处的切线斜率方向，这样的线段称为微分方程在点 <img class="math" src="_images/math/c5593ef78e4574f2fe2f3f41b1059ceb8205ce22.svg" alt="P"/> 处的 <strong>线素</strong>；区域 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 与其上全体线素，称为微分方程的 <strong>方向场</strong> (direction field)，也称 <strong>线素场</strong> (slope field)．在绘制方向场时，通常用等式 <img class="math" src="_images/math/d9247d89686719dcd9774aca75929470b39fd099.svg" alt="f(x,y)=k"/> 来绘制由常数 <img class="math" src="_images/math/8d8bd186436e63ee71e8917d9d993b6769de057b.svg" alt="k"/> 确定的曲线 <img class="math" src="_images/math/cba463093f8dc76db0107060f36572c4cd43e06f.svg" alt="L_k"/>，称为方向场的 <strong>等倾线</strong> (isocline)．绘制的例子见 <a class="reference internal" href="#subsec-direction-field"><span class="std std-ref">方向场的绘制</span></a> 一节．</p>
+<p>显然，方程的任何积分曲线 <img class="math" src="_images/math/582b09faf4b8b81de5bbf8f5deb600ea15eba417.svg" alt="\Gamma"/> 与它的线素场吻合；反之，如果区域 <img class="math" src="_images/math/f178c049ef400f213a1dba644a46903dd73cdcfe.svg" alt="G"/> 上存在一条光滑的曲线</p>
 <div class="math">
-<p><img src="_images/math/e44b9a7d689d275a951ac52b6004e797c49fc3b4.svg" alt="\Delta: y = \varphi(x), \ x\in J"/></p>
-</div><p>与方向场吻合，那么 <img class="math" src="_images/math/825c57f45e9569cdab462a747936fc5607945c21.svg" alt="\Delta"/> 是方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 的一条积分曲线．</p>
+<p><img src="_images/math/97816ff566137172f58dd58a931374c6657677ca.svg" alt="\Delta: y = \varphi(x), \ x\in J"/></p>
+</div><p>与方向场吻合，那么 <img class="math" src="_images/math/9c252649ae8da76511c5a397b2d30a3e50527c2c.svg" alt="\Delta"/> 是方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 的一条积分曲线．</p>
 </div>
 <div class="section" id="subsec-direction-field">
 <span id="id10"></span><h3>1.3.2. 方向场的绘制<a class="headerlink" href="#subsec-direction-field" title="永久链接至标题">¶</a></h3>
-<p>上文叙述了如何使用线素和等倾线来绘制方向场．但有一点尚需说明：微分方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 右侧的函数 <img class="math" src="_images/math/9a9e06bdafefb36540f533b0a4c6cf4a650c6ad7.svg" alt="f(x,y)"/> 有时或许是未定式，这是绘制时可能遇到的特殊情况．例如，微分方程通常的对称形式：</p>
+<p>上文叙述了如何使用线素和等倾线来绘制方向场．但有一点尚需说明：微分方程 <a class="reference internal" href="#equation-geometry-ode">(2)</a> 右侧的函数 <img class="math" src="_images/math/d873900c726a3604bac3fc12c3a2e7747836eb87.svg" alt="f(x,y)"/> 有时或许是未定式，这是绘制时可能遇到的特殊情况．例如，微分方程通常的对称形式：</p>
 <div class="math">
-<p><img src="_images/math/084db44ec2eb83255aee815fdc78888fba3188de.svg" alt="P(x,y)\ud x + Q(x,y)\ud y = 0"/></p>
-</div><p>容易看出，如果在点 <img class="math" src="_images/math/3d32958bcbc96325bac623a158ac56457c789b43.svg" alt="(x_0,y_0)"/> 附近绘制该微分方程的线素，有三种可能：</p>
+<p><img src="_images/math/a439c4fe95a79d7b43fbd567759da02d5a663ed6.svg" alt="P(x,y)\ud x + Q(x,y)\ud y = 0"/></p>
+</div><p>容易看出，如果在点 <img class="math" src="_images/math/b6604d5c1faf90687c9e36a86af5008eba4d373b.svg" alt="(x_0,y_0)"/> 附近绘制该微分方程的线素，有三种可能：</p>
 <ol class="arabic simple">
-<li>如果 <img class="math" src="_images/math/eb588e72a4331bb5f4177785f6379bfe6f67c89e.svg" alt="Q(x_0,y_0)\neq 0"/>，那么可以利用 <img class="math" src="_images/math/3743af02d5e7e0e83f375584d994f799dcce116d.svg" alt="\ud y/\ud x = -P(x_0,y_0)/Q(x_0,y_0)"/> 来绘制；</li>
-<li>如果 <img class="math" src="_images/math/35f00384aaf449b0773dce9b5bc2854d5fc53ee5.svg" alt="P(x_0,y_0)\neq 0"/>，那么可以利用 <img class="math" src="_images/math/0732b7ecd91c8874523afe91fba1ddf58838cf11.svg" alt="\ud x/\ud y = -Q(x_0,y_0)/P(x_0,y_0)"/> 来绘制；</li>
-<li>如果 <img class="math" src="_images/math/dac867fae933617760c3ea87e7b5d3653c99a6b4.svg" alt="P(x_0,y_0)=Q(x_0,y_0)=0"/>，那么 <img class="math" src="_images/math/6ffc89455f4c302b4cc046a355f57773cecc7bbe.svg" alt="\ud y/\ud x"/> 与 <img class="math" src="_images/math/244ae3972033e83d0c3118300f30d3ea9731e658.svg" alt="\ud x/\ud y"/> 在点 <img class="math" src="_images/math/3d32958bcbc96325bac623a158ac56457c789b43.svg" alt="(x_0,y_0)"/> 处均是未定式，该点的线素没有意义．这时，我们把 <img class="math" src="_images/math/3d32958bcbc96325bac623a158ac56457c789b43.svg" alt="(x_0,y_0)"/> 称为 <strong>奇异点</strong> (singularity, or singular point)．</li>
+<li>如果 <img class="math" src="_images/math/d37ed759d0b48dbf97a08f3575bf047ca28d5522.svg" alt="Q(x_0,y_0)\neq 0"/>，那么可以利用 <img class="math" src="_images/math/45e8c25d945c1f4f0a297ae7c2d8649666afb5ad.svg" alt="\ud y/\ud x = -P(x_0,y_0)/Q(x_0,y_0)"/> 来绘制；</li>
+<li>如果 <img class="math" src="_images/math/4659750bb75f72ff21dbf0aeeb889c21f57f652c.svg" alt="P(x_0,y_0)\neq 0"/>，那么可以利用 <img class="math" src="_images/math/58cdac123f822ee78077222190b3122ae10048b8.svg" alt="\ud x/\ud y = -Q(x_0,y_0)/P(x_0,y_0)"/> 来绘制；</li>
+<li>如果 <img class="math" src="_images/math/59e8c9e0bd20cbc1e432e1edb004d7488f8c0051.svg" alt="P(x_0,y_0)=Q(x_0,y_0)=0"/>，那么 <img class="math" src="_images/math/26fdfbdf4f440feb6ad4c5a76451b3fc187b59b8.svg" alt="\ud y/\ud x"/> 与 <img class="math" src="_images/math/db07e0f0f4b3e97db2ca6f91eefdfd0874500c4a.svg" alt="\ud x/\ud y"/> 在点 <img class="math" src="_images/math/b6604d5c1faf90687c9e36a86af5008eba4d373b.svg" alt="(x_0,y_0)"/> 处均是未定式，该点的线素没有意义．这时，我们把 <img class="math" src="_images/math/b6604d5c1faf90687c9e36a86af5008eba4d373b.svg" alt="(x_0,y_0)"/> 称为 <strong>奇异点</strong> (singularity, or singular point)．</li>
 </ol>
 <div class="eg admonition">
 <p class="first admonition-title">例子：方向场的绘制</p>
 <blockquote class="last">
 <div><p>绘制下述微分方程的方向场：</p>
 <div class="math">
-<p><img src="_images/math/412edc0415d8ace8be2cfc683cd5feb7847a6848.svg" alt="\frac{\ud y}{\ud x} = \frac{y}{x}."/></p>
-</div><p>易知，原点是奇异点．对于平面上的其他点，我们可以用等倾线 <img class="math" src="_images/math/615725536e7a52a20d3bceb46f8fe2e6a9dfc831.svg" alt="\frac{y}{x}=k"/> 来帮助绘制．该式说明线素斜率为 <img class="math" src="_images/math/4d69432b419a67f1953e0366fbf5c2026a5f19cb.svg" alt="k"/> 的点，是由直线 <img class="math" src="_images/math/1446f64dc5a0afd8988efc87ebc91563b07ed29d.svg" alt="y=kx"/> 组成的．由所有任意实数 <img class="math" src="_images/math/4d69432b419a67f1953e0366fbf5c2026a5f19cb.svg" alt="k"/> 组成的直线簇 <img class="math" src="_images/math/1446f64dc5a0afd8988efc87ebc91563b07ed29d.svg" alt="y=kx"/>，就构成了该微分方程的方向场（或称确定了微分方程的积分曲线）．绘制的方向场如下图：</p>
+<p><img src="_images/math/721537b08c07cbb3b7dcd9978f166c18c012543f.svg" alt="\frac{\ud y}{\ud x} = \frac{y}{x}."/></p>
+</div><p>易知，原点是奇异点．对于平面上的其他点，我们可以用等倾线 <img class="math" src="_images/math/5b7112b3b8b6d3b5b0f6a2e894b5eb6f5aa9f9a3.svg" alt="\frac{y}{x}=k"/> 来帮助绘制．该式说明线素斜率为 <img class="math" src="_images/math/8d8bd186436e63ee71e8917d9d993b6769de057b.svg" alt="k"/> 的点，是由直线 <img class="math" src="_images/math/c774d8d295a94b9115631407190528f1db40a1f2.svg" alt="y=kx"/> 组成的．由所有任意实数 <img class="math" src="_images/math/8d8bd186436e63ee71e8917d9d993b6769de057b.svg" alt="k"/> 组成的直线簇 <img class="math" src="_images/math/c774d8d295a94b9115631407190528f1db40a1f2.svg" alt="y=kx"/>，就构成了该微分方程的方向场（或称确定了微分方程的积分曲线）．绘制的方向场如下图：</p>
 <p>(<a class="reference external" href="./_static/img/direction-field.py">Source code</a>, <a class="reference external" href="./_static/img/direction-field.png">png</a>, <a class="reference external" href="./_static/img/direction-field.hires.png">hires.png</a>, <a class="reference external" href="./_static/img/direction-field.pdf">pdf</a>)</p>
 <div class="figure align-center">
 <img alt="_images/direction-field.png" src="_images/direction-field.png" />
 </div>
-<p>其实，直线 <img class="math" src="_images/math/1446f64dc5a0afd8988efc87ebc91563b07ed29d.svg" alt="y=kx"/> 上任取一点，我们能确定的是其与原点连线的斜率为 <img class="math" src="_images/math/4d69432b419a67f1953e0366fbf5c2026a5f19cb.svg" alt="k"/>，即 <img class="math" src="_images/math/21ab358195ff86d15e051fdbe2e6d10a55421b53.svg" alt="\arctan \frac{y}{x}=k"/>；也可以用任意常数 <img class="math" src="_images/math/b7209d446254efe66e85664a830026aa8457773e.svg" alt="C"/> 表述，即该微分方程的积分曲线为 <img class="math" src="_images/math/bfdf5b8325e92702694e6c6a67ffdb41bcbead86.svg" alt="\arctan \frac{y}{x}=C"/>．</p>
-<p>可以验证，对原微分方程的变式 <img class="math" src="_images/math/73aaa30fa886c75fc27cfdc382ba8f41d30e8b90.svg" alt="y\ud x - x\ud y = 0"/> 积分后便得 <img class="math" src="_images/math/bfdf5b8325e92702694e6c6a67ffdb41bcbead86.svg" alt="\arctan \frac{y}{x}=C"/>．</p>
+<p>其实，直线 <img class="math" src="_images/math/c774d8d295a94b9115631407190528f1db40a1f2.svg" alt="y=kx"/> 上任取一点，我们能确定的是其与原点连线的斜率为 <img class="math" src="_images/math/8d8bd186436e63ee71e8917d9d993b6769de057b.svg" alt="k"/>，即 <img class="math" src="_images/math/46bfdc7b47a63f31668d0412a79cad987a49d6b3.svg" alt="\arctan \frac{y}{x}=k"/>；也可以用任意常数 <img class="math" src="_images/math/d0fef9d2effbb0f13828695e8063894de73efaef.svg" alt="C"/> 表述，即该微分方程的积分曲线为 <img class="math" src="_images/math/ec4547c40a9ceb0da6d1610c23e0a012007fefa7.svg" alt="\arctan \frac{y}{x}=C"/>．</p>
+<p>可以验证，对原微分方程的变式 <img class="math" src="_images/math/3fdbcea51ddf62a719b6b8d87b7c25bab26b748f.svg" alt="y\ud x - x\ud y = 0"/> 积分后便得 <img class="math" src="_images/math/ec4547c40a9ceb0da6d1610c23e0a012007fefa7.svg" alt="\arctan \frac{y}{x}=C"/>．</p>
 </div></blockquote>
 </div>
 </div>
@@ -380,7 +394,7 @@ y(x_0)  &amp;= y_0, y'(x_0) = y'_0, \ldots, y^{(n-1)} = y^{(n)}_0
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id7">[2]</a></td><td><p class="first">此处的“独立”是指它们的 Jacobi 行列式非零：</p>
 <div class="last math">
-<p><img src="_images/math/4db4128100f17323ff8d0d75d3af20d270a29463.svg" alt="\frac{D[\varphi, \varphi', \ldots, \varphi^{(n)}]}{D[C_1,C_2,\ldots,C_n]} =
+<p><img src="_images/math/ea0fcb08ab89a96f1f97cf0ebf03700d4ba5e8bc.svg" alt="\frac{D[\varphi, \varphi', \ldots, \varphi^{(n)}]}{D[C_1,C_2,\ldots,C_n]} =
 \begin{vmatrix}
 \frac{\partial \varphi}{\partial C_1} &amp; \frac{\partial \varphi}{\partial C_2} &amp; \cdots &amp; \frac{\partial \varphi}{\partial C_n} \\[8pt]
 \frac{\partial \varphi'}{\partial C_1} &amp; \frac{\partial \varphi'}{\partial C_2} &amp; \cdots &amp; \frac{\partial \varphi'}{\partial C_n} \\[8pt]
