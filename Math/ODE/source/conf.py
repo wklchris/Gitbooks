@@ -49,10 +49,16 @@ imgmath_image_format = 'svg'
 imgmath_font_size = 16
 
 imgmath_latex_preamble = r'''
+\usepackage{mathtools}
 \newcommand{\uR}{\mathbb{R}}
 \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}
-\newcommand{\ue}{\mathop{}\negthinspace\mathrm{e}}
+\newcommand{\ue}{\mathrm{e}}
 \newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\br}{\boldsymbol{r}}
+\newcommand{\bA}{\boldsymbol{A}}
+\newcommand{\bPhi}{\boldsymbol{\Phi}}
+\newcommand{\bI}{\boldsymbol{I}}
+\newcommand{\eqbx}{\boldsymbol{\bar{x}}}
 '''
 
 # Add any paths that contain templates here, relative to this directory.
@@ -93,6 +99,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'prev_next_buttons_location': 'both',
     'navigation_depth': 4,
+    'style_external_links': True,
     # TOC
     'collapse_navigation': False
 }

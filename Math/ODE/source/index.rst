@@ -21,10 +21,29 @@
 
 .. toctree::
    :maxdepth: 3
-   :caption: 目录
-   
-   第一部分：常微分方程 <index-ODE>
-   第二部分：动力系统 <index-DS>
+   :caption: 第一部分：常微分方程
+   :numbered:
+
+   Basic
+   MethodForSolving
+   UniqueAndExist
+
+
+.. toctree::
+   :maxdepth: 3
+   :caption: 第二部分：动力系统
+   :numbered:
+
+   DS-basic
+   DS-solution
+   DS-stability
+   DS-plane
+
+.. toctree::
+    :caption: 附录
+
+    appendix-matrix-exp
+    appendix-odetoolkit
 
 
 鸣谢
