@@ -33,4 +33,5 @@ SymPy 是 Python 的一个符号计算库．
    :numbered:
 
    Basic
+   Calculus
 

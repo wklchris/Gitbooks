@@ -264,8 +264,12 @@ SymPy 有一个通用的化简函数 :code:`simplify(expr)` ，但并不推荐�
 其他的展开与化简还包括幂函数（powsimp, expand_power_exp/expand_power_base），对数函数（expand_log, logcombine）．同时，一些特殊的函数（如 :math:`\Gamma(x)` ）也有基于其的化简函数．具体的内容请参考官方手册．
 
 
-其他运算符
----------------
+特殊运算符与符号
+--------------------
+
+特殊符号有：
+
+* 无穷 :math:`\infty` 在 Sympy 中用两个小写的字母 o 表示
 
 其他运算符包括：
 
