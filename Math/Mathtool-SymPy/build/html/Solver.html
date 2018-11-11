@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. 解方程 &mdash; Sympy 笔记 0.1 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/rtd-revised.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="2. 微积分与极限" href="Calculus.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sympy 笔记
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">1. SymPy 基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id1">1.1. 符号</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id2">1.2. 表达式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id3">1.2.1. 表达式代入值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#evalf">1.2.2. evalf 函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#sympify-lambdify">1.2.3. sympify 与 lambdify 函数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id4">1.3. 等式与恒等判断</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id5">1.4. ^ 与 / 的慎重使用*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id6">1.5. 展开与化简</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id7">1.5.1. 多项式的展开与因式分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.5.2. 分式的分解与化简</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id9">1.5.3. 三角函数的展开与化简</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id10">1.5.4. 多项式的合并同类项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id11">1.5.5. 其他展开与化简</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id12">1.6. 特殊运算符与符号</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Calculus.html">2. 微积分与极限</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Calculus.html#id2">2.1. 导数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calculus.html#id3">2.2. 积分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calculus.html#id4">2.3. 极限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calculus.html#taylor">2.4. 高阶项与 Taylor 展开</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 解方程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.1. 通用求解器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3.2. 重根</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">3.3. 线性方程组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">3.4. 非线性方程组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">3.5. 微分方程</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sympy 笔记</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>3. 解方程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Solver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="Calculus.html" class="btn btn-neutral" title="2. 微积分与极限" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>3. 解方程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>SymPy 作为符号运算库，自然可以求解方程的解析解．</p>
+<div class="section" id="id2">
+<h2>3.1. 通用求解器<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>通用求解函数是 <code class="code docutils literal notranslate"><span class="pre">solveset(eq,</span> <span class="pre">var,</span> <span class="pre">domain=S.Complexes))</span></code> ．其中，方程可以用上文介绍过的 <code class="code docutils literal notranslate"><span class="pre">Eq(LHS,</span> <span class="pre">RHS)</span></code> 表示，也可以用 <code class="code docutils literal notranslate"><span class="pre">expr</span></code> 代替以求解 <code class="code docutils literal notranslate"><span class="pre">expr=0</span></code> 的方程：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="gp">In [2]: </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="n">solveset</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+<span class="gh">Out[3]: </span><span class="go">{-I, I}</span>
+
+<span class="go"># Same equation as above</span>
+<span class="gp">In [4]: </span><span class="n">solveset</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="go">                Out[4]: {-I, I}</span>
+</pre></div>
+</div>
+<p>其中，第三参数表示求解域：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Exclude complex roots</span>
+<span class="gp">In [5]: </span><span class="n">solveset</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">{1, -I, I}</span>
+
+<span class="gp">In [6]: </span><span class="n">solveset</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">S</span><span class="o">.</span><span class="n">Reals</span><span class="p">)</span>
+<span class="go">                   Out[6]: {1}</span>
+</pre></div>
+</div>
+<p>除了上述虚数的情形，特殊的还有：</p>
+<ul class="simple">
+<li>在复数域上无解（返回 <code class="code docutils literal notranslate"><span class="pre">EmptySet</span></code> ）</li>
+<li>解为全复数域</li>
+<li>方程在形式上无解析解（返回一个 <code class="code docutils literal notranslate"><span class="pre">ConditionSet</span></code> ）</li>
+</ul>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">solveset</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># Solve exp(x) = 0</span>
+<span class="gh">Out[7]: </span><span class="go">EmptySet()</span>
+
+<span class="gp">In [8]: </span><span class="n">solveset</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># Solve x - x =0</span>
+<span class="go">                   Out[8]: S.Complexes</span>
+
+<span class="gp">In [9]: </span><span class="n">solveset</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># Try to solve x - sin(x) = 0</span>
+<span class="go">                                       Out[9]: ConditionSet(x, Eq(x - sin(x), 0), Complexes(Reals x Reals, False))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>3.2. 重根<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>注意， <code class="code docutils literal notranslate"><span class="pre">solveset(eq,</span> <span class="pre">var)</span></code> <strong>不会强调重根</strong> ．如果想要计算重根，使用 <code class="code docutils literal notranslate"><span class="pre">roots(expr,</span> <span class="pre">var)</span></code> 函数：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">solveset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go">{0, 1}</span>
+
+<span class="gp">In [12]: </span><span class="n">roots</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="go">                Out[12]: {1: 1, 0: 2}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>3.3. 线性方程组<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>线性求解器 <code class="code docutils literal notranslate"><span class="pre">linsolve(eqsystem,</span> <span class="pre">vars)</span></code> 将在未来并入 <code class="code docutils literal notranslate"><span class="pre">solveset</span></code> 函数中；但至少在目前的版本，仍需要调用 <code class="code docutils literal notranslate"><span class="pre">linsolve</span></code> 来求解线性方程组．</p>
+<p>下例求解了： <img class="math" src="_images/math/f80e11125e720d44d12d8c1828dd32c7e1af1062.svg" alt="\begin{cases} x+y-4 = 0 \\ x-y+2 = 0 \end{cases}"/></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">linsolve</span><span class="p">([</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">],</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="gh">Out[14]: </span><span class="go">{(1, 3)}</span>
+</pre></div>
+</div>
+<p>或者，以上方程组，我们也写成矩阵形式 <img class="math" src="_images/math/f76831c7fedbfabbaeeee00856ceefabb7b0448d.svg" alt="\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}"/> ：</p>
+<div class="math">
+<p><img src="_images/math/5a2279866fa56c9eccf97da32c66a492841cd13a.svg" alt="\begin{pmatrix}
+1 &amp; 1 \\ 1 &amp; -1
+\end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}
+= \begin{pmatrix}
+4 \\ -2
+\end{pmatrix}"/></p>
+</div><p>并用线性求解器的另一种输入格式 <code class="code docutils literal notranslate"><span class="pre">linsolve((A,</span> <span class="pre">b),</span> <span class="pre">vars)</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">((</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="p">))</span>
+
+<span class="gp">In [16]: </span><span class="n">A</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="gp">In [17]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="gp">In [18]: </span><span class="n">A</span>
+<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="go">Matrix([</span>
+<span class="go">[1,  1],</span>
+<span class="go">[1, -1]])</span>
+
+<span class="gp">In [19]: </span><span class="n">b</span>
+<span class="go">                                      Out[19]: </span>
+<span class="go">Matrix([</span>
+<span class="go">[ 4],</span>
+<span class="go">[-2]])</span>
+
+<span class="go"># Format 1: M is a extended matrix: [A, b]</span>
+<span class="gp">In [20]: </span><span class="n">linsolve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="go">                                                                      Out[20]: {(1, 3)}</span>
+
+<span class="go"># Format 2: Input A and b seperately</span>
+<span class="gp">In [21]: </span><span class="n">linsolve</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="go">                                                                                        Out[21]: {(1, 3)}</span>
+</pre></div>
+</div>
+<p>最后，线性方程组可以是不定解的，例如两个方程构成的三元线性方程组：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x:z&#39;</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">((</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">))</span>
+
+<span class="gp">In [24]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">((</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="p">))</span>
+
+<span class="gp">In [25]: </span><span class="n">linsolve</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+<span class="gh">Out[25]: </span><span class="go">{(1, 3, z)}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3.4. 非线性方程组<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>用法与线性方程组类似，不过使用的是 <code class="code docutils literal notranslate"><span class="pre">nonlinsolve(eqsystem,</span> <span class="pre">vars)</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">nonlinsolve</span><span class="p">([</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="gh">Out[26]: </span><span class="go">{(1/2 - sqrt(3)*I/2, 1/2 + sqrt(3)*I/2), (1/2 + sqrt(3)*I/2, 1/2 - sqrt(3)*I/2)}</span>
+</pre></div>
+</div>
+<p>注意，如果方程组中含有三角函数，请使用 <code class="code docutils literal notranslate"><span class="pre">solve()</span></code> 而不是 <code class="code docutils literal notranslate"><span class="pre">nonlinsolve()</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">solve</span><span class="p">([</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)],</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="gh">Out[27]: </span><span class="go">[(-3*pi/4, 3*pi/4), (-pi/4, pi/4), (pi/4, 3*pi/4), (3*pi/4, pi/4)]</span>
+</pre></div>
+</div>
+<p>以上求得的含三角函数的方程组的解，并不是其所有的解．</p>
+</div>
+<div class="section" id="id6">
+<h2>3.5. 微分方程<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>利用 <code class="code docutils literal notranslate"><span class="pre">dsolve(eq,</span> <span class="pre">var)</span></code> 可以解微分方程，需要先定义一个函数 <code class="code docutils literal notranslate"><span class="pre">f</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">f</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">Function</span><span class="p">)</span>
+
+<span class="gp">In [29]: </span><span class="n">diffeq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [30]: </span><span class="n">dsolve</span><span class="p">(</span><span class="n">diffeq</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gh">Out[30]: </span><span class="go">Eq(f(x), C1 + C2*x - x**4 + x**3)</span>
+</pre></div>
+</div>
+<p>微分方程组也可以用类似线性、非线性方程的解的格式进行处理，比如下例的微分方程组：</p>
+<div class="math">
+<p><img src="_images/math/0ec5f67484cc5c1c35c0b3318fece2c17818117b.svg" alt="\begin{dcases}
+\frac{\ud}{\ud x}f(x) &amp;= g(x) \\[4pt]
+\frac{\ud}{\ud x}g(x) &amp;= 0
+\end{dcases}"/></p>
+</div><p>可以如下解 <code class="code docutils literal notranslate"><span class="pre">dsolve(eqs,</span> <span class="pre">vars)</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">v</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f g&#39;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">Function</span><span class="p">)</span>
+
+<span class="gp">In [32]: </span><span class="n">dsolve</span><span class="p">([</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">x</span><span class="p">),</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">],</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">),</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">x</span><span class="p">)))</span>
+<span class="gh">Out[32]: </span><span class="go">[Eq(f(x), C1 + C2*x), Eq(g(x), C2)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Calculus.html" class="btn btn-neutral" title="2. 微积分与极限" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, wklchris
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
