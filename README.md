@@ -21,6 +21,7 @@
 | Gitbook 学习笔记 | Oct 2018 | 完成 | Gitbook | [Read Online](https://wklchris.github.io/Gitbooks/CS/Gitbook/publish/) | [CS/Gitbook](https://github.com/wklchris/Gitbooks/tree/master/CS/Gitbook) |
 | reStructuredText 学习笔记 | Oct 2018 | 完成 | Gitbook | [Read Online](https://wklchris.github.io/Gitbooks/CS/reStructuredText/publish/) | [CS/reStructuredText](https://github.com/wklchris/Gitbooks/tree/master/CS/reStructuredText) |
 | Sphinx 学习笔记 | Oct 2018 | 完成 | Sphinx | [Read Online](https://wklchris.github.io/Gitbooks/CS/Sphinx/) | [CS/Sphinx](https://github.com/wklchris/Gitbooks/tree/master/CS/Sphinx) |
+| 机器学习笔记 | Jan 2019 | 施工中 | Sphinx | [Read Online](https://wklchris.github.io/Gitbooks/CS/MachineLearning/) | [CS/MachineLearning](https://github.com/wklchris/Gitbooks/tree/master/CS/MachineLearning) |
 
 ### Math
 
