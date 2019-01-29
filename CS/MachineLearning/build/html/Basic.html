@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 基础 &mdash; 机器学习笔记 0.1 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/rtd-revised.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="2. 线性回归" href="LinearRegression.html" />
+    <link rel="prev" title="《机器学习笔记》前言" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 机器学习笔记
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 为什么要学习机器学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2. 基础概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.3. 监督与无监督学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">2. 线性回归</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">2.1. 误差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">2.2. 示例</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">机器学习笔记</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. 基础</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Basic.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="LinearRegression.html" class="btn btn-neutral float-right" title="2. 线性回归" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="《机器学习笔记》前言" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1. 基础<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>本章是快速引言，以及介绍机器学习的基本概念．</p>
+<p>本书通篇可能使用 scikit-learn 与 TensorFlow，在此先行加载某些库：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>1.1. 为什么要学习机器学习<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>机器学习的优势：</p>
+<ul class="simple">
+<li><strong>提供了一种可缩短编程时间的方法</strong> ：比起纯粹的、从零开始用人脑思索方法，成熟的机器学习解决方案允许用输入样本的简单方式快速地获得一个可靠方案．例如对于语法纠错，可以通过输入样本的方式解决．</li>
+<li><strong>更灵活的自定义</strong> ：传统编程需要很长时间的类似工作来适配一个新场景，但对于机器学习来说这往往只意味着采集一组新数据．例如，增加语法纠错程序所支持的语言．</li>
+<li><strong>帮助解决难以用人脑确定方法的问题</strong>：人类的一些解决方法是内化在大脑中的，不一定能详尽地阐述其中的原理；机器学习却可以帮助解决这一类问题．例如，人脸识别．</li>
+</ul>
+<p>机器学习使用中常遇到的问题：</p>
+<ul class="simple">
+<li>训练集太小</li>
+<li>训练集代表性欠缺</li>
+<li>训练集质量低（错误值与噪声）</li>
+<li>无关特征</li>
+<li>过拟合或欠拟合</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>1.2. 基础概念<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>介绍机器学习的几个概念：</p>
+<ul class="simple">
+<li><strong>标签（Label）</strong> ：即需要预测的变量．一般用 <img class="math" src="_images/math/be8000336bb757b1d624b498181eebbf720cf537.svg" alt="y"/> 表示．有时也翻译成“标记”．</li>
+<li><strong>特征（Feature）</strong> ：即输入变量，通常描述拥有的数据．一般用 <img class="math" src="_images/math/b65dfcdaba42824b522f6b4c15057665d346165c.svg" alt="\boldsymbol{x} = \{x_1, x_2, \ldots, x_n\}"/> 表示．这里的 <img class="math" src="_images/math/5ea9341380737b3580e612da7d472e9911e17b8a.svg" alt="n"/> 表示 <strong>维数（dimensionality）</strong> ．有时也采用“属性（attribute）”的称呼．</li>
+<li><strong>观测（Observation）</strong> ：一般地，数据集的每一行都是一个观测．；而每一列会对应一个特征（除了标签列）．</li>
+<li><strong>样例（Example）</strong> ：指数据的一个集合．有时也译作“样本” <a class="footnote-reference" href="#f1" id="id4">[1]</a> 或“示例”，或通称为“数据集”．<ul>
+<li><strong>有标签样例（labeled example）</strong> ：指带有标签的样例，形如 <img class="math" src="_images/math/d7e6bb1f778fbc3d75457b67d45c356c9c72988b.svg" alt="\{\boldsymbol{x}, y\}"/>，用于训练模型．有时也会人为将其划分为用于训练的训练集（training set）与验证预测的测试集（testing set）．</li>
+<li><strong>无标签样例（unlabeled example）</strong> ：指仅有特性、没有标签的样例，形如 <img class="math" src="_images/math/af448583996b3cdf2ba49100533cfa83e706d0f0.svg" alt="\{\boldsymbol{x}, ?\}"/>，用于预测．</li>
+</ul>
+</li>
+<li><strong>模型（Model）</strong> ：指样例与预测结果 <img class="math" src="_images/math/a40aa65c91e26df6421d922272df06cd2eb523e4.svg" alt="y'"/> 之间建立的关系．它取决于通过机器学习方法求得的参数．<ul>
+<li><strong>训练（training）</strong> ：创建或学习模型，得出标签与样本之间的关系．</li>
+<li><strong>推断（inference）</strong> ：将训练得到的模型应用于无标签样本．用于</li>
+</ul>
+</li>
+</ul>
+<p>根据标签的情况，预测模型分为两大类：</p>
+<ul class="simple">
+<li><strong>回归（Regression）</strong> 模型：预测连续值．比如：用户点击广告的概率是多少．</li>
+<li><strong>分类（Classification）</strong> 模型：预测离散值．比如：给出的邮件是否是垃圾邮件．</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>1.3. 监督与无监督学习<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>机器学习有多种分类方式，而最常被讨论的是按照人类监督程度划分．</p>
+<ul class="simple">
+<li><strong>监督式学习（Supervised Learning）</strong> 是机器学习的基本框架，其训练集包含标签．主要方法包括：<ul>
+<li>K近邻算法（K-nearest neighbors, kNN）</li>
+<li>线性回归（Linear Regression）</li>
+<li>逻辑回归（Logistic Regression）</li>
+<li>支持向量机（Support Vector Machine, SVM）</li>
+<li>决策树和随机森林（Decision Tree &amp; Random Forest）</li>
+<li>神经网络（Neural Network）：常被提及的 <strong>深度学习（Deep Learning）</strong> 属于这一分类．</li>
+</ul>
+</li>
+<li><strong>无监督学习（Unsupervised Learning）</strong> 的训练数据集不含标签．主要包含：<ul>
+<li>聚类（Clustering）：K均值聚类（K-means clustering）、层次聚类（Hierarchical clustering, HC）</li>
+<li>降维（Dimensionality Reduction）：较著名的有主成分分析（Principle components analysis, PCA）、核方法（kernel method）．</li>
+</ul>
+</li>
+</ul>
+<p>半监督学习不在此介绍．还有一个类别称为 <strong>强化学习（Reinforcement Learning）</strong>，其特征是让学习主体（agent）自行决策，然后根据决策引发的结果，对不同情形下的决策策略进行学习和优化．</p>
+<p class="rubric">注释</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td>严格地说，Example 这一词不应翻译为“样本”，因为这可能与 Sample 产生混淆．不过，从中文的角度，“样本”这个词既可以表示从全体中选取的一个数据集（即英文的 example），也可以表示抽取的一条或多条数据（即 sample）．本文中将使用“样例”作为翻译．</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="LinearRegression.html" class="btn btn-neutral float-right" title="2. 线性回归" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="《机器学习笔记》前言" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, wklchris
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
