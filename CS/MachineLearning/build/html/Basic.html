@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="2. 线性回归" href="LinearRegression.html" />
+    <link rel="next" title="2. 数据预处理" href="DataPreprocess.html" />
     <link rel="prev" title="《机器学习笔记》前言" href="index.html" /> 
 
   
@@ -87,12 +87,30 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. 基础</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 为什么要学习机器学习</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">1.2. 基础概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">1.3. 监督与无监督学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.3. 机器学习的分类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.3.1. 监督与无监督学习</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.3.2. 批量学习与在线学习</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.3.3. 基于实例/模型学习</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">2. 线性回归</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">2.1. 误差</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">2.2. 示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">1.4. 如何获取数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataPreprocess.html">2. 数据预处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id2">2.1. 补全缺失数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id3">2.1.1. 例1：用本特征的均值补全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id4">2.1.2. 例2：用外部数据的众数补全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id5">2.1.3. 例3：用给定常数补全</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id6">2.2. 数据类型处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id7">2.3. 拆分训练集与测试集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id8">2.4. 特征缩放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">3. 线性回归</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">3.1. 误差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">3.2. 示例</a></li>
 </ul>
 </li>
 </ul>
@@ -156,7 +174,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="LinearRegression.html" class="btn btn-neutral float-right" title="2. 线性回归" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="DataPreprocess.html" class="btn btn-neutral float-right" title="2. 数据预处理" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="《机器学习笔记》前言" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -171,12 +189,14 @@
   <div class="section" id="id1">
 <h1>1. 基础<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>本章是快速引言，以及介绍机器学习的基本概念．</p>
-<p>本书通篇可能使用 scikit-learn 与 TensorFlow，在此先行加载某些库：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<p>本书通篇可能使用 scikit-learn，请确认使用的版本：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">sklearn</span>
 
-<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">In [2]: </span><span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span>
+<span class="gh">Out[2]: </span><span class="go">&#39;0.20.2&#39;</span>
 </pre></div>
 </div>
+<p>不同版本的命令可能不同，例如 0.20 与 0.18 版本的 scikit-learn 的缺失值估计器（Imputer）的语法并不相同。</p>
 <div class="section" id="id2">
 <h2>1.1. 为什么要学习机器学习<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>机器学习的优势：</p>
@@ -199,7 +219,7 @@
 <p>介绍机器学习的几个概念：</p>
 <ul class="simple">
 <li><strong>标签（Label）</strong> ：即需要预测的变量．一般用 <img class="math" src="_images/math/be8000336bb757b1d624b498181eebbf720cf537.svg" alt="y"/> 表示．有时也翻译成“标记”．</li>
-<li><strong>特征（Feature）</strong> ：即输入变量，通常描述拥有的数据．一般用 <img class="math" src="_images/math/b65dfcdaba42824b522f6b4c15057665d346165c.svg" alt="\boldsymbol{x} = \{x_1, x_2, \ldots, x_n\}"/> 表示．这里的 <img class="math" src="_images/math/5ea9341380737b3580e612da7d472e9911e17b8a.svg" alt="n"/> 表示 <strong>维数（dimensionality）</strong> ．有时也采用“属性（attribute）”的称呼．</li>
+<li><strong>特征（Feature）</strong> ：即输入变量，通常描述拥有的数据．一般用 <img class="math" src="_images/math/b65dfcdaba42824b522f6b4c15057665d346165c.svg" alt="\boldsymbol{x} = \{x_1, x_2, \ldots, x_n\}"/> 表示．这里的 <img class="math" src="_images/math/5ea9341380737b3580e612da7d472e9911e17b8a.svg" alt="n"/> 表示 <strong>维数（dimensionality）</strong> ．特征有时也被称为“属性（attribute）”．</li>
 <li><strong>观测（Observation）</strong> ：一般地，数据集的每一行都是一个观测．；而每一列会对应一个特征（除了标签列）．</li>
 <li><strong>样例（Example）</strong> ：指数据的一个集合．有时也译作“样本” <a class="footnote-reference" href="#f1" id="id4">[1]</a> 或“示例”，或通称为“数据集”．<ul>
 <li><strong>有标签样例（labeled example）</strong> ：指带有标签的样例，形如 <img class="math" src="_images/math/d7e6bb1f778fbc3d75457b67d45c356c9c72988b.svg" alt="\{\boldsymbol{x}, y\}"/>，用于训练模型．有时也会人为将其划分为用于训练的训练集（training set）与验证预测的测试集（testing set）．</li>
@@ -219,7 +239,15 @@
 </ul>
 </div>
 <div class="section" id="id5">
-<h2>1.3. 监督与无监督学习<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>1.3. 机器学习的分类<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>机器学习主要的分类方式有三种：</p>
+<ul class="simple">
+<li>按监督</li>
+<li>按学习持续性</li>
+<li>按基于实例或模型</li>
+</ul>
+<div class="section" id="id6">
+<h3>1.3.1. 监督与无监督学习<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>机器学习有多种分类方式，而最常被讨论的是按照人类监督程度划分．</p>
 <ul class="simple">
 <li><strong>监督式学习（Supervised Learning）</strong> 是机器学习的基本框架，其训练集包含标签．主要方法包括：<ul>
@@ -238,6 +266,55 @@
 </li>
 </ul>
 <p>半监督学习不在此介绍．还有一个类别称为 <strong>强化学习（Reinforcement Learning）</strong>，其特征是让学习主体（agent）自行决策，然后根据决策引发的结果，对不同情形下的决策策略进行学习和优化．</p>
+</div>
+<div class="section" id="id7">
+<h3>1.3.2. 批量学习与在线学习<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>第二种分类方式是根据学习过程能否持续，或者说能否“断点续传”。</p>
+<ul class="simple">
+<li><strong>批量学习</strong> ：学习过程不可持续。如果要学习新的内容(比如新增的垃圾邮件特征)，必须要把新增数据与原有数据整合后，作为一个新的数据集交付模型进行学习。</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>批量学习实现较为简单，但是有较高的重训练的时间成本与硬件资源占用。</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><strong>在线学习</strong> ：学习过程是可持续的。学习新内容只需传入新增的数据集即可。这适用于不断产生新数据的数据流的场合，或已有数据集太大、限于硬件进行无法进行批量学习的场合。</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>在线学习的一个重要参数描述对新数据的适应性，称为学习速率。学习速率越高，越倾向于转向新数据而遗忘旧数据；学习速率越低，学习新内容就越慢，但受新数据中的噪点的影响也越低。</li>
+<li>在线学习的优点是显而易见的，但挑战在于如何应对异常数据。异常数据可能导致模型表现下滑，因此在线学习通常需要采取监测、回滚等手段来应对。</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h3>1.3.3. 基于实例/模型学习<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>第三种分类是根据如何进行归纳与推广。</p>
+<ul class="simple">
+<li><strong>基于实例学习</strong> ：先记忆符合条件的实例，再搜索与这些实例相似的其他实例。</li>
+<li><strong>基于模型学习</strong> ：根据数据的情况选择一个模型(例如线性回归模型)，然后用数据集进行训练与预测。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>1.4. 如何获取数据集<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>下面是一些常用的机器学习数据源：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://archive.ics.uci.edu/ml/">UC Irvine ML Repository</a></li>
+<li><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle Datasets</a></li>
+<li><a class="reference external" href="https://registry.opendata.aws/">AWS Open Data</a></li>
+</ul>
+<p>你也可以参考 <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine_learning_research">wikipedia: List of datasets for machine learning research</a> 来寻找合适的机器学习数据网站．</p>
+<p>你也可以从 <cite>scikit-learn</cite> 库的 <cite>datasets</cite> 模块调用一些数据集，调用命令形如： <cite>sklearn.datasets.load_boston()</cite> 。部分支持的数据集有：</p>
+<ul class="simple">
+<li><strong>boston</strong>：波士顿房价数据集（回归）。</li>
+<li><strong>iris</strong>：鸢尾花数据集（分类）。</li>
+<li><strong>diabetes</strong>：糖尿病数据集（回归）。</li>
+<li><strong>digits</strong>：8x8 图像数据集（分类）。</li>
+<li><strong>wine</strong>：红酒数据集（分类）。</li>
+</ul>
+<p>完整的列表请查看 scikit-learn 的官方页面：<a class="reference external" href="https://scikit-learn.org/stable/datasets/">Scikit-learn 内置的数据集</a> 。</p>
 <p class="rubric">注释</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -256,7 +333,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="LinearRegression.html" class="btn btn-neutral float-right" title="2. 线性回归" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="DataPreprocess.html" class="btn btn-neutral float-right" title="2. 数据预处理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="《机器学习笔记》前言" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -293,8 +370,8 @@
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   

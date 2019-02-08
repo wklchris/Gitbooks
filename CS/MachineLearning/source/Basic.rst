@@ -3,12 +3,14 @@
 
 本章是快速引言，以及介绍机器学习的基本概念．
 
-本书通篇可能使用 scikit-learn 与 TensorFlow，在此先行加载某些库：
+本书通篇可能使用 scikit-learn，请确认使用的版本：
 
 .. ipython:: python
 
-   import numpy as np
-   import matplotlib.pyplot as plt
+   import sklearn
+   sklearn.__version__
+
+不同版本的命令可能不同，例如 0.20 与 0.18 版本的 scikit-learn 的缺失值估计器（Imputer）的语法并不相同。
 
 
 为什么要学习机器学习
@@ -36,7 +38,7 @@
 介绍机器学习的几个概念：
 
 * **标签（Label）** ：即需要预测的变量．一般用 :math:`y` 表示．有时也翻译成“标记”．
-* **特征（Feature）** ：即输入变量，通常描述拥有的数据．一般用 :math:`\boldsymbol{x} = \{x_1, x_2, \ldots, x_n\}` 表示．这里的 :math:`n` 表示 **维数（dimensionality）** ．有时也采用“属性（attribute）”的称呼．
+* **特征（Feature）** ：即输入变量，通常描述拥有的数据．一般用 :math:`\boldsymbol{x} = \{x_1, x_2, \ldots, x_n\}` 表示．这里的 :math:`n` 表示 **维数（dimensionality）** ．特征有时也被称为“属性（attribute）”．
 * **观测（Observation）** ：一般地，数据集的每一行都是一个观测．；而每一列会对应一个特征（除了标签列）．
 * **样例（Example）** ：指数据的一个集合．有时也译作“样本” [#f1]_ 或“示例”，或通称为“数据集”．
 
@@ -55,8 +57,17 @@
 * **分类（Classification）** 模型：预测离散值．比如：给出的邮件是否是垃圾邮件．
 
 
+机器学习的分类
+----------------
+
+机器学习主要的分类方式有三种：
+
+* 按监督
+* 按学习持续性
+* 按基于实例或模型
+
 监督与无监督学习
-------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 机器学习有多种分类方式，而最常被讨论的是按照人类监督程度划分．
 
@@ -75,6 +86,52 @@
   * 降维（Dimensionality Reduction）：较著名的有主成分分析（Principle components analysis, PCA）、核方法（kernel method）．
 
 半监督学习不在此介绍．还有一个类别称为 **强化学习（Reinforcement Learning）**，其特征是让学习主体（agent）自行决策，然后根据决策引发的结果，对不同情形下的决策策略进行学习和优化．
+
+
+批量学习与在线学习
+^^^^^^^^^^^^^^^^^^^^^
+
+第二种分类方式是根据学习过程能否持续，或者说能否“断点续传”。
+
+*  **批量学习** ：学习过程不可持续。如果要学习新的内容(比如新增的垃圾邮件特征)，必须要把新增数据与原有数据整合后，作为一个新的数据集交付模型进行学习。
+
+  * 批量学习实现较为简单，但是有较高的重训练的时间成本与硬件资源占用。
+
+*  **在线学习** ：学习过程是可持续的。学习新内容只需传入新增的数据集即可。这适用于不断产生新数据的数据流的场合，或已有数据集太大、限于硬件进行无法进行批量学习的场合。
+
+  * 在线学习的一个重要参数描述对新数据的适应性，称为学习速率。学习速率越高，越倾向于转向新数据而遗忘旧数据；学习速率越低，学习新内容就越慢，但受新数据中的噪点的影响也越低。
+  * 在线学习的优点是显而易见的，但挑战在于如何应对异常数据。异常数据可能导致模型表现下滑，因此在线学习通常需要采取监测、回滚等手段来应对。
+
+
+基于实例/模型学习
+^^^^^^^^^^^^^^^^^^^
+
+第三种分类是根据如何进行归纳与推广。
+
+*  **基于实例学习** ：先记忆符合条件的实例，再搜索与这些实例相似的其他实例。
+*  **基于模型学习** ：根据数据的情况选择一个模型(例如线性回归模型)，然后用数据集进行训练与预测。
+
+
+如何获取数据集
+-----------------
+
+下面是一些常用的机器学习数据源：
+
+* `UC Irvine ML Repository <http://archive.ics.uci.edu/ml/>`_
+* `Kaggle Datasets <https://www.kaggle.com/datasets>`_
+* `AWS Open Data <https://registry.opendata.aws/>`_
+
+你也可以参考 `wikipedia: List of datasets for machine learning research <https://en.wikipedia.org/wiki/List_of_datasets_for_machine_learning_research>`_ 来寻找合适的机器学习数据网站．
+
+你也可以从 `scikit-learn` 库的 `datasets` 模块调用一些数据集，调用命令形如： `sklearn.datasets.load_boston()` 。部分支持的数据集有：
+
+* **boston**：波士顿房价数据集（回归）。
+* **iris**：鸢尾花数据集（分类）。
+* **diabetes**：糖尿病数据集（回归）。
+* **digits**：8x8 图像数据集（分类）。
+* **wine**：红酒数据集（分类）。
+
+完整的列表请查看 scikit-learn 的官方页面：`Scikit-learn 内置的数据集 <https://scikit-learn.org/stable/datasets/>`_ 。
 
 .. rubric:: 注释
 

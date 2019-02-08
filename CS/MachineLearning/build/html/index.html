@@ -86,12 +86,30 @@
 <li class="toctree-l1"><a class="reference internal" href="Basic.html">1. 基础</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Basic.html#id2">1.1. 为什么要学习机器学习</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basic.html#id3">1.2. 基础概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic.html#id5">1.3. 监督与无监督学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id5">1.3. 机器学习的分类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id6">1.3.1. 监督与无监督学习</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id7">1.3.2. 批量学习与在线学习</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.3.3. 基于实例/模型学习</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">2. 线性回归</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">2.1. 误差</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">2.2. 示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id9">1.4. 如何获取数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataPreprocess.html">2. 数据预处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id2">2.1. 补全缺失数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id3">2.1.1. 例1：用本特征的均值补全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id4">2.1.2. 例2：用外部数据的众数补全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id5">2.1.3. 例3：用给定常数补全</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id6">2.2. 数据类型处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id7">2.3. 拆分训练集与测试集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id8">2.4. 特征缩放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">3. 线性回归</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">3.1. 误差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">3.2. 示例</a></li>
 </ul>
 </li>
 </ul>
@@ -169,13 +187,14 @@
 <h1>《机器学习笔记》前言<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>本书是我学习机器学习的笔记，主要参考了：</p>
 <ul class="simple">
+<li><a class="reference external" href="https://github.com/Avik-Jain/100-Days-Of-ML-Code">机器学习100天 (100 Days of ML)</a>．如果你是机器学习的初学者，或者想阅读一本快速上手的教程，此 repo 是你的最佳选择．</li>
+<li>周志华. <em>机器学习</em> . 清华大学出版社，2016．这也是我的第二推荐，非常详实、清晰的文字教程．</li>
 <li><a class="reference external" href="https://developers.google.com/machine-learning/crash-course/">Google 机器学习速成课程（Machine Learning Crash Course）</a> ．该网页也提供了简体中文的教程（左下角更改语言）；有趣的是，它的中文语音版本是由机器学习方法合成的．</li>
-<li>周志华. <em>机器学习</em> . 清华大学出版社，2016.</li>
 <li>Géron A.  <em>Hands-on machine learning with Scikit-Learn and TensorFlow: concepts, tools, and techniques to build intelligent systems</em> . O’Reilly Media, Inc., 2017.</li>
 </ul>
 <p>在阅读本书之前，读者需要的知识有：</p>
 <ul class="simple">
-<li>Python 的基础语法，以及 pandas 的使用经验</li>
+<li>Python 的基础语法</li>
 <li>基础的理工科数学、统计学知识</li>
 </ul>
 <p>建议阅读、或可能有助于本笔记学习的知识有：</p>
@@ -189,12 +208,30 @@
 <li class="toctree-l1"><a class="reference internal" href="Basic.html">1. 基础</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Basic.html#id2">1.1. 为什么要学习机器学习</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basic.html#id3">1.2. 基础概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic.html#id5">1.3. 监督与无监督学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id5">1.3. 机器学习的分类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id6">1.3.1. 监督与无监督学习</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id7">1.3.2. 批量学习与在线学习</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#id8">1.3.3. 基于实例/模型学习</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">2. 线性回归</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">2.1. 误差</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">2.2. 示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id9">1.4. 如何获取数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataPreprocess.html">2. 数据预处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id2">2.1. 补全缺失数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id3">2.1.1. 例1：用本特征的均值补全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id4">2.1.2. 例2：用外部数据的众数补全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataPreprocess.html#id5">2.1.3. 例3：用给定常数补全</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id6">2.2. 数据类型处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id7">2.3. 拆分训练集与测试集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocess.html#id8">2.4. 特征缩放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">3. 线性回归</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">3.1. 误差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">3.2. 示例</a></li>
 </ul>
 </li>
 </ul>
@@ -244,8 +281,8 @@
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   
