@@ -61,6 +61,10 @@
                 0.2
               </div>
             
+            
+            <a href="https://wklchris.github.io/Gitbooks/homepage/" style="margin:0pt 2pt">
+              · Site Homepage ·
+            </a>
           
 
           
@@ -175,8 +179,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DS-plane.html">5. 平面上的动力系统</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#id2">5.1. 平面相图的一般绘制方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#toc-conservative-phase">5.2. 守恒系统的相图绘制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#id2">5.1. 平面动力系统的相图</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-plane.html#id3">5.1.1. 平面动力系统不动点的类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DS-plane.html#id4">5.1.2. 无倾线辅助的相图绘制法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DS-plane.html#id6">5.2. 平面相图经典示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DS-plane.html#toc-conservative-phase">5.2.1. 守恒系统的相图</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -522,7 +533,7 @@ F_2(x, y) = -\frac{\partial V(x, y)}{\partial y}"/></p>
 <p><strong>守恒系统</strong> (conservative system) 是重力系统中的重要内容．但由于其形式相比以上系统更复杂（存在二阶微分），因此在介绍上述系统后才于此处介绍守恒系统．上文提到的梯度系统就是一种守恒系统．</p>
 <div class="section" id="id20">
 <h3>2.4.1. 守恒系统的相图<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
-<p>守恒系统的相图绘制我们在 <a class="reference internal" href="DS-plane.html#toc-conservative-phase"><span class="std std-ref">守恒系统的相图绘制</span></a> 一节着重进行讲解，这里给出一个示例，展示其相图的形式：</p>
+<p>守恒系统的相图绘制我们在 <a class="reference internal" href="DS-plane.html#toc-conservative-phase"><span class="std std-ref">守恒系统的相图</span></a> 一节着重进行讲解，这里给出一个示例，展示其相图的形式：</p>
 <div class="eg admonition">
 <p class="first admonition-title">例子：守恒系统的相图</p>
 <blockquote class="last">
@@ -533,10 +544,7 @@ F_2(x, y) = -\frac{\partial V(x, y)}{\partial y}"/></p>
 \frac{\ud y}{\ud t} = -\frac{1}{2}x^2 + x
 \end{dcases}"/></p>
 </div><p>下图画出了 <img class="math" src="_images/math/4471041d42e96b39620e6c73f672be11620b0f9f.svg" alt="(x, y)"/> （亦即 <img class="math" src="_images/math/3e92b8cffc8b37d83b2fbc076f01d7a9ee587bdd.svg" alt="(x, x_t)"/> ）平面上，上述守恒系统的相图 <a class="footnote-reference" href="#f4" id="id21">[4]</a> ．</p>
-<p>(<a class="reference external" href="./_static/img/conservative-system.py">Source code</a>, <a class="reference external" href="./_static/img/conservative-system.png">png</a>, <a class="reference external" href="./_static/img/conservative-system.hires.png">hires.png</a>, <a class="reference external" href="./_static/img/conservative-system.pdf">pdf</a>)</p>
-<div class="figure align-center">
-<img alt="_images/conservative-system.png" src="_images/conservative-system.png" />
-</div>
+<p>(<a class="reference external" href="./_static/img/conservative-system.py">Source code</a>)</p>
 <p>该系统有两个平衡点，即 <img class="math" src="_images/math/2e1532050155ee0befa52fce56257b14a484acc5.svg" alt="(0,0), (1,0)"/> ．前者是鞍点，后者是中心点．</p>
 </div></blockquote>
 </div>
@@ -630,8 +638,8 @@ z_t &amp;= xy - bz
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   

@@ -11,6 +11,7 @@
    :caption: 目录
 
    Startup
+   Customization
    Examples
 
 本手册针对 Windows 用户．

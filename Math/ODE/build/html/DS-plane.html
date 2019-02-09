@@ -61,6 +61,10 @@
                 0.2
               </div>
             
+            
+            <a href="https://wklchris.github.io/Gitbooks/homepage/" style="margin:0pt 2pt">
+              · Site Homepage ·
+            </a>
           
 
           
@@ -176,8 +180,12 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">5. 平面上的动力系统</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">5.1. 平面动力系统的相图</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">5.1.1. 平面相图的一般绘制方法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#toc-conservative-phase">5.1.2. 守恒系统的相图绘制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.1.1. 平面动力系统不动点的类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.1.2. 无倾线辅助的相图绘制法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">5.2. 平面相图经典示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#toc-conservative-phase">5.2.1. 守恒系统的相图</a></li>
 </ul>
 </li>
 </ul>
@@ -280,12 +288,34 @@
 <h2>5.1. 平面动力系统的相图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>在上一章，我们分析了动力系统的稳定性．对平面动力系统而言，如果是线性的，我们直接绘制相图就能明确其稳定性；如果不是线性的，那么双曲平衡点的稳定性可以通过线性系统在该点的稳定性来推断，而非双曲平衡点的稳定性则可能仍然需要借助相图来分析．总之，相图的绘制是非常重要的内容，而二维平面上动力系统的相图绘制也比较成熟，下面对此内容进行介绍．</p>
 <div class="section" id="id3">
-<h3>5.1.1. 平面相图的一般绘制方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<p>在软件作图时，通常利用取足够多的点的形式来描绘方向场，并尽可能地把相关的点用光滑曲线连成轨线．但在纸笔绘制时，我们需要更定性、简易的技巧．</p>
-<p>一种常见的绘制方法是先绘制动力系统的 <strong>零增长等值线</strong> (zero-growth isocline)，也称为无倾线 (nullcline)．例如，我们画令 <img class="math" src="_images/math/6574b5777d7f1f955a42e874ea531c7e4c4911dc.svg" alt="x_t=0"/> 的平面曲线，就称为 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 的零增长等值线，或 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 无倾线．</p>
+<h3>5.1.1. 平面动力系统不动点的类型<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>由之前高维动力系统的不动点稳定性的分析可知，平面动力系统的平衡点如果是双曲的，那么可以由其线性化系统的 <img class="math" src="_images/math/891bd29854a6a8782b50877e61a2b518b6131cfc.svg" alt="\bA"/> 矩阵的特征根的实部来判断稳定性；如果是非双曲的，那么需要从原系统的 <img class="math" src="_images/math/d873900c726a3604bac3fc12c3a2e7747836eb87.svg" alt="f(x,y)"/> 与 <img class="math" src="_images/math/7723844136034b72617d9e343b2a015d78d9aebc.svg" alt="g(x,y)"/> 函数来分析．</p>
+<p>现在，我们只考虑平面系统含有一个平衡点的情况，将平衡点根据稳定性进行分类：</p>
 </div>
+<div class="section" id="id4">
+<h3>5.1.2. 无倾线辅助的相图绘制法<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>在软件作图时，通常利用取足够多的点的形式来描绘方向场，并尽可能地把相关的点用光滑曲线连成轨线．但在纸笔绘制时，我们需要更定性、简易的技巧；无倾线就是技巧之一．</p>
+<p>一种常见的绘制方法是先绘制动力系统的 <strong>零增长等值线</strong> (zero-growth isocline)，也称为无倾线 (nullcline) <a class="footnote-reference" href="#f1" id="id5">[1]</a> ．例如，我们画令 <img class="math" src="_images/math/6574b5777d7f1f955a42e874ea531c7e4c4911dc.svg" alt="x_t=0"/> 的平面曲线，就称为 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 的零增长等值线，或 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 无倾线．在这条线上的任意一点 <img class="math" src="_images/math/043b61d8b0e2412bd3864f1e5b9a53f27198aebb.svg" alt="(x,y)"/> 处，其轨线的切向向量 <img class="math" src="_images/math/145e52071464dcb960373e3862131a90f912246b.svg" alt="(x_t, y_t)"/> 的向量值总是竖直方向（平行于 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 轴）的．由等倾线的这个性质，我们可以勾勒</p>
+<div class="admonition- admonition">
+<p class="first admonition-title">例子：无倾线</p>
+<p>画出下述平面动力系统的相图．</p>
+<div class="math">
+<p><img src="_images/math/e8a46755e36352535f4ec6f4848f33da15793c2e.svg" alt="\frac{\ud x}{\ud t} = y, \quad \frac{\ud y}{\ud t} = -x"/></p>
+</div><p class="last"><strong>解：</strong> 令 <img class="math" src="_images/math/6574b5777d7f1f955a42e874ea531c7e4c4911dc.svg" alt="x_t=0"/> ，得到 <img class="math" src="_images/math/cf7eac35ffc1f103edf86b88cabde1f97590a633.svg" alt="y=0"/> ，即 <img class="math" src="_images/math/609736c5c2efc72f0e6539979445110dfb5e65d6.svg" alt="x"/> 轴是一条无倾线．同理，由 <img class="math" src="_images/math/f673e56ab7e8e6a4f57f8090a78309c798bd977f.svg" alt="y_t=0"/> 得到 <img class="math" src="_images/math/a88ba40fdd170f48b068ca9daedb9e716016ea47.svg" alt="y"/> 轴也是一条无倾线．</p>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>5.2. 平面相图经典示例<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <div class="section" id="toc-conservative-phase">
-<span id="id4"></span><h3>5.1.2. 守恒系统的相图绘制<a class="headerlink" href="#toc-conservative-phase" title="永久链接至标题">¶</a></h3>
+<span id="id7"></span><h3>5.2.1. 守恒系统的相图<a class="headerlink" href="#toc-conservative-phase" title="永久链接至标题">¶</a></h3>
+<p class="rubric">注释</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td>本文将 nullcline 译作“无倾线”，并未找到相关的文献可以参考，因此该中文术语只是作者个人翻译．读者请谨慎使用该中文词，也请勿将其作为正统的术语使用．</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -335,8 +365,8 @@
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   
