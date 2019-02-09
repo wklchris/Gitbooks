@@ -30,3 +30,7 @@
 # Sphinx: matplotlib auto-generated png
 **/plot_directive
 **/*.hires.png
+
+# Folders
+.vscode
+**/.ipynb_checkpoints

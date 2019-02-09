@@ -103,9 +103,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#id5">2.1.3. 例3：用给定常数补全</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">2.2. 数据类型处理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">2.3. 拆分训练集与测试集</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">2.4. 特征缩放</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">2.2. 数据类型处理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.2.1. 例1：序数编码 OrdinalEncoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">2.2.2. 例2：独热编码 OneHotEncoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">2.3. 拆分训练集与测试集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">2.4. 特征缩放：标准化与归一化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">2.4.1. 例1：标准化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">2.4.2. 例2：归一化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">2.4.3. 例3：乘法缩放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">2.4.4. 例4：鲁棒缩放</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">3. 线性回归</a><ul>
@@ -192,6 +202,8 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">as</span> <span class="nn">skp</span>  <span class="c1"># Personal preferred alias</span>
 </pre></div>
 </div>
 <div class="section" id="id2">
@@ -211,27 +223,27 @@
 <div class="section" id="id3">
 <h3>2.1.1. 例1：用本特征的均值补全<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>方法 <cite>fit_transform</cite> 将本特征的数据用来拟合策略（本例中，即计算对应列除缺失值外的数据的均值）。例如对特征 x1 ，缺失值被估计为 <img class="math" src="_images/math/4a3c843d569acb98745979720d549af4b848e45e.svg" alt="(0+1+5)/3=2"/> 。本例中，所有 np.nan 被视为缺失值。</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
 
-<span class="gp">In [4]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;N/A&quot;</span><span class="p">],</span>
+<span class="gp">In [5]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;N/A&quot;</span><span class="p">],</span>
 <span class="gp">   ...: </span>                 <span class="s2">&quot;x1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
 <span class="gp">   ...: </span>                 <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">]})</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [5]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="gp">In [6]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[6]: </span><span class="go"></span>
 <span class="go">     y   x1   x2</span>
 <span class="go">0    A  0.0  5.0</span>
 <span class="go">1    B  1.0  NaN</span>
 <span class="go">2    B  NaN  1.0</span>
 <span class="go">3  N/A  5.0  9.0</span>
 
-<span class="gp">In [6]: </span><span class="n">imp_mean</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="gp">In [7]: </span><span class="n">imp_mean</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 
-<span class="gp">In [7]: </span><span class="n">data_na_mean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+<span class="gp">In [8]: </span><span class="n">data_na_mean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="gp">In [8]: </span><span class="n">imp_mean</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_na_mean</span><span class="p">)</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="gp">In [9]: </span><span class="n">imp_mean</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_na_mean</span><span class="p">)</span>
+<span class="gh">Out[9]: </span><span class="go"></span>
 <span class="go">array([[0., 5.],</span>
 <span class="go">       [1., 5.],</span>
 <span class="go">       [2., 1.],</span>
@@ -242,17 +254,17 @@
 <div class="section" id="id4">
 <h3>2.1.2. 例2：用外部数据的众数补全<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>用外部数据进行拟合（方法 <cite>fit</cite> ），再应用于当前数据集（方法 <cite>transform</cite>）。特征 y 中所有的“N/A”被补全为“D”，因为在外部数据中“D”的出现的频数与“E”同为最高，且排序在“E”之前。</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">imp_freq</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s2">&quot;N/A&quot;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">imp_freq</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s2">&quot;N/A&quot;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">)</span>
 
-<span class="gp">In [10]: </span><span class="n">fit_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="gp">In [11]: </span><span class="n">fit_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 
-<span class="gp">In [11]: </span><span class="n">imp_freq</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fit_data</span><span class="p">)</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="gp">In [12]: </span><span class="n">imp_freq</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fit_data</span><span class="p">)</span>
+<span class="gh">Out[12]: </span><span class="go"></span>
 <span class="go">SimpleImputer(copy=True, fill_value=None, missing_values=&#39;N/A&#39;,</span>
 <span class="go">       strategy=&#39;most_frequent&#39;, verbose=0)</span>
 
-<span class="gp">In [12]: </span><span class="n">imp_freq</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="go">                                                                                                                      Out[12]: </span>
+<span class="gp">In [13]: </span><span class="n">imp_freq</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">                                                                                                                      Out[13]: </span>
 <span class="go">array([[&#39;A&#39;],</span>
 <span class="go">       [&#39;B&#39;],</span>
 <span class="go">       [&#39;B&#39;],</span>
@@ -264,10 +276,10 @@
 <div class="section" id="id5">
 <h3>2.1.3. 例3：用给定常数补全<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>这是最简单的一种补全方式，方法上使用 <cite>fit_transform</cite> 即可。下例的所有缺失值被补全为 <img class="math" src="_images/math/4573612cf2dbb0a6f616956462b35592242f167d.svg" alt="-1"/> 。</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">imp_constant</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">imp_constant</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="gp">In [14]: </span><span class="n">imp_constant</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x1</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gp">In [15]: </span><span class="n">imp_constant</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x1</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gh">Out[15]: </span><span class="go"></span>
 <span class="go">array([[ 0.],</span>
 <span class="go">       [ 1.],</span>
 <span class="go">       [-1.],</span>
@@ -279,15 +291,283 @@
 <div class="section" id="id6">
 <h2>2.2. 数据类型处理<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>确认各特征的数据类型，例如是数字或是字符串。数据读取后请进行数据类型的检查。</p>
-<p>此外，我们一般尽可能地使用数字来表示数据。比如性别男或女，可以处理为 0 或 1 来表示。如果你使用过 R 语言，那你应当对这样的 factor 类型处理不陌生。</p>
-</div>
+<p>此外，我们一般尽可能地使用数字来表示数据。比如性别男或女，可以编码为 0 或 1。如果你使用过 R 语言，那你应当对这样的 factor 类型处理不陌生。</p>
+<p>scikit-learn.preprocessing 提供了：</p>
+<ul class="simple">
+<li>序数编码器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html">OrdinalEncoder</a> 。将类别特征中每个出现过的值，设为一个单独的整数编码。序数分配将按照字符串的排序先后进行。</li>
+<li>独热编码器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a> 。该编码器会将一个特征拆分为多个：每个新的特征会把某一个值指定为 1，其余值都赋 0。</li>
+</ul>
 <div class="section" id="id7">
-<h2>2.3. 拆分训练集与测试集<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
-<p>将数据集随机打乱，然后抽取一定比例(一般70%～80%)作为训练集，剩下的作为测试集。</p>
+<h3>2.2.1. 例1：序数编码 OrdinalEncoder<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>本例将两个特征（列）的编码方式混写在一个编码器中，用户也可以拆分开来分别处理。编码器在应用到多列上似乎还存在困难，我通常选择结合循环语句、 <cite>data.loc[:, i]</cite> 以及 <cite>reshape(-1, 1)</cite> 来应对。</p>
+<p>OrdinalEncoder 在语法上与缺失值估计器 SimpleImputer 十分近似，也是先 fit 再 transform。下面是一个利用外部数据进行编码的例子：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABBCACAB&quot;</span><span class="p">),</span>
+<span class="gp">   ....: </span>                  <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [17]: </span><span class="n">data</span>
+<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="go">  x1  x2</span>
+<span class="go">0  A   5</span>
+<span class="go">1  B   6</span>
+<span class="go">2  B   7</span>
+<span class="go">3  C   8</span>
+<span class="go">4  A   5</span>
+<span class="go">5  C   6</span>
+<span class="go">6  A   7</span>
+<span class="go">7  B   8</span>
+
+<span class="gp">In [18]: </span><span class="n">enc_ordinal</span> <span class="o">=</span> <span class="n">skp</span><span class="o">.</span><span class="n">OrdinalEncoder</span><span class="p">()</span>
+
+<span class="gp">In [19]: </span><span class="n">enc_ordinal</span><span class="o">.</span><span class="n">fit</span><span class="p">([[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="gh">Out[19]: </span><span class="go">OrdinalEncoder(categories=&#39;auto&#39;, dtype=&lt;class &#39;numpy.float64&#39;&gt;)</span>
+
+<span class="gp">In [20]: </span><span class="n">enc_ordinal</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="go">                                                                          Out[20]: </span>
+<span class="go">array([[0., 0.],</span>
+<span class="go">       [1., 1.],</span>
+<span class="go">       [1., 2.],</span>
+<span class="go">       [2., 3.],</span>
+<span class="go">       [0., 0.],</span>
+<span class="go">       [2., 1.],</span>
+<span class="go">       [0., 2.],</span>
+<span class="go">       [1., 3.]])</span>
+</pre></div>
+</div>
+<p>更通常的做法是基于自特征的编码，即 <cite>fit_transform</cite> 方法：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">enc_ordinal</span> <span class="o">=</span> <span class="n">skp</span><span class="o">.</span><span class="n">OrdinalEncoder</span><span class="p">()</span>
+
+<span class="gp">In [22]: </span><span class="n">enc_ordinal</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="go">array([[0., 0.],</span>
+<span class="go">       [1., 1.],</span>
+<span class="go">       [1., 2.],</span>
+<span class="go">       [2., 3.],</span>
+<span class="go">       [0., 0.],</span>
+<span class="go">       [2., 1.],</span>
+<span class="go">       [0., 2.],</span>
+<span class="go">       [1., 3.]])</span>
+</pre></div>
+</div>
+<p>对于已知编码结果的情况，可以利用 fit 过后的编码器进行反向解码，推出原有的类别字符串：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">enc_ordinal</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="go">array([[&#39;A&#39;, 5],</span>
+<span class="go">       [&#39;B&#39;, 6]], dtype=object)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id8">
-<h2>2.4. 特征缩放<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
-<p>许多模型使用欧几里德距离作为一个重要的度量方式，这就导致多特征量模型中，特征的不同数值尺度会影响模型结果。为避免这一点，标准化是一种常用的预处理方法。</p>
+<h3>2.2.2. 例2：独热编码 OneHotEncoder<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>该编码器在使用时，请记住附加 <cite>toarray</cite> 方法。下例使用了 <cite>fit_transform</cite> 方法，用户也可以拆分使用 fit 与 transform。此外，与序数编码器一样，独热编码器支持 <cite>inverse_transform</cite> 方法进行回溯。</p>
+<p>下例中使用了 <cite>get_feature_names</cite> 的 <cite>input_features</cite> 参数来命令编码结果的各特征（列）。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
+
+<span class="gp">In [25]: </span><span class="n">data</span>
+<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="go">   x  y</span>
+<span class="go">0  A  X</span>
+<span class="go">1  A  Y</span>
+<span class="go">2  B  Y</span>
+
+<span class="gp">In [26]: </span><span class="n">enc_onehot</span> <span class="o">=</span> <span class="n">skp</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">()</span>
+
+<span class="gp">In [27]: </span><span class="n">enc_data</span> <span class="o">=</span> <span class="n">enc_onehot</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+<span class="gp">In [28]: </span><span class="n">enc_data_index</span> <span class="o">=</span> <span class="n">enc_onehot</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(</span><span class="n">input_features</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="gp">In [29]: </span><span class="n">data_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">enc_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">enc_data_index</span><span class="p">)</span>
+
+<span class="gp">In [30]: </span><span class="n">data_encoded</span>
+<span class="gh">Out[30]: </span><span class="go"></span>
+<span class="go">   x_A  x_B  y_X  y_Y</span>
+<span class="go">0  1.0  0.0  1.0  0.0</span>
+<span class="go">1  1.0  0.0  0.0  1.0</span>
+<span class="go">2  0.0  1.0  0.0  1.0</span>
+</pre></div>
+</div>
+<p>独热编码器在创建时可以使用一个特殊参数 <cite>handle_unknown=’ignore’</cite> 来忽略拟合数据中不存在的值。比如下例的第一特征只使用了“C”来拟合，因此原数据集中的“A”与“B”都被编码为0。此外，编码后的数据也不含“x_A”与“x_B”这两列。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">enc_onehot</span> <span class="o">=</span> <span class="n">skp</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="gp">In [32]: </span><span class="n">enc_onehot</span><span class="o">.</span><span class="n">fit</span><span class="p">([[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">]])</span>
+<span class="gh">Out[32]: </span><span class="go"></span>
+<span class="go">OneHotEncoder(categorical_features=None, categories=None,</span>
+<span class="go">       dtype=&lt;class &#39;numpy.float64&#39;&gt;, handle_unknown=&#39;ignore&#39;,</span>
+<span class="go">       n_values=None, sparse=True)</span>
+
+<span class="gp">In [33]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">enc_onehot</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span>
+<span class="gp">   ....: </span>            <span class="n">columns</span><span class="o">=</span><span class="n">enc_onehot</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<span class="gp">   ....: </span>
+<span class="go">                                                                                                                                                                      Out[33]: </span>
+<span class="go">   x0_C  x1_X  x1_Y</span>
+<span class="go">0   0.0   1.0   0.0</span>
+<span class="go">1   0.0   0.0   1.0</span>
+<span class="go">2   0.0   0.0   1.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>2.3. 拆分训练集与测试集<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>将数据集随机打乱，然后抽取一定比例（一般70%～80%）作为训练集，剩下的作为测试集。</p>
+<p>sklearn.model_selection 提供了易用的 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">train_test_split</a> 来划分训练集与测试集。该方法可以接受多个 np.array 作为输入。参数 <cite>test_size</cite> 是测试集的比重（默认 0.25）， <cite>random_state</cite> 是随机数种子。</p>
+<p>一个标准的划分例子如下：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Example from scikit-learn 0.20.0 official user guide</span>
+<span class="gp">In [34]: </span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="gp">In [35]: </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="gp">In [36]: </span><span class="n">X</span>
+<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="go">array([[0., 1.],</span>
+<span class="go">       [2., 3.],</span>
+<span class="go">       [4., 5.],</span>
+<span class="go">       [6., 7.],</span>
+<span class="go">       [8., 9.]])</span>
+
+<span class="gp">In [37]: </span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="gp">In [38]: </span><span class="n">X_train</span>
+<span class="gh">Out[38]: </span><span class="go"></span>
+<span class="go">array([[4., 5.],</span>
+<span class="go">       [0., 1.],</span>
+<span class="go">       [6., 7.]])</span>
+
+<span class="gp">In [39]: </span><span class="n">X_test</span>
+<span class="go">                                                              Out[39]: </span>
+<span class="go">array([[2., 3.],</span>
+<span class="go">       [8., 9.]])</span>
+
+<span class="gp">In [40]: </span><span class="n">y_train</span>
+<span class="go">                                                                                                           Out[40]: [2, 0, 3]</span>
+
+<span class="gp">In [41]: </span><span class="n">y_test</span>
+<span class="go">                                                                                                                              Out[41]: [1, 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>2.4. 特征缩放：标准化与归一化<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>许多模型使用欧几里德距离作为一个重要的度量方式，这就导致多特征量模型中，特征的不同数值尺度会影响模型结果。为避免这一点，常用的 <strong>标准化（standardization）</strong> 手段, 即 <cite>scale</cite> 命令，通过平移移除了均值（将均值变换为0），并线性缩放将标准差变换为1：</p>
+<div class="math">
+<p><img src="_images/math/e1622d5d60abd78e4423a21c616bfa99eda50a73.svg" alt="X' = \frac{X - \mu}{\sigma}"/></p>
+</div><p>上式中的 <img class="math" src="_images/math/5ff81ac7d2bf20f3d1fda2d1807a17f0705a7222.svg" alt="\mu"/> 与 <img class="math" src="_images/math/aa071f7ce8e1b7d211185fd6a208d3fbbef29f83.svg" alt="\sigma"/> 无法求得时，使用样本均值与样本标准差代替。</p>
+<p>而 <strong>归一化（normalization）</strong> 是指将数据缩放到一个给定的区间内（通常是 <img class="math" src="_images/math/66676d52495df3e4cc4e312437b29b5d374f5456.svg" alt="[0,1]"/> 或者 <img class="math" src="_images/math/f4ff09bd2ee11cf65fdd75b149cb6301ee139931.svg" alt="[-1, 1]"/>）。以通常所指的最值归一化（归一化到 <img class="math" src="_images/math/66676d52495df3e4cc4e312437b29b5d374f5456.svg" alt="[0,1]"/> ）为例：</p>
+<div class="math">
+<p><img src="_images/math/42eb6e9e78017cfad74c2e4875fcccc890daa04d.svg" alt="X' = \frac{X - \min\{X\}}{\max\{X\} - \min\{X\}}"/></p>
+</div><p>关于特征缩放概念的误解，尤其是 standardization 与 normalization 的混淆，一直都非常严重。 <strong>标准化的含义是唯一的</strong> ；而归一化除了上述的最值归一化外，还有其他的形式，例如均值归一化 <img class="math" src="_images/math/646ce93d039846e7fabc536afc7884ce4120d662.svg" alt="(x-\bar{x})/(\max\{x\}-\min\{x\})"/> ，单位长归一化 <a class="footnote-reference" href="#f1" id="id11">[1]</a> <img class="math" src="_images/math/ccd2ef816762e802b9e70e71d519f1443128d452.svg" alt="x/\| x\|"/> （即 <cite>skp.normalize</cite>）。</p>
+<p>sklearn.preprocessing 提供了以下线性缩放器：</p>
+<ul class="simple">
+<li>标准化 scale / StandardScaler：scale 通过线性变换各个特征，使它们均具有均值为 0、标准差为 1 的特性。而 StandardScaler 默认的参数 <cite>with_mean=True, with_std=True</cite> 也表示平移中心到0、缩放标准差为1，因此默认参数下它与标准化缩放效果相同。</li>
+<li>归一化 minmax_scale / MinMaxScaler：<cite>MinMaxScaler(feature_range=(0,1))</cite> 默认将各列 <strong>缩放并充满</strong> 到 <img class="math" src="_images/math/66676d52495df3e4cc4e312437b29b5d374f5456.svg" alt="[0,1]"/> 区间，也被称为最值归一化（Min-max normalization）。</li>
+<li>乘法缩放器 maxabs_scale / MaxAbsScaler： <cite>MaxAbsScaler()</cite> 将各列乘以系数，使结果落在 <img class="math" src="_images/math/f4ff09bd2ee11cf65fdd75b149cb6301ee139931.svg" alt="[-1, 1]"/> 的范围内（但不一定充满这个区间）。该方法不平移数据。</li>
+<li>鲁棒缩放器 robust_scale / RobustScaler：该缩放器会剔除两端的值（默认的 <cite>quantile_range=(25.0, 75.0)</cite> ，即剔除25氛围以下与75分位以上），然后对剩余值执行类似 <cite>MinMaxScaler(-0.5, 0.5)</cite> 的操作。</li>
+</ul>
+<p>非线性的缩放器也有不少，这里不一一介绍了。读者可以参考官方 <a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html#non-linear-transformation">Nonlinear Transformation</a> 这一小节的内容。</p>
+<div class="section" id="id12">
+<h3>2.4.1. 例1：标准化<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>以下是 scale 的例子：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+
+<span class="gp">In [43]: </span><span class="n">data_scaled</span> <span class="o">=</span> <span class="n">skp</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="gp">In [44]: </span><span class="n">data_scaled</span>
+<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="go">array([[-1.22474487, -1.33630621],</span>
+<span class="go">       [ 0.        ,  0.26726124],</span>
+<span class="go">       [ 1.22474487,  1.06904497]])</span>
+
+<span class="gp">In [45]: </span><span class="n">data_scaled</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">data_scaled</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="go">                                                                                                                    Out[45]: (0.0, 1.0)</span>
+</pre></div>
+</div>
+<p>以下是 StandardScaler 的例子，它较 scale 的优点在于可以将指定的变换应用到另一个数据上：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">st_scaler</span> <span class="o">=</span> <span class="n">skp</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="gp">In [47]: </span><span class="n">X_train_stscaled</span> <span class="o">=</span> <span class="n">st_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="gp">In [48]: </span><span class="n">X_train_stscaled</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">X_train_stscaled</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="gh">Out[48]: </span><span class="go">(3.700743415417188e-17, 1.0)</span>
+
+<span class="gp">In [49]: </span><span class="n">X_test_stscaled</span> <span class="o">=</span> <span class="n">st_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="gp">In [50]: </span><span class="n">X_test_stscaled</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">X_test_stscaled</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="gh">Out[50]: </span><span class="go">(0.6681531047810609, 1.2026755886059097)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>2.4.2. 例2：归一化<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>范围缩放的缺点在于对异常值比较敏感。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Max-min normalization</span>
+<span class="gp">In [51]: </span><span class="n">skp</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="go">array([[-1.        , -1.        ],</span>
+<span class="go">       [ 0.        ,  0.33333333],</span>
+<span class="go">       [ 1.        ,  1.        ]])</span>
+
+<span class="gp">In [52]: </span><span class="n">skp</span><span class="o">.</span><span class="n">minmax_scale</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">                                                                                                                    Out[52]: </span>
+<span class="go">array([[-1.        , -1.        ],</span>
+<span class="go">       [ 0.        ,  0.33333333],</span>
+<span class="go">       [ 1.        ,  1.        ]])</span>
+
+<span class="go"># Scaling to unit length normalization (default by row)</span>
+<span class="gp">In [53]: </span><span class="n">skp</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">                                                                                                                                                                                                                                        Out[53]: </span>
+<span class="go">array([[ 0.        , -0.89442719],</span>
+<span class="go">       [ 0.4472136 ,  0.        ],</span>
+<span class="go">       [ 0.89442719,  0.4472136 ]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>2.4.3. 例3：乘法缩放<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>本例与归一化例中的 MinMaxScaler 缩放到同样的区间，读者可以比较两者结果的区别。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">skp</span><span class="o">.</span><span class="n">MaxAbsScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="go">array([[ 0. , -1. ],</span>
+<span class="go">       [ 0.5,  0. ],</span>
+<span class="go">       [ 1. ,  0.5]])</span>
+
+<span class="gp">In [55]: </span><span class="n">skp</span><span class="o">.</span><span class="n">maxabs_scale</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">                                                                          Out[55]: </span>
+<span class="go">array([[ 0. , -1. ],</span>
+<span class="go">       [ 0.5,  0. ],</span>
+<span class="go">       [ 1. ,  0.5]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>2.4.4. 例4：鲁棒缩放<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>鲁棒缩放并不是把所有值都缩放到对应的 25-75 分位之间，它仍然保留了离群值。因此，实际上缩放后的范围可能比预期的更大一些。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">rb_scaler</span> <span class="o">=</span> <span class="n">skp</span><span class="o">.</span><span class="n">RobustScaler</span><span class="p">(</span><span class="n">quantile_range</span><span class="o">=</span><span class="p">(</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">))</span>
+
+<span class="gp">In [57]: </span><span class="n">rb_scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="go">array([[-1.        , -1.33333333],</span>
+<span class="go">       [ 0.        ,  0.        ],</span>
+<span class="go">       [ 1.        ,  0.66666667]])</span>
+
+<span class="gp">In [58]: </span><span class="n">rb_scaler</span><span class="o">.</span><span class="n">scale_</span><span class="p">,</span> <span class="n">rb_scaler</span><span class="o">.</span><span class="n">center_</span>
+<span class="go">                                                                                                                    Out[58]: (array([1. , 1.5]), array([1., 0.]))</span>
+
+<span class="go"># Alternative</span>
+<span class="gp">In [59]: </span><span class="n">skp</span><span class="o">.</span><span class="n">robust_scale</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">quantile_range</span><span class="o">=</span><span class="p">(</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">))</span>
+<span class="go">                                                                                                                                                                  Out[59]: </span>
+<span class="go">array([[-1.        , -1.33333333],</span>
+<span class="go">       [ 0.        ,  0.        ],</span>
+<span class="go">       [ 1.        ,  0.66666667]])</span>
+</pre></div>
+</div>
+<p class="rubric">注释</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[1]</a></td><td>单位长归一化的英文是 Scaling to Unit Length，是否应被翻译成“归一化”尚无考证。笔者倾向于对除了标准化之外的其他特征缩放都采用“归一化”的称呼，因此此处权宜这样书写。</td></tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
