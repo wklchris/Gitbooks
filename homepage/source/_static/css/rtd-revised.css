@@ -1,5 +1,10 @@
 @import url("theme.css");
 
+/** Homepage Searchbox Bk-color **/
+.wy-side-nav-search {
+    background-color: darkcyan !important;
+}
+
 /* Full width */
 .wy-nav-content {
     max-width: none;
