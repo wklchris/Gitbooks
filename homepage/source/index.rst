@@ -11,6 +11,7 @@
   * `reStructuredText 学习笔记 <https://wklchris.github.io/Gitbooks/CS/reStructuredText/publish/>`_ 完成于 Oct 2018
   * `Sphinx 学习笔记 <https://wklchris.github.io/Gitbooks/CS/Sphinx/>`_ 完成于 Oct 2018
   * `机器学习笔记 <https://wklchris.github.io/Gitbooks/CS/MachineLearning/>`_ 施工中，发起于 Jan 2019
+  * `Ubuntu 之旅 <https://wklchris.github.io/Gitbooks/CS/UbuntuTrip/>`_ 施工中，发起于 Mar 2019
 
 * Math
 
@@ -18,4 +19,4 @@
   * `SymPy 笔记 <https://wklchris.github.io/Gitbooks/Math/Mathtool-SymPy/>`_ 施工中，发起于 Nov 2018
   * `线性代数笔记 <https://wklchris.github.io/Gitbooks/Math/LinearAlgebra/>`_ 施工中，发起于 Oct 2018
 
-*本页面最后更新于 Feb 2019.* 
+*本页面最后更新于 Mar 2019.* 

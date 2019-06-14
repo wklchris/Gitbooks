@@ -27,5 +27,6 @@
    :numbered:
    
    Basic
+   FamilyServer
    Solutions
 
