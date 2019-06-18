@@ -259,7 +259,7 @@ SSH 的最后，一点闲话：由于 Linux 系统的配色，请调整合适的
 
 .. [#f2] 该命令参考了 PowerShell 的一个 `issue  <https://github.com/PowerShell/Win32-OpenSSH/issues/1037>`_ 中的解决方案。
 
-外网的连接测试
+外网 SSH 连接测试
 ^^^^^^^^^^^^^^^^^^^^^^
 
 在局域网之外的设备，也是有方法通过 SSH 连接到服务器的。不过这需要动态 DNS（Dynamic DNS, DDNS）的支持。

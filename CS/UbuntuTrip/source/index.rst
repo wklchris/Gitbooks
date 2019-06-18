@@ -27,6 +27,7 @@
    :numbered:
    
    Basic
+   ShellIntro
    FamilyServer
    Solutions
 

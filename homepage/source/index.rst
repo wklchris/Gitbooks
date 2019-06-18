@@ -19,4 +19,4 @@
   * `SymPy 笔记 <https://wklchris.github.io/Gitbooks/Math/Mathtool-SymPy/>`_ 施工中，发起于 Nov 2018
   * `线性代数笔记 <https://wklchris.github.io/Gitbooks/Math/LinearAlgebra/>`_ 施工中，发起于 Oct 2018
 
-*本页面最后更新于 Mar 2019.* 
+*本页面最后更新于 Jun 2019.* 
