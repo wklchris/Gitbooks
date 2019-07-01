@@ -123,8 +123,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">3. 线性回归</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">3.1. 误差</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">3.2. 示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">3.1. 简单线性回归</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearRegression.html#id3">3.1.1. 残差</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -215,67 +217,71 @@
 <h2>1.1. 为什么要学习机器学习<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>机器学习的优势：</p>
 <ul class="simple">
-<li><strong>提供了一种可缩短编程时间的方法</strong> ：比起纯粹的、从零开始用人脑思索方法，成熟的机器学习解决方案允许用输入样本的简单方式快速地获得一个可靠方案．例如对于语法纠错，可以通过输入样本的方式解决．</li>
-<li><strong>更灵活的自定义</strong> ：传统编程需要很长时间的类似工作来适配一个新场景，但对于机器学习来说这往往只意味着采集一组新数据．例如，增加语法纠错程序所支持的语言．</li>
-<li><strong>帮助解决难以用人脑确定方法的问题</strong>：人类的一些解决方法是内化在大脑中的，不一定能详尽地阐述其中的原理；机器学习却可以帮助解决这一类问题．例如，人脸识别．</li>
+<li><p><strong>提供了一种可缩短编程时间的方法</strong> ：比起纯粹的、从零开始用人脑思索方法，成熟的机器学习解决方案允许用输入样本的简单方式快速地获得一个可靠方案．例如对于语法纠错，可以通过输入样本的方式解决．</p></li>
+<li><p><strong>更灵活的自定义</strong> ：传统编程需要很长时间的类似工作来适配一个新场景，但对于机器学习来说这往往只意味着采集一组新数据．例如，增加语法纠错程序所支持的语言．</p></li>
+<li><p><strong>帮助解决难以用人脑确定方法的问题</strong>：人类的一些解决方法是内化在大脑中的，不一定能详尽地阐述其中的原理；机器学习却可以帮助解决这一类问题．例如，人脸识别．</p></li>
 </ul>
 <p>机器学习使用中常遇到的问题：</p>
 <ul class="simple">
-<li>训练集太小</li>
-<li>训练集代表性欠缺</li>
-<li>训练集质量低（错误值与噪声）</li>
-<li>无关特征</li>
-<li>过拟合或欠拟合</li>
+<li><p>训练集太小</p></li>
+<li><p>训练集代表性欠缺</p></li>
+<li><p>训练集质量低（错误值与噪声）</p></li>
+<li><p>无关特征</p></li>
+<li><p>过拟合或欠拟合</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2>1.2. 基础概念<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>介绍机器学习的几个概念：</p>
 <ul class="simple">
-<li><strong>标签（Label）</strong> ：即需要预测的变量．一般用 <img class="math" src="_images/math/be8000336bb757b1d624b498181eebbf720cf537.svg" alt="y"/> 表示．有时也翻译成“标记”．</li>
-<li><strong>特征（Feature）</strong> ：即输入变量，通常描述拥有的数据．一般用 <img class="math" src="_images/math/b65dfcdaba42824b522f6b4c15057665d346165c.svg" alt="\boldsymbol{x} = \{x_1, x_2, \ldots, x_n\}"/> 表示．这里的 <img class="math" src="_images/math/5ea9341380737b3580e612da7d472e9911e17b8a.svg" alt="n"/> 表示 <strong>维数（dimensionality）</strong> ．特征有时也被称为“属性（attribute）”．</li>
-<li><strong>观测（Observation）</strong> ：一般地，数据集的每一行都是一个观测．；而每一列会对应一个特征（除了标签列）．</li>
-<li><strong>样例（Example）</strong> ：指数据的一个集合．有时也译作“样本” <a class="footnote-reference" href="#f1" id="id4">[1]</a> 或“示例”，或通称为“数据集”．<ul>
-<li><strong>有标签样例（labeled example）</strong> ：指带有标签的样例，形如 <img class="math" src="_images/math/d7e6bb1f778fbc3d75457b67d45c356c9c72988b.svg" alt="\{\boldsymbol{x}, y\}"/>，用于训练模型．有时也会人为将其划分为用于训练的训练集（training set）与验证预测的测试集（testing set）．</li>
-<li><strong>无标签样例（unlabeled example）</strong> ：指仅有特性、没有标签的样例，形如 <img class="math" src="_images/math/af448583996b3cdf2ba49100533cfa83e706d0f0.svg" alt="\{\boldsymbol{x}, ?\}"/>，用于预测．</li>
+<li><p><strong>标签（Label）</strong> ：即需要预测的变量．一般用 <img class="math" src="_images/math/74b4c11e6c788e7f9422812a63d0fce4931507d3.svg" alt="y"/> 表示．有时也翻译成“标记”．</p></li>
+<li><p><strong>特征（Feature）</strong> ：即输入变量，通常描述拥有的数据．一般用 <img class="math" src="_images/math/c3daa9fcd02d8f705d621f6da1ba776073245dca.svg" alt="\boldsymbol{x} = \{x_1, x_2, \ldots, x_n\}"/> 表示．这里的 <img class="math" src="_images/math/4846369fb6051ac3da95164f1a753e56329323dc.svg" alt="n"/> 表示 <strong>维数（dimensionality）</strong> ．特征有时也被称为“属性（attribute）”．</p></li>
+<li><p><strong>观测（Observation）</strong> ：一般地，数据集的每一行都是一个观测．；而每一列会对应一个特征（除了标签列）．</p></li>
+<li><p><strong>样例（Example）</strong> ：指数据的一个集合．有时也译作“样本” <a class="footnote-reference brackets" href="#f1" id="id4">1</a> 或“示例”，或通称为“数据集”．</p>
+<ul>
+<li><p><strong>有标签样例（labeled example）</strong> ：指带有标签的样例，形如 <img class="math" src="_images/math/698caebc81182633bf8e6d8bfc0a535d2a54f09a.svg" alt="\{\boldsymbol{x}, y\}"/>，用于训练模型．有时也会人为将其划分为用于训练的训练集（training set）与验证预测的测试集（testing set）．</p></li>
+<li><p><strong>无标签样例（unlabeled example）</strong> ：指仅有特性、没有标签的样例，形如 <img class="math" src="_images/math/e90f0c443a9760dd1147e2b565dc794db4e24603.svg" alt="\{\boldsymbol{x}, ?\}"/>，用于预测．</p></li>
 </ul>
 </li>
-<li><strong>模型（Model）</strong> ：指样例与预测结果 <img class="math" src="_images/math/a40aa65c91e26df6421d922272df06cd2eb523e4.svg" alt="y'"/> 之间建立的关系．它取决于通过机器学习方法求得的参数．<ul>
-<li><strong>训练（training）</strong> ：创建或学习模型，得出标签与样本之间的关系．</li>
-<li><strong>推断（inference）</strong> ：将训练得到的模型应用于无标签样本．用于</li>
+<li><p><strong>模型（Model）</strong> ：指样例与预测结果 <img class="math" src="_images/math/da350b404bec28a41f5b510b88110463c5c29cb1.svg" alt="y'"/> 之间建立的关系．它取决于通过机器学习方法求得的参数．</p>
+<ul>
+<li><p><strong>训练（training）</strong> ：创建或学习模型，得出标签与样本之间的关系．</p></li>
+<li><p><strong>推断（inference）</strong> ：将训练得到的模型应用于无标签样本．用于</p></li>
 </ul>
 </li>
 </ul>
 <p>根据标签的情况，预测模型分为两大类：</p>
 <ul class="simple">
-<li><strong>回归（Regression）</strong> 模型：预测连续值．比如：用户点击广告的概率是多少．</li>
-<li><strong>分类（Classification）</strong> 模型：预测离散值．比如：给出的邮件是否是垃圾邮件．</li>
+<li><p><strong>回归（Regression）</strong> 模型：预测连续值．比如：用户点击广告的概率是多少．</p></li>
+<li><p><strong>分类（Classification）</strong> 模型：预测离散值．比如：给出的邮件是否是垃圾邮件．</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
 <h2>1.3. 机器学习的分类<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>机器学习主要的分类方式有三种：</p>
 <ul class="simple">
-<li>按监督</li>
-<li>按学习持续性</li>
-<li>按基于实例或模型</li>
+<li><p>按监督</p></li>
+<li><p>按学习持续性</p></li>
+<li><p>按基于实例或模型</p></li>
 </ul>
 <div class="section" id="id6">
 <h3>1.3.1. 监督与无监督学习<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>机器学习有多种分类方式，而最常被讨论的是按照人类监督程度划分．</p>
 <ul class="simple">
-<li><strong>监督式学习（Supervised Learning）</strong> 是机器学习的基本框架，其训练集包含标签．主要方法包括：<ul>
-<li>K近邻算法（K-nearest neighbors, kNN）</li>
-<li>线性回归（Linear Regression）</li>
-<li>逻辑回归（Logistic Regression）</li>
-<li>支持向量机（Support Vector Machine, SVM）</li>
-<li>决策树和随机森林（Decision Tree &amp; Random Forest）</li>
-<li>神经网络（Neural Network）：常被提及的 <strong>深度学习（Deep Learning）</strong> 属于这一分类．</li>
+<li><p><strong>监督式学习（Supervised Learning）</strong> 是机器学习的基本框架，其训练集包含标签．主要方法包括：</p>
+<ul>
+<li><p>K近邻算法（K-nearest neighbors, kNN）</p></li>
+<li><p>线性回归（Linear Regression）</p></li>
+<li><p>逻辑回归（Logistic Regression）</p></li>
+<li><p>支持向量机（Support Vector Machine, SVM）</p></li>
+<li><p>决策树和随机森林（Decision Tree &amp; Random Forest）</p></li>
+<li><p>神经网络（Neural Network）：常被提及的 <strong>深度学习（Deep Learning）</strong> 属于这一分类．</p></li>
 </ul>
 </li>
-<li><strong>无监督学习（Unsupervised Learning）</strong> 的训练数据集不含标签．主要包含：<ul>
-<li>聚类（Clustering）：K均值聚类（K-means clustering）、层次聚类（Hierarchical clustering, HC）</li>
-<li>降维（Dimensionality Reduction）：较著名的有主成分分析（Principle components analysis, PCA）、核方法（kernel method）．</li>
+<li><p><strong>无监督学习（Unsupervised Learning）</strong> 的训练数据集不含标签．主要包含：</p>
+<ul>
+<li><p>聚类（Clustering）：K均值聚类（K-means clustering）、层次聚类（Hierarchical clustering, HC）</p></li>
+<li><p>降维（Dimensionality Reduction）：较著名的有主成分分析（Principle components analysis, PCA）、核方法（kernel method）．</p></li>
 </ul>
 </li>
 </ul>
@@ -285,13 +291,15 @@
 <h3>1.3.2. 批量学习与在线学习<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>第二种分类方式是根据学习过程能否持续，或者说能否“断点续传”。</p>
 <ul class="simple">
-<li><strong>批量学习</strong> ：学习过程不可持续。如果要学习新的内容(比如新增的垃圾邮件特征)，必须要把新增数据与原有数据整合后，作为一个新的数据集交付模型进行学习。<ul>
-<li>批量学习实现较为简单，但是有较高的重训练的时间成本与硬件资源占用。</li>
+<li><p><strong>批量学习</strong> ：学习过程不可持续。如果要学习新的内容(比如新增的垃圾邮件特征)，必须要把新增数据与原有数据整合后，作为一个新的数据集交付模型进行学习。</p>
+<ul>
+<li><p>批量学习实现较为简单，但是有较高的重训练的时间成本与硬件资源占用。</p></li>
 </ul>
 </li>
-<li><strong>在线学习</strong> ：学习过程是可持续的。学习新内容只需传入新增的数据集即可。这适用于不断产生新数据的数据流的场合，或已有数据集太大、限于硬件进行无法进行批量学习的场合。<ul>
-<li>在线学习的一个重要参数描述对新数据的适应性，称为学习速率。学习速率越高，越倾向于转向新数据而遗忘旧数据；学习速率越低，学习新内容就越慢，但受新数据中的噪点的影响也越低。</li>
-<li>在线学习的优点是显而易见的，但挑战在于如何应对异常数据。异常数据可能导致模型表现下滑，因此在线学习通常需要采取监测、回滚等手段来应对。</li>
+<li><p><strong>在线学习</strong> ：学习过程是可持续的。学习新内容只需传入新增的数据集即可。这适用于不断产生新数据的数据流的场合，或已有数据集太大、限于硬件进行无法进行批量学习的场合。</p>
+<ul>
+<li><p>在线学习的一个重要参数描述对新数据的适应性，称为学习速率。学习速率越高，越倾向于转向新数据而遗忘旧数据；学习速率越低，学习新内容就越慢，但受新数据中的噪点的影响也越低。</p></li>
+<li><p>在线学习的优点是显而易见的，但挑战在于如何应对异常数据。异常数据可能导致模型表现下滑，因此在线学习通常需要采取监测、回滚等手段来应对。</p></li>
 </ul>
 </li>
 </ul>
@@ -300,8 +308,8 @@
 <h3>1.3.3. 基于实例/模型学习<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>第三种分类是根据如何进行归纳与推广。</p>
 <ul class="simple">
-<li><strong>基于实例学习</strong> ：先记忆符合条件的实例，再搜索与这些实例相似的其他实例。</li>
-<li><strong>基于模型学习</strong> ：根据数据的情况选择一个模型(例如线性回归模型)，然后用数据集进行训练与预测。</li>
+<li><p><strong>基于实例学习</strong> ：先记忆符合条件的实例，再搜索与这些实例相似的其他实例。</p></li>
+<li><p><strong>基于模型学习</strong> ：根据数据的情况选择一个模型(例如线性回归模型)，然后用数据集进行训练与预测。</p></li>
 </ul>
 </div>
 </div>
@@ -309,27 +317,26 @@
 <h2>1.4. 如何获取数据集<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>下面是一些常用的机器学习数据源：</p>
 <ul class="simple">
-<li><a class="reference external" href="http://archive.ics.uci.edu/ml/">UC Irvine ML Repository</a></li>
-<li><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle Datasets</a></li>
-<li><a class="reference external" href="https://registry.opendata.aws/">AWS Open Data</a></li>
+<li><p><a class="reference external" href="http://archive.ics.uci.edu/ml/">UC Irvine ML Repository</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle Datasets</a></p></li>
+<li><p><a class="reference external" href="https://registry.opendata.aws/">AWS Open Data</a></p></li>
 </ul>
 <p>你也可以参考 <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine_learning_research">wikipedia: List of datasets for machine learning research</a> 来寻找合适的机器学习数据网站．</p>
 <p>你也可以从 <cite>scikit-learn</cite> 库的 <cite>datasets</cite> 模块调用一些数据集，调用命令形如： <cite>sklearn.datasets.load_boston()</cite> 。部分支持的数据集有：</p>
 <ul class="simple">
-<li><strong>boston</strong>：波士顿房价数据集（回归）。</li>
-<li><strong>iris</strong>：鸢尾花数据集（分类）。</li>
-<li><strong>diabetes</strong>：糖尿病数据集（回归）。</li>
-<li><strong>digits</strong>：8x8 图像数据集（分类）。</li>
-<li><strong>wine</strong>：红酒数据集（分类）。</li>
+<li><p><strong>boston</strong>：波士顿房价数据集（回归）。</p></li>
+<li><p><strong>iris</strong>：鸢尾花数据集（分类）。</p></li>
+<li><p><strong>diabetes</strong>：糖尿病数据集（回归）。</p></li>
+<li><p><strong>digits</strong>：8x8 图像数据集（分类）。</p></li>
+<li><p><strong>wine</strong>：红酒数据集（分类）。</p></li>
 </ul>
 <p>完整的列表请查看 scikit-learn 的官方页面：<a class="reference external" href="https://scikit-learn.org/stable/datasets/">Scikit-learn 内置的数据集</a> 。</p>
 <p class="rubric">注释</p>
-<table class="docutils footnote" frame="void" id="f1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td>严格地说，Example 这一词不应翻译为“样本”，因为这可能与 Sample 产生混淆．不过，从中文的角度，“样本”这个词既可以表示从全体中选取的一个数据集（即英文的 example），也可以表示抽取的一条或多条数据（即 sample）．本文中将使用“样例”作为翻译．</td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>严格地说，Example 这一词不应翻译为“样本”，因为这可能与 Sample 产生混淆．不过，从中文的角度，“样本”这个词既可以表示从全体中选取的一个数据集（即英文的 example），也可以表示抽取的一条或多条数据（即 sample）．本文中将使用“样例”作为翻译．</p>
+</dd>
+</dl>
 </div>
 </div>
 

@@ -123,8 +123,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="LinearRegression.html">3. 线性回归</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">3.1. 误差</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id3">3.2. 示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression.html#id2">3.1. 简单线性回归</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearRegression.html#id3">3.1.1. 残差</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -214,19 +216,19 @@
 <h2>2.1. 补全缺失数据<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>缺失数据在不同数据集中可能有不同的标识方式，常见的列出如下。我个人倾向于使用 na，或者 N/A。个人不建议使用字符串“NaN”，因为这将与 pandas 默认的数字类型的 np.nan 混淆。</p>
 <ul class="simple">
-<li>未填写内容，或空格</li>
-<li>N/A（或者 NA，na 等）</li>
-<li>？（即问号符）</li>
-<li>0，或所在特征（列）不可能取到的值（比如年龄属性中的负数）</li>
+<li><p>未填写内容，或空格</p></li>
+<li><p>N/A（或者 NA，na 等）</p></li>
+<li><p>？（即问号符）</p></li>
+<li><p>0，或所在特征（列）不可能取到的值（比如年龄属性中的负数）</p></li>
 </ul>
 <p>scikit-learn.impute 模块提供了：</p>
 <ul class="simple">
-<li>一个简单的缺失值估计器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html">SimpleImputer</a> ，由用户指定估计策略。对于字符串类型的特征，可以用 <strong>众数</strong>  <cite>most_frequent</cite> 或 <strong>指定值</strong>  <cite>constant</cite> 来估计；对于数值类型的特征，除了上述两种策略外，还可以用 <strong>均值</strong>  <cite>mean</cite> 或者 <strong>中位数</strong>  <cite>median</cite> 来估计。</li>
-<li>一个标记各元素是否为缺失值的标记器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.MissingIndicator.html">MissingIndicator</a> ，所有缺失位置会被标记为 True。注意：没有缺失值的特征（列）会被剔除。</li>
+<li><p>一个简单的缺失值估计器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html">SimpleImputer</a> ，由用户指定估计策略。对于字符串类型的特征，可以用 <strong>众数</strong>  <cite>most_frequent</cite> 或 <strong>指定值</strong>  <cite>constant</cite> 来估计；对于数值类型的特征，除了上述两种策略外，还可以用 <strong>均值</strong>  <cite>mean</cite> 或者 <strong>中位数</strong>  <cite>median</cite> 来估计。</p></li>
+<li><p>一个标记各元素是否为缺失值的标记器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.MissingIndicator.html">MissingIndicator</a> ，所有缺失位置会被标记为 True。注意：没有缺失值的特征（列）会被剔除。</p></li>
 </ul>
 <div class="section" id="id3">
 <h3>2.1.1. 例1：用本特征的均值补全<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<p>方法 <cite>fit_transform</cite> 将本特征的数据用来拟合策略（本例中，即计算对应列除缺失值外的数据的均值）。例如对特征 x1 ，缺失值被估计为 <img class="math" src="_images/math/4a3c843d569acb98745979720d549af4b848e45e.svg" alt="(0+1+5)/3=2"/> 。本例中，所有 np.nan 被视为缺失值。</p>
+<p>方法 <cite>fit_transform</cite> 将本特征的数据用来拟合策略（本例中，即计算对应列除缺失值外的数据的均值）。例如对特征 x1 ，缺失值被估计为 <img class="math" src="_images/math/07107202e1bd5d5f878a5d64ccc66097e6df7ac0.svg" alt="(0+1+5)/3=2"/> 。本例中，所有 np.nan 被视为缺失值。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
 
 <span class="gp">In [5]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;N/A&quot;</span><span class="p">],</span>
@@ -279,7 +281,7 @@
 </div>
 <div class="section" id="id5">
 <h3>2.1.3. 例3：用给定常数补全<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<p>这是最简单的一种补全方式，方法上使用 <cite>fit_transform</cite> 即可。下例的所有缺失值被补全为 <img class="math" src="_images/math/4573612cf2dbb0a6f616956462b35592242f167d.svg" alt="-1"/> 。</p>
+<p>这是最简单的一种补全方式，方法上使用 <cite>fit_transform</cite> 即可。下例的所有缺失值被补全为 <img class="math" src="_images/math/76f6eb1ba5f79439bd625e212b8bdc856eec393d.svg" alt="-1"/> 。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">imp_constant</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="gp">In [15]: </span><span class="n">imp_constant</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x1</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -298,8 +300,8 @@
 <p>此外，我们一般尽可能地使用数字来表示数据。比如性别男或女，可以编码为 0 或 1。如果你使用过 R 语言，那你应当对这样的 factor 类型处理不陌生。</p>
 <p>scikit-learn.preprocessing 提供了：</p>
 <ul class="simple">
-<li>序数编码器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html">OrdinalEncoder</a> 。将类别特征中每个出现过的值，设为一个单独的整数编码。序数分配将按照字符串的排序先后进行。</li>
-<li>独热编码器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a> 。该编码器会将一个特征拆分为多个：每个新的特征会把某一个值指定为 1，其余值都赋 0。</li>
+<li><p>序数编码器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html">OrdinalEncoder</a> 。将类别特征中每个出现过的值，设为一个单独的整数编码。序数分配将按照字符串的排序先后进行。</p></li>
+<li><p>独热编码器 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a> 。该编码器会将一个特征拆分为多个：每个新的特征会把某一个值指定为 1，其余值都赋 0。</p></li>
 </ul>
 <div class="section" id="id7">
 <h3>2.2.1. 例1：序数编码 OrdinalEncoder<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
@@ -454,18 +456,18 @@
 <h2>2.4. 特征缩放：标准化与归一化<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>许多模型使用欧几里德距离作为一个重要的度量方式，这就导致多特征量模型中，特征的不同数值尺度会影响模型结果。为避免这一点，常用的 <strong>标准化（standardization）</strong> 手段, 即 <cite>scale</cite> 命令，通过平移移除了均值（将均值变换为0），并线性缩放将标准差变换为1：</p>
 <div class="math">
-<p><img src="_images/math/e1622d5d60abd78e4423a21c616bfa99eda50a73.svg" alt="X' = \frac{X - \mu}{\sigma}"/></p>
-</div><p>上式中的 <img class="math" src="_images/math/5ff81ac7d2bf20f3d1fda2d1807a17f0705a7222.svg" alt="\mu"/> 与 <img class="math" src="_images/math/aa071f7ce8e1b7d211185fd6a208d3fbbef29f83.svg" alt="\sigma"/> 无法求得时，使用样本均值与样本标准差代替。</p>
-<p>而 <strong>归一化（normalization）</strong> 是指将数据缩放到一个给定的区间内（通常是 <img class="math" src="_images/math/66676d52495df3e4cc4e312437b29b5d374f5456.svg" alt="[0,1]"/> 或者 <img class="math" src="_images/math/f4ff09bd2ee11cf65fdd75b149cb6301ee139931.svg" alt="[-1, 1]"/>）。以通常所指的最值归一化（归一化到 <img class="math" src="_images/math/66676d52495df3e4cc4e312437b29b5d374f5456.svg" alt="[0,1]"/> ）为例：</p>
+<p><img src="_images/math/23f29927452a4b2409cf171e40e8b9ecb7f27ee5.svg" alt="X' = \frac{X - \mu}{\sigma}"/></p>
+</div><p>上式中的 <img class="math" src="_images/math/07fb4c3383e3af7f7bae9e5409a6fae72c9635cf.svg" alt="\mu"/> 与 <img class="math" src="_images/math/7f13c4dc2979726f44dcd8b8b98b14b584bdf19b.svg" alt="\sigma"/> 无法求得时，使用样本均值与样本标准差代替。</p>
+<p>而 <strong>归一化（normalization）</strong> 是指将数据缩放到一个给定的区间内（通常是 <img class="math" src="_images/math/058ebdfffbd8892049930ed168be1308041c3c55.svg" alt="[0,1]"/> 或者 <img class="math" src="_images/math/ab51ddb18b0bfb7f7e0b9124d45853ca122b171d.svg" alt="[-1, 1]"/>）。以通常所指的最值归一化（归一化到 <img class="math" src="_images/math/058ebdfffbd8892049930ed168be1308041c3c55.svg" alt="[0,1]"/> ）为例：</p>
 <div class="math">
-<p><img src="_images/math/42eb6e9e78017cfad74c2e4875fcccc890daa04d.svg" alt="X' = \frac{X - \min\{X\}}{\max\{X\} - \min\{X\}}"/></p>
-</div><p>关于特征缩放概念的误解，尤其是 standardization 与 normalization 的混淆，一直都非常严重。 <strong>标准化的含义是唯一的</strong> ；而归一化除了上述的最值归一化外，还有其他的形式，例如均值归一化 <img class="math" src="_images/math/646ce93d039846e7fabc536afc7884ce4120d662.svg" alt="(x-\bar{x})/(\max\{x\}-\min\{x\})"/> ，单位长归一化 <a class="footnote-reference" href="#f1" id="id11">[1]</a> <img class="math" src="_images/math/ccd2ef816762e802b9e70e71d519f1443128d452.svg" alt="x/\| x\|"/> （即 <cite>skp.normalize</cite>）。</p>
+<p><img src="_images/math/4d997978df56be53a09ce5d61798f82864227b50.svg" alt="X' = \frac{X - \min\{X\}}{\max\{X\} - \min\{X\}}"/></p>
+</div><p>关于特征缩放概念的误解，尤其是 standardization 与 normalization 的混淆，一直都非常严重。 <strong>标准化的含义是唯一的</strong> ；而归一化除了上述的最值归一化外，还有其他的形式，例如均值归一化 <img class="math" src="_images/math/fecc403b086b3aa04b2c2b6ca281e4ed0202f3cc.svg" alt="(x-\bar{x})/(\max\{x\}-\min\{x\})"/> ，单位长归一化 <a class="footnote-reference brackets" href="#f1" id="id11">1</a> <img class="math" src="_images/math/149f3ee74aa8cb24e3819341daec0801fe64a35f.svg" alt="x/\| x\|"/> （即 <cite>skp.normalize</cite>）。</p>
 <p>sklearn.preprocessing 提供了以下线性缩放器：</p>
 <ul class="simple">
-<li>标准化 scale / StandardScaler：scale 通过线性变换各个特征，使它们均具有均值为 0、标准差为 1 的特性。而 StandardScaler 默认的参数 <cite>with_mean=True, with_std=True</cite> 也表示平移中心到0、缩放标准差为1，因此默认参数下它与标准化缩放效果相同。</li>
-<li>归一化 minmax_scale / MinMaxScaler：<cite>MinMaxScaler(feature_range=(0,1))</cite> 默认将各列 <strong>缩放并充满</strong> 到 <img class="math" src="_images/math/66676d52495df3e4cc4e312437b29b5d374f5456.svg" alt="[0,1]"/> 区间，也被称为最值归一化（Min-max normalization）。</li>
-<li>乘法缩放器 maxabs_scale / MaxAbsScaler： <cite>MaxAbsScaler()</cite> 将各列乘以系数，使结果落在 <img class="math" src="_images/math/f4ff09bd2ee11cf65fdd75b149cb6301ee139931.svg" alt="[-1, 1]"/> 的范围内（但不一定充满这个区间）。该方法不平移数据。</li>
-<li>鲁棒缩放器 robust_scale / RobustScaler：该缩放器会剔除两端的值（默认的 <cite>quantile_range=(25.0, 75.0)</cite> ，即剔除25氛围以下与75分位以上），然后对剩余值执行类似 <cite>MinMaxScaler(-0.5, 0.5)</cite> 的操作。</li>
+<li><p>标准化 scale / StandardScaler：scale 通过线性变换各个特征，使它们均具有均值为 0、标准差为 1 的特性。而 StandardScaler 默认的参数 <cite>with_mean=True, with_std=True</cite> 也表示平移中心到0、缩放标准差为1，因此默认参数下它与标准化缩放效果相同。</p></li>
+<li><p>归一化 minmax_scale / MinMaxScaler：<cite>MinMaxScaler(feature_range=(0,1))</cite> 默认将各列 <strong>缩放并充满</strong> 到 <img class="math" src="_images/math/058ebdfffbd8892049930ed168be1308041c3c55.svg" alt="[0,1]"/> 区间，也被称为最值归一化（Min-max normalization）。</p></li>
+<li><p>乘法缩放器 maxabs_scale / MaxAbsScaler： <cite>MaxAbsScaler()</cite> 将各列乘以系数，使结果落在 <img class="math" src="_images/math/ab51ddb18b0bfb7f7e0b9124d45853ca122b171d.svg" alt="[-1, 1]"/> 的范围内（但不一定充满这个区间）。该方法不平移数据。</p></li>
+<li><p>鲁棒缩放器 robust_scale / RobustScaler：该缩放器会剔除两端的值（默认的 <cite>quantile_range=(25.0, 75.0)</cite> ，即剔除25氛围以下与75分位以上），然后对剩余值执行类似 <cite>MinMaxScaler(-0.5, 0.5)</cite> 的操作。</p></li>
 </ul>
 <p>非线性的缩放器也有不少，这里不一一介绍了。读者可以参考官方 <a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html#non-linear-transformation">Nonlinear Transformation</a> 这一小节的内容。</p>
 <div class="section" id="id12">
@@ -565,12 +567,11 @@
 </pre></div>
 </div>
 <p class="rubric">注释</p>
-<table class="docutils footnote" frame="void" id="f1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id11">[1]</a></td><td>单位长归一化的英文是 Scaling to Unit Length，是否应被翻译成“归一化”尚无考证。笔者倾向于对除了标准化之外的其他特征缩放都采用“归一化”的称呼，因此此处权宜这样书写。</td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id11">1</a></span></dt>
+<dd><p>单位长归一化的英文是 Scaling to Unit Length，是否应被翻译成“归一化”尚无考证。笔者倾向于对除了标准化之外的其他特征缩放都采用“归一化”的称呼，因此此处权宜这样书写。</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

@@ -56,7 +56,13 @@ imgmath_latex_preamble = r'''
 \newcommand{\uR}{\mathbb{R}}
 \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}}
 \newcommand{\ue}{\mathrm{e}}
+
+\DeclareMathOperator*{\argmin}{argmin}
 '''
+# \DeclareMathOperator{\rank}{rank}
+# \newcommand{\mI}{\boldsymbol{I}}
+# \newcommand{\mH}{\boldsymbol{H}}
+# \newcommand{\mX}{\boldsymbol{X}}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
