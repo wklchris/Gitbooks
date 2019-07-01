@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Shell 命令简介 &mdash; Ubuntu 之旅 0.1 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/rtd-revised.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. 配置家庭服务器（远程计算平台）" href="FamilyServer.html" />
+    <link rel="prev" title="1. 基础：安装 Ubuntu" href="Basic.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Ubuntu 之旅
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+            
+            <a href="https://wklchris.github.io/Gitbooks/homepage/" style="margin:0pt 2pt">
+              · Site Homepage ·
+            </a>
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">1. 基础：安装 Ubuntu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id2">1.1. 在虚拟机上安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basic.html#vm-virtualbox-ubuntu">1.1.1. 在 VM VirtualBox 上安装 Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#id3">1.2. 在物理机上安装 Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic.html#u-ubuntu">1.3. 在 U 盘上安装便携式 Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Shell 命令简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 命令行终端</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bashrc">2.1.1. 主目录与 .bashrc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1.2. 常见语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.1.3. 脚本文件的构成与运行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FamilyServer.html">3. 配置家庭服务器（远程计算平台）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FamilyServer.html#ubuntu">3.1. 安装 Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FamilyServer.html#id3">3.2. 用户管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#root">3.2.1. 启用 root 账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id4">3.2.2. 添加普通用户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id5">3.2.3. 其他的用户操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FamilyServer.html#id6">3.2.3.1. 在登录界面添加 root 账户入口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FamilyServer.html#sudo">3.2.3.2. 为其他用户设置 sudo 权限</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FamilyServer.html#ssh">3.3. 配置 SSH：远程加密连接</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id9">3.3.1. 在服务器机上的准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id10">3.3.2. 内网连接测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id11">3.3.3. 配置免密码的 SSH 连接</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FamilyServer.html#ubuntu-macos">3.3.3.1. Ubuntu/MacOS 的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FamilyServer.html#windows">3.3.3.2. Windows 的配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id13">3.3.4. 外网 SSH 连接测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id15">3.3.5. 配置 SSH 的别名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#vs-code-ssh">3.3.6. VS Code 通过 SSH 连接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FamilyServer.html#samba">3.4. 配置 Samba：文件共享服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FamilyServer.html#xrdp">3.5. 配置远程桌面 xrdp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FamilyServer.html#id17">3.6. 其他内容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FamilyServer.html#id18">3.6.1. 温度监控</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Solutions.html">4. 疑难解答</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id2">4.1. 安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id3">4.1.1. 卡红点的界面（显卡问题）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id4">4.1.2. 安装时分辨率太低/点不到按钮</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id5">4.2. 启动</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id6">4.2.1. 引导未失去但路径不正确</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id8">4.3. 其他</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#ubuntu">4.3.1. 从 Ubuntu 关机时的嘎达声</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ubuntu 之旅</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>2. Shell 命令简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ShellIntro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="FamilyServer.html" class="btn btn-neutral float-right" title="3. 配置家庭服务器（远程计算平台）" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Basic.html" class="btn btn-neutral" title="1. 基础：安装 Ubuntu" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shell">
+<h1>2. Shell 命令简介<a class="headerlink" href="#shell" title="永久链接至标题">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>本章的内容不是必须阅读的；您就算不阅读本章，也可以照搬后续章中提到的命令与解决方案。</p>
+<p>我建议读者对本章稍加翻阅，以便未来在搜索命令用法时有个大致的印象。</p>
+</div>
+<p>大多数 Linux 系统的 Shell 命令都是基于 Bash (Bourne Again SHell) 环境的；本章以 Ubuntu 下的 Bash 为例，使用的键盘是基于 Windows 键位的。</p>
+<div class="section" id="id1">
+<h2>2.1. 命令行终端<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>在 Linux 系统中，你几乎无法避免使用命令行终端（Terminal）。你可以通过 <cite>Ctrl + Alt + T</cite> 打开终端，它会显示：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>username@hostname$
+</pre></div>
+</div>
+<p>其中， <code class="code docutils literal notranslate"><span class="pre">username</span></code> 是当前用户名， <code class="code docutils literal notranslate"><span class="pre">hostname</span></code> 是当前主机的名称。而美元符 <code class="code docutils literal notranslate"><span class="pre">$</span></code> 表示当前用户的权限是普通。用户可以在此界面下的美元符后输入 shell 命令，并以 <cite>Enter</cite> 键执行。</p>
+<p>相对于普通用户，还有管理员用户。比如 Linux 中权限最高的用户，叫 <code class="code docutils literal notranslate"><span class="pre">root</span></code> ，在登入时不显示美元符而是显示井符 <code class="code docutils literal notranslate"><span class="pre">#</span></code> ：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>root@hostname#
+</pre></div>
+</div>
+<p>一般地，我们不会用 <code class="code docutils literal notranslate"><span class="pre">root</span></code> 用户登入，而是使用拥有 <code class="code docutils literal notranslate"><span class="pre">sudo</span></code> 权限的普通用户登录，并通过 <code class="code docutils literal notranslate"><span class="pre">sudo</span></code> 指令运行高权限命令；这样与通过 <code class="code docutils literal notranslate"><span class="pre">root</span></code> 账户执行操作实质上是等同的。</p>
+<div class="section" id="bashrc">
+<h3>2.1.1. 主目录与 .bashrc<a class="headerlink" href="#bashrc" title="永久链接至标题">¶</a></h3>
+<p>一般用户的主目录即 <code class="code docutils literal notranslate"><span class="pre">/home/username</span></code> ，你也可以通过波浪符 <code class="code docutils literal notranslate"><span class="pre">~</span></code> 指代当前用户的主目录。</p>
+<p>在打开终端时，shell 会调用用户的配置文件，一般位于 <code class="code docutils literal notranslate"><span class="pre">~/.bashrc</span></code> 。此外，登录主机时会启动一个登录 shell，它读取的是 <code class="code docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> 。只有登录主机的 shell 是登录 shell，我们从桌面打开终端并不在此列。</p>
+</div>
+<div class="section" id="id2">
+<h3>2.1.2. 常见语法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>在终端中可以使用的一些语法如下：</p>
+<ul class="simple">
+<li><p>分号表示语句分隔，比如 <code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">cmd;</span> <span class="pre">cmd2</span></code> 实质上是 <code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">cmd</span></code> 与 <code class="code docutils literal notranslate"><span class="pre">$</span> <span class="pre">cmd2</span></code> 两条内容。</p></li>
+<li><p>行尾的 <code class="code docutils literal notranslate"><span class="pre">#</span></code> 之后的内容视为注释，不会被执行。</p></li>
+<li><p>单引号与双引号都可以表示字符串。不过单引号中不能使用变量替换；而双引号字符串在传递给 <code class="code docutils literal notranslate"><span class="pre">echo</span></code> 输出命令时，可能需要添加额外的转义符号 <code class="code docutils literal notranslate"><span class="pre">\</span> </code> 。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>2.1.3. 脚本文件的构成与运行<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>shell 脚本通常是扩展名为 <code class="code docutils literal notranslate"><span class="pre">.sh</span></code> 的文件。它的首行以 shebang <a class="footnote-reference brackets" href="#f1" id="id4">1</a> 起始，最常见的是:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+</pre></div>
+</div>
+<p>这表示脚本执行时会使用位于 <code class="code docutils literal notranslate"><span class="pre">/bin</span></code> 目录下的 <code class="code docutils literal notranslate"><span class="pre">bash</span></code> 解释器。在脚本文件编写完成并保存后，通过命令行可以运行（假设当前脚本位于终端的当前路径下）：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash example.sh
+</pre></div>
+</div>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">example.sh</span></code> 是脚本的文件名；如果位于其他路径下，可以使用带有路径的命令 <code class="code docutils literal notranslate"><span class="pre">/path/to/script/example.sh</span></code> 。</p>
+<p>另一种执行方法是先赋予脚本文件可执行权限，然后直接执行：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>chmod a+x example.sh
+./script.sh
+</pre></div>
+</div>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">chmod</span></code> 是一个更改文件访问/执行权限的命令，参数 <code class="code docutils literal notranslate"><span class="pre">a+x</span></code> 表示给所有的用户组添加执行权限。常见命令的用法会在后面介绍。第二行的 <code class="code docutils literal notranslate"><span class="pre">./</span></code> 表示当前目录。</p>
+<p class="rubric">本节注释</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>shebang 的含义是指字符串 <code class="code docutils literal notranslate"><span class="pre">#!</span></code> ，因为在英文中 <code class="code docutils literal notranslate"><span class="pre">#</span></code> 读作 sharp， <code class="code docutils literal notranslate"><span class="pre">!</span></code> 读作 bang，而 shebang 则由这两个词组成而来。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FamilyServer.html" class="btn btn-neutral float-right" title="3. 配置家庭服务器（远程计算平台）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Basic.html" class="btn btn-neutral" title="1. 基础：安装 Ubuntu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, wklchris
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

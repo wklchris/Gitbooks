@@ -182,7 +182,7 @@ SSH 从来不是传输速度最快的，但是由于其安全性、简明的命�
 
 然后，运行 cmd 或者 PowerShell，输入 :code:`ssh` 命令以确认成功安装。接着就可以连接了：
 
-.. code-block:: PowerShell
+.. code-block:: powershell
 
    ssh user1@192.168.x.x
 
@@ -217,19 +217,19 @@ Windows 的配置
 
 事情在 Windows 上总是要复杂一点。首先，请尝试生成一个密钥（测试版的 OpenSSH 只能生成 ed25519 类型的）：
 
-.. code-block:: PowerShell
+.. code-block:: powershell
 
    ssh-keygen
 
 如果以上命令出错，尝试 [#f2]_ ：
 
-.. code-block:: PowerShell
+.. code-block:: powershell
 
    ssh-keygen -t ed25519 -Z aes128-ctr
 
 这个密钥可能被生成在 :code:`c:\users\username\.ssh\id_ed25519` 这个路径中。我们可以用 :code:`ssh-agent` 服务来管理它。以管理员运行 PowerShell：
 
-.. code-block:: PowerShell
+.. code-block:: powershell
 
    Start-Service ssh-agent
    ssh-add c:\users\username\.ssh\id_ed25519
@@ -238,7 +238,7 @@ Windows 的配置
 
 最后，因为 Windows 中没有 :code:`ssh-copy-id` 的等效命令，我们使用 SSH 自带的文件复制命令 :code:`scp` 来复制公钥到服务器机。如果你的服务器机上事先不存在 :code:`~/.ssh/authorized_keys` 这个文件，你可以执行：
 
-.. code-block:: PowerShell
+.. code-block:: powershell
 
    scp c:\users\username\.ssh\id_ed25519.pub user1@192.168.x.x:~/.ssh/authorized_keys
 
@@ -246,7 +246,7 @@ Windows 的配置
 
 如果你的服务器机事先已有 :code:`~/.ssh` 与 :code:`authorized_keys` 文件，请将你的公钥以文本形式复制到文件后即可:
 
-.. code-block:: PowerShell
+.. code-block:: powershell
 
    scp c:\users\username\.ssh\id_ed25519.pub user1@192.168.x.x
    
@@ -306,7 +306,7 @@ SSH 的最后，一点闲话：由于 Linux 系统的配色，请调整合适的
     
 此后，在命令行就不需要 :code:`ssh user1@192.168.x.x` 来登录了，可以直接：
 
-.. code-block:: PowerShell
+.. code-block:: powershell
 
    ssh useralias
 

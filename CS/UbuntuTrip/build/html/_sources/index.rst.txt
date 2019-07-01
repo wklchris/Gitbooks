@@ -27,6 +27,8 @@
    :numbered:
    
    Basic
+   ShellIntro
    FamilyServer
+   Streaming
    Solutions
 

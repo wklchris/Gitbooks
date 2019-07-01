@@ -29,5 +29,6 @@
    Basic
    ShellIntro
    FamilyServer
+   Streaming
    Solutions
 

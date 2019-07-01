@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. 配置家庭服务器（远程计算平台） &mdash; Ubuntu 之旅 0.1 文档</title>
+  <title>3. 配置家庭服务器（远程计算平台） &mdash; Ubuntu 之旅 0.1 文档</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="3. 疑难解答" href="Solutions.html" />
-    <link rel="prev" title="1. 基础：安装 Ubuntu" href="Basic.html" /> 
+    <link rel="next" title="4. 家庭流式传输" href="Streaming.html" />
+    <link rel="prev" title="2. Shell 命令简介" href="ShellIntro.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -97,51 +97,68 @@
 <li class="toctree-l2"><a class="reference internal" href="Basic.html#u-ubuntu">1.3. 在 U 盘上安装便携式 Ubuntu</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 配置家庭服务器（远程计算平台）</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ubuntu">2.1. 安装 Ubuntu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 用户管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#root">2.2.1. 启用 root 账户</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">2.2.2. 添加普通用户</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">2.2.3. 其他的用户操作</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id6">2.2.3.1. 在登录界面添加 root 账户入口</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sudo">2.2.3.2. 为其他用户设置 sudo 权限</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ShellIntro.html">2. Shell 命令简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ShellIntro.html#id1">2.1. 命令行终端</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ShellIntro.html#bashrc">2.1.1. 主目录与 .bashrc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ShellIntro.html#id2">2.1.2. 常见语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ShellIntro.html#id3">2.1.3. 脚本文件的构成与运行</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ssh">2.3. 配置 SSH：远程加密连接</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">2.3.1. 在服务器机上的准备</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">2.3.2. 内网连接测试</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">2.3.3. 配置免密码的 SSH 连接</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ubuntu-macos">2.3.3.1. Ubuntu/MacOS 的配置</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#windows">2.3.3.2. Windows 的配置</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">2.3.4. 外网的连接测试</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">2.3.5. 配置 SSH 的别名</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vs-code-ssh">2.3.6. VS Code 通过 SSH 连接</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#samba">2.4. 配置 Samba：文件共享服务</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xrdp">2.5. 配置远程桌面 xrdp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id17">2.6. 其他内容</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id18">2.6.1. 温度监控</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 配置家庭服务器（远程计算平台）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu">3.1. 安装 Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3.2. 用户管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#root">3.2.1. 启用 root 账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2.2. 添加普通用户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.2.3. 其他的用户操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.2.3.1. 在登录界面添加 root 账户入口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sudo">3.2.3.2. 为其他用户设置 sudo 权限</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Solutions.html">3. 疑难解答</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id2">3.1. 安装</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id3">3.1.1. 卡红点的界面（显卡问题）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id4">3.1.2. 安装时分辨率太低/点不到按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh">3.3. 配置 SSH：远程加密连接</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">3.3.1. 在服务器机上的准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">3.3.2. 内网连接测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">3.3.3. 配置免密码的 SSH 连接</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-macos">3.3.3.1. Ubuntu/MacOS 的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows">3.3.3.2. Windows 的配置</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id5">3.2. 启动</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id6">3.2.1. 引导未失去但路径不正确</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">3.3.4. 外网 SSH 连接测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">3.3.5. 配置 SSH 的别名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vs-code-ssh">3.3.6. VS Code 通过 SSH 连接</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id8">3.3. 其他</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Solutions.html#ubuntu">3.3.1. 从 Ubuntu 关机时的嘎达声</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samba">3.4. 配置 Samba：文件共享服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xrdp">3.5. 配置远程桌面 xrdp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">3.6. 其他内容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">3.6.1. 温度监控</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Streaming.html">4. 家庭流式传输</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Streaming.html#steam">4.1. Steam 流式传输</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Streaming.html#id2">4.1.1. 如何开启 Steam 流式传输</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Streaming.html#steamplay">4.1.2. 如何准备 SteamPlay</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Solutions.html">5. 疑难解答</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id2">5.1. 安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id3">5.1.1. 卡红点的界面（显卡问题）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id4">5.1.2. 安装时分辨率太低/点不到按钮</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id5">5.2. 启动</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#id6">5.2.1. 引导未失去但路径不正确</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Solutions.html#id8">5.3. 其他</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Solutions.html#ubuntu">5.3.1. 从 Ubuntu 关机时的嘎达声</a></li>
 </ul>
 </li>
 </ul>
@@ -191,7 +208,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>2. 配置家庭服务器（远程计算平台）</li>
+      <li>3. 配置家庭服务器（远程计算平台）</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -207,10 +224,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="Solutions.html" class="btn btn-neutral float-right" title="3. 疑难解答" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Streaming.html" class="btn btn-neutral float-right" title="4. 家庭流式传输" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Basic.html" class="btn btn-neutral" title="1. 基础：安装 Ubuntu" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ShellIntro.html" class="btn btn-neutral" title="2. Shell 命令简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -220,7 +237,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>2. 配置家庭服务器（远程计算平台）<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>3. 配置家庭服务器（远程计算平台）<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>如果家庭有一台性能足够的台式机，可以安装 Ubuntu 然后将其配置成为计算平台。可以实现的功能包括：</p>
 <ul class="simple">
 <li><p>用 ssh 命令行，通过局域网/互联网远程控制</p></li>
@@ -248,16 +265,16 @@
 </li>
 </ul>
 <div class="section" id="ubuntu">
-<h2>2.1. 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
+<h2>3.1. 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
 <p>从官网 <a class="reference external" href="https://www.ubuntu.com/#download">Ubuntu 官方网站</a> 下载最新的长期支持版本（LTS）的 iso 文件，然后用刻录工具刻录到一个空闲的 U 盘上。</p>
 <p>启动服务器机，插入 U 盘并进入 boot 菜单或 BIOS，设置以它来引导启动。如果该机不作他用，可以选择清除全盘并安装 Ubuntu。</p>
 <p><em>注意：安装时设置的用户会在后续过程中删除，因此名称与密码不必太过在意。事实上，在刚装机完成的时期，Ubuntu 清除账户与新建账户带来的门槛并不高。</em></p>
 </div>
 <div class="section" id="id3">
-<h2>2.2. 用户管理<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>3.2. 用户管理<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>通过 root 用户加多个普通用户的形式，可以实现软件的共享。甚至在安装 Python 的库时，也只需要安装一次，所有用户便都可调用。</p>
 <div class="section" id="root">
-<h3>2.2.1. 启用 root 账户<a class="headerlink" href="#root" title="永久链接至标题">¶</a></h3>
+<h3>3.2.1. 启用 root 账户<a class="headerlink" href="#root" title="永久链接至标题">¶</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">注意</p>
 <p>在执行本节的内容前，请您查询浏览一些关于 root 账户的安全知识，并避免危险的操作。</p>
@@ -273,7 +290,7 @@
 <p>命令以及密码来切换到 root 账户。之后，想要回到原登录用户，使用 <code class="code docutils literal notranslate"><span class="pre">exit</span></code> 命令即可。</p>
 </div>
 <div class="section" id="id4">
-<h3>2.2.2. 添加普通用户<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h3>3.2.2. 添加普通用户<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>在服务器需要多个设备或多个用户连接时，添加普通用户就能解决问题。每个用户可以配置单独的用户路径，方便各自储存文件以及安装一些其他用户不需要的软件。</p>
 <p>以名为 <code class="code docutils literal notranslate"><span class="pre">user1</span></code> 的为例，添加该用户的命令（这里因为使用的是 root 账户，因此不需要 sudo 命令，下同）是：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>adduser user1
@@ -293,13 +310,13 @@ user1:x:1001:1001:UserName,,,:/home/user1:/bin/bash
 <p>这表示用户 <code class="code docutils literal notranslate"><span class="pre">user1</span></code> 的主目录在 <code class="code docutils literal notranslate"><span class="pre">/home/user1</span></code> 。你可以修改该行来改变你的主目录位置。</p>
 </div>
 <div class="section" id="id5">
-<h3>2.2.3. 其他的用户操作<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h3>3.2.3. 其他的用户操作<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <div class="admonition danger">
 <p class="admonition-title">危险</p>
 <p>本小节中的操作内容不是必须的。如果你不清楚这些操作代表了什么，请跳过这些内容。</p>
 </div>
 <div class="section" id="id6">
-<h4>2.2.3.1. 在登录界面添加 root 账户入口<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<h4>3.2.3.1. 在登录界面添加 root 账户入口<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
 <p>如果你想在开机启动时的登录界面上显示 root 账户 <a class="footnote-reference brackets" href="#f1" id="id7">1</a> （<strong>但并不建议以 root 账户登录，除非清楚地了解其中的风险</strong>），可以再运行下列命令：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo passwd -u root
 </pre></div>
@@ -313,7 +330,7 @@ user1:x:1001:1001:UserName,,,:/home/user1:/bin/bash
 </dl>
 </div>
 <div class="section" id="sudo">
-<h4>2.2.3.2. 为其他用户设置 sudo 权限<a class="headerlink" href="#sudo" title="永久链接至标题">¶</a></h4>
+<h4>3.2.3.2. 为其他用户设置 sudo 权限<a class="headerlink" href="#sudo" title="永久链接至标题">¶</a></h4>
 <p>该权限的下放最重要的目的是安装软件；在一般情形下，普通用户不应当被允许安装软件。重申一遍：管理员在 <strong>任何账户</strong> 下，都可以通过 <code class="code docutils literal notranslate"><span class="pre">su</span></code> 命令加密码的方式切换到 root 账户，因此给予普通用户 sudo 权限是需要仔细考量的。</p>
 <p>管理员可以使用 <code class="code docutils literal notranslate"><span class="pre">usermod</span></code> 命令来更改用户的组，比如将用户添加到 <code class="code docutils literal notranslate"><span class="pre">sudo</span></code> 组来使用户获得权限：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>usermod -aG sudo user1
@@ -324,7 +341,7 @@ user1:x:1001:1001:UserName,,,:/home/user1:/bin/bash
 </div>
 </div>
 <div class="section" id="ssh">
-<h2>2.3. 配置 SSH：远程加密连接<a class="headerlink" href="#ssh" title="永久链接至标题">¶</a></h2>
+<h2>3.3. 配置 SSH：远程加密连接<a class="headerlink" href="#ssh" title="永久链接至标题">¶</a></h2>
 <p>SSH 从来不是传输速度最快的，但是由于其安全性、简明的命令、丰富的衍生应用，一直受到欢迎。在配置服务器机的过程中，我体会到了 SSH 的几个优点：</p>
 <ul class="simple">
 <li><p>通过远程 ssh 连接，可以完成很多操作，包括大部分编程方面的需求。</p></li>
@@ -334,7 +351,7 @@ user1:x:1001:1001:UserName,,,:/home/user1:/bin/bash
 <p>这几点都是非常实用的。 <strong>我个人强烈推荐你在安装驱动、远程桌面（甚至大部分软件）之前，就先配置好 SSH</strong> —— 因为安装驱动或者远程桌面时，Linux 设备可能遇到一些借助远程机才方便解决的问题；这点在后面的内容你会读到。</p>
 <p>最后，如果你的服务器机不幸是 Windows，那么推荐你阅读 <a class="reference external" href="https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/">这篇文章</a> ，我就不赘述了。</p>
 <div class="section" id="id9">
-<h3>2.3.1. 在服务器机上的准备<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h3>3.3.1. 在服务器机上的准备<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>服务器机端由于是 Ubuntu，配置起来非常简单（本文所有安装命令都是在 root 账户状态下执行的，下同）：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apt-get install openssh-server
 </pre></div>
@@ -355,21 +372,21 @@ user1:x:1001:1001:UserName,,,:/home/user1:/bin/bash
 <p>一般的返回结果应为 <code class="code docutils literal notranslate"><span class="pre">192.168.x.x</span></code> 。</p>
 </div>
 <div class="section" id="id10">
-<h3>2.3.2. 内网连接测试<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<h3>3.3.2. 内网连接测试<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>远程机是我的 Windows 10 笔记本，可以在 <code class="code docutils literal notranslate"><span class="pre">设置</span> <span class="pre">-</span> <span class="pre">应用程序</span> <span class="pre">-</span> <span class="pre">管理可选功能</span> <span class="pre">-</span> <span class="pre">添加功能</span></code> 中，选择 OpenSSH Clinet (Beta) 并安装。</p>
 <p>多说一句，截至 2019 年 6 月，Windows 的测试版 OpenSSH 的 <code class="code docutils literal notranslate"><span class="pre">ssh-keygen</span></code> 命令仍未支持生成 rsa 密钥（微软：别催，在做了），只能生成 <code class="code docutils literal notranslate"><span class="pre">ed25519</span></code> 类型的密钥。虽然很别扭，但是好在不影响正常的使用。</p>
 <p>然后，运行 cmd 或者 PowerShell，输入 <code class="code docutils literal notranslate"><span class="pre">ssh</span></code> 命令以确认成功安装。接着就可以连接了：</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">user1</span><span class="nv">@192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">user1</span><span class="nv">@192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span>
 </pre></div>
 </div>
 <p>其中， <code class="code docutils literal notranslate"><span class="pre">user1</span></code> 是要连接到的服务器机的用户名， <code class="code docutils literal notranslate"><span class="pre">192.168.x.x</span></code> 是服务器机的内网 ip；连接时输入的密码是服务器机上 <code class="code docutils literal notranslate"><span class="pre">user1</span></code> 用户的登录密码。</p>
 <p>首次连接时，会询问是否连接这个从未连接过的主机（Are you sure you want to continue?）。这时， <strong>请输入”yes”并回车，而不是直接按回车</strong> ，便可以正常进行连接了。</p>
 </div>
 <div class="section" id="id11">
-<h3>2.3.3. 配置免密码的 SSH 连接<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<h3>3.3.3. 配置免密码的 SSH 连接<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
 <p>按以下内容配置后，重新连接 SSH 时，应当就不需要密码了。</p>
 <div class="section" id="ubuntu-macos">
-<h4>2.3.3.1. Ubuntu/MacOS 的配置<a class="headerlink" href="#ubuntu-macos" title="永久链接至标题">¶</a></h4>
+<h4>3.3.3.1. Ubuntu/MacOS 的配置<a class="headerlink" href="#ubuntu-macos" title="永久链接至标题">¶</a></h4>
 <p>如果你的服务器机上没有 <code class="code docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> 文件，使用 <code class="code docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> 命令复制到服务器机：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub user1@192.168.x.x
@@ -381,28 +398,28 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub user1@192.168.x.x
 </div>
 </div>
 <div class="section" id="windows">
-<h4>2.3.3.2. Windows 的配置<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h4>
+<h4>3.3.3.2. Windows 的配置<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h4>
 <p>事情在 Windows 上总是要复杂一点。首先，请尝试生成一个密钥（测试版的 OpenSSH 只能生成 ed25519 类型的）：</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh-keygen</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh-keygen</span>
 </pre></div>
 </div>
 <p>如果以上命令出错，尝试 <a class="footnote-reference brackets" href="#f2" id="id12">2</a> ：</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh-keygen</span> <span class="n">-t</span> <span class="n">ed25519</span> <span class="n">-Z</span> <span class="n">aes128-ctr</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh-keygen</span> <span class="n">-t</span> <span class="n">ed25519</span> <span class="n">-Z</span> <span class="n">aes128-ctr</span>
 </pre></div>
 </div>
 <p>这个密钥可能被生成在 <code class="code docutils literal notranslate"><span class="pre">c:\users\username\.ssh\id_ed25519</span></code> 这个路径中。我们可以用 <code class="code docutils literal notranslate"><span class="pre">ssh-agent</span></code> 服务来管理它。以管理员运行 PowerShell：</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span>Start-Service ssh-agent
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span>Start-Service ssh-agent
 ssh-add c:\users\username\.ssh\id_ed25519
 </pre></div>
 </div>
 <p>生成的密钥中， <code class="code docutils literal notranslate"><span class="pre">.pub</span></code> 结尾的是公钥，不带此后缀的是私钥。私钥不能泄漏；公钥用于分发给别人，然后与自己持有的私钥验证身份。SSH 免密就是通过此原理实现的。在 ssh-agent 服务完成密钥记录后，为了安全性考虑，你可以从本地将私钥删除了。</p>
 <p>最后，因为 Windows 中没有 <code class="code docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> 的等效命令，我们使用 SSH 自带的文件复制命令 <code class="code docutils literal notranslate"><span class="pre">scp</span></code> 来复制公钥到服务器机。如果你的服务器机上事先不存在 <code class="code docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> 这个文件，你可以执行：</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span>scp c:\users\username\.ssh\id_ed25519.pub user1@192.168.x.x:~/.ssh/authorized_keys
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span>scp c:\users\username\.ssh\id_ed25519.pub user1@192.168.x.x:~/.ssh/authorized_keys
 </pre></div>
 </div>
 <p>其中， <code class="code docutils literal notranslate"><span class="pre">authorized_keys</span></code> 是 Ubuntu 上默认的密钥文件。上述操作实质是将远程机的公钥复制到服务器机。</p>
 <p>如果你的服务器机事先已有 <code class="code docutils literal notranslate"><span class="pre">~/.ssh</span></code> 与 <code class="code docutils literal notranslate"><span class="pre">authorized_keys</span></code> 文件，请将你的公钥以文本形式复制到文件后即可:</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span>scp c:\users\username\.ssh\id_ed25519.pub user1@192.168.x.x
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span>scp c:\users\username\.ssh\id_ed25519.pub user1@192.168.x.x
 
 ssh user1@192.168.x.x
 cat id_ed25519.pub | cat &gt;&gt; ~/.ssh/authorized_keys
@@ -418,7 +435,7 @@ cat id_ed25519.pub | cat &gt;&gt; ~/.ssh/authorized_keys
 </div>
 </div>
 <div class="section" id="id13">
-<h3>2.3.4. 外网的连接测试<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<h3>3.3.4. 外网 SSH 连接测试<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
 <p>在局域网之外的设备，也是有方法通过 SSH 连接到服务器的。不过这需要动态 DNS（Dynamic DNS, DDNS）的支持。</p>
 <p>首先，登录路由器的管理界面。寻找 DDNS 相关的选项，并确认该路由器型号可以使用的 DDNS 服务站。前往服务站并注册一个域名 <a class="footnote-reference brackets" href="#f3" id="id14">3</a> 。</p>
 <p>然后，在 DDNS 界面填入刚才的注册信息，点击登录。这样就完成了 DDNS 部分的配置。</p>
@@ -444,7 +461,7 @@ cat id_ed25519.pub | cat &gt;&gt; ~/.ssh/authorized_keys
 </dl>
 </div>
 <div class="section" id="id15">
-<h3>2.3.5. 配置 SSH 的别名<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<h3>3.3.5. 配置 SSH 的别名<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 <p>记忆 ip 总是一件麻烦的事情，好在可以使用别名来管理。 SSH 别名的配置文件在 <code class="code docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> ，或者 Windows 的 <code class="code docutils literal notranslate"><span class="pre">c:\users\username\.ssh\config</span></code> 。如果你的目录中没有这个名为 <code class="code docutils literal notranslate"><span class="pre">config</span></code> 的文件（该文件无扩展名），可以新建一个。</p>
 <p>一个 config 文件内部书写的范例：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Host useralias
@@ -454,19 +471,19 @@ cat id_ed25519.pub | cat &gt;&gt; ~/.ssh/authorized_keys
 </pre></div>
 </div>
 <p>此后，在命令行就不需要 <code class="code docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">user1&#64;192.168.x.x</span></code> 来登录了，可以直接：</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">useralias</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">useralias</span>
 </pre></div>
 </div>
 <p>来登录服务器机。</p>
 </div>
 <div class="section" id="vs-code-ssh">
-<h3>2.3.6. VS Code 通过 SSH 连接<a class="headerlink" href="#vs-code-ssh" title="永久链接至标题">¶</a></h3>
+<h3>3.3.6. VS Code 通过 SSH 连接<a class="headerlink" href="#vs-code-ssh" title="永久链接至标题">¶</a></h3>
 <p>在 2019 年 5 月，VS Code 在预览版中推出了 Remote 功能，其中就包括了 remote-ssh 功能。该功能只需在远程机上安装 VS Code Insider，然后安装 remote-ssh 插件即可。</p>
 <p>这个功能对于编程人员来说非常实用：写完代码直接在服务器端运行，无须 scp 命令！无须复制文件！完全如同本地的操作体验，万分赞美！！</p>
 </div>
 </div>
 <div class="section" id="samba">
-<h2>2.4. 配置 Samba：文件共享服务<a class="headerlink" href="#samba" title="永久链接至标题">¶</a></h2>
+<h2>3.4. 配置 Samba：文件共享服务<a class="headerlink" href="#samba" title="永久链接至标题">¶</a></h2>
 <p>听说 rsync 是一个速度很不错的解决方案，不过在 Windows 上实在够呛。Samba 的一大优点就是配置简单，速度 <a class="footnote-reference brackets" href="#f4" id="id16">4</a> 也可以接受  ，对 Windows 用户来说可能没什么比不折腾更重要的事情了。</p>
 <p>在 <strong>当前用户</strong> 下（建议在主目录，方便）建立一个共享文件夹，比如我将其命名为 <code class="code docutils literal notranslate"><span class="pre">SambaShare</span></code>。我将其读写权限设置为了 777，这一步是否必要有待商榷。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
@@ -515,7 +532,7 @@ smbpasswd -a sambauser
 </dl>
 </div>
 <div class="section" id="xrdp">
-<h2>2.5. 配置远程桌面 xrdp<a class="headerlink" href="#xrdp" title="永久链接至标题">¶</a></h2>
+<h2>3.5. 配置远程桌面 xrdp<a class="headerlink" href="#xrdp" title="永久链接至标题">¶</a></h2>
 <p>首先，从服务器机 Ubuntu 的设置中启用屏幕共享：<code class="code docutils literal notranslate"><span class="pre">设置</span> <span class="pre">共享</span> <span class="pre">屏幕共享</span></code> ，启用。</p>
 <p>从 root 账户安装：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xserver</span><span class="o">-</span><span class="n">xorg</span><span class="o">-</span><span class="n">core</span>
@@ -532,10 +549,10 @@ smbpasswd -a sambauser
 <p>想要从外部网络通过远程桌面连接，需要在路由器的 virtual server (或称 port forwarding) 中设置 3389 端口到服务机所在内网 ip；内部端口默认留空（或也填 3389）即可。</p>
 </div>
 <div class="section" id="id17">
-<h2>2.6. 其他内容<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<h2>3.6. 其他内容<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
 <p>上述的内容已经可以搭建一个很好的服务器了。本节介绍一些锦上添花的东西。</p>
 <div class="section" id="id18">
-<h3>2.6.1. 温度监控<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<h3>3.6.1. 温度监控<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
 <p>正常情况下，Ubuntu 设备不需要关机。不过温度监控还是必要的，以下是控制台温度监控软件 <code class="code docutils literal notranslate"><span class="pre">sensors</span></code> 的安装：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apt install lm-sensors hddtemp
 sensors-detect
@@ -559,10 +576,10 @@ sensors
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Solutions.html" class="btn btn-neutral float-right" title="3. 疑难解答" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Streaming.html" class="btn btn-neutral float-right" title="4. 家庭流式传输" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Basic.html" class="btn btn-neutral" title="1. 基础：安装 Ubuntu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ShellIntro.html" class="btn btn-neutral" title="2. Shell 命令简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

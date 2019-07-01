@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>索引 &mdash; Ubuntu 之旅 0.1 文档</title>
+  <title>4. 家庭流式传输 &mdash; Ubuntu 之旅 0.1 文档</title>
   
 
   
@@ -27,8 +26,10 @@
 
   <link rel="stylesheet" href="_static/css/rtd-revised.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="#" />
-    <link rel="search" title="搜索" href="search.html" /> 
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5. 疑难解答" href="Solutions.html" />
+    <link rel="prev" title="3. 配置家庭服务器（远程计算平台）" href="FamilyServer.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,7 +87,7 @@
             
             
               <p class="caption"><span class="caption-text">目录</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Basic.html">1. 基础：安装 Ubuntu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Basic.html#id2">1.1. 在虚拟机上安装</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Basic.html#vm-virtualbox-ubuntu">1.1.1. 在 VM VirtualBox 上安装 Ubuntu</a></li>
@@ -138,10 +139,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Streaming.html">4. 家庭流式传输</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Streaming.html#steam">4.1. Steam 流式传输</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Streaming.html#id2">4.1.1. 如何开启 Steam 流式传输</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Streaming.html#steamplay">4.1.2. 如何准备 SteamPlay</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 家庭流式传输</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#steam">4.1. Steam 流式传输</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.1.1. 如何开启 Steam 流式传输</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#steamplay">4.1.2. 如何准备 SteamPlay</a></li>
 </ul>
 </li>
 </ul>
@@ -207,28 +208,79 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>索引</li>
+      <li>4. 家庭流式传输</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/Streaming.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
   </ul>
 
   
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="Solutions.html" class="btn btn-neutral float-right" title="5. 疑难解答" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FamilyServer.html" class="btn btn-neutral" title="3. 配置家庭服务器（远程计算平台）" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">索引</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="id1">
+<h1>4. 家庭流式传输<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>家庭中设置一台性能强劲的台式，其重要的功能之一就是流式传输。流媒体播放与流式传输游戏都成为可能。</p>
+<div class="section" id="steam">
+<h2>4.1. Steam 流式传输<a class="headerlink" href="#steam" title="永久链接至标题">¶</a></h2>
+<p>Steam 作为 PC 端的主流游戏平台，其流式传输功能已经比较完善。截至撰稿日（2019 年 6 月），其特性已经包括：</p>
+<ul class="simple">
+<li><p>支持 Windows, Mac, Linux 设备之间的局域网流式传输</p></li>
+<li><p>可以借助 SteamPlay，在 Linux 上运行原本只适配 Windows 的游戏</p></li>
+</ul>
+<p>因此，在家中设有 Linux 主机的情况下，利用局域网在笔记本或其他设备上传输游戏成为可能。本节对 Steam 流式传输以及 SteamPlay 功能进行大致的介绍。</p>
+<div class="section" id="id2">
+<h3>4.1.1. 如何开启 Steam 流式传输<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>在远程机（例如笔记本）与主机（例如配有高端显卡的台式机）上分别安装好 Steam，并使用同一个账户登录。在第二台设备上登录后，屏幕右下角应当会显示：“xxx 流式传输已可以使用” 的提示，其中 xxx 是另一台设备的名称。你只需要在主机上安装游戏，然后在远程机点击的开始游戏按钮右侧的下拉三角，选择“从 xxx 获取流式传输”，便可以在远程机上进行游戏了。</p>
+<p>在流式传输连接时可能会出现问题，请尝试以下解决方案：</p>
+<ul>
+<li><p>虽然你并不直接使用主机游玩，但主机必须外接有显示器。一个代替的方法是使用 HDMI 欺骗器，这样就不用为主机配置显示器了。</p></li>
+<li><p>大部分问题是由于端口引起的，特别是只能单向传输的情况。端口要求在远程机与主机上都开放 TCP 27036；如果仍不能连接，尝试再开放 UDP 27036；如果仍然不可以，可以按照 Steam 官方指明的，开放 UDP 端口 27031 和 27036、TCP 端口 27036 和 27037。一般这一步骤只需要在 Windows 设备上操作。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>在 Windows 设备上，搜索并打开 Windows Defender 防火墙设置，点击左侧的高级设置。在新窗口左侧选择入口规则，然后新建一个端口规则开放对应的端口即可。</p></li>
+<li><p>在 Linux 设备上的端口管理可以使用 iptables-persistent 命令行软件。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>在 Windows 设备上，前往网络选项，确定该设备已被设置为“允许被此网络的其他设备发现”。</p></li>
+<li><p>在两个设备上都关闭防火墙。 <em>注意：即使关闭了防火墙，开放端口的操作也不能省略。</em></p></li>
+<li><p>在两个设备上都将 Steam 加入杀毒软件的网络连接白名单。当然，一个更直截有效的方法是退出杀毒软件。</p></li>
+<li><p>尝试在 Steam 的设置中，将“远程畅玩”下的客户端选项改为“高速”。在设备不佳时，有时超时会导致流式传输问题。</p></li>
+</ul>
+<p>其他问题并没有遇到。可能发生的有分辨率适配问题（Windows 对高分辨率屏幕可能有缩放，因此即使两块屏幕分辨率相同也可能出现问题），在主机的 Steam 设置中将“远程畅玩 - 高级主机选项 - 变更桌面分辨率以配合流式传输客户端”勾选即可。</p>
+</div>
+<div class="section" id="steamplay">
+<h3>4.1.2. 如何准备 SteamPlay<a class="headerlink" href="#steamplay" title="永久链接至标题">¶</a></h3>
+<p>SteamPlay 的本质是通过 Steam 开发的 Proton 在后台调用了一个 Wine 环境运行 Windows 游戏，以此实现在 Linux 设备上游玩 Windows 游戏的效果。 目前， Steam 官方给出的“完美支持” SteamPlay 的游戏十分有限，但实际上绝大多数游戏都是可以正常地进行游玩的。</p>
+<p>在 Linux 的 Steam 登录帐号，正常情况下你无法在库中看见仅适配 Windows 平台的游戏。但在 Linux 主机的 Steam 设置中，可以开启 SteamPlay 的选项，勾选其右侧的为所有游戏执行 SteamPlay（Proton 选最新的版本即可）。之后便可以在库中发现这些游戏，你可以正常地在 Linux 设备上安装 <a class="footnote-reference brackets" href="#f1" id="id3">1</a> 这些游戏了。</p>
+<p>对于我们的应用场景，在性能较强的 Linux 主机上开启 SteamPlay 并下载游戏，然后通过路由器局域网连接后便可以在性能弱的设备上，通过流式传输进行游戏了。我十分推荐使用 HDMI 欺骗器，一个不用外接屏幕的主机空间占用是很小的，也十足有家庭服务器的风格。</p>
+<p class="rubric">本章注释</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd><p>经过测试，从 Windows 版 Steam 备份的游戏，也可以成功地还原到开启了 SteamPlay 的 Linux 设备上。</p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 
 
@@ -236,6 +288,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Solutions.html" class="btn btn-neutral float-right" title="5. 疑难解答" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FamilyServer.html" class="btn btn-neutral" title="3. 配置家庭服务器（远程计算平台）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
